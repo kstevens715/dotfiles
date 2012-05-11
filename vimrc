@@ -9,9 +9,10 @@ set nocompatible
   call pathogen#infect()
   call pathogen#helptags()
 
-set number
-set colorcolumn=81
-syntax on
+set backspace=2     " Backspace not working without this.
+set number          " Use line numbers.
+set colorcolumn=81  " Helps me keep lines to 80 chars.
+syntax on           " Syntax highlighting.
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
