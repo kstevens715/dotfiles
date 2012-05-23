@@ -22,11 +22,19 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" The following three commands enables pasting code snippets
+" using F2 key (disables auto-indenting)
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " =================== Misc. Options =================
-set backspace=2     " Backspace not working without this.
-set number          " Use line numbers.
-set colorcolumn=81  " Helps me keep lines to 80 chars.
-syntax on           " Syntax highlighting.
+set wildignore+="tmp/**"
+set backspace=2         " Backspace not working without this.
+set number              " Use line numbers.
+set colorcolumn=81      " Helps me keep lines to 80 chars.
+set wildignore+=tmp/**  " Ignore temp files in Command-T
+syntax on               " Syntax highlighting.
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
