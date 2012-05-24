@@ -1,11 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/kyle/code'
-let g:netrw_dirhist_2='/home/kyle/code/Nepco-WMS'
-let g:netrw_dirhist_3='/home/kyle/code/Nepco-WMS/app'
-let g:netrw_dirhist_4='/home/kyle/code/Nepco-WMS/app/assets'
-let g:netrw_dirhist_5='/home/kyle/code/Nepco-WMS/app/assets/javascripts'
-let g:netrw_dirhist_6='/home/kyle/code/nepco'
-let g:netrw_dirhist_7='/home/kyle/code'
-let g:netrw_dirhist_8='/home/kyle'
-let g:netrw_dirhist_9='/home/kyle/.vim'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/kyle/code/Nepco-WMS/lib/order_import/conversions'
+let g:netrw_dirhist_2='/home/kyle/code/nepco'
+let g:netrw_dirhist_3='/home/kyle/code'
+let g:netrw_dirhist_4='/home/kyle'
+let g:netrw_dirhist_5='/home/kyle/.vim'

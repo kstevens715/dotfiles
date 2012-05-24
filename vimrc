@@ -12,8 +12,10 @@ set nocompatible
 " ================= Keyboard Mappings ===============
 inoremap jj <Esc> 
 
-" These are defaults anyway, but here to prevent overwriting.
-nnoremap <silent> <Leader>t :CommandT<CR>
+" Map "\t" to open up command-t, but first perform a refresh of the tree.
+nnoremap <silent> <Leader>t :CommandTFlush<CR>:CommandT<CR>
+
+" Map "\b" to open up command-t to show open buffers.
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
 " Use Alt-Arrow to move between splits
@@ -27,6 +29,9 @@ nmap <silent> <A-Right> :wincmd l<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+" Use Leader-S to save current file if it's been modified.
+inoremap ss <Esc>:w<CR>
 
 " =================== Misc. Options =================
 set wildignore+="tmp/**"
