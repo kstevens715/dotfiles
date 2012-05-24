@@ -31,7 +31,7 @@ set pastetoggle=<F2>
 set showmode
 
 " Use Leader-S to save current file if it's been modified.
-inoremap ss <Esc>:w<CR>
+inoremap <F3> <c-o>:w<cr>
 
 " =================== Misc. Options =================
 set wildignore+="tmp/**"
