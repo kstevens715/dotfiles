@@ -34,6 +34,10 @@ set showmode
 inoremap <F3> <c-o>:w<cr>
 
 " =================== Misc. Options =================
+
+" Point to Ubuntu's Ack executable
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
 set wildignore+="tmp/**"
 set backspace=2         " Backspace not working without this.
 set number              " Use line numbers.
