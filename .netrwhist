@@ -1,6 +1,6 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/kyle/code/nepco/spec/models'
-let g:netrw_dirhist_2='/home/kyle/code/nepco/spec'
-let g:netrw_dirhist_3='/home/kyle/code/nepco/spec/requests'
-let g:netrw_dirhist_4='/home/kyle/code/nepco/spec'
+let g:netrw_dirhist_1='/home/kyle/code/finance-tracker'
+let g:netrw_dirhist_2='/home/kyle/code/finance-tracker/app'
+let g:netrw_dirhist_3='/home/kyle/code/finance-tracker/app/views'
+let g:netrw_dirhist_4='/home/kyle/code/finance-tracker/app/views/transactions'
