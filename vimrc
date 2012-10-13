@@ -25,6 +25,11 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" Use Shift-Arrow to move between tabs
+nmap <silent> <S-l> :tabnext <CR>
+nmap <silent> <S-h> :tabprevious <CR>
+nmap <silent> <C-n> :tabnew <CR>
+
 " The following three commands enables pasting code snippets
 " using F2 key (disables auto-indenting)
 nnoremap <F2> :set invpaste paste?<CR>
@@ -56,6 +61,7 @@ set backspace=2         " Backspace not working without this.
 set number              " Use line numbers.
 set colorcolumn=81      " Helps me keep lines to 80 chars.
 set wildignore+=tmp/**  " Ignore temp files in Command-T
+set wildignore+=doc/**  " Ignore doc files in Command-T
 syntax on               " Syntax highlighting.
 
 " ================ Turn Off Swap Files ==============
@@ -72,5 +78,5 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-colorscheme murphy
+colorscheme molokai " murphy
 
