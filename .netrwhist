@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/kyle/code/nepco/app/assets/javascripts'
-let g:netrw_dirhist_2='/home/kyle/code/nepco/app'
-let g:netrw_dirhist_3='/home/kyle/code/nepco/app/controllers'
-let g:netrw_dirhist_4='/home/kyle/code/nepco/app'
-let g:netrw_dirhist_5='/home/kyle/code/nepco'
-let g:netrw_dirhist_6='/home/kyle/code/shipping-labels/lib/shipping-labels'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/kyle/code/railbooks/app/assets'
+let g:netrw_dirhist_2='/home/kyle/code/railbooks/app'
+let g:netrw_dirhist_3='/home/kyle/code/railbooks/app/assets'
+let g:netrw_dirhist_4='/home/kyle/code/railbooks/app/assets/javascripts'
+let g:netrw_dirhist_5='/home/kyle/code/railbooks/app/assets'
+let g:netrw_dirhist_6='/home/kyle/code/railbooks/app'
+let g:netrw_dirhist_7='/home/kyle/code/railbooks'

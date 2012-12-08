@@ -59,7 +59,7 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 set wildignore+="tmp/**"
 set backspace=2         " Backspace not working without this.
 set number              " Use line numbers.
-set colorcolumn=81      " Helps me keep lines to 80 chars.
+" set colorcolumn=81      " Helps me keep lines to 80 chars.
 set wildignore+=tmp/**  " Ignore temp files in Command-T
 set wildignore+=doc/**  " Ignore doc files in Command-T
 syntax on               " Syntax highlighting.
@@ -78,5 +78,5 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-colorscheme molokai " murphy
+colorscheme molokai
 
