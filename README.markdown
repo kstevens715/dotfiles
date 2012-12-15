@@ -6,7 +6,7 @@ sudo apt-get install coffeescript
 
 # Install .vim config.
 cd ~
-git clone http://github.com/kstevens715/dot-vim.git ~/.vim
+git clone git@github.com:kstevens715/dot-vim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
 
