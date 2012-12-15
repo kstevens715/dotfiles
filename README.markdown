@@ -1,5 +1,5 @@
 # My Vim Config
-Here are basic instructions to setup on a new machine. Tested with Ubuntu 12.04 LTS.
+Here are basic instructions for setting up and using my personal Vim config. I use it mostly for Rails development on Ubuntu 12.04 LTS.
 
 ## Included Bundles
 * **ack** - Search from Vim using Grep.
