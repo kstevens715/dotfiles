@@ -1,27 +1,7 @@
+# My Vim Config
 Here are basic instructions to setup on a new machine. Tested with Ubuntu 12.04 LTS.
 
-```
-# Install prerequisites.
-sudo apt-get install coffeescript
-
-# Install .vim config.
-cd ~
-git clone git@github.com:kstevens715/dot-vim.git ~/.vim
-ln -s ~/.vim/vimrc ~/.vimrc
-cd ~/.vim
-
-# Clone and update git submodules
-git submodule init
-git submodule update
-
-# Compile command-t extension.
-cd ~/.vim/bundle/command-t/ruby/command-t
-ruby extconf.rb
-make
-
-```
-
-== Included Bundles ==
+## Included Bundles
 * **ack** - Search from Vim using Grep.
 * **command-t** - Easily open files from current directory tree.
 * **handlebars** - Syntax highlighting for handlebars templates.
@@ -31,5 +11,39 @@ make
 * **vim-fugitive** - Vim helpers for Git.
 * **vim-rails** - Vim helpers for Rails.
 
-== Tips ==
+## Tips
 * Usually I like to compile the latest Vim from source with support for my primary version of Ruby from RVM (see http://joncairns.com/2012/09/compiling-vim-with-ruby-from-rvm-on-ubuntu/).
+
+## Custom Key Bindings
+* jj - In insert mode, quickly switch to normal mode.
+* TODO: describe other bindings.
+
+## Setup Instructions
+
+### Install prerequisites.
+```
+sudo apt-get install coffeescript
+```
+
+### Install .vim config.
+```
+cd ~
+git clone git@github.com:kstevens715/dot-vim.git ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+cd ~/.vim
+```
+
+### Clone and update git submodules
+```
+git submodule init
+git submodule update
+```
+
+### Compile command-t extension.
+```
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make
+
+```
+
