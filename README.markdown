@@ -1,13 +1,24 @@
 Here are basic instructions to setup on a new machine.
 
 ```
+# Install prerequisites.
 sudo apt-get install coffeescript
+
+# Install .vim config.
 cd ~
 git clone http://github.com/kstevens715/dot-vim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
+
+# Clone and update git submodules
 git submodule init
 git submodule update
+
+# Compile command-t extension.
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make
+
 ```
 
 == Included Bundles ==
@@ -22,5 +33,3 @@ git submodule update
 
 == Tips ==
 * Usually I like to compile the latest Vim from source with support for my primary version of Ruby from RVM (see http://joncairns.com/2012/09/compiling-vim-with-ruby-from-rvm-on-ubuntu/).
-* Make sure all bundles are listed in .gitmodules.
-* Command-T may have to be compiled.
