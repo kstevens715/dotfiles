@@ -11,7 +11,7 @@ git submodule update
 ```
 
 == Included Bundles ==
-* **ack** - Search from Vim using Grep
+* **ack** - Search from Vim using Grep.
 * **command-t** - Easily open files from current directory tree.
 * **handlebars** - Syntax highlighting for handlebars templates.
 * **molokai** - Syntax highlighting color scheme.
