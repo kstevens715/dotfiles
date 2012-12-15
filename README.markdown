@@ -1,4 +1,4 @@
-Here are basic instructions to setup on a new machine.
+Here are basic instructions to setup on a new machine. Tested with Ubuntu 12.04 LTS.
 
 ```
 # Install prerequisites.
