@@ -1,5 +1,4 @@
-Here are basic instructions to setup on a new machine.  May have to compile
-command-t as well.
+Here are basic instructions to setup on a new machine.
 
 ```
 sudo apt-get install coffeescript
@@ -10,3 +9,8 @@ cd ~/.vim
 git submodule init
 git submodule update
 ```
+
+== Tips ==
+* Usually I like to compile the latest Vim from source with support for my primary version of Ruby from RVM (see http://joncairns.com/2012/09/compiling-vim-with-ruby-from-rvm-on-ubuntu/).
+* Make sure all bundles are listed in .gitmodules.
+* Command-T may have to be compiled.
