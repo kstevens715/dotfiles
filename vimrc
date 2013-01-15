@@ -56,12 +56,16 @@ inoremap <F3> <c-o>:w<cr>
 " Point to Ubuntu's Ack executable
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-set wildignore+="tmp/**"
 set backspace=2         " Backspace not working without this.
 set number              " Use line numbers.
 " set colorcolumn=81      " Helps me keep lines to 80 chars.
-set wildignore+=tmp/**  " Ignore temp files in Command-T
-set wildignore+=doc/**  " Ignore doc files in Command-T
+
+" Ignore some file patterns in commandt.
+set wildignore+=tmp/**
+set wildignore+=doc/**
+set wildignore+=db/sphinx/**
+set wildignore+=coverage/**
+
 syntax on               " Syntax highlighting.
 
 " ================ Turn Off Swap Files ==============
