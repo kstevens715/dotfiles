@@ -47,3 +47,10 @@ make
 
 ```
 
+### Enable GVim fullscreen mode.
+```
+sudo apt-get install compizconfig-settings-manager compiz-plugins-extra
+```
+Once this is installed, open compiz settings manager, and under Window Management enable Extra WM Actions. Then, under system keyboard preferences,
+set F11 as a shortcut to fullscreen an app. Reboot computer and F11 should toggle fullscreen mode.
+
