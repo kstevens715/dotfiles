@@ -1,5 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/kyle/code/nepco'
-let g:netrw_dirhist_2='/home/kyle/code/nepco/spec'
-let g:netrw_dirhist_3='/home/kyle/code/nepco/spec/lib'
+let g:netrw_dirhist_cnt =0

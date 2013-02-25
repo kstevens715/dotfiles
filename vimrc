@@ -82,5 +82,10 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-colorscheme molokai
+colorscheme Monokai
+
+" ================ GVim Settings ======================
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
 
