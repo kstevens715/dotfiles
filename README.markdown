@@ -20,12 +20,12 @@ Here are basic instructions for setting up and using my personal Vim config. I u
 
 ## Setup Instructions
 
-### Install prerequisites.
+### Install Prerequisites
 ```
 sudo apt-get install coffeescript
 ```
 
-### Install .vim config.
+### Install .vim config
 ```
 cd ~
 git clone git@github.com:kstevens715/dot-vim.git ~/.vim
@@ -33,13 +33,13 @@ ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
 ```
 
-### Clone and update git submodules
+### Clone and Update Git Submodules
 ```
 git submodule init
 git submodule update
 ```
 
-### Compile command-t extension.
+### Compile Command-T Extension
 ```
 cd ~/.vim/bundle/command-t/ruby/command-t
 ruby extconf.rb
@@ -47,10 +47,17 @@ make
 
 ```
 
-### Enable GVim fullscreen mode.
+### Enable GVim Fullscreen Mode
 ```
 sudo apt-get install compizconfig-settings-manager compiz-plugins-extra
 ```
 Once this is installed, open compiz settings manager, and under Window Management enable Extra WM Actions. Then, under system keyboard preferences,
 set F11 as a shortcut to fullscreen an app. Reboot computer and F11 should toggle fullscreen mode.
+
+### Create Unity launcher
+Run the below commands, create the launcher and then add it by searching the Unity Dash.
+```
+sudo apt-get install gnome-panel
+sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
+```
 
