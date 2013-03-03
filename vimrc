@@ -66,8 +66,6 @@ set wildignore+=doc/**
 set wildignore+=db/sphinx/**
 set wildignore+=coverage/**
 
-syntax on               " Syntax highlighting.
-
 " ================ Turn Off Swap Files ==============
 set noswapfile
 set nobackup
@@ -82,4 +80,8 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-colorscheme Monokai
+
+" ================ Theme ======================
+set t_Co=256            " Force 256 colors to get Molokai theme to render correctly in terminal.
+syntax on               " Syntax highlighting.
+colorscheme Monokai     " https://github.com/tomasr/molokai
