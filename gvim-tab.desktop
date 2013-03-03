@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GVim Text Editor (Tabs)
+Comment=Edit text files in a new tab
+Exec=gvim --remote-tab %F
+Terminal=false
+Type=Application
+Icon=/usr/share/app-install/icons/_usr_share_pixmaps_vim.svg 
+Categories=Application;Utility;TextEditor;
+StartupNotify=true
+MimeType=text/plain;
+NoDisplay=true

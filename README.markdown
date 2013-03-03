@@ -61,3 +61,11 @@ sudo apt-get install gnome-panel
 sudo gnome-desktop-item-edit /usr/share/applications/ --create-new
 ```
 
+### Enable open in existing tab
+Copy these files to your local applications dir. Be careful not to overwrite existing files.
+TODO: Symlink these to the expected location.
+```
+cp gvim-tab.desktop ~/.local/share/applications/
+cp mimeapps.list ~/.local/share/applications/
+```
+

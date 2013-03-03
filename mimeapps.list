@@ -1,0 +1,14 @@
+[Default Applications]
+text/html=google-chrome.desktop
+text/html=gvim-tab.desktop
+text/plain=gvim-tab.desktop
+text/unknown=gvim-tab.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/mailto=google-chrome.desktop
+application/octet-stream=gvim.desktop
+
+[Added Associations]
+application/octet-stream=gedit.desktop;gvim-tab.desktop;
