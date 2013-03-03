@@ -30,6 +30,7 @@ sudo apt-get install coffeescript
 cd ~
 git clone git@github.com:kstevens715/dot-vim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/gvimrc ~/.gvimrc
 cd ~/.vim
 ```
 
@@ -48,11 +49,10 @@ make
 ```
 
 ### Enable GVim Fullscreen Mode
+Once this is installed, open compiz settings manager, and under Window Management enable Extra WM Actions. Then, click into the extra actions sub-menu and enable the Toggle Fullscreen option with F11 as the keyboard shortcut.
 ```
 sudo apt-get install compizconfig-settings-manager compiz-plugins-extra
 ```
-Once this is installed, open compiz settings manager, and under Window Management enable Extra WM Actions. Then, under system keyboard preferences,
-set F11 as a shortcut to fullscreen an app. Reboot computer and F11 should toggle fullscreen mode.
 
 ### Create Unity launcher
 Run the below commands, create the launcher and then add it by searching the Unity Dash.
