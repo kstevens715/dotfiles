@@ -71,6 +71,7 @@ set wildignore+=tmp/**
 set wildignore+=doc/**
 set wildignore+=db/sphinx/**
 set wildignore+=coverage/**
+set wildignore+=node_modules/**
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
