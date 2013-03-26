@@ -10,6 +10,12 @@ set nowrap
   call pathogen#infect()
   call pathogen#helptags()
 
+" =============== Command Aliases ===============
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " ================= Keyboard Mappings ===============
 inoremap jj <Esc> 
 
@@ -54,7 +60,7 @@ inoremap <F3> <c-o>:w<cr>
 " =================== Misc. Options =================
 
 " Point to Ubuntu's Ack executable
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor"
 
 set backspace=2         " Backspace not working without this.
 set number              " Use line numbers.
