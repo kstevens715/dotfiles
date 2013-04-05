@@ -3,6 +3,21 @@
 set nocompatible
 set nowrap
 
+" =============== RSpec By doing LEADER-r on a spec  ===============
+function! RSpecFile()
+  execute("!clear && spring rspec " . expand("%p"))
+endfunction
+
+map <leader>R :call RSpecFile() <CR>
+command! RSpecFile call RSpecFile()
+
+function! RSpecCurrent()
+  execute("!clear && spring rspec " . expand("%p") . ":" . line("."))
+endfunction
+
+map <leader>r :call RSpecCurrent() <CR>
+command! RSpecCurrent call RSpecCurrent()
+
 " =============== Pathogen Initialization ===============
 " This loads all the plugins in ~/.vim/bundle
 " Use tpope's pathogen plugin to manage all other plugins
@@ -11,10 +26,12 @@ set nowrap
   call pathogen#helptags()
 
 " =============== Command Aliases ===============
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+command WQ wq
+command Wq wq
+command W w
+command Q q
+command Todo execute "Ack TODO:"
+command Fixme execute "Ack FIXME:"
 
 " ================= Keyboard Mappings ===============
 inoremap jj <Esc> 
@@ -25,15 +42,15 @@ nnoremap <silent> <Leader>t :CommandTFlush<CR>:CommandT<CR>
 " Map "\y" to open up command-t to show open buffers.
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
-" Use Alt-Arrow to move between splits
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+" Use Shift-movement to switch between windows.
+nmap <silent> <S-h> :wincmd h <CR>
+nmap <silent> <S-j> :wincmd j <CR>
+nmap <silent> <S-k> :wincmd k <CR>
+nmap <silent> <S-l> :wincmd l <CR>
 
-" Use Shift-Arrow to move between tabs
-nmap <silent> <S-l> :tabnext <CR>
-nmap <silent> <S-h> :tabprevious <CR>
+" Use CTRL-movement to move between tabs.
+nmap <silent> <C-l> :tabnext <CR>
+nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-n> :tabnew <CR>
 
 " The following three commands enables pasting code snippets
@@ -63,7 +80,8 @@ inoremap <F3> <c-o>:w<cr>
 let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor"
 
 set backspace=2         " Backspace not working without this.
-set number              " Use line numbers.
+set ruler
+"set number              " Use line numbers.
 " set colorcolumn=81      " Helps me keep lines to 80 chars.
 
 " Ignore some file patterns in commandt.
