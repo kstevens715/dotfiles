@@ -81,7 +81,7 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore
 
 set backspace=2         " Backspace not working without this.
 set ruler
-"set number              " Use line numbers.
+set number              " Use line numbers.
 " set colorcolumn=81      " Helps me keep lines to 80 chars.
 
 " Ignore some file patterns in commandt.

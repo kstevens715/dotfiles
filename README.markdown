@@ -10,6 +10,7 @@ Here are basic instructions for setting up and using my personal Vim config. I u
 * **vim-coffee-script** - Support for CoffeeScript.
 * **vim-fugitive** - Vim helpers for Git.
 * **vim-rails** - Vim helpers for Rails.
+* **vim-gitgutter** - Shows git diff stats in the gutter.
 
 ## Tips
 * Usually I like to compile the latest Vim from source with support for my primary version of Ruby from RVM (see http://joncairns.com/2012/09/compiling-vim-with-ruby-from-rvm-on-ubuntu/).
