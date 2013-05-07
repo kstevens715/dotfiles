@@ -22,7 +22,8 @@ Here are basic instructions for setting up and using my personal Vim config. I u
 ## Setup Instructions
 
 ### Install Prerequisites
-* Spring is used to preload the Rails environment. This is required to use Leader-r to execute the current spec under the cursor, and it makes it extremely fast.
+Spring is used to preload the Rails environment. 
+This is required to use Leader-r to execute the current spec under the cursor, and it makes it extremely fast.
 ```
 * sudo apt-get install coffeescript ack-grep
 * gem install spring
