@@ -76,6 +76,10 @@ inoremap <F3> <c-o>:w<cr>
 
 " =================== Misc. Options =================
 
+
+" psql files should be highlighted as sql
+au BufNewFile,BufRead *.psql set filetype=sql
+
 " Point to Ubuntu's Ack executable
 let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor"
 
