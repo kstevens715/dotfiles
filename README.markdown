@@ -29,8 +29,31 @@ ctags -R .
 Spring is used to preload the Rails environment. 
 This is required to use Leader-r to execute the current spec under the cursor, and it makes it extremely fast.
 ```
-sudo apt-get install coffeescript ack-grep exuberant-ctags
+sudo apt-get install coffeescript ack-grep exuberant-ctags python-pip
 gem install spring
+```
+
+## Powerline setup
+[See original instructions here](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin)
+```
+# Install Powerline
+pip install --user git+git://github.com/Lokaltog/powerline
+
+# Install fonts
+wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+sudo mv PowerlineSymbols.otf /usr/share/fonts/
+sudo fc-cache -vf
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+
+# Add ~/.local/bin to $PATH by modifying ~/.profile with your favourite editor:
+gksudo gedit ~/.profile
+
+# and adding following lines at the end of it:
+
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 ```
 
 ### Install .vim config
