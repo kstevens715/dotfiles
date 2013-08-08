@@ -39,6 +39,9 @@ inoremap jj <Esc>
 " Map "\t" to open up command-t, but first perform a refresh of the tree.
 nnoremap <silent> <Leader>t :CommandTFlush<CR>:CommandT<CR>
 
+" Map "\g" to search ctags with command-t
+nnoremap <silent> <Leader>g :CommandTTag<CR>
+
 " Map "\y" to open up command-t to show open buffers.
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 

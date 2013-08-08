@@ -14,6 +14,10 @@ Here are basic instructions for setting up and using my personal Vim config. I u
 
 ## Tips
 * Usually I like to compile the latest Vim from source with support for my primary version of Ruby from RVM (see http://joncairns.com/2012/09/compiling-vim-with-ruby-from-rvm-on-ubuntu/).
+* To update ctags run the following command in the directory to be indexed:
+```
+ctags -R .
+```
 
 ## Custom Key Bindings
 * jj - In insert mode, quickly switch to normal mode.
@@ -25,7 +29,7 @@ Here are basic instructions for setting up and using my personal Vim config. I u
 Spring is used to preload the Rails environment. 
 This is required to use Leader-r to execute the current spec under the cursor, and it makes it extremely fast.
 ```
-sudo apt-get install coffeescript ack-grep
+sudo apt-get install coffeescript ack-grep exuberant-ctags
 gem install spring
 ```
 
