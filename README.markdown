@@ -33,7 +33,7 @@ sudo apt-get install coffeescript ack-grep exuberant-ctags python-pip
 gem install spring
 ```
 
-## Powerline setup
+### Powerline setup
 [See original instructions here](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin)
 ```
 # Install Powerline
