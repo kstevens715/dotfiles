@@ -25,6 +25,16 @@ command! RSpecCurrent call RSpecCurrent()
   call pathogen#infect()
   call pathogen#helptags()
 
+" =============== Configure Powerline ===============
+
+  set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+
+  python from powerline.vim import setup as powerline_setup
+  python powerline_setup()
+  python del powerline_setup
+
+  set laststatus=2 " Always show a statusline
+
 " =============== Command Aliases ===============
 command WQ wq
 command Wq wq
@@ -87,7 +97,6 @@ au BufNewFile,BufRead *.psql set filetype=sql
 let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor"
 
 set backspace=2         " Backspace not working without this.
-set ruler
 set number              " Use line numbers.
 " set colorcolumn=81      " Helps me keep lines to 80 chars.
 
