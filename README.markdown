@@ -57,6 +57,10 @@ fi
 ```
 
 ### Install .vim config
+
+You will need access to the repo first. If you have not already done so, you need to generate your SSH keys and update GitHub:
+https://help.github.com/articles/generating-ssh-keys
+
 ```
 cd ~
 git clone git@github.com:kstevens715/dot-vim.git ~/.vim
