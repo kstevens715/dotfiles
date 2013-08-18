@@ -27,7 +27,7 @@ command! RSpecCurrent call RSpecCurrent()
 
 " =============== Configure Powerline ===============
 
-  set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+  set rtp+=$HOME/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
   python from powerline.vim import setup as powerline_setup
   python powerline_setup()
