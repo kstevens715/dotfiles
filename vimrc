@@ -100,7 +100,9 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore
 
 set backspace=2         " Backspace not working without this.
 set number              " Use line numbers.
-" set colorcolumn=81      " Helps me keep lines to 80 chars.
+
+" =================== Liaison Helpers =================
+set colorcolumn=141
 
 " Ignore some file patterns in commandt.
 set wildignore+=tmp/**
@@ -130,3 +132,12 @@ set t_Co=256            " Force 256 colors to get Molokai theme to render correc
 
 syntax on               " Syntax highlighting.
 colorscheme Monokai     " https://github.com/tomasr/molokai
+
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
