@@ -36,10 +36,12 @@ command! RSpecCurrent call RSpecCurrent()
   set laststatus=2 " Always show a statusline
 
 " =============== Command Aliases ===============
+" See http://blog.sanctum.geek.nz/vim-command-typos/ for possibly better
+" idea.
 command WQ wq
 command Wq wq
 command W w
-command Q q
+command! -bang Q q<bang>
 command Todo execute "Ack TODO:"
 command Fixme execute "Ack FIXME:"
 
@@ -125,5 +127,6 @@ set expandtab
 
 " ================ Theme ======================
 set t_Co=256            " Force 256 colors to get Molokai theme to render correctly in terminal.
+
 syntax on               " Syntax highlighting.
 colorscheme Monokai     " https://github.com/tomasr/molokai
