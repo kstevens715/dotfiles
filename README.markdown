@@ -29,7 +29,7 @@ ctags -R .
 Spring is used to preload the Rails environment. 
 This is required to use Leader-r to execute the current spec under the cursor, and it makes it extremely fast.
 ```
-sudo apt-get install coffeescript ack-grep exuberant-ctags python-pip mercurial git xclip
+sudo apt-get install coffeescript ack-grep exuberant-ctags python-dev python-pip mercurial git xclip
 gem install spring
 ```
 
