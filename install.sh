@@ -24,12 +24,13 @@ sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
-cd ~/.vim
+cd ~/dot-files
 git submodule init
 git submodule update
 
-cd ~/.vim/bundle/command-t/ruby/command-t
+cd ~/dot-files/vim/bundle/command-t/ruby/command-t
 ruby extconf.rb
 make
 
-ln -s ~/.vim/vimrc ~/.vimrc
+#TODO: Only symlink if doesn't already exist. (but warn?)
+ln -s ~/dot-files/vim ~/.vim
