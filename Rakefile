@@ -1,6 +1,7 @@
 namespace :vim do
 
   VIM_PATH = File.expand_path("~/vim")
+  DOT_FILES_PATH = File.dirname __FILE__
 
   desc "Install everything"
   task install: %i[
@@ -69,20 +70,21 @@ namespace :vim do
 
   desc "Initialize submodules"
   task :init_submodules do
-    Dir.chdir(File.expand_path("~/dot-files"))
+    Dir.chdir(DOT_FILES_PATH)
     system "git submodule init"
     system "git submodule update"
   end
 
   desc "Compile Command-T"
   task :compile_command_t do
-    Dir.chdir(File.expand_path("~/dot-files/vim/bundle/command-t/ruby/command-t"))
+    Dir.chdir(File.join(DOT_FILES_PATH, "/vim/bundle/command-t/ruby/command-t"))
     system "ruby extconf.rb"
     system "make"
   end
 
   desc "Create symlinks"
   task :create_symlinks do
-    system "ln -s ~/dot-files/vim ~/.vim"
+    args = ["-s", File.join(DOT_FILES_PATH, 'vim'), File.expand_path("~/.vim")]
+    system "ln", *args
   end
 end
