@@ -1,0 +1,9 @@
+[user]
+	name = Kyle Stevens
+	email = kstevens715@gmail.com
+[core]
+	editor = vim
+[push]
+	default = current
+[alias]
+  d = diff --color

@@ -86,5 +86,7 @@ namespace :vim do
   task :create_symlinks do
     args = ["-s", File.join(DOT_FILES_PATH, 'vim'), File.expand_path("~/.vim")]
     system "ln", *args
+    args = ["-s", File.join(DOT_FILES_PATH, 'git', 'gitconfig'), File.expand_path("~/.gitconfig")]
+    system "ln", *args
   end
 end
