@@ -4,14 +4,14 @@ namespace :vim do
   DOT_FILES_PATH = File.dirname __FILE__
 
   desc "Install everything"
-  task install: %i[
-    remove_system_vim
-    install_dependencies
-    install_vim
-    install_powerline
-    init_submodules
-    compile_command_t
-    create_symlinks
+  task install: [
+    :remove_system_vim,
+    :install_dependencies,
+    :install_vim,
+    :install_powerline,
+    :init_submodules,
+    :compile_command_t,
+    :create_symlinks
   ]
 
   desc "Remove system Vim"
@@ -40,7 +40,7 @@ namespace :vim do
   task :install_vim do
 
     unless Dir.exists? VIM_PATH
-      system "hg clone https://vim.googlecode.com/hg", VIM_PATH
+      system "hg clone https://vim.googlecode.com/hg #{VIM_PATH}"
       args = [
         "--with-features=HUGE",
         "--enable-pythoninterp=yes",
@@ -48,7 +48,7 @@ namespace :vim do
         "--enable-multibyte=yes",
         "--enable-cscope=yes",
         "--enable-rubyinterp=yes",
-        "--with-ruby-command=/home/kyle/.rvm/rubies/ruby-2.0.0-p247/bin/ruby",
+        "--with-ruby-command=/home/kyle/.rvm/rubies/ruby-1.9.3-p125/bin/ruby",
         "--enable-fontset"
       ]
       Dir.chdir(VIM_PATH)
