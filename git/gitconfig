@@ -6,4 +6,7 @@
 [push]
 	default = current
 [alias]
+  s = status
   d = diff --color
+  fcheckout = flow feature checkout
+  fpull = flow feature pull origin

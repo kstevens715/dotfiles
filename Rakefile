@@ -27,6 +27,7 @@ namespace :vim do
       coffeescript
       exuberant-ctags
       git
+      git-flow
       mercurial
       python-dev
       python-pip

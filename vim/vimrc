@@ -32,6 +32,12 @@ source ~/dot-files/vim/autoload/pathogen.vim
   command Todo execute "Ack TODO:"
   command Fixme execute "Ack FIXME:"
 
+  let g:multi_cursor_use_default_mapping=0
+  let g:multi_cursor_next_key='<C-m>'
+  let g:multi_cursor_prev_key='<C-p>'
+  let g:multi_cursor_skip_key='<C-x>'
+  let g:multi_cursor_quit_key='<Esc>'
+
 " ================= Keyboard Mappings ===============
   inoremap jj <Esc>
 
@@ -108,3 +114,6 @@ source ~/dot-files/vim/autoload/pathogen.vim
   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
   autocmd BufWinLeave * call clearmatches()
+  "nnoremap <leader>t :CtrlP<CR>
+
+  source $HOME/dot-files/vim/abbreviations.vim
