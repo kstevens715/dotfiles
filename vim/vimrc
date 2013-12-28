@@ -1,3 +1,5 @@
+runtime macros/matchit.vim
+
 source ~/dot-files/vim/autoload/pathogen.vim
 
 " Use Vim settings, rather then Vi settings (much better!).
