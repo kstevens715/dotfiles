@@ -10,7 +10,6 @@ namespace :vim do
     :install_vim,
     :install_powerline,
     :init_submodules,
-    :compile_command_t,
     :create_symlinks
   ]
 
@@ -74,13 +73,6 @@ namespace :vim do
     Dir.chdir(DOT_FILES_PATH)
     system "git submodule init"
     system "git submodule update"
-  end
-
-  desc "Compile Command-T"
-  task :compile_command_t do
-    Dir.chdir(File.join(DOT_FILES_PATH, "/vim/bundle/command-t/ruby/command-t"))
-    system "ruby extconf.rb"
-    system "make"
   end
 
   desc "Create symlinks"
