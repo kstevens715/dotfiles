@@ -40,17 +40,14 @@ source ~/dot-files/vim/autoload/pathogen.vim
   let g:multi_cursor_skip_key='<C-x>'
   let g:multi_cursor_quit_key='<Esc>'
 
+" ================= CtrlP Settings ===============
+
+  let g:ctrlp_map = '<Leader>t'
+  nnoremap <silent> <Leader>p :CtrlPBuffer<CR>
+  let ctrlp_max_height=100
+
 " ================= Keyboard Mappings ===============
   inoremap jj <Esc>
-
-" Map "\t" to open up command-t, but first perform a refresh of the tree.
-  nnoremap <silent> <Leader>t :CommandTFlush<CR>:CommandT<CR>
-
-" Map "\g" to search ctags with command-t
-  nnoremap <silent> <Leader>g :CommandTTag<CR>
-
-" Map "\y" to open up command-t to show open buffers.
-  nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
 " Use Shift-movement to switch between windows.
   nmap <silent> <S-h> :wincmd h <CR>
@@ -116,6 +113,5 @@ source ~/dot-files/vim/autoload/pathogen.vim
   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
   autocmd BufWinLeave * call clearmatches()
-  "nnoremap <leader>t :CtrlP<CR>
 
   source $HOME/dot-files/vim/abbreviations.vim
