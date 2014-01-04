@@ -1,3 +1,9 @@
+" =============== Auto-reload ===============
+aug AutoloadVimrc
+  au!
+  au BufWritePost ~/dot-files/vim/vimrc source %
+aug END
+
 runtime macros/matchit.vim
 
 source ~/dot-files/vim/autoload/pathogen.vim
@@ -25,14 +31,10 @@ source ~/dot-files/vim/autoload/pathogen.vim
   set laststatus=2 " Always show a statusline
 
 " =============== Command Aliases ===============
-" See http://blog.sanctum.geek.nz/vim-command-typos/ for possibly better
-" idea.
-  command WQ wq
-  command Wq wq
-  command W w
+  command! -bang WQ wq<bang>
+  command! -bang Wq wq<bang>
+  command! -bang W w<bang>
   command! -bang Q q<bang>
-  command Todo execute "Ack TODO:"
-  command Fixme execute "Ack FIXME:"
 
   let g:multi_cursor_use_default_mapping=0
   let g:multi_cursor_next_key='<C-m>'
