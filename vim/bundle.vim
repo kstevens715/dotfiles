@@ -17,4 +17,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'nono/vim-handlebars'
 Bundle 'terryma/vim-multiple-cursors'
 
+Bundle 'sickill/vim-monokai'
+
 filetype plugin indent on     " required!

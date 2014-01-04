@@ -106,7 +106,7 @@ runtime macros/matchit.vim
 " ================ Theme ======================
   set t_Co=256            " Force 256 colors to get Molokai theme to render correctly in terminal.
   syntax on               " Syntax highlighting.
-  colorscheme Monokai     " https://github.com/tomasr/molokai
+  colorscheme monokai     " https://github.com/tomasr/molokai
 
 " Highlight trailing whitespace
   highlight ExtraWhitespace ctermbg=red guibg=red
