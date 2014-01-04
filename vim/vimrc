@@ -8,112 +8,112 @@ runtime macros/matchit.vim
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-  set nocompatible
-  set nowrap
+set nocompatible
+set nowrap
 
-  source $HOME/dot-files/vim/bundle.vim
+source $HOME/dot-files/vim/bundle.vim
 
 " =============== Configure Powerline ===============
 
-  set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
-  python from powerline.vim import setup as powerline_setup
-  python powerline_setup()
-  python del powerline_setup
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
-  set laststatus=2 " Always show a statusline
+set laststatus=2 " Always show a statusline
 
 " =============== Command Aliases ===============
-  command! -bang WQ wq<bang>
-  command! -bang Wq wq<bang>
-  command! -bang W w<bang>
-  command! -bang Q q<bang>
+command! -bang WQ wq<bang>
+command! -bang Wq wq<bang>
+command! -bang W w<bang>
+command! -bang Q q<bang>
 
-  let g:multi_cursor_use_default_mapping=0
-  let g:multi_cursor_next_key='<C-m>'
-  let g:multi_cursor_prev_key='<C-p>'
-  let g:multi_cursor_skip_key='<C-x>'
-  let g:multi_cursor_quit_key='<Esc>'
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 " ================= CtrlP Settings ===============
 
-  let g:ctrlp_map = '<Leader>t'
-  nnoremap <silent> <Leader>p :CtrlPBuffer<CR>
-  let ctrlp_max_height=100
+let g:ctrlp_map = '<Leader>t'
+nnoremap <silent> <Leader>p :CtrlPBuffer<CR>
+let ctrlp_max_height=100
 
 " ================= Keyboard Mappings ===============
-  inoremap jj <Esc>
+inoremap jj <Esc>
 
 " Use Shift-movement to switch between windows.
-  nmap <silent> <S-h> :wincmd h <CR>
-  nmap <silent> <S-j> :wincmd j <CR>
-  nmap <silent> <S-k> :wincmd k <CR>
-  nmap <silent> <S-l> :wincmd l <CR>
+nmap <silent> <S-h> :wincmd h <CR>
+nmap <silent> <S-j> :wincmd j <CR>
+nmap <silent> <S-k> :wincmd k <CR>
+nmap <silent> <S-l> :wincmd l <CR>
 
 " Use CTRL-movement to move between tabs.
-  nmap <silent> <C-l> :tabnext <CR>
-  nmap <silent> <C-h> :tabprevious <CR>
-  nmap <silent> <C-n> :tabnew <CR>
+nmap <silent> <C-l> :tabnext <CR>
+nmap <silent> <C-h> :tabprevious <CR>
+nmap <silent> <C-n> :tabnew <CR>
 
 " Edit Vim configs
-  nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
-  nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
+nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
+nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
 
 " The following three commands enables pasting code snippets
 " using F2 key (disables auto-indenting)
-  nnoremap <F2> :set invpaste paste?<CR>
-  set pastetoggle=<F2>
-  set showmode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 " psql files should be highlighted as sql
-  au BufNewFile,BufRead *.psql set filetype=sql
+au BufNewFile,BufRead *.psql set filetype=sql
 
 " Point to Ubuntu's Ack executable
-  let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor"
 
-  set backspace=2         " Backspace not working without this.
-  set number              " Use line numbers.
+set backspace=2         " Backspace not working without this.
+set number
 
 " =================== Liaison Helpers =================
-  set colorcolumn=141
+set colorcolumn=141
 
 " Ignore some file patterns in commandt.
-  set wildignore+=tmp/**
-  set wildignore+=doc/**
-  set wildignore+=db/sphinx/**
-  set wildignore+=coverage/**
-  set wildignore+=node_modules/**
-  set wildignore+=public/**
+set wildignore+=tmp/**
+set wildignore+=doc/**
+set wildignore+=db/sphinx/**
+set wildignore+=coverage/**
+set wildignore+=node_modules/**
+set wildignore+=public/**
 
 " ================ Turn Off Swap Files ==============
-  set noswapfile
-  set nobackup
-  set nowb
+set noswapfile
+set nobackup
+set nowb
 
 " ================ Indentation ======================
-  filetype indent plugin on
-  set autoindent
-  set smartindent
-  set smarttab
-  set shiftwidth=2
-  set softtabstop=2
-  set tabstop=2
-  set expandtab
+filetype indent plugin on
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
 
-  set ignorecase
-  set smartcase
+set ignorecase
+set smartcase
 
 " ================ Theme ======================
-  set t_Co=256            " Force 256 colors to get Molokai theme to render correctly in terminal.
-  syntax on               " Syntax highlighting.
-  colorscheme monokai
+set t_Co=256
+syntax on
+colorscheme monokai
 
 " Highlight trailing whitespace
-  highlight ExtraWhitespace ctermbg=red guibg=red
-  match ExtraWhitespace /\s\+$/
-  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-  autocmd BufWinLeave * call clearmatches()
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
-  source $HOME/dot-files/vim/abbreviations.vim
+source $HOME/dot-files/vim/abbreviations.vim
