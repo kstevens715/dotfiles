@@ -103,6 +103,9 @@ source ~/dot-files/vim/autoload/pathogen.vim
   set tabstop=2
   set expandtab
 
+  set ignorecase
+  set smartcase
+
 " ================ Theme ======================
   set t_Co=256            " Force 256 colors to get Molokai theme to render correctly in terminal.
   syntax on               " Syntax highlighting.
