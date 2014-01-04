@@ -4,6 +4,11 @@ aug AutoloadVimrc
   au BufWritePost ~/dot-files/vim/vimrc source %
 aug END
 
+set selection=exclusive
+set selectmode=mouse,key
+set mousemodel=popup
+set keymodel=startsel,stopsel
+
 runtime macros/matchit.vim
 
 source ~/dot-files/vim/autoload/pathogen.vim
@@ -61,6 +66,10 @@ source ~/dot-files/vim/autoload/pathogen.vim
   nmap <silent> <C-l> :tabnext <CR>
   nmap <silent> <C-h> :tabprevious <CR>
   nmap <silent> <C-n> :tabnew <CR>
+
+" Edit Vim configs
+  nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
+  nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
 
 " The following three commands enables pasting code snippets
 " using F2 key (disables auto-indenting)
