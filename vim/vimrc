@@ -59,6 +59,8 @@ nmap <silent> <C-n> :tabnew <CR>
 nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
 nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
 
+nmap P :pu <CR>
+
 " The following three commands enables pasting code snippets
 " using F2 key (disables auto-indenting)
 nnoremap <F2> :set invpaste paste?<CR>
