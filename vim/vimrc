@@ -80,6 +80,9 @@ set ignorecase
 set smartcase
 set incsearch
 
+" Use system clipboard
+set clipboard=unnamedplus
+
 " ================ Theme ======================
 set t_Co=256
 syntax on

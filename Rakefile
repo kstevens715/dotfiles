@@ -33,6 +33,7 @@ namespace :vim do
       xclip
     ]
     system "sudo", "apt-get", "install", *packages
+    system "sudo apt-get build-dep vim"
   end
 
   desc "Download and compile Vim from source"
