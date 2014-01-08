@@ -12,3 +12,5 @@
   fpull = flow feature pull origin
 [github]
 	user = kstevens715
+[web]
+	browser = google-chrome
