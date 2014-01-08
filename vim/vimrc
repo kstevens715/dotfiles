@@ -57,6 +57,7 @@ nmap <silent> <C-n> :tabnew <CR>
 
 " Edit Vim configs
 nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
+nmap <leader>b :vsp<CR>:e ~/dot-files/vim/bundle.vim<CR>
 nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
 
 nmap P :pu <CR>
