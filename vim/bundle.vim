@@ -18,6 +18,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
+Bundle 'vim-scripts/dbext.vim'
 
 Bundle 'sickill/vim-monokai'
 

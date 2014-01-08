@@ -82,5 +82,7 @@ namespace :vim do
     system "ln", *args
     args = ["-s", File.join(DOT_FILES_PATH, 'git', 'gitconfig'), File.expand_path("~/.gitconfig")]
     system "ln", *args
+    args = ["-s", File.join(DOT_FILES_PATH, 'pgpass'), File.expand_path("~/.pgpass")]
+    system "ln", *args
   end
 end
