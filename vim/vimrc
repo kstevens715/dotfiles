@@ -44,7 +44,9 @@ let ctrlp_max_height=100
 " ================= Keyboard Mappings ===============
 inoremap jj <Esc>
 
-map <C-F> :Ack<space>
+" User CTRL-f for searching project
+noremap <C-F> <esc>:Ack<space>
+inoremap <C-F> <esc>:Ack<space>
 
 " Use Shift-movement to switch between windows.
 nmap <silent> <S-h> :wincmd h <CR>
