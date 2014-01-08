@@ -78,6 +78,7 @@ set expandtab
 
 set ignorecase
 set smartcase
+set incsearch
 
 " ================ Theme ======================
 set t_Co=256
