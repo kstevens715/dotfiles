@@ -16,6 +16,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'nono/vim-handlebars'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 
 Bundle 'sickill/vim-monokai'
 
