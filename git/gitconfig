@@ -10,6 +10,11 @@
 [web]
 	browser = google-chrome
 [alias]
+	s = status
+	d = diff --color
+	fcheckout = flow feature checkout
+	fpull = flow feature pull origin
+
 	a = add
 	aa = !git add . && git add -u && git status
 	addall = !git add . && git add -u && git status
