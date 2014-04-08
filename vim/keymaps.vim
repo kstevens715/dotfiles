@@ -3,6 +3,12 @@ nnoremap <silent> <Leader>p :CtrlPBuffer<CR>
 " Quick exit of insert mode
 inoremap jj <Esc>
 
+" Make comma an alias for leader, as some people prefer this.
+nmap , <leader>
+
+" Make CtrlP with with... CTRL-P
+nmap <C-P> <esc>:CtrlP <CR>
+
 " User CTRL-f for searching project
 noremap <C-F> <esc>:Ack<space>
 inoremap <C-F> <esc>:Ack<space>
