@@ -26,11 +26,8 @@ nmap <silent> <C-n> :tabnew <CR>
 
 " Edit Vim configs
 nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
-nmap <leader>b :vsp<CR>:e ~/dot-files/vim/bundle.vim<CR>
+nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
-
-" Paste onto new line
-nmap P :pu <CR>
 
 " The following three commands enables pasting code snippets
 " using F2 key (disables auto-indenting)
