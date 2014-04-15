@@ -6,7 +6,7 @@ inoremap jj <Esc>
 " Make comma an alias for leader, as some people prefer this.
 nmap , <leader>
 
-" Make CtrlP with with... CTRL-P
+" Make CtrlP work with... CTRL-P
 nmap <C-P> <esc>:CtrlP <CR>
 
 " User CTRL-f for searching project
