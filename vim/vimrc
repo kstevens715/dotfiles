@@ -45,7 +45,7 @@ set showmode
 au BufNewFile,BufRead *.psql set filetype=sql
 
 " Point to Ubuntu's Ack executable
-let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor --ignore-dir=log --ignore-dir=coverage"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor --ignore-dir=log --ignore-dir=coverage"
 
 set backspace=2         " Backspace not working without this.
 set number
