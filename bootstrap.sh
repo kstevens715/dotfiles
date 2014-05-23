@@ -25,7 +25,7 @@ sudo apt-get -q -y install  aptitude \
                             git \
                             kmymoney \
                             libpq-dev \
-                            libxlst1-dev \
+                            libxslt-dev \
                             oracle-java8-installer \
                             phantomjs \
                             postgresql \
