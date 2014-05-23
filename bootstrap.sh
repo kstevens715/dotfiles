@@ -3,10 +3,10 @@
 # This is a bootstrap script that sets up my Ubuntu system.
 #
 
-echo 'It Works'
+echo 'Bootstrapping system'
 # Install updates
-# sudo apt-get update
-# sudo apt-get upgrade
+sudo apt-get update
+sudo apt-get upgrade
 #
 # # Add repos
 # sudo apt-add-repository ppa:system76-dev/stable
