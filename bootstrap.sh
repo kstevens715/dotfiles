@@ -39,5 +39,10 @@ sudo apt-get -q -y install  aptitude \
                             unixodbc-dev \
                             xchat
 
-#TODO: clone dot-files and get that to take over the process. Maybe only install minimal packages above and let the Rakefile
-# take care of the test.
+#TODO: Install RVM and correct Ruby version
+
+git clone git@github.com:kstevens715/dot-files.git ~/dot-files
+cd ~/dot-files
+rake vim:install
+
+
