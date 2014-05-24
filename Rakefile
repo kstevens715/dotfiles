@@ -9,7 +9,6 @@ namespace :vim do
     :install_dependencies,
     :install_vim,
     :install_powerline,
-    :init_submodules,
     :create_symlinks
   ]
 
@@ -67,13 +66,6 @@ namespace :vim do
     system "sudo mv PowerlineSymbols.otf /usr/share/fonts/"
     system "sudo fc-cache -vf"
     system "sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/"
-  end
-
-  desc "Initialize submodules"
-  task :init_submodules do
-    Dir.chdir(DOT_FILES_PATH)
-    system "git submodule init"
-    system "git submodule update"
   end
 
   desc "Create symlinks"
