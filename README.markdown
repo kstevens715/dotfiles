@@ -2,7 +2,7 @@
 
 New Instructions:
 ```
-wget https://raw.githubusercontent.com/kstevens715/dot-files/master/bootstrap.sh && bash bootstrap.sh; rm -f bootstrap.sh
+wget -q -O - http://goo.gl/wefVue | bash
 ```
 
 Old Instructions:
