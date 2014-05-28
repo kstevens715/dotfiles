@@ -28,7 +28,7 @@ namespace :vim do
       python-pip
       xclip
     ]
-    system "sudo", "apt-get", "install", *packages
+    install_packages(packages)
     system "sudo apt-get build-dep vim"
   end
 

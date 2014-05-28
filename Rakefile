@@ -5,4 +5,8 @@ PACKAGE_PATH = File.join(ROOT_PATH, "packages.yml")
 RVM_PATH = File.join(Dir.home, '.rvm')
 RUBY_PATH = File.join(RVM_PATH, 'rubies', DEFAULT_RUBY_VERSION, 'bin', 'ruby')
 
+require_relative 'lib/dot_files'
+
+include DotFiles
+
 Dir.glob('tasks/*.rake').each { |task| import task }
