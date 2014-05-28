@@ -34,6 +34,6 @@ nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-" F5 toggles spell checking
+" F6 toggles spell checking
 map <F6> :setlocal spell! spelllang=en_us<CR>
 imap <F6> <C-o>:setlocal spell! spelllang=en_us<CR>
