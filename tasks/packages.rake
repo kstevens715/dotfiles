@@ -12,6 +12,7 @@ namespace :packages do
     package_config['repos'].each do |repo|
       system "sudo", "apt-add-repository", repo, "-y"
     end
+    system "sudo", "apt-get", "update"
   end
 
 end
