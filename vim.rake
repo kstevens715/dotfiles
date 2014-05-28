@@ -1,6 +1,6 @@
 namespace :vim do
 
-  VIM_PATH = File.expand_path("~/vim")
+  VIM_PATH = File.join(Dir.home, 'vim')
   DOT_FILES_PATH = File.expand_path("..", File.dirname(__FILE__))
 
   desc "Install and setup a custom build of Vim"
@@ -43,7 +43,7 @@ namespace :vim do
       "--enable-multibyte=yes",
       "--enable-cscope=yes",
       "--enable-rubyinterp=yes",
-      "--with-ruby-command=/home/kyle/.rvm/rubies/ruby-1.9.3-p125/bin/ruby",
+      "--with-ruby-command=#{RUBY_PATH}",
       "--enable-fontset"
     ]
     Dir.chdir(VIM_PATH)
