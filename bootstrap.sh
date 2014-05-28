@@ -15,4 +15,4 @@ sudo apt-get -q -y install  curl \
 
 git clone https://github.com/kstevens715/dot-files.git ~/dot-files
 cd ~/dot-files
-rake -T
+rake dot-files:install
