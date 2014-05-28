@@ -1,0 +1,25 @@
+packages:
+  - bundler
+  - curl
+  - freetds-dev
+  - git
+  - kmymoney
+  - libpq-dev
+  - libxlst1-dev
+  - oracle-java8-installer
+  - phantomjs
+  - postgresql
+  - python-software-properties
+  - rabbitmq-server
+  - rake
+  - redis-server
+  - skype
+  - tmate
+  - tmux
+  - unixodbc-dev
+  - xchat
+repos:
+  - ppa:system76-dev/stable
+  - ppa:webupd8team/java
+  - ppa:nviennot/tmate
+  - "deb http://archive.canonical.com/ubuntu $(lsb_release -sc) partner"
