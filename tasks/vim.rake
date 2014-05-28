@@ -1,7 +1,6 @@
 namespace :vim do
 
   VIM_PATH = File.join(Dir.home, 'vim')
-  DOT_FILES_PATH = File.expand_path("..", File.dirname(__FILE__))
 
   desc "Install and setup a custom build of Vim"
   task install: [
@@ -62,12 +61,12 @@ namespace :vim do
   end
 
   task :create_symlinks do
-    args = ["-s", File.join(DOT_FILES_PATH, 'vim'), File.expand_path("~/.vim")]
+    args = ["-s", File.join(ROOT_PATH, 'vim'), File.expand_path("~/.vim")]
     system "ln", *args
     #TODO: These last lines don't belong in this rake task.
-    args = ["-s", File.join(DOT_FILES_PATH, 'git', 'gitconfig'), File.expand_path("~/.gitconfig")]
+    args = ["-s", File.join(ROOT_PATH, 'git', 'gitconfig'), File.expand_path("~/.gitconfig")]
     system "ln", *args
-    args = ["-s", File.join(DOT_FILES_PATH, 'pgpass'), File.expand_path("~/.pgpass")]
+    args = ["-s", File.join(ROOT_PATH, 'pgpass'), File.expand_path("~/.pgpass")]
     system "ln", *args
   end
 end
