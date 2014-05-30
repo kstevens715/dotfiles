@@ -6,7 +6,7 @@ packages:
   - hexchat
   - kmymoney
   - libpq-dev
-  - libxlst1-dev
+  - libxslt1-dev
   - oracle-java8-installer
   - phantomjs
   - postgresql
