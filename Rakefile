@@ -17,6 +17,8 @@ namespace :"dot-files" do
   desc "Install everything"
   task :install => %w{
     packages:install
+    ruby:install
+    vim:install
   }
 
 end
