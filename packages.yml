@@ -22,4 +22,4 @@ repos:
   - ppa:system76-dev/stable
   - ppa:webupd8team/java
   - ppa:nviennot/tmate
-  - "deb http://archive.canonical.com/ubuntu $(lsb_release -sc) partner"
+  - '"deb http://archive.canonical.com/ubuntu $(lsb_release -sc) partner"'
