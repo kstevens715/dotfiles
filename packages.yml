@@ -3,6 +3,7 @@ packages:
   - curl
   - freetds-dev
   - git
+  - hexchat
   - kmymoney
   - libpq-dev
   - libxlst1-dev
@@ -17,7 +18,6 @@ packages:
   - tmate
   - tmux
   - unixodbc-dev
-  - xchat
 repos:
   - ppa:system76-dev/stable
   - ppa:webupd8team/java
