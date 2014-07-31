@@ -68,5 +68,7 @@ namespace :vim do
     system "ln", *args
     args = ["-s", File.join(ROOT_PATH, 'pgpass'), File.expand_path("~/.pgpass")]
     system "ln", *args
+    args = ["-s", File.join(ROOT_PATH, 'ackrc'), File.expand_path("~/.ackrc")]
+    system "ln", *args
   end
 end

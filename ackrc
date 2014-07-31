@@ -1,0 +1,52 @@
+# Originally taken from: https://github.com/booch/config_files
+
+# Automatically send output through less (with processing of ANSI color codes) unless piping.
+--pager=less -R
+
+# Always display the files in alphabetical order.
+--sort-files
+
+# Display 3 lines before and after each matching line.
+--context=3
+
+# Follow soft links.
+--follow
+
+# Print file name on a separate line before all matches for that file, with blank line between files.
+--group
+
+# Ignore directories that don't (normally) contain source code. If you want to search in them, specify them in the command line.
+--ignore-dir=.bundle
+--ignore-dir=coverage
+--ignore-dir=log
+--ignore-dir=public
+--ignore-dir=temp
+--ignore-dir=tmp
+--ignore-dir=vendor
+
+## Add some new file types and file extensions.
+
+# This is so I can use "bash" in place of "shell".
+--type-set=bash=.bash,.sh
+
+# Create a type for Markdown text.
+--type-set=markdown=.md,.mmd,.mkd
+
+# When looking for Ruby files, include HAML, Slim, ERB, and rake files.
+--type-add=ruby=.haml,.slim,.erb,.rake
+
+# When looking for HTML files, include Mustache templates.
+--type-add=html=.mustache
+
+# When looking for CSS files, include Sass and Less files (which get compiled into CSS).
+--type-add=css=.sass,.scss,.less
+
+# Allow either flavor of Sass.
+--type-set=sass=.sass,.scss
+
+# Create a type just for HAML files (but include Slim files too).
+--type-set=haml=.haml,.slim
+--type-set=slim=.slim
+
+# Create a type for CoffeeScript files (and Eco templates).
+--type-set=coffee=.coffee,.coffee.md,.eco

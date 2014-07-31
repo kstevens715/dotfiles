@@ -37,6 +37,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " ================= CtrlP Settings ===============
 let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_user_command = 'ack-grep -f %s'
 let ctrlp_max_height=100
 
 set showmode
@@ -45,21 +46,13 @@ set showmode
 au BufNewFile,BufRead *.psql set filetype=sql
 
 " Point to Ubuntu's Ack executable
-let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=tmp --ignore-dir=public --ignore-dir=vendor --ignore-dir=log --ignore-dir=coverage"
+let g:ackprg="ack-grep -H --nopager --nocolor --nogroup --column"
 
 set backspace=2         " Backspace not working without this.
 set number
 
 " =================== Liaison Helpers =================
 set colorcolumn=141
-
-" Ignore some file patterns in commandt.
-set wildignore+=tmp/**
-set wildignore+=doc/**
-set wildignore+=db/sphinx/**
-set wildignore+=coverage/**
-set wildignore+=node_modules/**
-set wildignore+=public/**
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
