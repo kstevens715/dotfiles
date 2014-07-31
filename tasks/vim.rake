@@ -70,5 +70,7 @@ namespace :vim do
     system "ln", *args
     args = ["-s", File.join(ROOT_PATH, 'ackrc'), File.expand_path("~/.ackrc")]
     system "ln", *args
+    args = ["-s", File.join(ROOT_PATH, 'tmux.conf'), File.expand_path("~/.tmux.conf")]
+    system "ln", *args
   end
 end

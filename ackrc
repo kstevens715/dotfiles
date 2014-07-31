@@ -9,9 +9,6 @@
 # Display 3 lines before and after each matching line.
 --context=3
 
-# Follow soft links.
---follow
-
 # Print file name on a separate line before all matches for that file, with blank line between files.
 --group
 
