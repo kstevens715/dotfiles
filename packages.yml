@@ -1,6 +1,7 @@
 packages:
   - bundler
   - curl
+  - espeak
   - freetds-dev
   - git
   - hexchat
