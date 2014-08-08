@@ -91,3 +91,6 @@ autocmd BufWinLeave * call clearmatches()
 
 source $HOME/dot-files/vim/keymaps.vim
 source $HOME/dot-files/vim/abbreviations.vim
+
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
