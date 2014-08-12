@@ -9,6 +9,7 @@ packages:
   - libpq-dev
   - libxslt1-dev
   - network-manager-vpnc
+  - npm
   - oracle-java8-installer
   - phantomjs
   - postgresql
