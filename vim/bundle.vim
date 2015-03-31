@@ -8,6 +8,7 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive'

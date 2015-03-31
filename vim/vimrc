@@ -13,14 +13,6 @@ set nowrap
 
 source $HOME/dot-files/vim/bundle.vim
 
-" =============== Configure Powerline ===============
-"
-" set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-"
-" python from powerline.vim import setup as powerline_setup
-" python powerline_setup()
-" python del powerline_setup
-
 set laststatus=2 " Always show a statusline
 
 " =============== Command Aliases ===============
