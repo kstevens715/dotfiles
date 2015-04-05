@@ -1,14 +1,15 @@
 [user]
-	name = Kyle Stevens
-	email = kstevens715@gmail.com
+  name = Kyle Stevens
+  email = kstevens715@gmail.com
 [core]
-	editor = vim
+  editor = vim
 [push]
-	default = current
+  default = current
 [github]
-	user = kstevens715
+  user = kstevens715
 [web]
-	browser = google-chrome
+  browser = google-chrome
 [alias]
-	s = status
-	d = diff --color
+  s = status
+  d = diff --color
+  poh = push origin HEAD
