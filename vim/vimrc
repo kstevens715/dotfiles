@@ -29,7 +29,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " ================= CtrlP Settings ===============
 let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_user_command = 'ack -f %s'
+let g:ctrlp_user_command = 'ack-grep -f %s'
 let ctrlp_max_height=100
 
 set showmode
