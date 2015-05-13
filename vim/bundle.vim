@@ -21,7 +21,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'vim-scripts/dbext.vim'
-
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'sickill/vim-monokai'
 
 call vundle#end()
