@@ -27,6 +27,9 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
+" Turn off Ex mode
+nnoremap Q <nop>
+
 " ================= CtrlP Settings ===============
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_user_command = 'ack-grep -f %s'
