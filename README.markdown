@@ -2,6 +2,7 @@
 ```
 $ ln -s dot-files/vim/ .vim
 $ ln -s dot-files/vim/vimrc .vimrc
+$ cd dot-files/vim/bundle
 $ git clone git@github.com:VundleVim/Vundle.vim.git
 ```
 In vim `:PluginInstall`
