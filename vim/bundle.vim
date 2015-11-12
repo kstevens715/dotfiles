@@ -23,6 +23,7 @@ Plugin 'mattn/webapi-vim'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'sickill/vim-monokai'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin indent on     " required!
