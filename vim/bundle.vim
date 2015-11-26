@@ -24,6 +24,8 @@ Plugin 'vim-scripts/dbext.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'sickill/vim-monokai'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on     " required!
