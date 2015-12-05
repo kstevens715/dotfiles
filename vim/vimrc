@@ -39,6 +39,7 @@ set showmode
 
 " psql files should be highlighted as sql
 au BufNewFile,BufRead *.psql set filetype=sql
+au BufNewFile,BufRead Guardfile set filetype=ruby
 
 " jsx highlighting in js files
 let g:jsx_ext_required = 0
