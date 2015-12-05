@@ -10,6 +10,7 @@
 [web]
   browser = google-chrome
 [alias]
+  aa = add --all --intent-to-add
   s = status
   d = diff --color
   poh = push origin HEAD
