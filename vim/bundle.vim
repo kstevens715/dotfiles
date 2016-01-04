@@ -26,6 +26,7 @@ Plugin 'sickill/vim-monokai'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
 
 call vundle#end()
 filetype plugin indent on     " required!
