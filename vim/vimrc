@@ -20,6 +20,7 @@ command! -bang WQ wq<bang>
 command! -bang Wq wq<bang>
 command! -bang W w<bang>
 command! -bang Q q<bang>
+command! -bang Qa qa<bang>
 
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-m>'
