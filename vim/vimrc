@@ -72,6 +72,9 @@ set t_Co=256
 syntax on
 colorscheme monokai
 
+" Highlight html in JavaScript template strings
+autocmd FileType javascript JsPreTmpl html
+
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/

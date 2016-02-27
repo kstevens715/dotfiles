@@ -6,11 +6,12 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'bling/vim-airline'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'sickill/vim-monokai'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-endwise'
