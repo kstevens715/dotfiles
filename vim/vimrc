@@ -22,28 +22,19 @@ command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Qa qa<bang>
 
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
 " Turn off Ex mode
 nnoremap Q <nop>
 
 " ================= CtrlP Settings ===============
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_user_command = 'ack-grep -f %s'
-let ctrlp_max_height=100
+let ctrlp_max_height=10
 
 set showmode
 
 " psql files should be highlighted as sql
 au BufNewFile,BufRead *.psql set filetype=sql
 au BufNewFile,BufRead Guardfile set filetype=ruby
-
-" jsx highlighting in js files
-let g:jsx_ext_required = 0
 
 " Point to Ubuntu's Ack executable
 let g:ackprg="ack-grep -H --nopager --nocolor --nogroup --column"

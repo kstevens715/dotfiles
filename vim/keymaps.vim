@@ -6,8 +6,9 @@ inoremap jj <Esc>
 " Make comma an alias for leader, as some people prefer this.
 nmap , <leader>
 
-" Make CtrlP work with... CTRL-P
+" CtrlP Helpers
 nmap <C-P> <esc>:CtrlP <CR>
+nmap <leader>b :CtrlPBuffer<CR>
 
 " User CTRL-f for searching project
 noremap <C-F> <esc>:Ack<space>
@@ -26,7 +27,6 @@ nmap <silent> <C-n> :tabnew <CR>
 
 " Edit Vim configs
 nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
-nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
 
 " The following three commands enables pasting code snippets
