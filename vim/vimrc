@@ -32,6 +32,10 @@ let ctrlp_max_height=10
 
 set showmode
 
+" ================= Autocompletion ===============
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 " psql files should be highlighted as sql
 au BufNewFile,BufRead *.psql set filetype=sql
 au BufNewFile,BufRead Guardfile set filetype=ruby
