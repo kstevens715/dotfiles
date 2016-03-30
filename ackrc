@@ -15,6 +15,7 @@
 # Ignore directories that don't (normally) contain source code. If you want to search in them, specify them in the command line.
 --ignore-dir=.bundle
 --ignore-dir=coverage
+--ignore-dir=data
 --ignore-dir=log
 --ignore-dir=public
 --ignore-dir=temp
