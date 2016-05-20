@@ -1,11 +1,10 @@
 # In home directory:
 ```
-$ ln -s dot-files/vim/ .vim
-$ ln -s dot-files/vim/vimrc .vimrc
-$ ln -s dot-files/ackrc .ackrc
+$ cd dot-files
+$ chmod +x ./install
+$ ./install
+
 $ ln -s dot-files/gitconfig .gitconfig # Only if you're me.
-$ cd dot-files/vim/bundle
-$ git clone git@github.com:VundleVim/Vundle.vim.git
 ```
 In vim `:PluginInstall`
 
