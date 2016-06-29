@@ -27,8 +27,9 @@ nnoremap Q <nop>
 
 " ================= CtrlP Settings ===============
 let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_user_command = 'ack-grep -f %s'
-let ctrlp_max_height=10
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+let ctrlp_max_height=100
+let g:ctrlp_max_files=0
 
 set showmode
 
