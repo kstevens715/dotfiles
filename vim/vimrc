@@ -61,6 +61,10 @@ set number
 " =================== Liaison Helpers =================
 set colorcolumn=141
 
+let g:vimrubocop_config = '~/code/webadmit/.ruby-style.yml'
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
+
 " ================ Turn Off Swap Files ==============
 set noswapfile
 set nobackup
