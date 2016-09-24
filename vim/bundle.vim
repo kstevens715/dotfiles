@@ -7,19 +7,18 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'ngmy/vim-rubocop'
 Plugin 'sickill/vim-monokai'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()
 filetype plugin indent on
