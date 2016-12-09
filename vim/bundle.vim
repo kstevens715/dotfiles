@@ -19,6 +19,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
+Plugin 'vim-scripts/SQLUtilities'
+Plugin 'vim-scripts/Align'
 
 call vundle#end()
 filetype plugin indent on

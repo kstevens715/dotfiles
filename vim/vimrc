@@ -33,6 +33,13 @@ let g:ctrlp_max_files=0
 
 set showmode
 
+" = SQLUtilities
+vmap <silent>sf <Plug>SQLU_Formatter<CR>
+nmap <silent>scl <Plug>SQLU_CreateColumnList<CR>
+nmap <silent>scd <Plug>SQLU_GetColumnDef<CR>
+nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
+nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
+
 " ================= Autocompletion ===============
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
