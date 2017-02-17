@@ -16,8 +16,6 @@ inoremap <C-F> <esc>:Ack<space>
 
 " Use Shift-movement to switch between windows.
 nmap <silent> <S-h> :wincmd h <CR>
-nmap <silent> <S-j> :wincmd j <CR>
-nmap <silent> <S-k> :wincmd k <CR>
 nmap <silent> <S-l> :wincmd l <CR>
 
 " Use CTRL-movement to move between tabs.
