@@ -6,7 +6,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'bling/vim-airline'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kien/ctrlp.vim'
@@ -21,6 +20,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-scripts/SQLUtilities'
 Plugin 'vim-scripts/Align'
+
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/vim-js-pretty-template'
+
 
 call vundle#end()
 filetype plugin indent on

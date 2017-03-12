@@ -90,6 +90,7 @@ colorscheme monokai
 
 " Highlight html in JavaScript template strings
 autocmd FileType javascript JsPreTmpl html
+autocmd FileType typescript JsPreTmpl html
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
