@@ -23,8 +23,6 @@ Plugin 'vim-scripts/Align'
 
 " Typescript
 Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/vim-js-pretty-template'
-
 
 call vundle#end()
 filetype plugin indent on
