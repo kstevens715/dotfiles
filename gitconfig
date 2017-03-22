@@ -1,6 +1,7 @@
 [user]
   name = Kyle Stevens
   email = kstevens715@gmail.com
+  signingkey = 860810C5FD2AF5CA
 [core]
   editor = vim
 [push]
@@ -14,3 +15,5 @@
   s = status
   d = diff --color
   poh = push origin HEAD
+[commit]
+  gpgsign = true
