@@ -20,8 +20,9 @@ Plugin 'tpope/vim-rails'
 Plugin 'vim-scripts/SQLUtilities'
 Plugin 'vim-scripts/Align'
 
+Plugin 'leafgarland/typescript-vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'ianks/vim-tsx'
 
 call vundle#end()
 filetype plugin indent on
