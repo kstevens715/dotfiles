@@ -36,8 +36,6 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -
 let ctrlp_max_height=100
 let g:ctrlp_max_files=0
 
-set showmode
-
 " ================= Autocompletion ===============
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
