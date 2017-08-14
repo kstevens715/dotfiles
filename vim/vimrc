@@ -9,7 +9,12 @@ runtime macros/matchit.vim
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
 set nowrap
+
+" When lines are wrapped, only break line on certain characters: \" ^I!@*-+;:,./?\"
+" This makes it easy to copy-paste between Vim and other Tmux tabs
+set linebreak
 
 source $HOME/dot-files/vim/bundle.vim
 
