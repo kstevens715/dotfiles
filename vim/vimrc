@@ -42,7 +42,7 @@ set omnifunc=syntaxcomplete#Complete
 au BufNewFile,BufRead *.psql set filetype=sql
 au BufNewFile,BufRead Guardfile set filetype=ruby
 
-let g:ackprg="ack-grep -H --nopager --nocolor --nogroup --column"
+let g:ackprg="ack -C0 -H --nopager --nocolor --nogroup --column --literal"
 
 " ================ Indentation ======================
 filetype indent plugin on
