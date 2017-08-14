@@ -10,22 +10,20 @@ runtime macros/matchit.vim
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-set nowrap
-
-" When lines are wrapped, only break line on certain characters: \" ^I!@*-+;:,./?\"
-" This makes it easy to copy-paste between Vim and other Tmux tabs
-set linebreak
-
 source $HOME/dot-files/vim/bundle.vim
 
+set backspace=2 " Backspace not working without this.
+set clipboard=unnamedplus " Use system clipboard
+set colorcolumn=141 " Show vertical line after 140 chars
+set directory^=$HOME/dot-files/vim/tmp// " Swap files go here
+set ignorecase " Lowercase searches ignore casing
+set incsearch " Incremental searching as you type
 set laststatus=2 " Always show a statusline
-
-" =============== Command Aliases ===============
-command! -bang WQ wq<bang>
-command! -bang Wq wq<bang>
-command! -bang W w<bang>
-command! -bang Q q<bang>
-command! -bang Qa qa<bang>
+set linebreak " break line on certain characters: \" ^I!@*-+;:,./?\"
+set nofoldenable " Disable folding
+set nowrap " Don't wrap lines
+set number " Line numbers on
+set smartcase " Uppercase searching does not ignore casing
 
 " Turn off Ex mode
 nnoremap Q <nop>
@@ -46,17 +44,6 @@ au BufNewFile,BufRead Guardfile set filetype=ruby
 
 let g:ackprg="ack-grep -H --nopager --nocolor --nogroup --column"
 
-set backspace=2         " Backspace not working without this.
-set number
-
-" =================== Liaison Helpers =================
-set colorcolumn=141
-
-" ================ Turn Off Swap Files ==============
-set noswapfile
-set nobackup
-set nowb
-
 " ================ Indentation ======================
 filetype indent plugin on
 set autoindent
@@ -66,13 +53,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-
-set ignorecase
-set smartcase
-set incsearch
-
-" Use system clipboard
-set clipboard=unnamedplus
 
 " ================ Theme ======================
 set t_Co=256
@@ -89,5 +69,3 @@ autocmd BufWinLeave * call clearmatches()
 
 source $HOME/dot-files/vim/keymaps.vim
 source $HOME/dot-files/vim/abbreviations.vim
-
-set nofoldenable
