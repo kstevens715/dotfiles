@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
+Plugin 'chrisbra/csv.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
