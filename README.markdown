@@ -12,4 +12,8 @@ In vim `:PluginInstall`
 ```
 # Install the_silver_searcher (ag) for searching:
 sudo pacman -S ag
+
+# Install and run ctags alternative
+gem install ripper-tags
+ripper-tags -R
 ```
