@@ -24,6 +24,7 @@ set nofoldenable " Disable folding
 set nowrap " Don't wrap lines
 set number " Line numbers on
 set smartcase " Uppercase searching does not ignore casing
+set relativenumber " Relative line numbers
 
 " Turn off Ex mode
 nnoremap Q <nop>
