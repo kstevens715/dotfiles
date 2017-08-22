@@ -14,11 +14,9 @@ nmap <leader>b :ToggleBufExplorer<CR>
 noremap <C-F> <esc>:Ack<space>
 inoremap <C-F> <esc>:Ack<space>
 
-" " Use CTRL-movement to move between windows
-nmap <silent> <C-h> :wincmd h <CR>
-nmap <silent> <C-j> :wincmd j <CR>
-nmap <silent> <C-k> :wincmd k <CR>
-nmap <silent> <C-l> :wincmd l <CR>
+nmap <silent> <C-h> :tabprevious <CR>
+nmap <silent> <C-l> :tabnext <CR>
+nmap <silent> <C-n> :tabnew <CR>
 
 " Edit Vim configs
 nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
