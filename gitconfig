@@ -14,6 +14,14 @@
   aa = add --all --intent-to-add
   s = status
   d = diff --color
+  lol = log --graph --oneline --decorate
   poh = push origin HEAD
+
+  # For pairing, to give the pair credit for the commit (counts in GitHub stats for this person instead of me)
+  ben = commit --amend --author=\"Ben Kanouse <kanobt61@gmail.com>\"
+  mehar = commit --amend --author=\"Mehar Gangishetti <devduderino@gmail.com\"
+  kyle = commit --amend --author=\"Kyle Stevens <kstevens715@gmail.com\"
+[color]
+  ui = auto
 [commit]
   gpgsign = true
