@@ -17,3 +17,6 @@ sudo pacman -S ag
 gem install ripper-tags
 ripper-tags -R
 ```
+
+# Other
+I use this for my command prompt: https://github.com/banga/powerline-shell
