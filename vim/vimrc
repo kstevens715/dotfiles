@@ -16,6 +16,7 @@ set backspace=2 " Backspace not working without this.
 set clipboard=unnamedplus " Use system clipboard
 set colorcolumn=141 " Show vertical line after 140 chars
 set directory^=$HOME/dot-files/vim/tmp// " Swap files go here
+set noswapfile
 set ignorecase " Lowercase searches ignore casing
 set incsearch " Incremental searching as you type
 set laststatus=2 " Always show a statusline
