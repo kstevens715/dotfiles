@@ -8,7 +8,7 @@ nmap , <leader>
 
 " CtrlP Helpers
 nmap <C-P> <esc>:CtrlP <CR>
-nmap <leader>b :ToggleBufExplorer<CR>
+nmap <leader>b :CtrlPBuffer<CR>
 
 " User CTRL-f for searching project
 noremap <C-F> <esc>:Ack<space>
