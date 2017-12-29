@@ -63,6 +63,11 @@ else
 fi
 unset color_prompt force_color_prompt
 
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWCOLORHINTS=1
+source ~/dot-files/git-prompt.sh
+PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
