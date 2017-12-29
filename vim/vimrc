@@ -26,6 +26,7 @@ set nowrap " Don't wrap lines
 set number " Line numbers on
 set smartcase " Uppercase searching does not ignore casing
 set norelativenumber " No Relative line numbers (default)
+set pdev=HLL2300D " Set default printer name to print with :ha
 
 " Turn off Ex mode
 nnoremap Q <nop>
