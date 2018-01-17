@@ -1,7 +1,7 @@
 [user]
   name = Kyle Stevens
-  email = kstevens715@gmail.com
-  signingkey = 860810C5FD2AF5CA
+  email = kyle@kstevens.org
+  signingkey = 465ACF4BEC93D107
 [core]
   editor = vim
 [push]
