@@ -10,12 +10,11 @@ runtime macros/matchit.vim
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-source $HOME/dot-files/vim/bundle.vim
+runtime bundle.vim
 
 set backspace=2 " Backspace not working without this.
 set clipboard=unnamedplus " Use system clipboard
 set colorcolumn=141 " Show vertical line after 140 chars
-set directory^=$HOME/dot-files/vim/tmp// " Swap files go here
 set noswapfile
 set ignorecase " Lowercase searches ignore casing
 set incsearch " Incremental searching as you type
@@ -70,5 +69,5 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-source $HOME/dot-files/vim/keymaps.vim
-source $HOME/dot-files/vim/abbreviations.vim
+runtime keymaps.vim
+runtime abbreviations.vim
