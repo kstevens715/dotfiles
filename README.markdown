@@ -24,5 +24,14 @@ gem install ripper-tags
 ripper-tags -R
 ```
 
+# System Setup Stuff
+## Wireless
+I use netctl and wifi-menu to manage my wireless connection. In order to automatically start a wireless connection on boot,
+first you need to find the profile name with `netctl list`. Next, enable it which will create and enable a systemd service:
+
+```
+sudo netctl enable wlp2s0-Redcat-5G
+```
+
 # Other
 I use this for my command prompt: https://github.com/banga/powerline-shell
