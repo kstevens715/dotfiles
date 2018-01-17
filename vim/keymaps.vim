@@ -20,7 +20,6 @@ nmap <silent> <C-n> :tabnew <CR>
 
 " Edit Vim configs
 nmap <leader>a :vsp<CR>:e ~/dot-files/vim/abbreviations.vim<CR>
-nmap <leader>l :vsp<CR>:e ~/dot-files/links<CR>
 nmap <leader>v :vsp<CR>:e ~/dot-files/vim/vimrc<CR>
 
 " The following three commands enables pasting code snippets
