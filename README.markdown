@@ -8,7 +8,11 @@ $ ./install
 $ ln -s dot-files/gitconfig .gitconfig
 $ ln -s dot-files/bashrc .bashrc
 ```
+
 In vim `:PluginInstall`
+
+You might also want to add this line to `~/.ssh/config`. This will cause your SSH key to
+be stored by ssh-agent the first time a key is accessed.
 
 ## Prerequisites
 ```

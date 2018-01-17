@@ -17,6 +17,14 @@ export GIT_PS1_SHOWCOLORHINTS=1
 source ~/dot-files/git-prompt.sh
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
+# Startup SSH agent (only if it's not already running)
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/kstevens/bin/google-cloud-sdk/path.bash.inc' ]; then source '/home/kstevens/bin/google-cloud-sdk/path.bash.inc'; fi
 
