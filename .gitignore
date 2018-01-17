@@ -1,5 +1,3 @@
 .netrwhist
 vim/bundle/**
-!vim/bundle/Vundle.vim
-links/*
-!links/.gitkeep
+!vim/bundle/.gitkeep
