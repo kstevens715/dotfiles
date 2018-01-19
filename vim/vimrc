@@ -43,6 +43,8 @@ set omnifunc=syntaxcomplete#Complete
 " psql files should be highlighted as sql
 au BufNewFile,BufRead *.psql set filetype=sql
 au BufNewFile,BufRead Guardfile set filetype=ruby
+au BufNewFile,BufRead Dockerfile* set filetype=dockerfile
+au BufNewFile,BufRead Gemfile* set filetype=ruby
 
 let g:ackprg="ag --vimgrep"
 
