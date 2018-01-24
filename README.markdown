@@ -33,5 +33,12 @@ first you need to find the profile name with `netctl list`. Next, enable it whic
 sudo netctl enable wlp2s0-Redcat-5G
 ```
 
+## Disable system beep
+
+```
+sudo su
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+```
+
 # Other
 I use this for my command prompt: https://github.com/banga/powerline-shell
