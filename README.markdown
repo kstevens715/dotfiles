@@ -40,5 +40,8 @@ sudo su
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 ```
 
+## Other packages to install
+* ristretto - Image viewer for XFCE
+
 # Other
 I use this for my command prompt: https://github.com/banga/powerline-shell
