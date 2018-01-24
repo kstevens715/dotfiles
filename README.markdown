@@ -41,6 +41,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 ```
 
 ## Other packages to install
+* mupdf - PDF viewer
 * ristretto - Image viewer for XFCE
 
 # Other
