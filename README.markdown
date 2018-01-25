@@ -43,7 +43,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 ## Other packages to install
 * ghostscript - Dependency of brother printer driver
 * mupdf - PDF viewer
-* ristretto - Image viewer for XFCE
+* eog - Image viewer for XFCE
 * brother-hl2040 (aur)
 * xarchiver-gtk2 - Archive GUI tool
 * unzip - Unzip zip files
