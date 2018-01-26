@@ -48,6 +48,8 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 * xarchiver-gtk2 - Archive GUI tool
 * unzip - Unzip zip files
 * extra/pangox-compat	- Needed to run the Cisco Anyconnect UI client
+* xdialog - Joplin Notes likes to have this
+* bash-completion
 
 # Other
 I use this for my command prompt: https://github.com/banga/powerline-shell
