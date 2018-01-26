@@ -47,6 +47,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 * brother-hl2040 (aur)
 * xarchiver-gtk2 - Archive GUI tool
 * unzip - Unzip zip files
+* extra/pangox-compat	- Needed to run the Cisco Anyconnect UI client
 
 # Other
 I use this for my command prompt: https://github.com/banga/powerline-shell
