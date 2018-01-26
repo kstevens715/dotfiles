@@ -11,6 +11,9 @@ set -o vi
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# Enable Bash completion
+. /usr/share/bash-completion/bash_completion
+
 # Show git status in the command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
