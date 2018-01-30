@@ -45,6 +45,7 @@ au BufNewFile,BufRead *.psql set filetype=sql
 au BufNewFile,BufRead Guardfile set filetype=ruby
 au BufNewFile,BufRead Dockerfile* set filetype=dockerfile
 au BufNewFile,BufRead Gemfile* set filetype=ruby
+au BufNewFile,BufRead *.mustache set filetype=html
 
 let g:ackprg="ag --vimgrep"
 
