@@ -41,15 +41,16 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 ```
 
 ## Other packages to install
+* bash-completion
+* blueman - Bluetooth manager GUI
+* brother-hl2040 (aur)
+* eog - Image viewer for XFCE
+* extra/pangox-compat	- Needed to run the Cisco Anyconnect UI client
 * ghostscript - Dependency of brother printer driver
 * mupdf - PDF viewer
-* eog - Image viewer for XFCE
-* brother-hl2040 (aur)
-* xarchiver-gtk2 - Archive GUI tool
 * unzip - Unzip zip files
-* extra/pangox-compat	- Needed to run the Cisco Anyconnect UI client
+* xarchiver-gtk2 - Archive GUI tool
 * xdialog - Joplin Notes likes to have this
-* bash-completion
 
 # Other
 I use this for my command prompt: https://github.com/banga/powerline-shell
