@@ -47,6 +47,8 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 * eog - Image viewer for XFCE
 * extra/pangox-compat	- Needed to run the Cisco Anyconnect UI client
 * ghostscript - Dependency of brother printer driver
+* git-crypt - Needed by monster
+* gnome-keyring libsecret - Use Gnome keyring
 * mupdf - PDF viewer
 * unzip - Unzip zip files
 * xarchiver-gtk2 - Archive GUI tool
