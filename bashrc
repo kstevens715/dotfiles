@@ -43,6 +43,8 @@ export PATH=$PATH:/home/kstevens/bin
 
 # Aliases
 alias dc='docker-compose'
+alias dcdown='docker-compose down --remove-orphans --timeout 1'
+alias dcup='docker-compose up -d'
 alias railsc='docker-compose exec app bundle exec rails c'
 alias railsdb='docker-compose exec app bundle exec rails db -p'
 alias railss='docker-compose exec app bundle exec rails s'
