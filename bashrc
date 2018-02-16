@@ -33,7 +33,7 @@ if [ -f '/home/kstevens/bin/google-cloud-sdk/path.bash.inc' ]; then source '/hom
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kstevens/bin/google-cloud-sdk/completion.bash.inc' ]; then source '/home/kstevens/bin/google-cloud-sdk/completion.bash.inc'; fi
-source <(kubectl completion bash)
+if [ -d '/home/kstevens/bin/google-cloud-sdk' ]; then source <(kubectl completion bash); fi
 
 # PATH additions
 export PATH=$PATH:/home/kstevens/code/wa-devenv/deploy/deploy/
