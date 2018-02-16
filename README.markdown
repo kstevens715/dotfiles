@@ -44,6 +44,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 * bash-completion
 * blueman - Bluetooth manager GUI
 * brother-hl2040 (aur)
+* docker-compose
 * eog - Image viewer for XFCE
 * extra/pangox-compat	- Needed to run the Cisco Anyconnect UI client
 * ghostscript - Dependency of brother printer driver
