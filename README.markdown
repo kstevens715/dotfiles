@@ -50,6 +50,8 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 * ghostscript - Dependency of brother printer driver
 * git-crypt - Needed by monster
 * gnome-keyring libsecret - Use Gnome keyring
+* nodejs
+* npm
 * mupdf - PDF viewer
 * unzip - Unzip zip files
 * xarchiver-gtk2 - Archive GUI tool
