@@ -62,6 +62,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 * unzip - Unzip zip files
 * xarchiver-gtk2 - Archive GUI tool
 * xdialog - Joplin Notes likes to have this
+* flashplugin, libvdpau-va-gl - Both needed for Flash player
 
 # Other
 I use this for my command prompt: https://github.com/banga/powerline-shell
