@@ -35,6 +35,8 @@ if [ -f '/home/kstevens/bin/google-cloud-sdk/path.bash.inc' ]; then source '/hom
 if [ -f '/home/kstevens/bin/google-cloud-sdk/completion.bash.inc' ]; then source '/home/kstevens/bin/google-cloud-sdk/completion.bash.inc'; fi
 if [ -d '/home/kstevens/bin/google-cloud-sdk' ]; then source <(kubectl completion bash); fi
 
+export EDITOR=vim
+
 # PATH additions
 export PATH=$PATH:/home/kstevens/code/wa-devenv/deploy/deploy/
 export PATH=$PATH:/home/kstevens/code/wa-devenv/deploy/
