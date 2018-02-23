@@ -42,6 +42,7 @@ export PATH=$PATH:/home/kstevens/code/wa-devenv/deploy/deploy/
 export PATH=$PATH:/home/kstevens/code/wa-devenv/deploy/
 export PATH=$PATH:/home/kstevens/code/wa-devenv/kubernetes/
 export PATH=$PATH:/home/kstevens/bin
+export PATH=$PATH:/home/kstevens/dot-files/bin
 
 # Aliases
 alias dc='docker-compose'
