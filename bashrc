@@ -56,3 +56,6 @@ alias resque='docker-compose exec app bundle exec rake resque:work VERBOSE=1 QUE
 alias guard='docker-compose exec app guard'
 alias killguard="dc exec app bash -c \"pkill -U app -f 'ruby /home/app/bundle/bin/guard'\""
 alias zeus='docker-compose exec app zeus start'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
