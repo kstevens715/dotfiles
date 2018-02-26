@@ -48,6 +48,7 @@ export PATH=$PATH:/home/kstevens/dot-files/bin
 alias dc='docker-compose'
 alias dcdown='docker-compose down --remove-orphans --timeout 1'
 alias dcup='docker-compose up -d'
+alias getpods='kubectl get pods -o wide'
 alias railsc='docker-compose exec app bundle exec rails c'
 alias railsdb='docker-compose exec app bundle exec rails db -p'
 alias railss='docker-compose exec app bundle exec rails s'
