@@ -56,12 +56,12 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 * ghostscript - Dependency of brother printer driver
 * git-crypt - Needed by monster
 * gnome-keyring libsecret - Use Gnome keyring
+* hunspell hunspell-en - Spell checking in Firefox
 * nodejs
 * npm
 * mupdf - PDF viewer
 * unzip - Unzip zip files
 * xarchiver-gtk2 - Archive GUI tool
-* xdialog - Joplin Notes likes to have this
 * flashplugin, libvdpau-va-gl - Both needed for Flash player
 
 # Other
