@@ -1,7 +1,6 @@
 [user]
   name = Kyle Stevens
-  email = kyle@kstevens.org
-  signingkey = 465ACF4BEC93D107
+  email = kstevens715@gmail.com
 [core]
   editor = vim
 [push]
@@ -23,5 +22,3 @@
   kyle = commit --amend --author=\"Kyle Stevens <kstevens715@gmail.com\"
 [color]
   ui = auto
-[commit]
-  gpgsign = true

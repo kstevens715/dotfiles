@@ -27,11 +27,6 @@ set smartcase " Uppercase searching does not ignore casing
 set norelativenumber " No Relative line numbers (default)
 set pdev=Brother_HL-L2300D_series " Set default printer name to print with :ha
 
-" Automatically reformat text, for example by wrapping text in a commit message after editing.
-" You can also shut this option off, and highlight text and press gq to do the
-" same thing on a selection manually.
-set formatoptions+=aw
-
 " Turn off Ex mode
 nnoremap Q <nop>
 
