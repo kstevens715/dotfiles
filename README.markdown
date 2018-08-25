@@ -6,7 +6,6 @@ $ ./install
 
 # Only if you're me.
 $ ln -s dot-files/gitconfig .gitconfig
-$ ln -s dot-files/bashrc .bashrc
 ```
 
 In vim `:PluginInstall`
