@@ -58,5 +58,10 @@ alias killguard="dc exec app bash -c \"pkill -U app -f 'ruby /home/app/bundle/bi
 alias zeus='docker-compose exec app zeus start'
 alias vi='vim'
 
+# Todo.txt
+alias t='~/Nextcloud/Todo/todo.sh'
+complete -F _todo t
+
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
