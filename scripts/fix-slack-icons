@@ -1,0 +1,7 @@
+# This changes the Gnome taskbar icon for Slack to not have an indicator for unread messages.
+# I find it very distracting when I'm trying to stay focused.
+
+sudo mv /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-highlight.png  /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-highlight.png.backup
+sudo mv /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-unread.png  /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-unread.png.backup
+sudo cp /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-rest.png  /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-unread.png
+sudo cp /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-rest.png  /usr/lib/slack/resources/app.asar.unpacked/src/static/slack-taskbar-highlight.png
