@@ -23,6 +23,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-scripts/SQLUtilities'
 Plugin 'vim-scripts/Align'
+Plugin 'google/vim-searchindex'
 
 "Plugin 'leafgarland/typescript-vim'
 Plugin 'pangloss/vim-javascript'
