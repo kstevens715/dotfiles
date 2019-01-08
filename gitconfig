@@ -15,6 +15,7 @@
   d = diff --color
   lol = log --graph --oneline --decorate
   poh = push origin HEAD
+  r = reflog --date=iso
 
   # For pairing, to give the pair credit for the commit (counts in GitHub stats for this person instead of me)
   ben = commit --amend --author=\"Ben Kanouse <kanobt61@gmail.com>\"
