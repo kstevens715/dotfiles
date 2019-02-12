@@ -13,6 +13,9 @@ In vim `:PluginInstall`
 You might also want to add this line to `~/.ssh/config`. This will cause your SSH key to
 be stored by ssh-agent the first time a key is accessed.
 
+## VS Code
+Settings stored here: https://gist.github.com/kstevens715/d976fb41cbcf2320256f879157496143
+
 ## Prerequisites
 ```
 # Install the_silver_searcher (ag) for searching:
