@@ -1,9 +1,0 @@
-[Unit]
-Description=Enable Cisco VPN agent
-
-[Service]
-Type=forking
-ExecStart=/opt/cisco/anyconnect/bin/vpnagentd
-
-[Install]
-WantedBy=default.target
