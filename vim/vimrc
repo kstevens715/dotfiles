@@ -64,6 +64,9 @@ set pdev=Brother_HL-L2300D_series " Set default printer name to print with :ha
 " Turn off Ex mode
 nnoremap Q <nop>
 
+" Autoformat JSON
+com! FormatJSON %!python -m json.tool
+
 " ================= CtrlP Settings ===============
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
