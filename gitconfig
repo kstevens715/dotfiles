@@ -2,7 +2,7 @@
   name = Kyle Stevens
   email = kstevens715@gmail.com
 [core]
-  editor = vim
+  editor = nvim
 [push]
   default = current
 [github]
@@ -16,10 +16,5 @@
   lol = log --graph --oneline --decorate
   poh = push origin HEAD
   r = reflog --date=iso
-
-  # For pairing, to give the pair credit for the commit (counts in GitHub stats for this person instead of me)
-  ben = commit --amend --author=\"Ben Kanouse <kanobt61@gmail.com>\"
-  mehar = commit --amend --author=\"Mehar Gangishetti <devduderino@gmail.com\"
-  kyle = commit --amend --author=\"Kyle Stevens <kstevens715@gmail.com\"
 [color]
   ui = auto
