@@ -1,4 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
+" Comment / Uncomment
+Plug 'tpope/vim-commentary'
+
 " Status bar
 Plug 'bling/vim-airline'
 
