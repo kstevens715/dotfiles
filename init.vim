@@ -2,6 +2,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Comment / Uncomment
 Plug 'tpope/vim-commentary'
 
+" Git stuff like Gblame
+Plug 'tpope/vim-fugitive'
+
 " Status bar
 Plug 'bling/vim-airline'
 
