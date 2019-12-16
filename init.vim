@@ -13,11 +13,6 @@ Plug 'kien/ctrlp.vim'
 
 " Syntax highlighting for TypeScript
 Plug 'leafgarland/typescript-vim'
-" coc extensions
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
-
-" Intellisense engine that uses language servers
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 " Color theme
 Plug 'sickill/vim-monokai'
