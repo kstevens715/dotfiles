@@ -16,6 +16,10 @@ Plug 'leafgarland/typescript-vim'
 
 " Color theme
 Plug 'sickill/vim-monokai'
+
+" REST client
+Plug 'diepm/vim-rest-console'
+
 call plug#end()
 
 colorscheme monokai
@@ -40,6 +44,9 @@ autocmd BufWinLeave * call clearmatches()
 
 " Autoformat JSON
 com! FormatJSON %!python3 -m json.tool
+
+" Vim REST client settings
+let g:vrc_show_command = 1
 
 " CtrlP Settings
 let g:ctrlp_map = '<Leader>t'
