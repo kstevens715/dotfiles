@@ -46,6 +46,7 @@ autocmd BufWinLeave * call clearmatches()
 com! FormatJSON %!python3 -m json.tool
 
 " Vim REST client settings
+let g:vrc_allow_get_request_body = 1
 let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
 let g:vrc_response_default_content_type = 'application/json'
 let g:vrc_show_command = 0
