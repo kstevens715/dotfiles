@@ -46,7 +46,12 @@ autocmd BufWinLeave * call clearmatches()
 com! FormatJSON %!python3 -m json.tool
 
 " Vim REST client settings
-let g:vrc_show_command = 1
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+let g:vrc_response_default_content_type = 'application/json'
+let g:vrc_show_command = 0
+let g:vrc_curl_opts = {
+  \ '-sS': ''
+\}
 
 " CtrlP Settings
 let g:ctrlp_map = '<Leader>t'
