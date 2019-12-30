@@ -20,6 +20,11 @@ Plug 'sickill/vim-monokai'
 " REST client
 Plug 'diepm/vim-rest-console'
 
+" Searching (make sure the_silver_searcher is installed first)
+Plug 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep'
+let g:ackpreview = 1
+
 call plug#end()
 
 colorscheme monokai
