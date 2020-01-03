@@ -24,6 +24,7 @@ Plug 'diepm/vim-rest-console'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep'
 let g:ackpreview = 1
+nmap <leader>f :Ack<space>
 
 call plug#end()
 
