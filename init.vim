@@ -26,6 +26,8 @@ let g:ackprg = 'ag --vimgrep'
 let g:ackpreview = 1
 nmap <leader>f :Ack<space>
 
+Plug 'chrisbra/csv.vim'
+
 call plug#end()
 
 colorscheme monokai
