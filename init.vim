@@ -98,6 +98,10 @@ command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Qa qa<bang>
 
+" Smart case searching
+set ignorecase
+set smartcase
+
 " Indentation
 filetype indent plugin on
 set autoindent
