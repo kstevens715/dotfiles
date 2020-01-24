@@ -3,6 +3,7 @@
   email = kstevens715@gmail.com
 [core]
   editor = nvim
+  pager = delta --dark
 [push]
   default = current
 [github]
