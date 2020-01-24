@@ -9,7 +9,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 
 " File finder
-Plug 'kien/ctrlp.vim'
+Plug 'cloudhead/neovim-fuzzy'
+nmap <leader>t :FuzzyOpen<CR>
 
 " Syntax highlighting for TypeScript
 Plug 'leafgarland/typescript-vim'
@@ -61,14 +62,6 @@ let g:vrc_show_command = 0
 let g:vrc_curl_opts = {
   \ '-sS': ''
 \}
-
-" CtrlP Settings
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
-let ctrlp_max_height=100
-let g:ctrlp_max_files=0
-nmap <C-P> <esc>:CtrlP <CR>
-nmap <leader>b :CtrlPBuffer<CR>
 
 " File type aliases for highlighting
 au BufNewFile,BufRead *.mustache set filetype=html
