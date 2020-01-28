@@ -104,3 +104,4 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+let g:ruby_indent_access_modifier_style="indent"
