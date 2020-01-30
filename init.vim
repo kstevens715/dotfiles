@@ -95,3 +95,9 @@ let g:ruby_indent_access_modifier_style="indent"
 
 " \\p to insert binding.pry
 map <leader><leader>p Obinding.pry if true<esc>
+
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.rb 0r ~/dot-files/skeleton.rb
+  augroup END
+endif
