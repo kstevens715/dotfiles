@@ -4,6 +4,7 @@
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Aliases
+alias be="bundle exec"
 alias cdc="cd ~/code/content_system"
 alias vimcdc="cdc & vim"
 alias vim="nvim"
