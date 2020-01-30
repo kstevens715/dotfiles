@@ -29,6 +29,8 @@ nmap <silent> <C-n> :tabnew <CR>
 " Quick exit of insert mode
 inoremap jj <Esc>
 
+map <C-[> :pop <CR>
+
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
