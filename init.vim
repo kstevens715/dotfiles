@@ -1,36 +1,22 @@
 call plug#begin('~/.local/share/nvim/plugged')
-" Comment / Uncomment
-Plug 'tpope/vim-commentary'
 
-" Git stuff like Gblame
-Plug 'tpope/vim-fugitive'
-
-" Status bar
 Plug 'bling/vim-airline'
-
-" File finder
-Plug 'cloudhead/neovim-fuzzy'
-nmap <leader>t :FuzzyOpen<CR>
-
-" Syntax highlighting for TypeScript
-Plug 'leafgarland/typescript-vim'
-
-" Color theme
-Plug 'sickill/vim-monokai'
-
-" REST client
-Plug 'diepm/vim-rest-console'
-
-" Searching (make sure the_silver_searcher is installed first)
-Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag --vimgrep'
-let g:ackpreview = 1
-nmap <leader>f :Ack<space>
-
 Plug 'chrisbra/csv.vim'
+Plug 'cloudhead/neovim-fuzzy'
+Plug 'diepm/vim-rest-console'
+Plug 'leafgarland/typescript-vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mileszs/ack.vim'
+Plug 'sickill/vim-monokai'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
+let g:ackprg = 'ag --vimgrep'
+let g:ackpreview = 1
+nmap <leader>f :Ack<space>
+nmap <leader>t :FuzzyOpen<CR>
 colorscheme monokai
 set number " Line numbers on
 filetype plugin on
