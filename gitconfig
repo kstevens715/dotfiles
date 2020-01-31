@@ -4,6 +4,7 @@
 [core]
   editor = nvim
   pager = delta --dark
+  excludesfile = /Users/kylest/dot-files/gitignore_global
 [push]
   default = current
 [github]
