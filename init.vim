@@ -95,8 +95,7 @@ set expandtab
 
 let g:ruby_indent_access_modifier_style="indent"
 
-" \\p to insert binding.pry
-map <leader><leader>p Obinding.pry if true<esc>
+ab pry binding.pry
 
 if has("autocmd")
   augroup templates
