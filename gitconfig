@@ -13,6 +13,7 @@
   browser = google-chrome
 [alias]
   aa = add --all --intent-to-add
+  c = commit -v
   s = status
   d = diff --color
   lol = log --graph --oneline --decorate
