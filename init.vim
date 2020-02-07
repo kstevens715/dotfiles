@@ -61,6 +61,9 @@ au BufNewFile,BufRead Dockerfile* set filetype=dockerfile
 au BufNewFile,BufRead Gemfile* set filetype=ruby
 au BufNewFile,BufRead Guardfile set filetype=ruby
 
+" Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
+au FileType * set formatoptions-=c formatoptions-=o
+
 " Tab navigation
 nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
