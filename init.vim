@@ -4,6 +4,7 @@ Plug 'bling/vim-airline'
 Plug 'chrisbra/csv.vim'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'diepm/vim-rest-console'
+Plug 'janko/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/vim-gist'
@@ -23,10 +24,6 @@ colorscheme monokai
 set number " Line numbers on
 filetype plugin on
 set colorcolumn=120
-
-nmap <silent> <C-h> :tabprevious <CR>
-nmap <silent> <C-l> :tabnext <CR>
-nmap <silent> <C-n> :tabnew <CR>
 
 " Quick exit of insert mode
 inoremap jj <Esc>
@@ -68,6 +65,13 @@ au FileType * set formatoptions-=c formatoptions-=o
 nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
 nmap <silent> <C-n> :tabnew <CR>
+
+" Test shortcuts
+nmap <silent> <C-c> :TestNearest <CR>
+nmap <silent> <C-f> :TestFile <CR>
+nmap <silent> <C-x> :TestLast <CR>
+
+let test#strategy = "neovim"
 
 " Toggle F2 for paste mode
 nnoremap <F2> :set invpaste paste?<CR>
