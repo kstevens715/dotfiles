@@ -88,6 +88,8 @@ command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Qa qa<bang>
 
+command Ghist 0Glog
+
 " Smart case searching
 set ignorecase
 set smartcase
