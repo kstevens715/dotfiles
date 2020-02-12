@@ -13,6 +13,8 @@ Plug 'mileszs/ack.vim'
 Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'wfleming/vim-codeclimate'
 
 call plug#end()
 
