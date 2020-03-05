@@ -29,6 +29,8 @@ set colorcolumn=120
 
 " Quick exit of insert mode
 inoremap jj <Esc>
+" Quick exit of insert mode while in terminal emulator
+tnoremap jj <C-\><C-n>
 
 map <C-[> :pop <CR>
 
