@@ -14,6 +14,7 @@
 [alias]
   aa = add --all --intent-to-add
   c = commit -v
+  co = checkout
   s = status
   d = diff --color
   lol = log --graph --oneline --decorate
