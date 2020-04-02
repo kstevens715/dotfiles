@@ -1,3 +1,4 @@
 .netrwhist
 vim/bundle/**
 !vim/bundle/.gitkeep
+.DS_Store
