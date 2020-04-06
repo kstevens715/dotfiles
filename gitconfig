@@ -3,7 +3,6 @@
   email = kstevens715@gmail.com
 [core]
   editor = nvim
-  pager = delta --dark
   excludesfile = /Users/kylest/dot-files/gitignore_global
 [push]
   default = current
@@ -15,6 +14,7 @@
   aa = add --all --intent-to-add
   c = commit -v
   co = checkout
+  f = fetch
   s = status
   d = diff --color
   lol = log --graph --oneline --decorate
