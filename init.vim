@@ -10,7 +10,6 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
-Plug 'mileszs/ack.vim'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -27,9 +26,7 @@ set background=dark
 colorscheme solarized8_high
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
-let g:ackprg = 'ag --vimgrep'
-let g:ackpreview = 1
-nmap <leader>f :Ack<space>
+nmap <leader>f :FuzzyGrep<CR>
 nmap <leader>t :FuzzyOpen<CR>
 set number " Line numbers on
 filetype plugin on
