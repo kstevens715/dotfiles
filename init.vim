@@ -90,6 +90,9 @@ set pastetoggle=<F2>
 map <F3> :setlocal spell! spelllang=en_us<CR>
 imap <F3> <C-o>:setlocal spell! spelllang=en_us<CR>
 
+" Leader-s to check Ruby syntax
+autocmd FileType ruby map <leader>s :w<CR>:!ruby -c %<CR>
+
 " Typo forgiveness
 command! -bang WQ wq<bang>
 command! -bang Wq wq<bang>
