@@ -90,6 +90,8 @@ set pastetoggle=<F2>
 map <F3> :setlocal spell! spelllang=en_us<CR>
 imap <F3> <C-o>:setlocal spell! spelllang=en_us<CR>
 
+map <F4> :silent execute '![ -f "%:p" ] && open -R "%:p" \|\| open "%:p:h"'<CR>
+
 " Leader-s to check Ruby syntax
 autocmd FileType ruby map <leader>s :w<CR>:!ruby -c %<CR>
 
