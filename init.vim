@@ -1,12 +1,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
 Plug 'chrisbra/csv.vim'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'diepm/vim-rest-console'
 Plug 'janko/vim-test'
 Plug 'leafgarland/typescript-vim'
-Plug 'lifepillar/vim-solarized8'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
@@ -22,9 +22,9 @@ call plug#end()
 if (has('termguicolors'))
   set termguicolors
 endif
-set background=dark
-colorscheme solarized8_high
-map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+let ayucolor="dark"
+" let ayucolor="light"
+colorscheme ayu
 
 nmap <leader>f :FuzzyGrep<CR>
 nmap <leader>t :FuzzyOpen<CR>
