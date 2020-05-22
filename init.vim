@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'diepm/vim-rest-console'
@@ -19,9 +20,10 @@ Plug 'wfleming/vim-codeclimate'
 call plug#end()
 
 " Color scheme
-if (has('termguicolors'))
-  set termguicolors
-endif
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
+command SwitchColor let ayucolor=( ayucolor == "dark"? "light" : "dark" ) | colorscheme ayu
 
 nmap <leader>f :FuzzyGrep<CR>
 nmap <leader>t :FuzzyOpen<CR>
