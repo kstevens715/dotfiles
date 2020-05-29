@@ -27,8 +27,16 @@ let ayucolor="dark"
 colorscheme ayu
 command SwitchColor let ayucolor=( ayucolor == "dark"? "light" : "dark" ) | colorscheme ayu
 
-nmap <leader>f :FuzzyGrep<CR>
-nmap <leader>t :FuzzyOpen<CR>
+nmap <unique> <leader>g <Plug>GenerateDiagram
+
+" CtrlP Settings
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co | grep -v app/assets']
+let ctrlp_max_height=20
+let g:ctrlp_max_files=0
+nmap <C-P> <esc>:CtrlP <CR>
+nmap <leader>b :CtrlPBuffer<CR>
+
 set number " Line numbers on
 filetype plugin on
 set colorcolumn=120
