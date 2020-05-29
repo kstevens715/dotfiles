@@ -2,7 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
-Plug 'cloudhead/neovim-fuzzy'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'janko/vim-test'
 Plug 'kchmck/vim-coffee-script'
@@ -14,8 +14,10 @@ Plug 'mechatroner/rainbow_csv'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
 Plug 'wfleming/vim-codeclimate'
+Plug 'xavierchow/vim-sequence-diagram'
 
 call plug#end()
 
