@@ -111,6 +111,10 @@ command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Qa qa<bang>
 
+" Disable ex mode
+map q: <Nop>
+nnoremap Q <nop>
+
 command Ghist 0Glog
 
 " Smart case searching
