@@ -3,9 +3,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'janko/vim-test'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -30,13 +31,7 @@ command SwitchColor let ayucolor=( ayucolor == "dark"? "light" : "dark" ) | colo
 
 nmap <unique> <leader>g <Plug>GenerateDiagram
 
-" CtrlP Settings
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co | grep -v app/assets']
-let ctrlp_max_height=20
-let g:ctrlp_max_files=0
-nmap <C-P> <esc>:CtrlP <CR>
-nmap <leader>b :CtrlPBuffer<CR>
+map <leader>t :Files<CR>
 
 set number " Line numbers on
 filetype plugin on
