@@ -31,7 +31,10 @@ command SwitchColor let ayucolor=( ayucolor == "dark"? "light" : "dark" ) | colo
 
 nmap <unique> <leader>g <Plug>GenerateDiagram
 
-map <leader>t :Files<CR>
+" fzf settings
+map <leader>t :GFiles<CR>
+map <leader>b :Buffers<CR>
+map <leader>f :Ag 
 
 set number " Line numbers on
 filetype plugin on
