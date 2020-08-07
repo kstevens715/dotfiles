@@ -13,6 +13,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 Plug 'mechatroner/rainbow_csv'
+Plug 'preservim/nerdtree'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -35,6 +36,7 @@ nmap <unique> <leader>g <Plug>GenerateDiagram
 map <leader>t :GFiles<CR>
 map <leader>b :Buffers<CR>
 map <leader>f :Ag 
+map <leader>n :NERDTreeToggle<CR>
 
 set number " Line numbers on
 filetype plugin on
