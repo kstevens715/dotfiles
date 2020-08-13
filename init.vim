@@ -141,3 +141,10 @@ if has("autocmd")
     autocmd BufNewFile *.rb 0r ~/dot-files/skeleton.rb
   augroup END
 endif
+
+" Commit messages
+function GitCommitOptions()
+  setlocal spell
+endfunc
+
+autocmd FileType gitcommit call GitCommitOptions()
