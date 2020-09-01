@@ -1,32 +1,20 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'airblade/vim-gitgutter'
-Plug 'ayu-theme/ayu-vim'
-Plug 'bling/vim-airline'
 Plug 'diepm/vim-rest-console'
-Plug 'elzr/vim-json'
 Plug 'vim-test/vim-test'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mattn/vim-gist'
-Plug 'mattn/webapi-vim'
-Plug 'mechatroner/rainbow_csv'
-Plug 'preservim/nerdtree'
-Plug 'sbdchd/neoformat'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 
+" Not needed for Onivim
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'ayu-theme/ayu-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
-
-" Color scheme
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
-command SwitchColor let ayucolor=( ayucolor == "dark"? "light" : "dark" ) | colorscheme ayu
-
-nmap <unique> <leader>g <Plug>GenerateDiagram
 
 " fzf settings
 map <leader>t :GFiles<CR>
@@ -36,22 +24,11 @@ map <leader>n :NERDTreeToggle<CR>
 
 set number " Line numbers on
 filetype plugin on
-set colorcolumn=120
 
 " Quick exit of insert mode
 inoremap jj <Esc>
 " Quick exit of insert mode while in terminal emulator
 tnoremap jj <C-\><C-n>
-
-map <C-[> :pop <CR>
-
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 " Autoformat JSON
 com! FormatJSON %!python3 -m json.tool
@@ -64,14 +41,6 @@ let g:vrc_show_command = 0
 let g:vrc_curl_opts = {
   \ '-sS': ''
 \}
-
-" File type aliases for highlighting
-au BufNewFile,BufRead *.mustache set filetype=html
-au BufNewFile,BufRead *.psql set filetype=sql
-au BufNewFile,BufRead *.ts setlocal filetype=typescript
-au BufNewFile,BufRead Dockerfile* set filetype=dockerfile
-au BufNewFile,BufRead Gemfile* set filetype=ruby
-au BufNewFile,BufRead Guardfile set filetype=ruby
 
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
@@ -97,9 +66,6 @@ map <F3> :setlocal spell! spelllang=en_us<CR>
 imap <F3> <C-o>:setlocal spell! spelllang=en_us<CR>
 
 map <F4> :silent execute '![ -f "%:p" ] && open -R "%:p" \|\| open "%:p:h"'<CR>
-
-" Leader-s to check Ruby syntax
-autocmd FileType ruby map <leader>s :w<CR>:!ruby -c %<CR>
 
 " Typo forgiveness
 command! -bang WQ wq<bang>
@@ -129,18 +95,3 @@ set tabstop=2
 set expandtab
 
 let g:ruby_indent_access_modifier_style="indent"
-
-ab pry binding.pry
-
-if has("autocmd")
-  augroup templates
-    autocmd BufNewFile *.rb 0r ~/dot-files/skeleton.rb
-  augroup END
-endif
-
-" Commit messages
-function GitCommitOptions()
-  setlocal spell
-endfunc
-
-autocmd FileType gitcommit call GitCommitOptions()
