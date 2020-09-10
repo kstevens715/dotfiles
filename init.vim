@@ -1,9 +1,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'diepm/vim-rest-console'
-Plug 'vim-test/vim-test'
+Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
+Plug 'vim-test/vim-test'
 
 " Not needed for Onivim
 Plug 'preservim/nerdtree'
@@ -15,6 +16,8 @@ Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
+
+colorscheme monokai
 
 " fzf settings
 map <leader>t :GFiles<CR>
