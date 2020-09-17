@@ -9,6 +9,7 @@ Plug 'vim-test/vim-test'
 " Not needed for Onivim
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-rhubarb'
 Plug 'ayu-theme/ayu-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
