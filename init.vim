@@ -20,6 +20,10 @@ call plug#end()
 
 colorscheme monokai
 
+" open / reload config
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+nnoremap <Leader>vr :source $MYVIMRC<CR>
+
 " fzf settings
 map <leader>t :GFiles<CR>
 map <leader>b :Buffers<CR>
@@ -82,7 +86,7 @@ command! -bang Qa qa<bang>
 map q: <Nop>
 nnoremap Q <nop>
 
-command Ghist 0Glog
+command! Ghist 0Glog
 
 " Smart case searching
 set ignorecase
