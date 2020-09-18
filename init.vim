@@ -1,3 +1,4 @@
+" ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'diepm/vim-rest-console'
@@ -5,8 +6,6 @@ Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'vim-test/vim-test'
-
-" Not needed for Onivim
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
@@ -18,19 +17,44 @@ Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
-colorscheme monokai
+" ========== PLUGIN SETTINGS ==========
 
-" open / reload config
-nnoremap <Leader>ve :e $MYVIMRC<CR>
-nnoremap <Leader>vr :source $MYVIMRC<CR>
-
-" fzf settings
+" fzf
 map <leader>t :GFiles<CR>
 map <leader>b :Buffers<CR>
 map <leader>f :Ag 
 map <leader>n :NERDTreeToggle<CR>
 
-set number " Line numbers on
+" vim-rest-console
+let g:vrc_allow_get_request_body = 1
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+let g:vrc_response_default_content_type = 'application/json'
+let g:vrc_show_command = 0
+let g:vrc_curl_opts = {
+  \ '-sS': ''
+\}
+
+" vim-test
+nmap <silent> <C-c> :TestNearest <CR>
+nmap <silent> <C-f> :TestFile <CR>
+nmap <silent> <C-x> :TestLast <CR>
+let test#strategy = "neovim"
+
+" ========== STYLE / COLOR ==========
+colorscheme monokai
+set number          " Line numbers on
+
+
+" ========== ABBREVIATIONS ==========
+ab fsl # frozen_string_literal: true
+ab rth require 'test_helper'
+ab tcase ActiveSupport::TestCase
+
+
+" open / reload config
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+nnoremap <Leader>vr :source $MYVIMRC<CR>
+
 filetype plugin on
 
 " Quick exit of insert mode
@@ -41,15 +65,6 @@ tnoremap jj <C-\><C-n>
 " Autoformat JSON
 com! FormatJSON %!python3 -m json.tool
 
-" Vim REST client settings
-let g:vrc_allow_get_request_body = 1
-let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
-let g:vrc_response_default_content_type = 'application/json'
-let g:vrc_show_command = 0
-let g:vrc_curl_opts = {
-  \ '-sS': ''
-\}
-
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
 
@@ -58,12 +73,6 @@ nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
 nmap <silent> <C-n> :tabnew <CR>
 
-" Test shortcuts
-nmap <silent> <C-c> :TestNearest <CR>
-nmap <silent> <C-f> :TestFile <CR>
-nmap <silent> <C-x> :TestLast <CR>
-
-let test#strategy = "neovim"
 
 " Toggle F2 for paste mode
 nnoremap <F2> :set invpaste paste?<CR>
