@@ -119,4 +119,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Preview substitutions
+set inccommand=nosplit
+
 let g:ruby_indent_access_modifier_style="indent"
