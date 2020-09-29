@@ -1,19 +1,20 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'diepm/vim-rest-console'
-Plug 'sickill/vim-monokai'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'vim-test/vim-test'
-Plug 'preservim/nerdtree'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
+Plug 'bling/vim-airline'
+Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'bling/vim-airline'
-Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-easy-align'
+Plug 'preservim/nerdtree'
+Plug 'sickill/vim-monokai'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rhubarb'
+Plug 'vim-test/vim-test'
 
 call plug#end()
 
@@ -24,6 +25,13 @@ map <leader>t :GFiles<CR>
 map <leader>b :Buffers<CR>
 map <leader>f :Ag 
 map <leader>n :NERDTreeToggle<CR>
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " vim-rest-console
 let g:vrc_allow_get_request_body = 1
