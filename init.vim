@@ -50,7 +50,7 @@ let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
 colorscheme monokai
-set number          " Line numbers on
+set number relativenumber
 
 
 " ========== ABBREVIATIONS ==========
