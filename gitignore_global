@@ -1,6 +1,7 @@
 tags
 .byebug_history
 .foreman
+.solargraph.yml
 .DS_Store
 rest/
 2
