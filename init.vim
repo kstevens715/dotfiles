@@ -8,6 +8,8 @@ Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'mattn/vim-gist'
+Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'sickill/vim-monokai'
@@ -16,6 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
 Plug 'vim-test/vim-test'
+Plug 'wfleming/vim-codeclimate'
 
 call plug#end()
 
@@ -71,7 +74,7 @@ let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
 colorscheme monokai
-set number relativenumber
+set number
 
 
 " ========== ABBREVIATIONS ==========
