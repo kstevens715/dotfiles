@@ -13,6 +13,7 @@ Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'sickill/vim-monokai'
+Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -70,7 +71,7 @@ let g:vrc_curl_opts = {
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "neovim"
+let test#strategy = "asyncrun_background_term"
 
 " ========== STYLE / COLOR ==========
 colorscheme monokai
