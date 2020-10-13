@@ -5,7 +5,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
 Plug 'diepm/vim-rest-console'
-Plug 'freitass/todo.txt-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
@@ -14,7 +13,6 @@ Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'sickill/vim-monokai'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -52,6 +50,9 @@ map <leader>b :Buffers<CR>
 map <leader>f :Ag 
 map <leader>n :NERDTreeToggle<CR>
 
+" vim-code-climate
+" autocmd FileType ruby let b:codeclimateflags="--engine brakeman"
+
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -72,7 +73,7 @@ let g:vrc_curl_opts = {
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "asyncrun_background_term"
+let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
 colorscheme monokai
