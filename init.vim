@@ -78,7 +78,7 @@ let test#strategy = "neovim"
 " ========== STYLE / COLOR ==========
 colorscheme monokai
 set number
-
+set colorcolumn=150
 
 " ========== ABBREVIATIONS ==========
 ab fsl # frozen_string_literal: true
