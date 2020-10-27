@@ -12,7 +12,7 @@ Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
-Plug 'sickill/vim-monokai'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -50,6 +50,17 @@ map <leader>b :Buffers<CR>
 map <leader>f :Ag 
 map <leader>n :NERDTreeToggle<CR>
 
+" onehalf
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+set t_Co=256
+set cursorline
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 " vim-code-climate
 " autocmd FileType ruby let b:codeclimateflags="--engine brakeman"
 
@@ -76,7 +87,6 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-colorscheme monokai
 set number
 set colorcolumn=150
 
