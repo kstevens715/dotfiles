@@ -89,6 +89,7 @@ let test#strategy = "neovim"
 " ========== STYLE / COLOR ==========
 set number
 set colorcolumn=150
+highlight IncSearch guibg=green ctermbg=green term=underline
 
 " ========== ABBREVIATIONS ==========
 ab fsl # frozen_string_literal: true
