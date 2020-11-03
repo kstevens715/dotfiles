@@ -14,6 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
@@ -153,6 +154,7 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+set nowrap
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
