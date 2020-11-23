@@ -110,6 +110,9 @@ inoremap jj <Esc>
 " Quick exit of insert mode while in terminal emulator
 tnoremap jj <C-\><C-n>
 
+" Copy current filename's relative path
+nmap cp :let @" = expand("%")<cr>
+
 " Autoformat JSON
 com! FormatJSON %!python3 -m json.tool
 
