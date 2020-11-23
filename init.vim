@@ -8,6 +8,7 @@ Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
