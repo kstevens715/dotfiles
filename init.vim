@@ -1,9 +1,14 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
+Plug 'cocopon/iceberg.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -13,7 +18,6 @@ Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -53,8 +57,8 @@ map <leader>f :Ag
 map <leader>n :NERDTreeToggle<CR>
 
 " onehalf
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+colorscheme iceberg
+let g:airline_theme='iceberg'
 set t_Co=256
 set cursorline
 if exists('+termguicolors')
