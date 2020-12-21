@@ -17,6 +17,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -24,7 +25,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
 Plug 'vim-test/vim-test'
-Plug 'wfleming/vim-codeclimate'
 
 call plug#end()
 
