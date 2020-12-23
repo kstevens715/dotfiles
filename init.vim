@@ -1,14 +1,9 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
-Plug 'cocopon/iceberg.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -24,6 +19,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
+Plug 'sickill/vim-monokai'
 Plug 'vim-test/vim-test'
 
 call plug#end()
@@ -56,20 +52,6 @@ map <leader>b :Buffers<CR>
 map <leader>f :Ag 
 map <leader>n :NERDTreeToggle<CR>
 
-" onehalf
-colorscheme iceberg
-let g:airline_theme='iceberg'
-set t_Co=256
-set cursorline
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-" vim-code-climate
-" autocmd FileType ruby let b:codeclimateflags="--engine brakeman"
-
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -93,6 +75,7 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
+colorscheme monokai
 set number
 set colorcolumn=150
 highlight IncSearch guibg=green ctermbg=green term=underline
@@ -101,7 +84,6 @@ highlight IncSearch guibg=green ctermbg=green term=underline
 ab fsl # frozen_string_literal: true
 ab rth require 'test_helper'
 ab tcase ActiveSupport::TestCase
-
 
 " open / reload config
 nnoremap <Leader>ve :e $MYVIMRC<CR>
@@ -127,7 +109,6 @@ au FileType * set formatoptions-=c formatoptions-=o
 nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
 nmap <silent> <C-n> :tabnew <CR>
-
 
 " Toggle F2 for paste mode
 nnoremap <F2> :set invpaste paste?<CR>
