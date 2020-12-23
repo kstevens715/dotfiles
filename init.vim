@@ -80,6 +80,7 @@ highlight IncSearch guibg=green ctermbg=green term=underline
 
 " ========== ABBREVIATIONS ==========
 ab fsl # frozen_string_literal: true
+ab pry binding.pry
 ab rth require 'test_helper'
 ab tcase ActiveSupport::TestCase
 
