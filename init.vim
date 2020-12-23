@@ -76,8 +76,6 @@ let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
 colorscheme monokai
-set number
-set colorcolumn=150
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 " ========== ABBREVIATIONS ==========
@@ -133,17 +131,19 @@ nnoremap Q <nop>
 
 command! Ghist 0Glog
 
-" Smart case searching
+" Option Settings
+set colorcolumn=150
+set expandtab
 set ignorecase
-set smartcase
-
-" Indentation
-set smartindent
+set inccommand=nosplit " Preview substitutions
+set mouse=a            " Use mouse for scrolling/copying
+set nowrap
+set number
 set shiftwidth=2
+set smartcase
+set smartindent
 set softtabstop=2
 set tabstop=2
-set expandtab
-set nowrap
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -152,8 +152,5 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
-" Preview substitutions
-set inccommand=nosplit
 
 let g:ruby_indent_access_modifier_style="indent"
