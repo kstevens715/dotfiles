@@ -49,8 +49,10 @@ nmap <silent> gr <Plug>(coc-references)
 " fzf
 map <leader>t :GFiles<CR>
 map <leader>b :Buffers<CR>
-map <leader>f :Ag 
+map <leader>f :Rg <CR>
 map <leader>n :NERDTreeToggle<CR>
+
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
