@@ -9,3 +9,5 @@ alias cdc="cd ~/code/content_system"
 alias dc="docker-compose"
 alias vimcdc="cdc & vim"
 alias vim="nvim"
+
+source $HOME/.poetry/env
