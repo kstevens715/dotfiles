@@ -3,6 +3,7 @@
 # Variables
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export SHELL=zsh
+export BAT_THEME="OneHalfDark"
 
 # Aliases
 alias be="bundle exec"
