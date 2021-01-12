@@ -2,6 +2,7 @@
 
 # Variables
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export SHELL=zsh
 
 # Aliases
 alias be="bundle exec"

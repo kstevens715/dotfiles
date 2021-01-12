@@ -5,7 +5,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
 Plug 'diepm/vim-rest-console'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
@@ -19,8 +19,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
-Plug 'sickill/vim-monokai'
 Plug 'vim-test/vim-test'
+Plug 'tomasiser/vim-code-dark'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -78,7 +79,9 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-colorscheme monokai
+colorscheme codedark
+let g:airline_theme = 'codedark'
+let python_highlight_all = 1
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 " ========== ABBREVIATIONS ==========
