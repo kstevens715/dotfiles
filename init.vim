@@ -14,14 +14,14 @@ Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
 Plug 'vim-test/vim-test'
-Plug 'tomasiser/vim-code-dark'
-Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -79,9 +79,17 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-colorscheme codedark
-let g:airline_theme = 'codedark'
+colorscheme onehalfdark
+let g:airline_theme = 'onehalfdark'
 let python_highlight_all = 1
+set cursorline
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 " ========== ABBREVIATIONS ==========
