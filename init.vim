@@ -14,6 +14,7 @@ Plug 'mattn/webapi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'sheerun/vim-polyglot'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'tpope/vim-commentary'
