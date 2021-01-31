@@ -16,7 +16,6 @@ Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'sheerun/vim-polyglot'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -81,18 +80,17 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-colorscheme onehalfdark
-let g:airline_theme = 'onehalfdark'
+let g:airline_theme = "ayu"
 let python_highlight_all = 1
 set cursorline
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 
 highlight IncSearch guibg=green ctermbg=green term=underline
+set termguicolors     " enable true colors support
+" let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
 " ========== ABBREVIATIONS ==========
 ab fsl # frozen_string_literal: true
