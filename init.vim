@@ -39,6 +39,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+nmap <leader>rn <Plug>(coc-rename)
+
 let g:coc_global_extensions = ['coc-solargraph']
 
 " GoTo code navigation.
