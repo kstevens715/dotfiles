@@ -149,7 +149,6 @@ nnoremap Q <nop>
 command! Ghist 0Glog
 
 " Option Settings
-set clipboard=unnamed
 set colorcolumn=150
 set expandtab
 set ignorecase
