@@ -4,6 +4,10 @@
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export SHELL=zsh
 export BAT_THEME="OneHalfDark"
+export SPARK_HOME=/opt/spark
+export PATH=$SPARK_HOME/bin:$PATH
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 
 # Aliases
 alias be="bundle exec"
