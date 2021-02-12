@@ -149,6 +149,7 @@ nnoremap Q <nop>
 command! Ghist 0Glog
 
 " Option Settings
+set autochdir          " Change directory based on current window file location
 set colorcolumn=150
 set expandtab
 set ignorecase
