@@ -148,8 +148,11 @@ nnoremap Q <nop>
 
 command! Ghist 0Glog
 
+" Change directory based on current window file location
+" autocmd BufEnter * silent! lcd %:p:h " When running tests, this has problems
+" set autochdir " When using Leader-T and switching files, this has problems
+
 " Option Settings
-set autochdir          " Change directory based on current window file location
 set colorcolumn=150
 set expandtab
 set ignorecase
