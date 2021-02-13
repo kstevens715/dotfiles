@@ -1,8 +1,8 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'PeterRincker/vim-searchlight'
 Plug 'airblade/vim-gitgutter'
-Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-airline'
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -11,6 +11,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
@@ -82,17 +83,14 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-let g:airline_theme = "ayu"
+let g:gruvbox_contrast_dark = 'hard'
+autocmd vimenter * ++nested colorscheme gruvbox
 let python_highlight_all = 1
 set cursorline
 
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 set termguicolors     " enable true colors support
-" let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
 
 " ========== ABBREVIATIONS ==========
 ab fsl # frozen_string_literal: true
