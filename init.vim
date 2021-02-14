@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'PeterRincker/vim-searchlight'
 Plug 'airblade/vim-gitgutter'
+Plug 'bfredl/nvim-miniyank'
 Plug 'bling/vim-airline'
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -59,6 +60,12 @@ map <leader>n :NERDTreeToggle<CR>
 
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+
+" nvim-miniyank
+" See: https://github.com/neovim/neovim/issues/13940
+set clipboard=unnamed
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
