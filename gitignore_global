@@ -5,3 +5,5 @@ tags
 .DS_Store
 rest/
 2
+.ruby-version
+.ruby-gemset
