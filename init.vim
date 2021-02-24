@@ -30,6 +30,10 @@ call plug#end()
 " ========== PLUGIN SETTINGS ==========
 
 " coc
+let g:coc_global_extensions = [
+      \'coc-solargraph'
+\]
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -42,8 +46,7 @@ function! s:check_back_space() abort
 endfunction
 
 nmap <leader>rn <Plug>(coc-rename)
-
-let g:coc_global_extensions = ['coc-solargraph']
+command! -nargs=0 Format :call CocAction('format')
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
