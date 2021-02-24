@@ -15,3 +15,7 @@ alias cdc="cd ~/code/content_system"
 alias dc="docker-compose"
 alias vimcdc="cdc & vim"
 alias vim="nvim"
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$PATH:$HOME/.rvm/bin"
