@@ -32,7 +32,8 @@ call plug#end()
 
 " coc
 let g:coc_global_extensions = [
-      \'coc-solargraph'
+      \'coc-solargraph',
+      \'coc-json'
 \]
 
 inoremap <silent><expr> <TAB>
@@ -122,9 +123,6 @@ tnoremap jj <C-\><C-n>
 
 " Copy current filename's relative path
 nmap cp :let @" = expand("%")<cr>
-
-" Autoformat JSON
-com! FormatJSON %!python3 -m json.tool
 
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
