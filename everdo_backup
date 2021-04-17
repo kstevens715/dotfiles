@@ -1,5 +1,0 @@
-#!/bin/bash
-
-TIMESTAMP=$(date +%F_%T | tr ':' '-')
-
-sqlite3 /Users/kyle/Library/ApplicationSupport/everdo/db ".backup '/Users/kyle/Library/Mobile Documents/com~apple~CloudDocs/Everdo/backups/db_backup_$TIMESTAMP.sqlite'"
