@@ -60,7 +60,9 @@ nmap <silent> gr <Plug>(coc-references)
 map <leader>t :GFiles<CR>
 map <D-p> :GFiles<CR>
 map <leader>b :Buffers<CR>
+map <leader>c :BCommits <CR>
 map <leader>f :Rg <CR>
+map <leader>g :Tags <CR>
 map <leader>n :NERDTreeToggle<CR>
 
 let g:fzf_buffers_jump = 1
