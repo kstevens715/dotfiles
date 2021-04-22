@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'PeterRincker/vim-searchlight'
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 Plug 'bfredl/nvim-miniyank'
 Plug 'bling/vim-airline'
 Plug 'diepm/vim-rest-console'
@@ -15,12 +16,12 @@ Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-bundler'
 Plug 'vim-test/vim-test'
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
