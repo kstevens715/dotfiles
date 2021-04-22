@@ -15,3 +15,5 @@ ln -s ~/dot-files/coc-settings.json .config/nvim/
 gem install solargraph
 solargraph bundle
 ```
+
+[Initial Commit](https://github.com/kstevens715/dot-files/commit/9951c25ac2423d27efb4c355e9b6861ed4511f93)
