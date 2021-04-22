@@ -3,18 +3,18 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'PeterRincker/vim-searchlight'
 Plug 'airblade/vim-gitgutter'
-Plug 'airblade/vim-rooter'
 Plug 'bfredl/nvim-miniyank'
-Plug 'hoob3rt/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-
 Plug 'diepm/vim-rest-console'
 Plug 'folke/tokyonight.nvim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 Plug 'ngmy/vim-rubocop'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'preservim/nerdtree'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'sheerun/vim-polyglot'
@@ -133,6 +133,8 @@ let g:lualine = {
     \'extensions' : [ 'fzf', 'fugitive' ],
     \}
 lua require('lualine').setup{}
+lua require('gitsigns').setup{}
+Gitsigns toggle_current_line_blame
 
 
 highlight IncSearch guibg=green ctermbg=green term=underline
