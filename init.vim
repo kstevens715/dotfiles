@@ -6,14 +6,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bfredl/nvim-miniyank'
 Plug 'bling/vim-airline'
 Plug 'diepm/vim-rest-console'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
 Plug 'psf/black', { 'branch': 'stable' }
@@ -25,6 +22,11 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-bundler'
 Plug 'vim-test/vim-test'
+
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 call plug#end()
 
