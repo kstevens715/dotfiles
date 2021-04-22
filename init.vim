@@ -14,7 +14,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
-Plug 'morhetz/gruvbox'
 Plug 'ngmy/vim-rubocop'
 Plug 'preservim/nerdtree'
 Plug 'psf/black', { 'branch': 'stable' }
@@ -104,9 +103,8 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
+let g:tokyonight_style = "night"
 colorscheme tokyonight
-" let g:gruvbox_contrast_dark = 'hard'
-" autocmd vimenter * ++nested colorscheme gruvbox
 let python_highlight_all = 1
 set cursorline
 let g:lualine = {
