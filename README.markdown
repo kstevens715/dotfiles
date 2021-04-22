@@ -16,4 +16,8 @@ gem install solargraph
 solargraph bundle
 ```
 
+## Fonts
+1. Double click ./DroidSansMonoForPowerlinePlusNerdFileTypesMono.otf to install.
+2. Set that font in iTerm
+
 [Initial Commit](https://github.com/kstevens715/dot-files/commit/9951c25ac2423d27efb4c355e9b6861ed4511f93)

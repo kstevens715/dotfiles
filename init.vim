@@ -5,7 +5,6 @@ Plug 'PeterRincker/vim-searchlight'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'bfredl/nvim-miniyank'
-" Plug 'bling/vim-airline'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
@@ -133,7 +132,7 @@ let g:lualine = {
     \  'lualine_y' : [  ],
     \  'lualine_z' : [  ],
     \},
-    \'extensions' : [ 'fzf' ],
+    \'extensions' : [ 'fzf', 'fugitive' ],
     \}
 lua require('lualine').setup{}
 
