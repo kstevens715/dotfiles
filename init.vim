@@ -1,32 +1,34 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'PeterRincker/vim-searchlight'
-Plug 'airblade/vim-gitgutter'
-Plug 'bfredl/nvim-miniyank'
-Plug 'diepm/vim-rest-console'
-Plug 'folke/tokyonight.nvim'
-Plug 'hoob3rt/lualine.nvim'
-Plug 'junegunn/vim-easy-align'
-Plug 'kchmck/vim-coffee-script'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'mattn/vim-gist'
-Plug 'mattn/webapi-vim'
-Plug 'ngmy/vim-rubocop'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'preservim/nerdtree'
-Plug 'psf/black', { 'branch': 'stable' }
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rhubarb'
-Plug 'vim-test/vim-test'
-Plug 'wfleming/vim-codeclimate'
+Plug 'airblade/vim-gitgutter'              " Shows git status in gutter for lines. More things are possible.
+Plug 'bfredl/nvim-miniyank'                " Fixes issues with system clipboard
+Plug 'diepm/vim-rest-console'              " Vim REST client
+Plug 'folke/tokyonight.nvim'               " Theme
+Plug 'bronson/vim-trailing-whitespace'     " Highlight trailing whitesplace
+Plug 'PeterRincker/vim-searchlight'        " Highlight current match in different color
+Plug 'hoob3rt/lualine.nvim'                " Status line
+Plug 'kyazdani42/nvim-web-devicons'        " I think this helps add icons to status line
+Plug 'lewis6991/gitsigns.nvim'             " Shows last Git commit message for current line
+Plug 'nvim-lua/plenary.nvim'               " Dependency for gitsigns
+Plug 'mattn/vim-gist'                      " Make Gists from Vim
+Plug 'mattn/webapi-vim'                    " Dependency for vim-gist
+Plug 'sheerun/vim-polyglot'                " Lazily adds language support
+Plug 'kchmck/vim-coffee-script'            " CoffeeScript syntax highlighting
+Plug 'wfleming/vim-codeclimate'            " Analyze files using Code Climate plugin
+Plug 'psf/black', { 'branch': 'stable' }   " Format Python code with Black
+Plug 'ngmy/vim-rubocop'                    " Rubocop code quality analysis
+Plug 'tpope/vim-bundler'                   " I think this is to :Bopen a gem
+Plug 'tpope/vim-commentary'                " Comment out code with gc
+Plug 'tpope/vim-endwise'                   " Automatically insert `end` after `def`
+Plug 'tpope/vim-fugitive'                  " Git plugin
+Plug 'tpope/vim-rails'                     " Rails plugin
+Plug 'junegunn/vim-easy-align'             " I use this to align Ruby hash values
+Plug 'tpope/vim-rhubarb'                   " GitHub plugin for things like GBrowse
+Plug 'tpope/vim-vinegar'                   " Enhancements to netrw like '-'
+Plug 'vim-test/vim-test'                   " Test runner
 
+" LSP and fuzzy finder plugins
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -146,8 +148,6 @@ ab tcase ActiveSupport::TestCase
 " open / reload config
 nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
-
-filetype plugin on
 
 " Quick exit of insert mode
 inoremap jj <Esc>
