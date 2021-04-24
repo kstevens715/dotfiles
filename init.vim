@@ -5,10 +5,10 @@ Plug 'airblade/vim-gitgutter'              " Shows git status in gutter for line
 Plug 'bfredl/nvim-miniyank'                " Fixes issues with system clipboard
 Plug 'diepm/vim-rest-console'              " Vim REST client
 Plug 'folke/tokyonight.nvim'               " Theme
-Plug 'bronson/vim-trailing-whitespace'     " Highlight trailing whitesplace
 Plug 'PeterRincker/vim-searchlight'        " Highlight current match in different color
 Plug 'hoob3rt/lualine.nvim'                " Status line
 Plug 'kyazdani42/nvim-web-devicons'        " I think this helps add icons to status line
+Plug 'glepnir/dashboard-nvim'
 Plug 'lewis6991/gitsigns.nvim'             " Shows last Git commit message for current line
 Plug 'nvim-lua/plenary.nvim'               " Dependency for gitsigns
 Plug 'mattn/vim-gist'                      " Make Gists from Vim
@@ -38,6 +38,7 @@ call plug#end()
 
 " ========== PLUGIN SETTINGS ==========
 
+let g:dashboard_default_executive ='fzf'
 " coc
 let g:coc_global_extensions = [
       \'coc-solargraph',
