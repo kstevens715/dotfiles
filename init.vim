@@ -69,7 +69,6 @@ map <leader>b :Buffers<CR>
 map <leader>c :BCommits <CR>
 map <leader>f :Rg <CR>
 map <leader>g :Tags <CR>
-map <leader>n :NERDTreeToggle<CR>
 
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
@@ -106,7 +105,6 @@ let test#strategy = "neovim"
 let g:tokyonight_style = "night"
 colorscheme tokyonight
 let python_highlight_all = 1
-set cursorline
 let g:lualine = {
     \'options' : {
     \  'theme' : 'tokyonight',
@@ -138,7 +136,6 @@ Gitsigns toggle_current_line_blame
 
 
 highlight IncSearch guibg=green ctermbg=green term=underline
-set termguicolors     " enable true colors support
 
 " ========== ABBREVIATIONS ==========
 ab fsl # frozen_string_literal: true
@@ -157,9 +154,6 @@ inoremap jj <Esc>
 " Quick exit of insert mode while in terminal emulator
 tnoremap jj <C-\><C-n>
 
-" Copy current filename's relative path
-nmap cp :let @" = expand("%")<cr>
-
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
 
@@ -167,10 +161,6 @@ au FileType * set formatoptions-=c formatoptions-=o
 nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
 nmap <silent> <C-n> :tabnew <CR>
-
-" Toggle F2 for paste mode
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
 
 " Toggle F3 for spell checking
 map <F3> :setlocal spell! spelllang=en_us<CR>
@@ -191,12 +181,9 @@ nnoremap Q <nop>
 
 command! Ghist 0Glog
 
-" Change directory based on current window file location
-" autocmd BufEnter * silent! lcd %:p:h " When running tests, this has problems
-" set autochdir " When using Leader-T and switching files, this has problems
-
 " Option Settings
 set colorcolumn=150
+set cursorline
 set expandtab
 set ignorecase
 set inccommand=nosplit " Preview substitutions
@@ -208,13 +195,6 @@ set smartcase
 set smartindent
 set softtabstop=2
 set tabstop=2
-
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+set termguicolors     " enable true colors support
 
 let g:ruby_indent_access_modifier_style="indent"
