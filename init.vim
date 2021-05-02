@@ -1,43 +1,21 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'airblade/vim-gitgutter'              " Shows git status in gutter for lines. More things are possible.
-Plug 'bfredl/nvim-miniyank'                " Fixes issues with system clipboard
-Plug 'diepm/vim-rest-console'              " Vim REST client
-Plug 'folke/tokyonight.nvim'               " Theme
 Plug 'PeterRincker/vim-searchlight'        " Highlight current match in different color
-Plug 'hoob3rt/lualine.nvim'                " Status line
-Plug 'kyazdani42/nvim-web-devicons'        " I think this helps add icons to status line
-Plug 'glepnir/dashboard-nvim'
-Plug 'lewis6991/gitsigns.nvim'             " Shows last Git commit message for current line
-Plug 'nvim-lua/plenary.nvim'               " Dependency for gitsigns
-Plug 'mattn/vim-gist'                      " Make Gists from Vim
-Plug 'mattn/webapi-vim'                    " Dependency for vim-gist
-Plug 'sheerun/vim-polyglot'                " Lazily adds language support
-Plug 'kchmck/vim-coffee-script'            " CoffeeScript syntax highlighting
-Plug 'wfleming/vim-codeclimate'            " Analyze files using Code Climate plugin
-Plug 'psf/black', { 'branch': 'stable' }   " Format Python code with Black
-Plug 'ngmy/vim-rubocop'                    " Rubocop code quality analysis
-Plug 'tpope/vim-bundler'                   " I think this is to :Bopen a gem
-Plug 'tpope/vim-commentary'                " Comment out code with gc
-Plug 'tpope/vim-endwise'                   " Automatically insert `end` after `def`
-Plug 'tpope/vim-fugitive'                  " Git plugin
-Plug 'tpope/vim-rails'                     " Rails plugin
-Plug 'junegunn/vim-easy-align'             " I use this to align Ruby hash values
-Plug 'tpope/vim-rhubarb'                   " GitHub plugin for things like GBrowse
-Plug 'tpope/vim-vinegar'                   " Enhancements to netrw like '-'
-Plug 'vim-test/vim-test'                   " Test runner
-
-" LSP and fuzzy finder plugins
+Plug 'bfredl/nvim-miniyank'                " Fixes issues with system clipboard
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+Plug 'tpope/vim-commentary'                " Comment out code with gc
+Plug 'tpope/vim-fugitive'                  " Git plugin
+Plug 'tpope/vim-rails'                     " Rails plugin
+Plug 'tpope/vim-vinegar'                   " Enhancements to netrw like '-'
+Plug 'vim-test/vim-test'                   " Test runner
 
 call plug#end()
 
 " ========== PLUGIN SETTINGS ==========
-
 let g:dashboard_default_executive ='fzf'
 " coc
 let g:coc_global_extensions = [
@@ -81,22 +59,6 @@ set clipboard=unnamed
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 
-" vim-easy-align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-" vim-rest-console
-let g:vrc_allow_get_request_body = 1
-let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
-let g:vrc_response_default_content_type = 'application/json'
-let g:vrc_show_command = 0
-let g:vrc_curl_opts = {
-  \ '-sS': ''
-\}
-
 " vim-test
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
@@ -104,30 +66,14 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-let g:tokyonight_style = "night"
-colorscheme tokyonight
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=light
 let python_highlight_all = 1
-let g:lualine = {
-    \'options' : {
-    \  'theme' : 'tokyonight',
-    \  'section_separators' : ['', ''],
-    \  'component_separators' : ['', ''],
-    \  'icons_enabled' : v:true,
-    \},
-    \'extensions' : [ 'fzf', 'fugitive' ],
-    \}
-lua require('lualine').setup{}
-lua require('gitsigns').setup{}
-Gitsigns toggle_current_line_blame
-
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 " ========== ABBREVIATIONS ==========
-ab fsl # frozen_string_literal: true
 ab pry binding.pry
-ab rth require 'test_helper'
-ab tcase ActiveSupport::TestCase
 
 " open / reload config
 nnoremap <Leader>ve :e $MYVIMRC<CR>
@@ -145,12 +91,6 @@ au FileType * set formatoptions-=c formatoptions-=o
 nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
 nmap <silent> <C-n> :tabnew <CR>
-
-" Toggle F3 for spell checking
-map <F3> :setlocal spell! spelllang=en_us<CR>
-imap <F3> <C-o>:setlocal spell! spelllang=en_us<CR>
-
-map <F4> :silent execute '![ -f "%:p" ] && open -R "%:p" \|\| open "%:p:h"'<CR>
 
 " Typo forgiveness
 command! -bang WQ wq<bang>
