@@ -20,7 +20,8 @@ let g:dashboard_default_executive ='fzf'
 " coc
 let g:coc_global_extensions = [
       \'coc-solargraph',
-      \'coc-json'
+      \'coc-json',
+      \'coc-pyright'
 \]
 
 inoremap <silent><expr> <TAB>
