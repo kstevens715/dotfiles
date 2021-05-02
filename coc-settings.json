@@ -1,6 +1,8 @@
 {
+  "codeLens.enable": true,
   "solargraph.rename": true,
   "solargraph.diagnostics": true,
   "solargraph.autoformat": true,
-  "solargraph.formatting": true
+  "solargraph.formatting": true,
+  "python.formatting.provider": "black"
 }
