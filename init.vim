@@ -12,6 +12,15 @@ Plug 'tpope/vim-fugitive'                  " Git plugin
 Plug 'tpope/vim-rails'                     " Rails plugin
 Plug 'tpope/vim-vinegar'                   " Enhancements to netrw like '-'
 Plug 'vim-test/vim-test'                   " Test runner
+Plug 'endel/vim-github-colorscheme'
+Plug 'airblade/vim-gitgutter' " Shows git status in gutter for lines. More things are possible.
+Plug 'hoob3rt/lualine.nvim' " Status line
+Plug 'kyazdani42/nvim-web-devicons' " I think this helps add icons to status line
+Plug 'lewis6991/gitsigns.nvim' " Shows last Git commit message for current line
+Plug 'nvim-lua/plenary.nvim' " Dependency for gitsigns
+Plug 'tpope/vim-endwise' " Automatically insert `end` after `def`
+Plug 'tpope/vim-rhubarb' " GitHub plugin for things like GBrowse
+
 
 call plug#end()
 
@@ -68,8 +77,21 @@ let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
 autocmd vimenter * ++nested colorscheme gruvbox
-set background=light
+set background=dark
 let python_highlight_all = 1
+
+let g:lualine = {
+    \'options' : {
+    \  'theme' : 'tokyonight',
+    \  'section_separators' : ['', ''],
+    \  'component_separators' : ['', ''],
+    \  'icons_enabled' : v:true,
+    \},
+    \'extensions' : [ 'fzf', 'fugitive' ],
+    \}
+lua require('lualine').setup{}
+lua require('gitsigns').setup{}
+Gitsigns toggle_current_line_blame
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
