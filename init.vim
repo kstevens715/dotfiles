@@ -5,6 +5,7 @@ Plug 'PeterRincker/vim-searchlight'         " Highlight current match in differe
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
 Plug 'endel/vim-github-colorscheme'
+Plug 'folke/tokyonight.nvim'                " Theme
 Plug 'hoob3rt/lualine.nvim'                 " Status line
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
@@ -84,8 +85,11 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-autocmd vimenter * ++nested colorscheme gruvbox
-set background=dark
+" autocmd vimenter * ++nested colorscheme gruvbox
+" set background=dark
+
+let g:tokyonight_style = "night"
+colorscheme tokyonight
 let python_highlight_all = 1
 
 let g:lualine = {
