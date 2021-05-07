@@ -1,26 +1,27 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'PeterRincker/vim-searchlight'        " Highlight current match in different color
-Plug 'bfredl/nvim-miniyank'                " Fixes issues with system clipboard
+Plug 'PeterRincker/vim-searchlight'         " Highlight current match in different color
+Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
+Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
+Plug 'endel/vim-github-colorscheme'
+Plug 'hoob3rt/lualine.nvim'                 " Status line
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
-Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'junegunn/fzf.vim'                     " needed for previews
+Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
+Plug 'kchmck/vim-coffee-script'             " CoffeeScript syntax highlighting
+Plug 'kyazdani42/nvim-web-devicons'         " I think this helps add icons to status line
+Plug 'lewis6991/gitsigns.nvim'              " Shows last Git commit message for current line
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-commentary'                " Comment out code with gc
-Plug 'tpope/vim-fugitive'                  " Git plugin
-Plug 'tpope/vim-rails'                     " Rails plugin
-Plug 'tpope/vim-vinegar'                   " Enhancements to netrw like '-'
-Plug 'vim-test/vim-test'                   " Test runner
-Plug 'endel/vim-github-colorscheme'
-Plug 'airblade/vim-gitgutter' " Shows git status in gutter for lines. More things are possible.
-Plug 'hoob3rt/lualine.nvim' " Status line
-Plug 'kyazdani42/nvim-web-devicons' " I think this helps add icons to status line
-Plug 'lewis6991/gitsigns.nvim' " Shows last Git commit message for current line
-Plug 'nvim-lua/plenary.nvim' " Dependency for gitsigns
-Plug 'tpope/vim-endwise' " Automatically insert `end` after `def`
-Plug 'tpope/vim-rhubarb' " GitHub plugin for things like GBrowse
-
+Plug 'nvim-lua/plenary.nvim'                " Dependency for gitsigns
+Plug 'tpope/vim-commentary'                 " Comment out code with gc
+Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
+Plug 'tpope/vim-fugitive'                   " Git plugin
+Plug 'tpope/vim-rails'                      " Rails plugin
+Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
+Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
+Plug 'vim-test/vim-test'                    " Test runner
 
 call plug#end()
 
@@ -46,6 +47,13 @@ endfunction
 
 nmap <leader>rn <Plug>(coc-rename)
 command! -nargs=0 Format :call CocAction('format')
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
