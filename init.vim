@@ -1,6 +1,7 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'           " Colorscheme
@@ -89,8 +90,9 @@ let test#strategy = "neovim"
 set t_Co=256
 set termguicolors     " enable true colors support
 set background=light
-colorscheme PaperColor
-let g:airline_theme='papercolor'
+colorscheme one
+let g:airline_theme='one'
+let g:one_allow_italics = 1
 
 let python_highlight_all = 1
 
