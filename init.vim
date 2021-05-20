@@ -1,12 +1,13 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'NLKNguyen/papercolor-theme'           " Colorscheme
 Plug 'PeterRincker/vim-searchlight'         " Highlight current match in different color
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
 Plug 'endel/vim-github-colorscheme'
-Plug 'folke/tokyonight.nvim'                " Theme
-Plug 'hoob3rt/lualine.nvim'                 " Status line
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
@@ -85,23 +86,14 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 
 " ========== STYLE / COLOR ==========
-" autocmd vimenter * ++nested colorscheme gruvbox
-" set background=dark
+set t_Co=256
+set termguicolors     " enable true colors support
+set background=light
+colorscheme PaperColor
+let g:airline_theme='papercolor'
 
-let g:tokyonight_style = "night"
-colorscheme tokyonight
 let python_highlight_all = 1
 
-let g:lualine = {
-    \'options' : {
-    \  'theme' : 'tokyonight',
-    \  'section_separators' : ['', ''],
-    \  'component_separators' : ['', ''],
-    \  'icons_enabled' : v:true,
-    \},
-    \'extensions' : [ 'fzf', 'fugitive' ],
-    \}
-lua require('lualine').setup{}
 lua require('gitsigns').setup{}
 Gitsigns toggle_current_line_blame
 
@@ -154,6 +146,5 @@ set smartcase
 set smartindent
 set softtabstop=2
 set tabstop=2
-set termguicolors     " enable true colors support
 
 let g:ruby_indent_access_modifier_style="indent"
