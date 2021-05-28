@@ -134,6 +134,14 @@ nnoremap Q <nop>
 command! Ghist 0Glog
 
 " Option Settings
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 set colorcolumn=150
 set cursorline
 set expandtab
@@ -141,7 +149,6 @@ set ignorecase
 set inccommand=nosplit " Preview substitutions
 set mouse=a            " Use mouse for scrolling/copying
 set nowrap
-set number
 set shiftwidth=2
 set smartcase
 set smartindent
