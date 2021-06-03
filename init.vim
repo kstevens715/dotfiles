@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'PeterRincker/vim-searchlight'         " Highlight current match in different color
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
@@ -13,7 +14,6 @@ Plug 'lewis6991/gitsigns.nvim'              " Shows last Git commit message for 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'                " Dependency for gitsigns
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'rakr/vim-one'
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
 Plug 'tpope/vim-fugitive'                   " Git plugin
@@ -88,9 +88,7 @@ let test#python#pytest#options = '-v'
 " ========== STYLE / COLOR ==========
 set t_Co=256
 set termguicolors     " enable true colors support
-set background=dark
-colorscheme one
-let g:airline_theme='one'
+colorscheme onedark
 let g:one_allow_italics = 1
 
 let python_highlight_all = 1
