@@ -5,19 +5,20 @@ Plug 'PeterRincker/vim-searchlight'         " Highlight current match in differe
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
 Plug 'diepm/vim-rest-console'               " Vim REST client
-Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
 Plug 'kchmck/vim-coffee-script'             " CoffeeScript syntax highlighting
 Plug 'kyazdani42/nvim-web-devicons'         " I think this helps add icons to status line
 Plug 'lewis6991/gitsigns.nvim'              " Shows last Git commit message for current line
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'                " Dependency for gitsigns
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
 Plug 'tpope/vim-fugitive'                   " Git plugin
+Plug 'tpope/vim-unimpaired'                 " Alternate light/dark mode with 'yob'
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
@@ -98,7 +99,7 @@ let test#python#pytest#options = '-v'
 " ========== STYLE / COLOR ==========
 set t_Co=256
 set termguicolors     " enable true colors support
-colorscheme onedark
+autocmd vimenter * ++nested colorscheme gruvbox
 let g:one_allow_italics = 1
 
 let python_highlight_all = 1
