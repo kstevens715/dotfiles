@@ -67,7 +67,7 @@ let g:vrc_curl_opts = {
 " fzf
 map <leader>t :GFiles<CR>
 map <D-p> :GFiles<CR>
-map <leader>b :Buffers<CR>
+map <leader>b :Windows<CR>
 map <leader>c :BCommits <CR>
 map <leader>f :Rg <CR>
 map <leader>g :Tags <CR>
@@ -139,6 +139,7 @@ set inccommand=nosplit " Preview substitutions
 set mouse=a            " Use mouse for scrolling/copying
 set nowrap
 set shiftwidth=2
+set showtabline=0
 set smartcase
 set smartindent
 set softtabstop=2
