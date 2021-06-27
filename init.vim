@@ -1,29 +1,20 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'PeterRincker/vim-searchlight'         " Highlight current match in different color
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
+Plug 'alexanderjeurissen/lumiere.vim', { 'branch': 'main' }
 Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
 Plug 'diepm/vim-rest-console'               " Vim REST client
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
-Plug 'kchmck/vim-coffee-script'             " CoffeeScript syntax highlighting
-Plug 'kyazdani42/nvim-web-devicons'         " I think this helps add icons to status line
-Plug 'lewis6991/gitsigns.nvim'              " Shows last Git commit message for current line
-Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-lua/plenary.nvim'                " Dependency for gitsigns
-Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
 Plug 'tpope/vim-fugitive'                   " Git plugin
-Plug 'tpope/vim-unimpaired'                 " Alternate light/dark mode with 'yob'
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-test/vim-test'                    " Test runner
 
 call plug#end()
@@ -97,15 +88,11 @@ let test#strategy = "neovim"
 let test#python#pytest#options = '-v'
 
 " ========== STYLE / COLOR ==========
-set t_Co=256
+let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
-autocmd vimenter * ++nested colorscheme gruvbox
-let g:one_allow_italics = 1
+colorscheme lumiere
 
 let python_highlight_all = 1
-
-lua require('gitsigns').setup{}
-Gitsigns toggle_current_line_blame
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
@@ -143,14 +130,7 @@ nnoremap Q <nop>
 command! Ghist 0Glog
 
 " Option Settings
-set number relativenumber
-
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
+set number
 set colorcolumn=150
 set cursorline
 set expandtab
