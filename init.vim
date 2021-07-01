@@ -1,14 +1,17 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
-Plug 'alexanderjeurissen/lumiere.vim', { 'branch': 'main' }
+Plug 'aklt/plantuml-syntax'
 Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
 Plug 'diepm/vim-rest-console'               " Vim REST client
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/vim-slumlord'
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
 Plug 'tpope/vim-fugitive'                   " Git plugin
@@ -90,8 +93,8 @@ let test#python#pytest#options = '-v'
 " ========== STYLE / COLOR ==========
 let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
-colorscheme lumiere
-
+set background=light
+colorscheme gruvbox
 let python_highlight_all = 1
 
 highlight IncSearch guibg=green ctermbg=green term=underline
