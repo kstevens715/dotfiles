@@ -3,7 +3,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'aklt/plantuml-syntax'                 " UML syntax highlighting
-Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
 Plug 'diepm/vim-rest-console'               " Vim REST client
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
@@ -77,11 +76,7 @@ map <leader>g :Tags <CR>
 
 let g:fzf_buffers_jump = 1
 
-" nvim-miniyank
-" See: https://github.com/neovim/neovim/issues/13940
 set clipboard=unnamed
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
 
 " vim-test
 nmap <silent> <C-c> :TestNearest <CR>
