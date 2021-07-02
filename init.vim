@@ -96,6 +96,8 @@ set termguicolors     " enable true colors support
 set background=light
 colorscheme gruvbox
 let python_highlight_all = 1
+let g:gruvbox_contrast_light = 'hard'
+let g:gruvbox_contrast_dark = 'soft'
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
