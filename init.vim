@@ -1,23 +1,23 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
-Plug 'aklt/plantuml-syntax'
+Plug 'aklt/plantuml-syntax'                 " UML syntax highlighting
 Plug 'bfredl/nvim-miniyank'                 " Fixes issues with system clipboard
 Plug 'diepm/vim-rest-console'               " Vim REST client
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'                      " Color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/vim-slumlord'
+Plug 'scrooloose/vim-slumlord'              " UML / sequence diagrams
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
 Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-test/vim-test'                    " Test runner
 
 call plug#end()
