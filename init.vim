@@ -69,7 +69,7 @@ let g:vrc_curl_opts = {
 " fzf
 map <leader>t :GFiles<CR>
 map <D-p> :GFiles<CR>
-map <leader>b :Windows<CR>
+map <leader>b :Buffers<CR>
 map <leader>c :BCommits <CR>
 map <leader>f :Rg <CR>
 map <leader>g :Tags <CR>
@@ -88,11 +88,11 @@ let test#python#pytest#options = '-v'
 " ========== STYLE / COLOR ==========
 let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
-set background=light
+set background=dark
 colorscheme gruvbox
 let python_highlight_all = 1
 let g:gruvbox_contrast_light = 'hard'
-let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_contrast_dark = 'hard'
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
@@ -139,7 +139,7 @@ set inccommand=nosplit " Preview substitutions
 set mouse=a            " Use mouse for scrolling/copying
 set nowrap
 set shiftwidth=2
-set showtabline=0
+set showtabline=1
 set smartcase
 set smartindent
 set softtabstop=2
