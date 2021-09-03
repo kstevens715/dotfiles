@@ -1,5 +1,24 @@
 # dot-files
+## New
+Just turn on Prefs > Advanced > Work around Big Sur bug where a white line flashes at the top of the screen in full screen mode.
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Install Oh My ZSH
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+brew install neovim
+mkdir .config/nvim/
+ln -s ~/dot-files/init.vim .config/nvim/
+ln -s ~/dot-files/custom.zsh .oh-my-zsh/custom/
+# Install Vim Plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+In neovim:
+:PlugInstall
+
+## Old
 ```
 brew install bat
 
