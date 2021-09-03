@@ -4,11 +4,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'aklt/plantuml-syntax'                 " UML syntax highlighting
 Plug 'diepm/vim-rest-console'               " Vim REST client
+Plug 'godlygeek/tabular'                    " Needed for vim-markdown
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
 Plug 'morhetz/gruvbox'                      " Color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/vim-slumlord'              " UML / sequence diagrams
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
@@ -16,6 +18,7 @@ Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
+Plug 'tricktux/pomodoro.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-test/vim-test'                    " Test runner
 
@@ -85,6 +88,26 @@ nmap <silent> <C-x> :TestLast <CR>
 let test#strategy = "neovim"
 let test#python#pytest#options = '-v'
 
+nnoremap <Leader>d :e ~/Documents/TODO.md<CR>
+" Pomodoro
+map <leader>p :PomodoroStart <CR>
+call airline#parts#define_raw('pomodoro', '%#ErrorMsg#%{pomo#status_bar()}%#StatusLine#')
+let g:airline_section_z = airline#section#create_right(['pomodoro'])
+let g:pomodoro_notification_cmd = "mpg123 -q ~/dot-files/beep-01a.mp3"
+
+" Duration of a pomodoro in minutes (default: 25)
+let g:pomodoro_time_work = 25
+
+" Duration of a break in minutes (default: 5)
+let g:pomodoro_time_slack = 5
+
+" Log completed pomodoros, 0 = False, 1 = True (default: 0)
+let g:pomodoro_do_log = 0
+
+" Path to the pomodoro log file (default: /tmp/pomodoro.log)
+" let g:pomodoro_log_file = "~/dot-files/pomodoro.log"
+
+
 " ========== STYLE / COLOR ==========
 let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
@@ -132,11 +155,13 @@ command! Ghist 0Glog
 " Option Settings
 set number
 set colorcolumn=150
+set conceallevel=2     " Don't display URLs in MD
 set cursorline
 set expandtab
 set ignorecase
 set inccommand=nosplit " Preview substitutions
 set mouse=a            " Use mouse for scrolling/copying
+set nofoldenable       " Don't fold MD sections
 set nowrap
 set shiftwidth=2
 set showtabline=1
