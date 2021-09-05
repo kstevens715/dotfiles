@@ -1,6 +1,7 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'jonathanfilip/vim-lucius'
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'aklt/plantuml-syntax'                 " UML syntax highlighting
 Plug 'diepm/vim-rest-console'               " Vim REST client
@@ -112,7 +113,7 @@ let g:pomodoro_do_log = 0
 let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
 set background=dark
-colorscheme gruvbox
+colorscheme lucius
 let python_highlight_all = 1
 let g:gruvbox_contrast_light = 'hard'
 let g:gruvbox_contrast_dark = 'hard'
@@ -170,4 +171,5 @@ set smartindent
 set softtabstop=2
 set tabstop=2
 
+let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_access_modifier_style="indent"
