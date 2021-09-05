@@ -86,6 +86,7 @@ set clipboard=unnamed
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
+nmap <CR> :TestNearest <CR>
 let test#strategy = "neovim"
 let test#python#pytest#options = '-v'
 
