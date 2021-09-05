@@ -115,6 +115,7 @@ let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
 set background=dark
 colorscheme lucius
+LuciusBlack
 let python_highlight_all = 1
 let g:gruvbox_contrast_light = 'hard'
 let g:gruvbox_contrast_dark = 'hard'
