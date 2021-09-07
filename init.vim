@@ -4,10 +4,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'diepm/vim-rest-console'               " Vim REST client
 Plug 'godlygeek/tabular'                    " Needed for vim-markdown
-Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
-Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'plasticboy/vim-markdown'
 Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
@@ -68,11 +68,10 @@ let g:vrc_curl_opts = {
 \}
 
 " fzf
-map <leader>t :GFiles<CR>
-map <D-p> :GFiles<CR>
+map <leader>t :Telescope git_files<CR>
 map <leader>b :Buffers<CR>
 map <leader>c :BCommits <CR>
-map <leader>f :Rg <CR>
+map <leader>f :Telescope live_grep<CR>
 map <leader>g :Tags <CR>
 
 let g:fzf_buffers_jump = 1
