@@ -1,18 +1,15 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'jonathanfilip/vim-lucius'
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
-Plug 'aklt/plantuml-syntax'                 " UML syntax highlighting
 Plug 'diepm/vim-rest-console'               " Vim REST client
 Plug 'godlygeek/tabular'                    " Needed for vim-markdown
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'                     " needed for previews
 Plug 'junegunn/vim-easy-align'              " I use this to align Ruby hash values
-Plug 'morhetz/gruvbox'                      " Color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/vim-slumlord'              " UML / sequence diagrams
+Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
 Plug 'tpope/vim-fugitive'                   " Git plugin
@@ -114,11 +111,11 @@ let g:pomodoro_do_log = 0
 let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
 set background=dark
-colorscheme lucius
-LuciusBlack
+let g:sonokai_style = 'shusia'
+let g:sonokai_diagnostic_text_highlight = 1
+colorscheme sonokai
 let python_highlight_all = 1
-let g:gruvbox_contrast_light = 'hard'
-let g:gruvbox_contrast_dark = 'hard'
+let g:airline_theme = 'sonokai'
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
