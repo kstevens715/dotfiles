@@ -69,10 +69,10 @@ let g:vrc_curl_opts = {
 
 " fzf
 map <leader>t :Telescope git_files<CR>
-map <leader>b :Buffers<CR>
+map <leader>b :Telescope buffers<CR>
 map <leader>c :BCommits <CR>
 map <leader>f :Telescope live_grep<CR>
-map <leader>g :Tags <CR>
+map <leader>g :Telescope tags <CR>
 
 let g:fzf_buffers_jump = 1
 
