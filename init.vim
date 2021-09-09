@@ -9,7 +9,6 @@ Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
-Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
 Plug 'vim-test/vim-test'                    " Test runner
 
@@ -36,13 +35,6 @@ endfunction
 
 nmap <leader>rn <Plug>(coc-rename)
 command! -nargs=0 Format :call CocAction('format')
-
-" vim-easy-align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -75,15 +67,11 @@ let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
 set background=dark
 let g:sonokai_style = 'shusia'
-let g:sonokai_diagnostic_text_highlight = 1
 colorscheme sonokai
-let python_highlight_all = 1
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 " ========== ABBREVIATIONS ==========
-ab pry binding.pry
-
 " open / reload config
 nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
