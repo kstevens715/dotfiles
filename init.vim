@@ -1,12 +1,10 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'sainnhe/sonokai'
-Plug 'tpope/vim-commentary'                 " Comment out code with gc
 Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
@@ -63,9 +61,7 @@ let test#python#pytest#options = '-v'
 
 
 " ========== STYLE / COLOR ==========
-let g:lumiere_dim_inactive_windows = 1
 set termguicolors     " enable true colors support
-set background=dark
 let g:sonokai_style = 'shusia'
 colorscheme sonokai
 
