@@ -2,8 +2,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim'
 Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
@@ -44,11 +44,12 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " fzf
-map <leader>t :Telescope git_files<CR>
-map <leader>b :Telescope buffers<CR>
+map <leader>t :GFiles<CR>
+map <D-p> :GFiles<CR>
+map <leader>b :Buffers<CR>
 map <leader>c :BCommits <CR>
-map <leader>f :Telescope live_grep<CR>
-map <leader>g :Telescope tags <CR>
+map <leader>f :Rg <CR>
+map <leader>g :Tags <CR>
 
 let g:fzf_buffers_jump = 1
 
