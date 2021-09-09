@@ -2,13 +2,11 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'               " Shows git status in gutter for lines. More things are possible.
-Plug 'diepm/vim-rest-console'               " Vim REST client
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-commentary'                 " Comment out code with gc
-Plug 'tpope/vim-endwise'                    " Automatically insert `end` after `def`
 Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
@@ -51,15 +49,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" vim-rest-console
-let g:vrc_allow_get_request_body = 1
-let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
-let g:vrc_response_default_content_type = 'application/json'
-let g:vrc_show_command = 0
-let g:vrc_curl_opts = {
-  \ '-sS': ''
-\}
 
 " fzf
 map <leader>t :Telescope git_files<CR>
