@@ -13,7 +13,6 @@ Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-rhubarb'                    " GitHub plugin for things like GBrowse
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-test/vim-test'                    " Test runner
 
 call plug#end()
@@ -91,7 +90,6 @@ let g:sonokai_style = 'shusia'
 let g:sonokai_diagnostic_text_highlight = 1
 colorscheme sonokai
 let python_highlight_all = 1
-let g:airline_theme = 'sonokai'
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
