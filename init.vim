@@ -18,7 +18,6 @@ Plug 'vim-test/vim-test'                    " Test runner
 call plug#end()
 
 " ========== PLUGIN SETTINGS ==========
-let g:dashboard_default_executive ='fzf'
 " coc
 let g:coc_global_extensions = [
       \'coc-solargraph',
