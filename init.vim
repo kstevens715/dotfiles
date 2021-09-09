@@ -13,6 +13,9 @@ Plug 'vim-test/vim-test'                    " Test runner
 call plug#end()
 
 " ========== PLUGIN SETTINGS ==========
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_access_modifier_style = 'indent'
+
 " coc
 let g:coc_global_extensions = [
       \'coc-solargraph',
@@ -115,6 +118,3 @@ set smartcase
 set smartindent
 set softtabstop=2
 set tabstop=2
-
-let g:ruby_indent_assignment_style = 'variable'
-let g:ruby_indent_access_modifier_style="indent"
