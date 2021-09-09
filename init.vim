@@ -5,10 +5,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'sainnhe/sonokai'
+Plug 'vim-test/vim-test'                    " Test runner
+
+" Do I actually need these plugins?
 Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
 Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
-Plug 'vim-test/vim-test'                    " Test runner
 
 call plug#end()
 
@@ -61,12 +63,9 @@ nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
 nmap <CR> :TestNearest <CR>
 let test#strategy = "neovim"
-let test#python#pytest#options = '-v'
 
 
 " ========== STYLE / COLOR ==========
-set termguicolors     " enable true colors support
-let g:sonokai_style = 'shusia'
 colorscheme sonokai
 
 highlight IncSearch guibg=green ctermbg=green term=underline
