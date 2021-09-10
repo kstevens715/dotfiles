@@ -79,6 +79,9 @@ inoremap jj <Esc>
 " Quick exit of insert mode while in terminal emulator
 tnoremap jj <C-\><C-n>
 
+" Comment out lines
+vmap <silent> gc <C-V>^I#<Space><Esc>
+
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
 
