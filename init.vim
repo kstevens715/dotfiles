@@ -1,16 +1,15 @@
 " ========== PLUGINS ==========
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sainnhe/sonokai'
+Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'vim-test/vim-test'                    " Test runner
 
 " Do I actually need these plugins?
-Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'tpope/vim-rails'                      " Rails plugin
-Plug 'tpope/vim-vinegar'                    " Enhancements to netrw like '-'
 
 call plug#end()
 
@@ -52,6 +51,7 @@ map <leader>c :BCommits <CR>
 map <leader>f :Rg <CR>
 map <leader>g :Tags <CR>
 
+
 let g:fzf_buffers_jump = 1
 
 set clipboard=unnamed
@@ -81,6 +81,9 @@ tnoremap jj <C-\><C-n>
 
 " Comment out lines
 vmap <silent> gc <C-V>^I#<Space><Esc>
+
+" Start Netrw with '-'
+nmap - :e .<CR>
 
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
