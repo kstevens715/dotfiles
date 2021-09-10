@@ -100,7 +100,6 @@ set expandtab
 set ignorecase
 set inccommand=nosplit " Preview substitutions
 set mouse=a            " Use mouse for scrolling/copying
-set nofoldenable       " Don't fold MD sections
 set noswapfile
 set nowrap
 set shiftwidth=2
