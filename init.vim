@@ -5,8 +5,8 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sainnhe/sonokai'
-Plug 'tpope/vim-fugitive'                   " Git plugin
-Plug 'vim-test/vim-test'                    " Test runner
+Plug 'tpope/vim-fugitive'
+Plug 'vim-test/vim-test'
 
 " I think the only thing from this I use is the ability to go from
 " from test file to source file and back.
