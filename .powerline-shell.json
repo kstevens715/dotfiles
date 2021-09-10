@@ -1,8 +1,0 @@
-{
-  "mode": "compatible",
-  "segments": [
-    "cwd",
-    "git",
-    "root"
-  ]
-}
