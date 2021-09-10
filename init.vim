@@ -8,8 +8,10 @@ Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-fugitive'                   " Git plugin
 Plug 'vim-test/vim-test'                    " Test runner
 
-" Do I actually need these plugins?
-Plug 'tpope/vim-rails'                      " Rails plugin
+" I think the only thing from this I use is the ability to go from
+" from test file to source file and back.
+" An alternate idea is something like: https://github.com/garybernhardt/dotfiles/blob/e0786e861687af64b7ea3f1b9f2b66a8bfbfe6bf/.vimrc#L400-L428
+Plug 'tpope/vim-rails'
 
 call plug#end()
 
@@ -51,10 +53,7 @@ map <leader>c :BCommits <CR>
 map <leader>f :Rg <CR>
 map <leader>g :Tags <CR>
 
-
 let g:fzf_buffers_jump = 1
-
-set clipboard=unnamed
 
 " vim-test
 nmap <silent> <C-c> :TestNearest <CR>
@@ -69,21 +68,12 @@ colorscheme sonokai
 
 highlight IncSearch guibg=green ctermbg=green term=underline
 
-" ========== ABBREVIATIONS ==========
-" open / reload config
 nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
-
-" Quick exit of insert mode
-inoremap jj <Esc>
-" Quick exit of insert mode while in terminal emulator
-tnoremap jj <C-\><C-n>
-
-" Comment out lines
-vmap <silent> gc <C-V>^I#<Space><Esc>
-
-" Start Netrw with '-'
-nmap - :e .<CR>
+inoremap jj <Esc>                     " Quick exit of insert mode
+tnoremap jj <C-\><C-n>                " Quick exit of insert mode while in terminal emulator
+vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
+nmap - :e .<CR>                       " Start Netrw with '-'
 
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
@@ -107,10 +97,7 @@ nnoremap Q <nop>
 command! Ghist 0Glog
 
 " Option Settings
-set number
-set colorcolumn=150
-set conceallevel=2     " Don't display URLs in MD
-set cursorline
+set clipboard=unnamed
 set expandtab
 set ignorecase
 set inccommand=nosplit " Preview substitutions
