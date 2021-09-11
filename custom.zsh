@@ -3,7 +3,7 @@
 # Variables
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export SHELL=zsh
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="Monokai Extended"
 
 # Aliases
 alias be="bundle exec"
