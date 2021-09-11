@@ -9,7 +9,7 @@
 [github]
   user = kstevens715
 [web]
-  browser = google-chrome
+  browser = firefox
 [alias]
   aa = add --all --intent-to-add
   c = commit -v
