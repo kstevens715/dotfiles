@@ -11,7 +11,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Install Node for coc.nvim
 curl -sL install-node.now.sh/lts | bash
 
-brew install bat firefox gpg mas neovim obsidian postgresql rabbitmq redis rg slack tmux tmate
+brew tap heroku/brew
+
+brew install bat firefox gpg heroku imagemagick mas neovim obsidian postgresql rabbitmq redis rg slack tmux tmate
 
 brew services start postgresql
 brew services start rabbitmq
