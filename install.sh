@@ -8,7 +8,15 @@ cp ./"Hack Regular Nerd Font Complete.ttf" ~/Library/Fonts/
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-brew install bat firefox mas neovim obsidian postgresql redis slack tmux tmate
+# Install Node for coc.nvim
+curl -sL install-node.now.sh/lts | bash
+
+brew install bat firefox gpg mas neovim obsidian postgresql rabbitmq redis rg slack tmux tmate
+
+brew services start postgresql
+brew services start rabbitmq
+brew services start redis
+
 mas install 961632517 # Be Focused Pomodoro Timer
 
 cd ~

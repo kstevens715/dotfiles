@@ -3,7 +3,7 @@
   email = kstevens715@gmail.com
 [core]
   editor = nvim
-  excludesfile = /Users/kylest/dot-files/gitignore_global
+  excludesfile = /Users/kstevens/dotfiles/gitignore_global
 [push]
   default = current
 [github]
