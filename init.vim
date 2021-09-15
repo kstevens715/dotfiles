@@ -14,10 +14,13 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sainnhe/sonokai'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
@@ -41,6 +44,7 @@ set inccommand=nosplit " Preview substitutions
 set mouse=a            " Use mouse for scrolling/copying
 set noswapfile
 set nowrap
+set number
 set shiftwidth=2
 set showtabline=1
 set smartcase
@@ -97,7 +101,6 @@ let g:fzf_buffers_jump = 1
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-nmap <CR> :TestNearest <CR>
 let test#strategy = "neovim"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
