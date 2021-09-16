@@ -13,7 +13,7 @@ curl -sL install-node.now.sh/lts | bash
 
 brew tap heroku/brew
 
-brew install bat firefox gpg heroku imagemagick mas neovim obsidian postgresql rabbitmq redis rg slack tmux tmate
+brew install bat firefox git-flow gpg heroku imagemagick mas neovim obsidian postgresql rabbitmq redis rg slack tmux tmate
 
 brew services start postgresql
 brew services start rabbitmq
