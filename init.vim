@@ -134,3 +134,4 @@ command! -bang Wq wq<bang>
 command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Qa qa<bang>
+command! Gblame Git blame
