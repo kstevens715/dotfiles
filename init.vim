@@ -15,17 +15,18 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'cocopon/iceberg.vim'
 Plug 'danchoi/ri.vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sainnhe/sonokai'
+Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-test/vim-test'
 
 call plug#end()
@@ -33,7 +34,9 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme iceberg
+set background=dark
+set termguicolors
+colorscheme monokai
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -120,8 +123,8 @@ nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 inoremap jj <Esc>                     " Quick exit of insert mode
 tnoremap jj <C-\><C-n>                " Quick exit of insert mode while in terminal emulator
-vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
-nmap - :e .<CR>                       " Start Netrw with '-'
+" vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
+" nmap - :e .<CR>                       " Start Netrw with '-'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OTHER
