@@ -114,15 +114,16 @@ let test#strategy = "neovim"
 nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
 nmap <silent> <C-n> :tabnew <CR>
-
+:
 " Disable ex mode
 map q: <Nop>
 nnoremap Q <nop>
 
 nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
-inoremap jj <Esc>                     " Quick exit of insert mode
-tnoremap jj <C-\><C-n>                " Quick exit of insert mode while in terminal emulator
+inoremap jj <Esc>                             " Quick exit of insert mode
+tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
+nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
 " vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
 " nmap - :e .<CR>                       " Start Netrw with '-'
 
