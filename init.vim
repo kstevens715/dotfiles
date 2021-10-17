@@ -20,48 +20,46 @@ Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sickill/vim-monokai'
+Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-vinegar'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-test/vim-test'
-Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+set guioptions-=rL
+"if (empty($TMUX))
+"  if (has("nvim"))
+"    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+"    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"  endif
+"  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+"  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+"  if (has("termguicolors"))
+"    set termguicolors
+"  endif
+"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='onedark'
-set background=dark
-set termguicolors
-colorscheme onedark
+" set background=dark
+" set termguicolors
+colorscheme sonokai
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set clipboard=unnamed
+" set clipboard=unnamed
 set expandtab
 set ignorecase
-set inccommand=nosplit " Preview substitutions
+"set inccommand=nosplit " Preview substitutions
 set mouse=a            " Use mouse for scrolling/copying
 set noswapfile
 set nowrap
@@ -114,6 +112,8 @@ map <leader>b :Buffers<CR>
 map <leader>c :BCommits <CR>
 map <leader>f :Rg <CR>
 map <leader>g :Tags <CR>
+map <leader>w :terminal ++curwin <CR>
+map <leader>n :tab terminal <CR>
 
 let g:fzf_buffers_jump = 1
 
@@ -140,7 +140,7 @@ nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 inoremap jj <Esc>                             " Quick exit of insert mode
 tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
-nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
+" nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
 " vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
 " nmap - :e .<CR>                       " Start Netrw with '-'
 
@@ -158,3 +158,4 @@ command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Qa qa<bang>
 command! Gblame Git blame
+
