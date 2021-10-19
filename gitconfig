@@ -2,7 +2,7 @@
   name = Kyle Stevens
   email = kstevens715@gmail.com
 [core]
-  editor = nvim
+  editor = vim
   excludesfile = /Users/kstevens/dotfiles/gitignore_global
 [push]
   default = current
