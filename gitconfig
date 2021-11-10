@@ -12,6 +12,7 @@
   browser = firefox
 [alias]
   aa = add --all --intent-to-add
+  b = blame -wM
   c = commit -v
   co = checkout
   dm = diff master...
@@ -21,5 +22,6 @@
   lol = log --graph --oneline --decorate
   poh = push origin HEAD
   r = reflog --date=iso
+  branches = branch --sort=-committerdate
 [color]
   ui = auto
