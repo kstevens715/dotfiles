@@ -129,6 +129,7 @@ nmap <silent> <C-n> :tabnew <CR>
 map q: <Nop>
 nnoremap Q <nop>
 
+nnoremap <Leader>vn :e ~/code/notes.md<CR>
 nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 inoremap jj <Esc>                             " Quick exit of insert mode
