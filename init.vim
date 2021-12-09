@@ -14,12 +14,15 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'christoomey/vim-tmux-runner'
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
-Plug 'danchoi/ri.vim'
+Plug 'aklt/plantuml-syntax'
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/vim-slumlord'
 Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -110,10 +113,27 @@ let g:fzf_buffers_jump = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-TEST CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! CustomStrategy(cmd)
+  execute 'bel 10 new'
+  call termopen(a:cmd)
+  wincmd p " switch back to last window
+endfunction
+
+let test#custom_strategies = {'custom': function('CustomStrategy')}
+
+let test#ruby#rspec#options = {
+  \ 'all':   '--format progress',
+\}
+
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "neovim"
+" let test#strategy = "neovim"
+let test#strategy = "vtr"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-TEST-CONSOLE CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vrc_curl_opts = {
   \ '-i': '',
 \}
