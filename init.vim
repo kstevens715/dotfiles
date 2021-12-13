@@ -46,6 +46,7 @@ highlight IncSearch guibg=green ctermbg=green term=underline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autoread
 set clipboard=unnamed
 set expandtab
 set ignorecase
