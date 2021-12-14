@@ -14,6 +14,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'tpope/vim-dispatch'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
@@ -131,7 +132,8 @@ nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
 " let test#strategy = "neovim"
-let test#strategy = "vtr"
+" let test#strategy = "vtr"
+let test#strategy = "dispatch"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-TEST-CONSOLE CONFIGURATION
