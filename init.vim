@@ -18,8 +18,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
@@ -145,10 +143,10 @@ let g:vrc_curl_opts = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <silent> <A-h> :tabprevious <CR>
-nmap <silent> <A-l> :tabnext <CR>
-nmap <silent> <A-n> :tabnew <CR>
-
+nmap <silent> <C-h> :tabprevious <CR>
+nmap <silent> <C-l> :tabnext <CR>
+nmap <silent> <C-n> :tabnew <CR>
+:
 " Disable ex mode
 map q: <Nop>
 nnoremap Q <nop>
