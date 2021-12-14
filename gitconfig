@@ -11,6 +11,7 @@
 [web]
   browser = firefox
 [alias]
+  refactor = !git add -A && git commit -m "refactor"
   aa = add --all --intent-to-add
   b = blame -wM
   c = commit -v
