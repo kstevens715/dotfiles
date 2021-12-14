@@ -13,7 +13,7 @@ curl -sL install-node.now.sh/lts | bash
 
 brew tap heroku/brew
 
-brew install bat firefox git-flow gpg heroku imagemagick mas neovim rabbitmq redis rg slack tmux tmate yarn
+brew install bat chruby firefox git-flow gpg heroku imagemagick mas neovim rabbitmq redis rg ruby-install slack tmux tmate yarn
 
 brew services start postgresql
 brew services start rabbitmq
@@ -29,9 +29,5 @@ ln -s ~/dotfiles/coc-settings.json .config/nvim/
 ln -s ~/dotfiles/custom.zsh        .oh-my-zsh/custom/
 ln -s ~/dotfiles/gitconfig         .gitconfig
 ln -s ~/dotfiles/tmux.conf         .tmux.conf
-
-# Install RVM
-gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 echo "Done."
