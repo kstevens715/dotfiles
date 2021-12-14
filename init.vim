@@ -14,7 +14,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'tpope/vim-dispatch'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
@@ -29,6 +28,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rvm'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-test/vim-test'
@@ -114,14 +114,6 @@ let g:fzf_buffers_jump = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-TEST CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CustomStrategy(cmd)
-  execute 'bel 10 new'
-  call termopen(a:cmd)
-  wincmd p " switch back to last window
-endfunction
-
-let test#custom_strategies = {'custom': function('CustomStrategy')}
-
 let test#ruby#rspec#options = {
   \ 'all':   '--format progress',
 \}
@@ -129,7 +121,7 @@ let test#ruby#rspec#options = {
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "dispatch"
+let test#strategy = "neovim"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-TEST-CONSOLE CONFIGURATION
