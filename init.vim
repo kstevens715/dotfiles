@@ -129,8 +129,6 @@ let test#ruby#rspec#options = {
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-" let test#strategy = "neovim"
-" let test#strategy = "vtr"
 let test#strategy = "dispatch"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -146,7 +144,7 @@ let g:vrc_curl_opts = {
 nmap <silent> <C-h> :tabprevious <CR>
 nmap <silent> <C-l> :tabnext <CR>
 nmap <silent> <C-n> :tabnew <CR>
-:
+
 " Disable ex mode
 map q: <Nop>
 nnoremap Q <nop>
