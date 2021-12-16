@@ -5,5 +5,5 @@
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "solargraph.rename": true,
-  "solargraph.useBundler": true
+  "solargraph.useBundler": false
 }
