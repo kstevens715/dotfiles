@@ -14,8 +14,10 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Evaluating start
 Plug 'TimUntersberger/neogit'
 Plug 'sindrets/diffview.nvim'
+" Evaluating end
 
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
@@ -63,6 +65,69 @@ sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numh
 sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TELESCOPE CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>c <cmd>Telescope git_commits<cr>
+nnoremap <leader>t <cmd>Telescope find_files<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>f <cmd>Telescope live_grep<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-TEST CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let test#ruby#rspec#options = {
+  \ 'all':   '--format progress',
+\}
+
+nmap <silent> <C-c> :TestNearest <CR>
+nmap <silent> <C-f> :TestFile <CR>
+nmap <silent> <C-x> :TestLast <CR>
+let test#strategy = "neovim"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-TEST-CONSOLE CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vrc_curl_opts = {
+  \ '-i': '',
+\}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MISC KEY MAPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>r :Git refactor <CR>
+nmap <silent> <C-h> :tabprevious <CR>
+nmap <silent> <C-l> :tabnext <CR>
+nmap <silent> <C-n> :tabnew <CR>
+
+" Disable ex mode
+map q: <Nop>
+nnoremap Q <nop>
+
+nnoremap <Leader>vn :e ~/code/notes.md<CR>
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+nnoremap <Leader>vr :source $MYVIMRC<CR>
+inoremap jj <Esc>                             " Quick exit of insert mode
+tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
+nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
+" vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
+" nmap - :e .<CR>                       " Start Netrw with '-'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OTHER
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
+au FileType * set formatoptions-=c formatoptions-=o
+
+
+" Typo forgiveness
+command! -bang WQ wq<bang>
+command! -bang Wq wq<bang>
+command! -bang W w<bang>
+command! -bang Q q<bang>
+command! -bang Qa qa<bang>
+command! Gblame Git blame
 
 lua <<EOF
 
@@ -161,66 +226,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 EOF
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TELESCOPE CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>c <cmd>Telescope git_commits<cr>
-nnoremap <leader>t <cmd>Telescope find_files<cr>
-nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>f <cmd>Telescope live_grep<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM-TEST CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let test#ruby#rspec#options = {
-  \ 'all':   '--format progress',
-\}
-
-nmap <silent> <C-c> :TestNearest <CR>
-nmap <silent> <C-f> :TestFile <CR>
-nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "neovim"
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM-TEST-CONSOLE CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vrc_curl_opts = {
-  \ '-i': '',
-\}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MISC KEY MAPS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>r :Git refactor <CR>
-nmap <silent> <C-h> :tabprevious <CR>
-nmap <silent> <C-l> :tabnext <CR>
-nmap <silent> <C-n> :tabnew <CR>
-
-" Disable ex mode
-map q: <Nop>
-nnoremap Q <nop>
-
-nnoremap <Leader>vn :e ~/code/notes.md<CR>
-nnoremap <Leader>ve :e $MYVIMRC<CR>
-nnoremap <Leader>vr :source $MYVIMRC<CR>
-inoremap jj <Esc>                             " Quick exit of insert mode
-tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
-nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
-" vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
-" nmap - :e .<CR>                       " Start Netrw with '-'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OTHER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
-au FileType * set formatoptions-=c formatoptions-=o
-
-
-" Typo forgiveness
-command! -bang WQ wq<bang>
-command! -bang Wq wq<bang>
-command! -bang W w<bang>
-command! -bang Q q<bang>
-command! -bang Qa qa<bang>
-command! Gblame Git blame
