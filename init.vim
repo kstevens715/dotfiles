@@ -14,6 +14,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'TimUntersberger/neogit'
+Plug 'sindrets/diffview.nvim'
+
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
@@ -38,58 +41,15 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=dark
-set termguicolors
 let g:sonokai_style = 'espresso'
 
-colorscheme sonokai
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set autoread
-set clipboard=unnamed
-set expandtab
-set ignorecase
-set inccommand=nosplit " Preview substitutions
-set mouse=a            " Use mouse for scrolling/copying
-set noswapfile
-set nowrap
-set number
-set shiftwidth=2
-set showtabline=1
-set smartcase
-set smartindent
-set softtabstop=2
-set tabstop=2
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NVIM-TREESITTER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
-EOF
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LUALINE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua << END
-require'lualine'.setup()
-END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -104,7 +64,50 @@ sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 
-lua << EOF
+lua <<EOF
+
+-- OPTIONS
+vim.cmd 'colorscheme sonokai'
+
+opt = vim.opt
+opt.autoread = true
+opt.background = 'dark'
+opt.clipboard = 'unnamed'
+opt.expandtab = true
+opt.ignorecase = true
+opt.inccommand = 'nosplit'
+opt.mouse = 'a'
+opt.number = true
+opt.shiftwidth = 2
+opt.showtabline = 1
+opt.smartcase = true
+opt.smartindent = true
+opt.softtabstop = 2
+opt.swapfile = false
+opt.tabstop = 2
+opt.termguicolors = true
+opt.wrap = false
+
+--  NVIM-TREESITTER
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+-- LUALINE
+require'lualine'.setup()
+
+-- TROUBLE
 require("trouble").setup {
   icons = true,
   signs = {
