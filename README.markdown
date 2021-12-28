@@ -1,5 +1,1 @@
-# dotfiles
-
-Install Iterm2
-
-run `install.sh`
+run `./install`
