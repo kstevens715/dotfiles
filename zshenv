@@ -1,7 +1,6 @@
 # ln -s $FILE_PATH $HOME/.oh-my-zsh/lib/
 
 # Variables
-export BAT_THEME="Monokai Extended"
 export EDITOR=nvim
 export NO_COVERAGE=true
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
