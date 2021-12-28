@@ -19,6 +19,7 @@ Plug 'TimUntersberger/neogit'
 Plug 'sindrets/diffview.nvim'
 " Evaluating end
 
+Plug 'arcticicestudio/nord-vim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
@@ -29,7 +30,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -43,8 +43,6 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:sonokai_style = 'espresso'
-
 highlight IncSearch guibg=green ctermbg=green term=underline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,11 +130,10 @@ command! Gblame Git blame
 lua <<EOF
 
 -- OPTIONS
-vim.cmd 'colorscheme sonokai'
+vim.cmd 'colorscheme nord'
 
 opt = vim.opt
 opt.autoread = true
-opt.background = 'dark'
 opt.clipboard = 'unnamed'
 opt.expandtab = true
 opt.ignorecase = true
