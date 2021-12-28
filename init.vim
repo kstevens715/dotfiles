@@ -14,19 +14,22 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Might need to be first
+Plug 'nvim-lua/plenary.nvim'
+
 " Evaluating start
 Plug 'TimUntersberger/neogit'
 Plug 'sindrets/diffview.nvim'
 " Evaluating end
 
-Plug 'arcticicestudio/nord-vim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-gitgutter'
+Plug 'arcticicestudio/nord-vim'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -76,10 +79,10 @@ let test#ruby#rspec#options = {
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "neovim"
+let test#strategy = "vtr"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM-TEST-CONSOLE CONFIGURATION
+" VIM-REST-CONSOLE CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vrc_curl_opts = {
   \ '-i': '',
@@ -165,6 +168,7 @@ require'lualine'.setup()
 
 -- NEOGIT
 require('neogit').setup {
+  disable_commit_confirmation = true,
   integrations = {
     diffview = true
   }
@@ -197,7 +201,7 @@ nvim_lsp.solargraph.setup {
   on_attach = on_attach,
   settings = {
     solargraph = {
-      useBundler = true,
+      useBundler = false,
       diagnostics = true,
     }
   },
