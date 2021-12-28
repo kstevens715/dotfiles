@@ -1,4 +1,3 @@
-
 font:
   normal:
     family: JetBrainsMono Nerd Font
@@ -16,7 +15,7 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
 
-  size: 11
+  size: 12
 
 # Colors are from:
 # https://github.com/arcticicestudio/nord-alacritty/blob/develop/src/nord.yml
