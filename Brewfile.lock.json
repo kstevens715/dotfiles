@@ -290,6 +290,14 @@
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.1",
         "macOS": "12.1"
+      },
+      "big_sur": {
+        "HOMEBREW_VERSION": "3.3.9",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "475a71a607aabe8094f39bea0be20da46d1866fd",
+        "CLT": "13.0.0.0.1.1630607135",
+        "Xcode": "13.2.1",
+        "macOS": "11.6.1"
       }
     }
   }
