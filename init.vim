@@ -111,6 +111,7 @@ nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current b
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
 au FileType * set formatoptions-=c formatoptions-=o
+au BufNewFile,BufRead *.es6.* set syntax=javascript
 
 
 " Typo forgiveness

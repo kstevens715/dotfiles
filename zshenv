@@ -1,5 +1,6 @@
 # ln -s $FILE_PATH $HOME/.oh-my-zsh/lib/
-. /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # Variables
 export EDITOR=nvim
