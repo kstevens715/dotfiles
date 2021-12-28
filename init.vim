@@ -43,13 +43,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-highlight IncSearch guibg=green ctermbg=green term=underline
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BASIC EDITING CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
+colorscheme nord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -130,11 +124,10 @@ command! Gblame Git blame
 lua <<EOF
 
 -- OPTIONS
-vim.cmd 'colorscheme nord'
-
 opt = vim.opt
 opt.autoread = true
 opt.clipboard = 'unnamed'
+opt.cursorline = true
 opt.expandtab = true
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
