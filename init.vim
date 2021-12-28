@@ -169,6 +169,13 @@ require'nvim-treesitter.configs'.setup {
 -- LUALINE
 require'lualine'.setup()
 
+-- NEOGIT
+require('neogit').setup {
+  integrations = {
+    diffview = true
+  }
+}
+
 -- TROUBLE
 require("trouble").setup {
   icons = true,
