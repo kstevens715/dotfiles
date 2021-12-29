@@ -13,5 +13,6 @@ export SHELL=zsh
 alias be="bundle exec"
 alias dc="docker-compose"
 alias vim="nvim"
+alias tc="cd ~/code/telchar"
 
 alias minio="minio server --address :4572 ~/minio"
