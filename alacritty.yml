@@ -5,6 +5,13 @@ shell:
     - -c
     - "tmux attach || tmux new -s main"
 
+key_bindings:
+  # These come from:
+  # https://github.com/alacritty/alacritty/issues/62#issuecomment-347552058
+  - { key: H, mods: Alt, chars: "\x1bh" }
+  - { key: L, mods: Alt, chars: "\x1bl" }
+  - { key: N, mods: Alt, chars: "\x1bn" }
+
 font:
   normal:
     family: JetBrainsMono Nerd Font
