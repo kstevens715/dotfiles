@@ -93,9 +93,9 @@ let g:vrc_curl_opts = {
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>r :Git refactor <CR>
-nmap <silent> <C-h> :tabprevious <CR>
-nmap <silent> <C-l> :tabnext <CR>
-nmap <silent> <C-n> :tabnew <CR>
+nmap <silent> <M-h> :tabprevious <CR>
+nmap <silent> <M-l> :tabnext <CR>
+nmap <silent> <M-n> :tabnew <CR>
 
 " Disable ex mode
 map q: <Nop>
