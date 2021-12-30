@@ -95,7 +95,7 @@ let g:vrc_curl_opts = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>r :Git refactor <CR>
+map <leader>r :TroubleToggle <CR>
 nmap <silent> <M-h> :tabprevious <CR>
 nmap <silent> <M-l> :tabnext <CR>
 nmap <silent> <M-n> :tabnew <CR>
