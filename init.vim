@@ -68,7 +68,7 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TELESCOPE CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>c <cmd>Telescope git_commits<cr>
+nnoremap <leader>c <cmd>Neogit<cr>
 nnoremap <leader>t <cmd>Telescope find_files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
