@@ -19,6 +19,12 @@
 
 - shell:
     -
+      description: Install Homebrew
+      command:     (test ! -e /usr/local/bin/brex && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)") || true
+      stdin:       true
+      stout:       true
+      sterr:       true
+    -
       description: Install Brew Packages
       command:     brew bundle
       stderr:      true
