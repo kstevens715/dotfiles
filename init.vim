@@ -17,12 +17,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Might need to be first
 Plug 'nvim-lua/plenary.nvim'
 
-" Evaluating start
-Plug 'TimUntersberger/neogit'
-Plug 'sindrets/diffview.nvim'
-" Evaluating end
-
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -34,6 +30,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
