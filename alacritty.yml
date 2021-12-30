@@ -1,3 +1,6 @@
+window:
+  startup_mode: Fullscreen
+
 shell:
   program: zsh
   args:
