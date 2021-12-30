@@ -105,7 +105,7 @@ map q: <Nop>
 nnoremap Q <nop>
 
 nnoremap <Leader>vn :e ~/code/notes.md<CR>
-nnoremap <Leader>ve :e $MYVIMRC<CR>
+nnoremap <Leader>ve :e ~/dotfiles/init.vim<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 inoremap jj <Esc>                             " Quick exit of insert mode
 tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
