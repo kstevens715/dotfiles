@@ -30,25 +30,25 @@
       stderr:      true
     -
       description: Install vim-plug
-      command: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      command:     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     -
       description: Install oh-my-zsh
-      command: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+      command:     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
     -
       description: Install TPM
-      command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
+      command:     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
     -
       description: Install TPM plugins
-      command: ~/.tmux/plugins/tpm/bin/install_plugins
+      command:     ~/.tmux/plugins/tpm/bin/install_plugins
     -
       description: Install Jet Brains fonts
-      command: cp JetBrainsMono/* /Library/Fonts
+      command:     cp JetBrainsMono/* /Library/Fonts
     -
       description: Start RabbitMQ
-      command: brew services start rabbitmq
+      command:     brew services start rabbitmq
     -
       description: Start Redis
-      command: brew services start redis
+      command:     brew services start redis
     -
       description: Install Be Focused Pomodoro Timer
       command:     mas install 961632517
