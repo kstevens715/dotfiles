@@ -110,8 +110,6 @@ nnoremap <Leader>vr :source $MYVIMRC<CR>
 inoremap jj <Esc>                             " Quick exit of insert mode
 tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
 nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
-" vmap <silent> gc <C-V>^I#<Space><Esc> " Comment out lines
-" nmap - :e .<CR>                       " Start Netrw with '-'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OTHER
@@ -194,7 +192,7 @@ vim.lsp.set_log_level("debug")
 local nvim_lsp = require'lspconfig'
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end  -- Mappings.
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
