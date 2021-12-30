@@ -49,6 +49,12 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme nord
 
+" Highlight trailing whitespace
+highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
+autocmd WinEnter *
+  \ if !exists('w:created') | call matchadd('WhitespaceEOL', '\s\+$') | endif
+call matchadd('WhitespaceEOL', '\s\+$')
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
