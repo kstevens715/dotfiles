@@ -81,7 +81,7 @@ let test#ruby#rspec#options = {
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "vtr"
+let test#strategy = "kitty"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-REST-CONSOLE CONFIGURATION
