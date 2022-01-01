@@ -1,6 +1,5 @@
 tap "heroku/brew"
 
-cask "alacritty"
 cask "firefox"
 cask "postgres-unofficial"
 cask "slack"
