@@ -7,8 +7,10 @@
 - create:
     - ~/code
     - ~/.config/nvim
+    - ~/.config/kitty
 
 - link:
+    ~/.config/kitty/kitty.conf:        kitty.conf
     ~/.config/nvim/init.vim:           init.vim
     ~/.gitconfig:                      gitconfig
     ~/.gitignore:                      gitignore
