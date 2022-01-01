@@ -14,6 +14,15 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Themes I'm trying
+Plug 'robertmeta/nofrils'
+Plug 'axvr/photon.vim'
+
+Plug 'rktjmp/lush.nvim'
+Plug 'mcchrish/zenbones.nvim'
+" Themes I'm trying
+
+
 " Might need to be first
 Plug 'nvim-lua/plenary.nvim'
 
@@ -42,7 +51,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme nord
+colorscheme vimbones
 
 " Highlight trailing whitespace
 highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
