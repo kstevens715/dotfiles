@@ -14,21 +14,13 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Themes I'm trying
-Plug 'robertmeta/nofrils'
-Plug 'axvr/photon.vim'
-
-Plug 'rktjmp/lush.nvim'
-Plug 'mcchrish/zenbones.nvim'
-" Themes I'm trying
-
-
 " Might need to be first
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
+Plug 'axvr/photon.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
 Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
@@ -51,7 +43,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme vimbones
+colorscheme antiphoton
 
 " Highlight trailing whitespace
 highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
