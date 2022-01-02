@@ -6,6 +6,7 @@ cask "slack"
 
 brew "chruby"
 brew "fontconfig"
+brew "fzf"
 brew "git-flow"
 brew "gpg"
 brew "heroku"
