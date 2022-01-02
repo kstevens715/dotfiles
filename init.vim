@@ -17,13 +17,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Might need to be first
 Plug 'nvim-lua/plenary.nvim'
 
+Plug 'mcchrish/zenbones.nvim'
+Plug 'rktjmp/lush.nvim' " Needed for zenbones
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
 Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
-Plug 'kstevens715/photon.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
@@ -43,7 +44,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme antiphoton
+colorscheme vimbones
 
 " Highlight trailing whitespace
 highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
