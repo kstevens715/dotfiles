@@ -17,9 +17,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Might need to be first
 Plug 'nvim-lua/plenary.nvim'
 
-Plug 'mcchrish/zenbones.nvim'
-Plug 'rktjmp/lush.nvim' " Needed for zenbones
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
@@ -44,13 +43,14 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme vimbones
+set background=light
+colorscheme PaperColor
 
 " Highlight trailing whitespace
-highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
-autocmd WinEnter *
-  \ if !exists('w:created') | call matchadd('WhitespaceEOL', '\s\+$') | endif
-call matchadd('WhitespaceEOL', '\s\+$')
+" highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
+" autocmd WinEnter *
+"   \ if !exists('w:created') | call matchadd('WhitespaceEOL', '\s\+$') | endif
+" call matchadd('WhitespaceEOL', '\s\+$')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -146,7 +146,6 @@ opt.smartindent = true
 opt.softtabstop = 2
 opt.swapfile = false
 opt.tabstop = 2
-opt.termguicolors = true
 opt.wrap = false
 
 --  NVIM-TREESITTER

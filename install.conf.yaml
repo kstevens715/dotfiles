@@ -49,3 +49,6 @@
     -
       description: Install Be Focused Pomodoro Timer
       command:     mas install 961632517
+    -
+      description: Install the Heroku CLI builds plugin
+      command:     heroku plugins:install heroku-builds
