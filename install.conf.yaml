@@ -7,10 +7,10 @@
 - create:
     - ~/code
     - ~/.config/nvim
-    - ~/.config/kitty
+    - ~/.config/alacritty
 
 - link:
-    ~/.config/kitty/kitty.conf:        kitty.conf
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/nvim/init.vim:           init.vim
     ~/.gitconfig:                      gitconfig
     ~/.gitignore:                      gitignore
@@ -29,8 +29,11 @@
       command:     brew bundle
       stderr:      true
     -
-      description: Install Kitty
-      command:     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+      description: Install TPM
+      command:     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
+    -
+      description: Install TPM plugins
+      command:     ~/.tmux/plugins/tpm/bin/install_plugins
     -
       description: Install vim-plug
       command:     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
