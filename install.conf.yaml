@@ -11,8 +11,6 @@
 
 - link:
     ~/.config/kitty/kitty.conf:        kitty.conf
-    ~/.config/kitty/kitty.light.conf:  kitty.light.conf
-    ~/.config/kitty/kitty.dark.conf:   kitty.dark.conf
     ~/.config/nvim/init.vim:           init.vim
     ~/.gitconfig:                      gitconfig
     ~/.gitignore:                      gitignore
