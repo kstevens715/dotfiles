@@ -18,17 +18,15 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
-Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
+Plug 'kstevens715/vim-monokai'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -43,14 +41,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=light
-colorscheme PaperColor
-
-" Highlight trailing whitespace
-" highlight WhitespaceEOL ctermbg=red ctermfg=white guibg=#592929
-" autocmd WinEnter *
-"   \ if !exists('w:created') | call matchadd('WhitespaceEOL', '\s\+$') | endif
-" call matchadd('WhitespaceEOL', '\s\+$')
+set background=dark
+colorscheme monokai
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -83,7 +75,7 @@ let test#ruby#rspec#options = {
 nmap <silent> <C-c> :TestNearest <CR>
 nmap <silent> <C-f> :TestFile <CR>
 nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "kitty"
+let test#strategy = "neovim"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-REST-CONSOLE CONFIGURATION
@@ -147,22 +139,6 @@ opt.softtabstop = 2
 opt.swapfile = false
 opt.tabstop = 2
 opt.wrap = false
-
---  NVIM-TREESITTER
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
 
 -- LUALINE
 require'lualine'.setup()
