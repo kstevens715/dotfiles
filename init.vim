@@ -22,11 +22,11 @@ Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
-Plug 'kstevens715/vim-monokai'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'sainnhe/sonokai'
 Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -41,8 +41,12 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('termguicolors')
+  set termguicolors
+endif
 set background=dark
-colorscheme monokai
+let g:sonokai_style = 'shusia'
+colorscheme sonokai
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -141,7 +145,11 @@ opt.tabstop = 2
 opt.wrap = false
 
 -- LUALINE
-require'lualine'.setup()
+require'lualine'.setup {
+  options = {
+    theme = 'sonokai'
+    }
+  }
 
 -- NEOGIT
 require('neogit').setup {
