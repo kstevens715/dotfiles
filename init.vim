@@ -22,6 +22,7 @@ Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
+Plug 'kassio/neoterm'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
@@ -76,10 +77,15 @@ let test#ruby#rspec#options = {
   \ 'all':   '--format progress',
 \}
 
-nmap <silent> <C-c> :TestNearest <CR>
-nmap <silent> <C-f> :TestFile <CR>
-nmap <silent> <C-x> :TestLast <CR>
-let test#strategy = "neovim"
+nmap <silent> <C-c> :Topen <bar> :TestNearest <CR>
+nmap <silent> <C-f> :Topen <bar> :TestFile <CR>
+nmap <silent> <C-x> :Topen <bar> :TestLast <CR>
+
+let g:neoterm_autoscroll = 1
+let g:neoterm_default_mod = 'botright'
+let g:neoterm_size = 15
+
+let test#strategy = "neoterm"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-REST-CONSOLE CONFIGURATION
@@ -95,6 +101,11 @@ map <leader>r :TroubleToggle <CR>
 nmap <silent> <M-h> :tabprevious <CR>
 nmap <silent> <M-l> :tabnext <CR>
 nmap <silent> <M-n> :tabnew <CR>
+
+nmap <silent> <C-h> :wincmd h <CR>
+nmap <silent> <C-l> :wincmd l <CR>
+nmap <silent> <C-j> :wincmd j <CR>
+nmap <silent> <C-k> :wincmd k <CR>
 
 " Disable ex mode
 map q: <Nop>
