@@ -24,6 +24,18 @@
         "options": {
           "full_name": "postgres-unofficial"
         }
+      },
+      "chromedriver": {
+        "version": "97.0.4692.71",
+        "options": {
+          "full_name": "chromedriver"
+        }
+      },
+      "google-chrome": {
+        "version": "97.0.4692.71",
+        "options": {
+          "full_name": "google-chrome"
+        }
       }
     },
     "brew": {
@@ -685,7 +697,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.3.9",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "03148b64a605f6467dbc2b9e51202374362613dd",
+        "Homebrew/homebrew-core": "aaa8ae94fa993a7bed2e7b61948ee4e852eea1ac",
         "CLT": "13.0.0.0.1.1630607135",
         "Xcode": "13.2.1",
         "macOS": "11.6.1"
