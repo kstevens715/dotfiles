@@ -2,3 +2,5 @@
 vim/bundle/**
 !vim/bundle/.gitkeep
 .DS_Store
+stderr.log
+stdout.log
