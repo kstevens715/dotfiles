@@ -10,13 +10,14 @@
     - ~/.config/alacritty
 
 - link:
-    ~/.config/alacritty/alacritty.yml: alacritty.yml
-    ~/.config/nvim/init.vim:           init.vim
-    ~/.config/nvim/coc-settings.json:  coc-settings.json
-    ~/.gitconfig:                      gitconfig
-    ~/.gitignore:                      gitignore
-    ~/.tmux.conf:                      tmux.conf
-    ~/.zshenv:                         zshenv
+    ~/Library/LaunchAgents/everdo_backup.plist: everdo_backup.plist
+    ~/.config/alacritty/alacritty.yml:          alacritty.yml
+    ~/.config/nvim/init.vim:                    init.vim
+    ~/.config/nvim/coc-settings.json:           coc-settings.json
+    ~/.gitconfig:                               gitconfig
+    ~/.gitignore:                               gitignore
+    ~/.tmux.conf:                               tmux.conf
+    ~/.zshenv:                                  zshenv
 
 - shell:
     -
@@ -59,3 +60,6 @@
     -
       description: Install the Heroku CLI builds plugin
       command:     heroku plugins:install heroku-builds
+    -
+      description: Install Everdo backup script
+      command:     launchctl load ~/Library/LaunchAgents/everdo_backup.plist
