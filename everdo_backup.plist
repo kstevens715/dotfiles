@@ -6,9 +6,6 @@
         <key>Label</key>
         <string>everdo_backup.plist</string>
 
-        <key>RunAtLoad</key>
-        <true/>
-
         <key>StartInterval</key>
         <integer>86400</integer>
 

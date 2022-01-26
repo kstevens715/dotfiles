@@ -4,4 +4,4 @@ TIMESTAMP=$(date +%F_%T | tr ':' '-')
 LOCATION="db_backup_$TIMESTAMP.sqlite"
 
 sqlite3 ~/Library/Application\ Support/everdo/db ".backup '$LOCATION'"
-cp "./$LOCATION" ~/Library/Mobile\ Documents/com~apple~CloudDocs/Everdo/backups/
+mv "./$LOCATION" ~/Library/Mobile\ Documents/com~apple~CloudDocs/Everdo/backups/
