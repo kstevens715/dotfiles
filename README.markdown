@@ -1,1 +1,1 @@
-run `./install`
+Just run `./install`
