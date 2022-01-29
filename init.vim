@@ -20,6 +20,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
+Plug 'darfink/vim-plist'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
 Plug 'kassio/neoterm'
@@ -27,6 +28,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'sickill/vim-monokai'
 Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
@@ -68,6 +70,7 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 nnoremap <leader>c <cmd>Neogit<cr>
 nnoremap <leader>t <cmd>Telescope find_files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>g <cmd>Telescope grep_string<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -98,14 +101,14 @@ let g:vrc_curl_opts = {
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>r :TroubleToggle <CR>
-nmap <silent> <M-h> :tabprevious <CR>
-nmap <silent> <M-l> :tabnext <CR>
-nmap <silent> <M-n> :tabnew <CR>
+nmap <silent> <C-h> :tabprevious <CR>
+nmap <silent> <C-l> :tabnext <CR>
+nmap <silent> <C-n> :tabnew <CR>
 
-nmap <silent> <C-h> :wincmd h <CR>
-nmap <silent> <C-l> :wincmd l <CR>
-nmap <silent> <C-j> :wincmd j <CR>
-nmap <silent> <C-k> :wincmd k <CR>
+" nmap <silent> <C-h> :wincmd h <CR>
+" nmap <silent> <C-l> :wincmd l <CR>
+" nmap <silent> <C-j> :wincmd j <CR>
+" nmap <silent> <C-k> :wincmd k <CR>
 
 " Disable ex mode
 map q: <Nop>
@@ -154,6 +157,45 @@ opt.softtabstop = 2
 opt.swapfile = false
 opt.tabstop = 2
 opt.wrap = false
+
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- List of parsers to ignore installing
+  ignore_install = { "javascript" },
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    disable = { "c", "rust" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+
+  indent = {
+    enable = true
+  },
+
+  -- incremental_selection = {
+  --   enable = true,
+  --   keymaps = {
+  --     init_selection = "gnn",
+  --     node_incremental = "grn",
+  --     scope_incremental = "grc",
+  --     node_decremental = "grm",
+  --   },
+  -- },
+}
 
 -- LUALINE
 require'lualine'.setup {
