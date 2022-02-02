@@ -47,6 +47,7 @@ if has('termguicolors')
 endif
 set background=dark
 colorscheme monokai
+hi TabLineFill ctermfg=231 ctermbg=241 cterm=bold guifg=#f8f8f2 guibg=#64645e gui=bold
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -157,7 +158,7 @@ opt.wrap = false
 -- LUALINE
 require'lualine'.setup {
   options = {
-    theme = 'sonokai'
+    theme = 'molokai' -- TODO: Find a monokai version
     }
   }
 

@@ -22,31 +22,33 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
 
-  size: 14
+  size: 12
 
-
-# From: https://github.com/sainnhe/sonokai/tree/master/alacritty#shusia
+# Colors (Monokai Dark)
 colors:
+  # Default colors
   primary:
-    background: "0x2d2a2e"
-    foreground: "0xe3e1e4"
+    background: '#272822'
+    foreground: '#F8F8F2'
 
+  # Normal colors
   normal:
-    black: "0x1a181a"
-    red: "0xf85e84"
-    green: "0x9ecd6f"
-    yellow: "0xe5c463"
-    blue: "0x7accd7"
-    magenta: "0xab9df2"
-    cyan: "0xef9062"
-    white: "0xe3e1e4"
+   black:   '#272822'
+   red:     '#F92672'
+   green:   '#A6E22E'
+   yellow:  '#F4BF75'
+   blue:    '#66D9EF'
+   magenta: '#AE81FF'
+   cyan:    '#A1EFE4'
+   white:   '#F8F8F2'
 
+  # Bright colors
   bright:
-    black: "0x848089"
-    red: "0xf85e84"
-    green: "0x9ecd6f"
-    yellow: "0xe5c463"
-    blue: "0x7accd7"
-    magenta: "0xab9df2"
-    cyan: "0xef9062"
-    white: "0xe3e1e4"
+   black:   '#75715E'
+   red:     '#F92672'
+   green:   '#A6E22E'
+   yellow:  '#F4BF75'
+   blue:    '#66D9EF'
+   magenta: '#AE81FF'
+   cyan:    '#A1EFE4'
+   white:   '#F9F8F5'
