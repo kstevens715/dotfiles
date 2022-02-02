@@ -173,7 +173,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
 
     -- list of language that will be disabled
-    disable = { "c", "rust" },
+    -- TODO: Try and get treesitter support in sickill/vim-monokai
+    disable = { "ruby", "c", "rust" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
