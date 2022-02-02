@@ -14,4 +14,4 @@ alias dc="docker-compose"
 alias vim="nvim"
 alias tc="cd ~/code/telchar"
 
-alias minio="minio server --address :4572 ~/minio"
+alias minio="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
