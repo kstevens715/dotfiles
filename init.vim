@@ -27,7 +27,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'sainnhe/sonokai'
+Plug 'sickill/vim-monokai'
 Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -46,8 +46,7 @@ if has('termguicolors')
   set termguicolors
 endif
 set background=dark
-let g:sonokai_style = 'shusia'
-colorscheme sonokai
+colorscheme monokai
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -198,7 +197,7 @@ nvim_lsp.solargraph.setup {
   on_attach = on_attach,
   settings = {
     solargraph = {
-      useBundler = false,
+      useBundler = true,
       diagnostics = true,
     }
   },
