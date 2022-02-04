@@ -7,11 +7,9 @@
 - create:
     - ~/code
     - ~/.config/nvim
-    - ~/.config/alacritty
 
 - link:
     ~/Library/LaunchAgents/everdo_backup.plist: everdo_backup.plist
-    ~/.config/alacritty/alacritty.yml:          alacritty.yml
     ~/.config/nvim/init.vim:                    init.vim
     ~/.config/nvim/coc-settings.json:           coc-settings.json
     ~/.gitconfig:                               gitconfig

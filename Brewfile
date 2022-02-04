@@ -1,9 +1,9 @@
 tap "heroku/brew"
 
-cask "alacritty"
 cask "chromedriver"
 cask "google-chrome"
 cask "firefox"
+cask "iterm2"
 cask "postgres-unofficial"
 cask "slack"
 
