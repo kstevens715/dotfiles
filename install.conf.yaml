@@ -11,7 +11,6 @@
 - link:
     ~/Library/LaunchAgents/everdo_backup.plist: everdo_backup.plist
     ~/.config/nvim/init.vim:                    init.vim
-    ~/.config/nvim/coc-settings.json:           coc-settings.json
     ~/.gitconfig:                               gitconfig
     ~/.gitignore:                               gitignore
     ~/.tmux.conf:                               tmux.conf
@@ -28,6 +27,18 @@
       description: Install Brew Packages
       command:     brew bundle
       stderr:      true
+    -
+      description: Install Corepack (so that Yarn can be installed)
+      command:     npm i -g corepack
+      stdin:       true
+      stout:       true
+      sterr:       true
+    -
+      description: Install Yarn
+      command:     yarn set version stable
+      stdin:       true
+      stout:       true
+      sterr:       true
     -
       description: Install TPM
       command:     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
