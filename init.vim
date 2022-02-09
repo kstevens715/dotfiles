@@ -29,7 +29,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'sickill/vim-monokai'
+Plug 'sainnhe/sonokai'
 Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -48,7 +48,8 @@ if has('termguicolors')
   set termguicolors
 endif
 set background=dark
-colorscheme monokai
+let g:sonokai_style = 'andromeda'
+colorscheme sonokai
 hi TabLineFill ctermfg=231 ctermbg=241 cterm=bold guifg=#f8f8f2 guibg=#64645e gui=bold
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,7 +175,7 @@ require'nvim-treesitter.configs'.setup {
 
     -- list of language that will be disabled
     -- TODO: Try and get treesitter support in sickill/vim-monokai
-    disable = { "ruby", "c", "rust" },
+    disable = { "c", "rust" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -201,7 +202,7 @@ require'nvim-treesitter.configs'.setup {
 -- LUALINE
 require'lualine'.setup {
   options = {
-    theme = 'molokai' -- TODO: Find a monokai version
+    theme = 'sonokai'
     }
   }
 
