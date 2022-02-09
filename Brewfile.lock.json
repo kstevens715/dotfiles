@@ -8,7 +8,7 @@
         }
       },
       "firefox": {
-        "version": "96.0.3",
+        "version": "97.0",
         "options": {
           "full_name": "firefox"
         }
@@ -692,7 +692,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.3.14",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "3c2e154adf53262c16c671d2201eecf5991c9c8a",
+        "Homebrew/homebrew-core": "da533c2d530f268d05946795c5d04e925f344981",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.2.1",
         "macOS": "11.6.2"
