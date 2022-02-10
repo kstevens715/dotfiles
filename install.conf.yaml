@@ -35,7 +35,7 @@
       sterr:       true
     -
       description: Install Yarn
-      command:     corepack prepare yarn@3.1.0 --activate
+      command:     corepack prepare yarn@2.1.1 --activate
       stdin:       true
       stout:       true
       sterr:       true
