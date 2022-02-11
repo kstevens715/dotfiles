@@ -1,5 +1,6 @@
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+source ~/dotfiles/secrets.sh
 
 # Variables
 export EDITOR=nvim
