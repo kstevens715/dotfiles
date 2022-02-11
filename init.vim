@@ -17,6 +17,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Might need to be first
 Plug 'nvim-lua/plenary.nvim'
 
+Plug 'folke/tokyonight.nvim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
@@ -30,7 +31,6 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'sindrets/diffview.nvim'
-Plug 'tanvirtin/monokai.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -48,7 +48,7 @@ if has('termguicolors')
   set termguicolors
 endif
 set background=dark
-colorscheme monokai
+colorscheme tokyonight
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
