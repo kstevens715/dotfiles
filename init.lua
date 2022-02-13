@@ -14,8 +14,10 @@ vim.cmd [[
 
 local use = require('packer').use
 require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
   use 'EdenEast/nightfox.nvim'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use 'wbthomason/packer.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -29,3 +31,8 @@ require('lualine').setup {
     theme = 'nightfox'
   },
 }
+
+--Add leader shortcuts
+vim.api.nvim_set_keymap('n', '<C-h>', [[<cmd>tabprevious <CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', [[<cmd>tabnext <CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-n>', [[<cmd>tabnew <CR>]], { noremap = true, silent = true })
