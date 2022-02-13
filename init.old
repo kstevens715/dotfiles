@@ -1,17 +1,9 @@
-" Might need to be first
-Plug 'nvim-lua/plenary.nvim'
-
-Plug 'TimUntersberger/neogit'
-Plug 'airblade/vim-gitgutter'
-Plug 'darfink/vim-plist'
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
 Plug 'kassio/neoterm'
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-vinegar'
@@ -140,14 +132,6 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
-}
-
--- NEOGIT
-require('neogit').setup {
-  disable_commit_confirmation = true,
-  integrations = {
-    diffview = true
-  }
 }
 
 -- TROUBLE
