@@ -49,6 +49,18 @@ require('lualine').setup {
   },
 }
 
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+
+  highlight = {
+    enable = true,
+  },
+
+  indent = {
+    enable = true
+  },
+}
+
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
