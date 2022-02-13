@@ -55,8 +55,6 @@ map <leader>r :TroubleToggle <CR>
 map q: <Nop>
 nnoremap Q <nop>
 
-inoremap jj <Esc>                             " Quick exit of insert mode
-tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
 nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
