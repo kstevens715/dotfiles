@@ -15,11 +15,13 @@ vim.cmd [[
 local use = require('packer').use
 require('packer').startup(function()
   use 'EdenEast/nightfox.nvim'
+  use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
+  use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
@@ -111,3 +113,6 @@ vim.api.nvim_set_keymap('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>
 vim.api.nvim_set_keymap('n', '<C-h>', [[<cmd>tabprevious <CR>]], opts)
 vim.api.nvim_set_keymap('n', '<C-l>', [[<cmd>tabnext <CR>]], opts)
 vim.api.nvim_set_keymap('n', '<C-n>', [[<cmd>tabnew <CR>]], opts)
+vim.api.nvim_set_keymap('n', '<C-c>', [[<cmd>Topen <bar> :TestNearest <CR>]], opts)
+vim.api.nvim_set_keymap('n', '<C-f>', [[<cmd>Topen <bar> :TestFile  <CR>]], opts)
+vim.api.nvim_set_keymap('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]], opts)

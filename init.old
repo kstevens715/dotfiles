@@ -1,10 +1,8 @@
-Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
-Plug 'kassio/neoterm'
+Plug 'diepm/vim-rest-console'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-vinegar'
-Plug 'vim-test/vim-test'
 
 let g:ruby_indent_assignment_style = 'variable'
 
@@ -13,19 +11,13 @@ sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 
-let test#ruby#rspec#options = {
-  \ 'all':   '--format progress',
-\}
-
-nmap <silent> <C-c> :Topen <bar> :TestNearest <CR>
-nmap <silent> <C-f> :Topen <bar> :TestFile <CR>
-nmap <silent> <C-x> :Topen <bar> :TestLast <CR>
-
 let g:neoterm_autoscroll = 1
 let g:neoterm_default_mod = 'botright'
 let g:neoterm_size = 15
-
 let test#strategy = "neoterm"
+let test#ruby#rspec#options = {
+  \ 'all':   '--format progress',
+\}
 
 let g:vrc_curl_opts = {
   \ '-i': '',
