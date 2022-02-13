@@ -17,8 +17,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Might need to be first
 Plug 'nvim-lua/plenary.nvim'
 
-Plug 'folke/tokyonight.nvim'
-Plug 'MattesGroeger/vim-bookmarks'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'darfink/vim-plist'
@@ -48,7 +47,7 @@ if has('termguicolors')
   set termguicolors
 endif
 set background=dark
-colorscheme tokyonight
+colorscheme duskfox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-RUBY CONFIGURATION
@@ -197,7 +196,11 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- LUALINE
-require'lualine'.setup {}
+require('lualine').setup {
+  options = {
+    theme = "nightfox"
+  }
+}
 
 -- NEOGIT
 require('neogit').setup {
@@ -243,6 +246,10 @@ nvim_lsp.solargraph.setup {
     debounce_text_changes = 150,
   }
 }
+
+local builtin = require("telescope.builtin")
+vim.lsp.handlers["textDocument/references"] = builtin.lsp_references
+vim.lsp.handlers["textDocument/definitions"] = builtin.lsp_definitions
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {

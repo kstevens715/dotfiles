@@ -6,15 +6,17 @@
 
 - create:
     - ~/code
+    - ~/.config/alacritty
     - ~/.config/nvim
 
 - link:
-    ~/Library/LaunchAgents/everdo_backup.plist: everdo_backup.plist
+    ~/.config/alacritty/alacritty.yml:          alacritty.yml
     ~/.config/nvim/init.vim:                    init.vim
     ~/.gitconfig:                               gitconfig
     ~/.gitignore:                               gitignore
     ~/.tmux.conf:                               tmux.conf
     ~/.zshenv:                                  zshenv
+    ~/Library/LaunchAgents/everdo_backup.plist: everdo_backup.plist
 
 - shell:
     -
