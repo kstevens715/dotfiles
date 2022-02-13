@@ -28,6 +28,24 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)
 
+vim.o.autoread = true
+vim.o.clipboard = 'unnamed'
+vim.o.cursorline = true
+vim.o.expandtab = true
+vim.o.ignorecase = true
+vim.o.inccommand = 'nosplit'
+vim.o.mouse = 'a'
+vim.o.shiftwidth = 2
+vim.o.showtabline = 1
+vim.o.smartcase = true
+vim.o.smartindent = true
+vim.o.softtabstop = 2
+vim.o.swapfile = false
+vim.o.tabstop = 2
+vim.o.termguicolors = true
+vim.o.wrap = false
+vim.wo.number = true
+
 require("better_escape").setup()
 require('Comment').setup()
 require('nightfox').load('duskfox')
