@@ -15,6 +15,7 @@ vim.cmd [[
 local use = require('packer').use
 require('packer').startup(function()
   use 'EdenEast/nightfox.nvim'
+  use 'max397574/better-escape.nvim'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -26,10 +27,11 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)
 
-require('telescope.builtin')
+require("better_escape").setup()
 require('Comment').setup()
 require('nightfox').load('duskfox')
 require('telescope').load_extension 'fzf'
+require('telescope.builtin')
 
 require('gitsigns').setup {
   signs = {
@@ -46,7 +48,6 @@ require('lualine').setup {
     theme = 'nightfox'
   },
 }
-
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
