@@ -16,12 +16,16 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'EdenEast/nightfox.nvim'
   use 'diepm/vim-rest-console'
+  use 'folke/trouble.nvim'
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
+  use 'tpope/vim-endwise'
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
+  use 'tpope/vim-vinegar'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -48,6 +52,21 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
+
+-- TODO: Stuff that still needs conversion from init.vim
+-- map <leader>r :TroubleToggle <CR>
+-- sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
+-- sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
+-- sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
+-- sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
+-- let g:ruby_indent_assignment_style = 'variable'
+-- let g:neoterm_autoscroll = 1
+-- let g:neoterm_default_mod = 'botright'
+-- let g:neoterm_size = 15
+-- let test#strategy = "neoterm"
+-- let test#ruby#rspec#options = {
+--   \ 'all':   '--format progress',
+-- \}
 
 require("better_escape").setup()
 require('Comment').setup()
@@ -93,6 +112,17 @@ require('lualine').setup {
   },
 }
 
+require("trouble").setup {
+  icons = true,
+  signs = {
+    error = "",
+    warning = "",
+    hint = "",
+    information = "",
+    other = "﫠"
+  },
+}
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
 
@@ -104,6 +134,24 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   },
 }
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- This will disable virtual text, like doing:
+    -- let g:diagnostic_enable_virtual_text = 0
+    virtual_text = false,
+
+    -- This is similar to:
+    -- let g:diagnostic_show_sign = 1
+    -- To configure sign display,
+    --  see: ":help vim.lsp.diagnostic.set_signs()"
+    signs = true,
+
+    -- This is similar to:
+    -- "let g:diagnostic_insert_delay = 1"
+    update_in_insert = false,
+  }
+)
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
