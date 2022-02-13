@@ -15,6 +15,7 @@ vim.cmd [[
 local use = require('packer').use
 require('packer').startup(function()
   use 'EdenEast/nightfox.nvim'
+  use 'diepm/vim-rest-console'
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'

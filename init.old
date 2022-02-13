@@ -1,5 +1,4 @@
 Plug 'folke/trouble.nvim'
-Plug 'diepm/vim-rest-console'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-vinegar'
@@ -19,21 +18,7 @@ let test#ruby#rspec#options = {
   \ 'all':   '--format progress',
 \}
 
-let g:vrc_curl_opts = {
-  \ '-i': '',
-\}
-
 map <leader>r :TroubleToggle <CR>
-
-" Disable ex mode
-map q: <Nop>
-nnoremap Q <nop>
-
-command! -bang WQ wq<bang>
-command! -bang Wq wq<bang>
-command! -bang W w<bang>
-command! -bang Q q<bang>
-command! -bang Qa qa<bang>
 
 lua <<EOF
 
