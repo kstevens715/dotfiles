@@ -11,7 +11,7 @@
 
 - link:
     ~/.config/alacritty/alacritty.yml:          alacritty.yml
-    ~/.config/nvim/init.vim:                    init.vim
+    ~/.config/nvim/init.lua:                    init.lua
     ~/.gitconfig:                               gitconfig
     ~/.gitignore:                               gitignore
     ~/.tmux.conf:                               tmux.conf
