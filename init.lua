@@ -18,12 +18,13 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'wbthomason/packer.nvim'
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 end)
 
+require("telescope.builtin")
+require('telescope').load_extension 'fzf'
 require('nightfox').load('duskfox')
 
 require('lualine').setup {
@@ -32,7 +33,10 @@ require('lualine').setup {
   },
 }
 
---Add leader shortcuts
-vim.api.nvim_set_keymap('n', '<C-h>', [[<cmd>tabprevious <CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', [[<cmd>tabnext <CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-n>', [[<cmd>tabnew <CR>]], { noremap = true, silent = true })
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
+vim.api.nvim_set_keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
+vim.api.nvim_set_keymap('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
+vim.api.nvim_set_keymap('n', '<C-h>', [[<cmd>tabprevious <CR>]], opts)
+vim.api.nvim_set_keymap('n', '<C-l>', [[<cmd>tabnext <CR>]], opts)
+vim.api.nvim_set_keymap('n', '<C-n>', [[<cmd>tabnew <CR>]], opts)

@@ -35,10 +35,6 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 " TELESCOPE CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>c <cmd>Neogit<cr>
-nnoremap <leader>t <cmd>Telescope find_files<cr>
-nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>g <cmd>Telescope grep_string<cr>
-nnoremap <leader>f <cmd>Telescope live_grep<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-TEST CONFIGURATION
@@ -145,16 +141,6 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
-
-  -- incremental_selection = {
-  --   enable = true,
-  --   keymaps = {
-  --     init_selection = "gnn",
-  --     node_incremental = "grn",
-  --     scope_incremental = "grc",
-  --     node_decremental = "grm",
-  --   },
-  -- },
 }
 
 -- NEOGIT
