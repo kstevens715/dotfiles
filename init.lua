@@ -15,6 +15,7 @@ vim.cmd [[
 local use = require('packer').use
 require('packer').startup(function()
   use 'EdenEast/nightfox.nvim'
+  use 'numToStr/Comment.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'wbthomason/packer.nvim'
@@ -23,6 +24,7 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 end)
 
+require('Comment').setup()
 require("telescope.builtin")
 require('telescope').load_extension 'fzf'
 require('nightfox').load('duskfox')
