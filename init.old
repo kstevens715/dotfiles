@@ -2,7 +2,6 @@ Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
 Plug 'kassio/neoterm'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
@@ -21,11 +20,6 @@ sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numh
 sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TELESCOPE CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>c <cmd>Neogit<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-TEST CONFIGURATION
@@ -61,9 +55,6 @@ map <leader>r :TroubleToggle <CR>
 map q: <Nop>
 nnoremap Q <nop>
 
-nnoremap <Leader>vn :e ~/code/notes.md<CR>
-nnoremap <Leader>ve :e ~/dotfiles/init.vim<CR>
-nnoremap <Leader>vr :source $MYVIMRC<CR>
 inoremap jj <Esc>                             " Quick exit of insert mode
 tnoremap jj <C-\><C-n>                        " Quick exit of insert mode while in terminal emulator
 nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
@@ -170,10 +161,6 @@ nvim_lsp.solargraph.setup {
     debounce_text_changes = 150,
   }
 }
-
-local builtin = require("telescope.builtin")
-vim.lsp.handlers["textDocument/references"] = builtin.lsp_references
-vim.lsp.handlers["textDocument/definitions"] = builtin.lsp_definitions
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
