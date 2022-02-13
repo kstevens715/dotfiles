@@ -1,28 +1,18 @@
 Plug 'diepm/vim-rest-console'
 Plug 'folke/trouble.nvim'
 Plug 'kassio/neoterm'
-Plug 'neovim/nvim-lspconfig'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-test/vim-test'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM-RUBY CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ruby_indent_assignment_style = 'variable'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LSP CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
 sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM-TEST CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let test#ruby#rspec#options = {
   \ 'all':   '--format progress',
 \}
@@ -37,40 +27,21 @@ let g:neoterm_size = 15
 
 let test#strategy = "neoterm"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM-REST-CONSOLE CONFIGURATION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vrc_curl_opts = {
   \ '-i': '',
 \}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MISC KEY MAPS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>r :TroubleToggle <CR>
-
 
 " Disable ex mode
 map q: <Nop>
 nnoremap Q <nop>
 
-nnoremap <leader>cp :let @*=expand("%:p")<CR> " Copy full file path of current buffer to clipboard
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OTHER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Auto-continue comment chars after ENTER, but not after hitting 'o' or 'O'
-au FileType * set formatoptions-=c formatoptions-=o
-au BufNewFile,BufRead *.es6.* set syntax=javascript
-
-
-" Typo forgiveness
 command! -bang WQ wq<bang>
 command! -bang Wq wq<bang>
 command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Qa qa<bang>
-command! Gblame Git blame
 
 lua <<EOF
 
