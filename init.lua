@@ -16,6 +16,7 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'EdenEast/nightfox.nvim'
   use 'max397574/better-escape.nvim'
+  use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -41,6 +42,28 @@ require('gitsigns').setup {
     topdelete = { text = '‾' },
     changedelete = { text = '~' },
   },
+}
+
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local opts = { noremap=true, silent=true }
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+end
+
+require('lspconfig').solargraph.setup {
+  on_attach = on_attach,
+  settings = {
+    solargraph = {
+      useBundler = true,
+      diagnostics = true,
+    }
+  },
+  flags = {
+    debounce_text_changes = 150,
+  }
 }
 
 require('lualine').setup {
