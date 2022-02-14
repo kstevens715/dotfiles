@@ -54,7 +54,6 @@ vim.o.wrap = false
 vim.wo.number = true
 
 -- TODO: Stuff that still needs conversion from init.vim
--- map <leader>r :TroubleToggle <CR>
 -- sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
 -- sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 -- sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
@@ -159,6 +158,7 @@ vim.api.nvim_set_keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin'
 vim.api.nvim_set_keymap('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], opts)
+vim.api.nvim_set_keymap('n', '<leader>r', [[<cmd>TroubleToggle<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<C-h>', [[<cmd>tabprevious <CR>]], opts)
 vim.api.nvim_set_keymap('n', '<C-l>', [[<cmd>tabnext <CR>]], opts)
 vim.api.nvim_set_keymap('n', '<C-n>', [[<cmd>tabnew <CR>]], opts)
