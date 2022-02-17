@@ -30,6 +30,10 @@
       command:     brew bundle
       stderr:      true
     -
+      description: Install FZF configs
+      command:     $(brew --prefix)/opt/fzf/install --all
+      stderr:      true
+    -
       description: Install Corepack (so that Yarn can be installed)
       command:     npm i -g corepack
       stdin:       true
