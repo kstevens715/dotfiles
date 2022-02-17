@@ -10,6 +10,8 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePost init.lua PackerCompile
   augroup end
+
+  autocmd BufEnter *.es6 :setlocal filetype=javascript
 ]]
 
 local use = require('packer').use

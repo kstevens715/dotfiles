@@ -5,3 +5,4 @@ vim/bundle/**
 stderr.log
 stdout.log
 secrets.sh
+Brewfile.lock.json
