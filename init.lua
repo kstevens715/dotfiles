@@ -12,6 +12,20 @@ vim.cmd [[
   augroup end
 
   autocmd BufEnter *.es6 :setlocal filetype=javascript
+
+  " TODO: Stuff that still needs conversion from init.vim
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
+  let g:ruby_indent_assignment_style = 'variable'
+  let g:neoterm_autoscroll = 1
+  let g:neoterm_default_mod = 'botright'
+  let g:neoterm_size = 15
+  let test#strategy = "neoterm"
+  let test#ruby#rspec#options = {
+    \ 'all':   '--format progress',
+  \}
 ]]
 
 local use = require('packer').use
@@ -54,20 +68,6 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
-
--- TODO: Stuff that still needs conversion from init.vim
--- sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
--- sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
--- sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
--- sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
--- let g:ruby_indent_assignment_style = 'variable'
--- let g:neoterm_autoscroll = 1
--- let g:neoterm_default_mod = 'botright'
--- let g:neoterm_size = 15
--- let test#strategy = "neoterm"
--- let test#ruby#rspec#options = {
---   \ 'all':   '--format progress',
--- \}
 
 require("better_escape").setup()
 require('Comment').setup()
