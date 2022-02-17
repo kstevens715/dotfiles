@@ -15,6 +15,7 @@
     ~/.gitconfig:                               gitconfig
     ~/.gitignore:                               gitignore
     ~/.tmux.conf:                               tmux.conf
+    ~/.tmate.conf:                              tmate.conf
     ~/.zshenv:                                  zshenv
     ~/Library/LaunchAgents/everdo_backup.plist: everdo_backup.plist
 
