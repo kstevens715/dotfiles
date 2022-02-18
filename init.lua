@@ -34,7 +34,7 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons '} }
+  use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 end)
 
 vim.o.autoread = true
