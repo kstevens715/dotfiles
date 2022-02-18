@@ -128,7 +128,7 @@ require'nvim-treesitter.configs'.setup {
   },
 
   indent = {
-    enable = true
+    enable = false -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
   },
 }
 
