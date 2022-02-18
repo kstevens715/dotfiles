@@ -149,6 +149,11 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.cmd [[
   autocmd BufEnter *.es6 :setlocal filetype=javascript
 
+  augroup highlight_yank
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Todo", timeout=500})
+  augroup END
+
   " TODO: Stuff that still needs conversion from init.vim
   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
   sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
