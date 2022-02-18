@@ -10,22 +10,6 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePost init.lua PackerCompile
   augroup end
-
-  autocmd BufEnter *.es6 :setlocal filetype=javascript
-
-  " TODO: Stuff that still needs conversion from init.vim
-  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
-  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
-  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
-  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
-  let g:ruby_indent_assignment_style = 'variable'
-  let g:neoterm_autoscroll = 1
-  let g:neoterm_default_mod = 'botright'
-  let g:neoterm_size = 15
-  let test#strategy = "neoterm"
-  let test#ruby#rspec#options = {
-    \ 'all':   '--format progress',
-  \}
 ]]
 
 local use = require('packer').use
@@ -34,6 +18,7 @@ require('packer').startup(function()
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
   use 'kassio/neoterm'
+  use "lukas-reineke/indent-blankline.nvim"
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
@@ -74,6 +59,12 @@ require('Comment').setup()
 require('nightfox').load('duskfox')
 require('telescope').load_extension 'fzf'
 require('telescope.builtin')
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
 
 require('gitsigns').setup {
   signs = {
@@ -153,6 +144,24 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
   }
 )
+
+vim.cmd [[
+  autocmd BufEnter *.es6 :setlocal filetype=javascript
+
+  " TODO: Stuff that still needs conversion from init.vim
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
+  let g:ruby_indent_assignment_style = 'variable'
+  let g:neoterm_autoscroll = 1
+  let g:neoterm_default_mod = 'botright'
+  let g:neoterm_size = 15
+  let test#strategy = "neoterm"
+  let test#ruby#rspec#options = {
+    \ 'all':   '--format progress',
+  \}
+]]
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>c', [[<cmd>Git<CR>]], opts)
