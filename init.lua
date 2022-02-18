@@ -15,6 +15,7 @@ vim.cmd [[
 local use = require('packer').use
 require('packer').startup(function()
   use 'EdenEast/nightfox.nvim'
+  use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
   use 'kassio/neoterm'
@@ -22,7 +23,6 @@ require('packer').startup(function()
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
-  use 'tpope/vim-endwise'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -118,6 +118,10 @@ require("trouble").setup {
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
+
+  endwise = {
+    enable = true,
+  },
 
   highlight = {
     enable = true,
