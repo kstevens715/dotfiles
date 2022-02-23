@@ -19,7 +19,6 @@ require('packer').startup(function()
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
   use 'kassio/neoterm'
-  use 'lukas-reineke/indent-blankline.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
@@ -34,7 +33,6 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 end)
 
 vim.o.autoread = true
@@ -60,12 +58,6 @@ require('Comment').setup()
 require('nightfox').load('duskfox')
 require('telescope').load_extension 'fzf'
 require('telescope.builtin')
-
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-}
 
 require('gitsigns').setup {
   signs = {
