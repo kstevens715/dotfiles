@@ -1,5 +1,5 @@
 import:
-- ~/dotfiles/nightfox_duskfox_alacritty.yml
+- ~/dotfiles/monokai_pro_alacritty.yml
 
 key_bindings:
   # These come from:
