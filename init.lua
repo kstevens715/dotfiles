@@ -14,7 +14,6 @@ vim.cmd [[
 
 local use = require('packer').use
 require('packer').startup(function()
-  use 'EdenEast/nightfox.nvim'
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
@@ -22,6 +21,7 @@ require('packer').startup(function()
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
+  use 'tanvirtin/monokai.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -55,7 +55,7 @@ vim.wo.number = true
 
 require("better_escape").setup()
 require('Comment').setup()
-require('nightfox').load('duskfox')
+require('monokai').setup { palette = require('monokai').pro }
 require('telescope').load_extension 'fzf'
 require('telescope.builtin')
 
@@ -92,9 +92,6 @@ require('lspconfig').solargraph.setup {
 }
 
 require('lualine').setup {
-  options = {
-    theme = 'nightfox'
-  },
 }
 
 require("trouble").setup {
