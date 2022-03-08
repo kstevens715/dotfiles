@@ -21,7 +21,7 @@ require('packer').startup(function()
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
-  use 'tanvirtin/monokai.nvim'
+  use 'savq/melange'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -53,9 +53,8 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
 
-require("better_escape").setup()
+require('better_escape').setup()
 require('Comment').setup()
-require('monokai').setup { palette = require('monokai').pro }
 require('telescope').load_extension 'fzf'
 require('telescope.builtin')
 
@@ -140,6 +139,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 vim.cmd [[
+  colorscheme melange
   autocmd BufEnter *.es6 :setlocal filetype=javascript
 
   augroup highlight_yank

@@ -1,5 +1,5 @@
 import:
-- ~/dotfiles/monokai_pro_alacritty.yml
+- ~/dotfiles/melange_dark_alacritty.yml
 
 key_bindings:
   # These come from:
@@ -19,7 +19,7 @@ font:
 
   italic:
     family: JetBrainsMono Nerd Font
-    style: Regular
+    style: Italic
 
   bold_italic:
     family: JetBrainsMono Nerd Font
