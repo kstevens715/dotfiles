@@ -164,7 +164,6 @@ vim.cmd [[
 
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n', ' ', [[<cmd>w<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>c', [[<cmd>Git<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
