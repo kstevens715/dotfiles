@@ -16,12 +16,12 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
+  use 'edeneast/nightfox.nvim'
   use 'folke/trouble.nvim'
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'numToStr/Comment.nvim'
-  use 'savq/melange'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -53,6 +53,7 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
 
+require('nightfox').load('nightfox')
 require('better_escape').setup()
 require('Comment').setup()
 require('telescope').load_extension 'fzf'
@@ -91,6 +92,9 @@ require('lspconfig').solargraph.setup {
 }
 
 require('lualine').setup {
+  options = {
+    theme = "nightfox"
+  }
 }
 
 require("trouble").setup {
@@ -139,7 +143,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 vim.cmd [[
-  colorscheme melange
   autocmd BufEnter *.es6 :setlocal filetype=javascript
 
   augroup highlight_yank
