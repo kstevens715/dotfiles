@@ -1,5 +1,5 @@
 import:
-- ~/dotfiles/melange_dark_alacritty.yml
+- ~/dotfiles/nightfox_alacritty.yml
 
 key_bindings:
   # These come from:
