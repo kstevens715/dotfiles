@@ -53,7 +53,16 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
 
-require('nightfox').load('nightfox')
+local nightfox = require('nightfox')
+local colors = require('nightfox.colors').load()
+
+nightfox.setup({
+  hlgroups = {
+    TabLineSel = { fg = colors.black, bg = colors.blue },
+  }
+})
+nightfox.load('nightfox')
+
 require('better_escape').setup()
 require('Comment').setup()
 require('telescope').load_extension 'fzf'
