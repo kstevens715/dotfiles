@@ -6,3 +6,4 @@
 2
 .ruby-version
 .ruby-gemset
+config/initializers/zzz_kyles_initializer.rb
