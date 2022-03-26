@@ -17,7 +17,6 @@
     ~/.tmux.conf:                               tmux.conf
     ~/.tmate.conf:                              tmate.conf
     ~/.zshenv:                                  zshenv
-    ~/Library/LaunchAgents/everdo_backup.plist: everdo_backup.plist
 
 - shell:
     -
@@ -34,27 +33,6 @@
       description: Install FZF configs
       command:     $(brew --prefix)/opt/fzf/install --all
       stderr:      true
-    -
-      description: Install Corepack (so that Yarn can be installed)
-      command:     npm i -g corepack
-      stdin:       true
-      stout:       true
-      sterr:       true
-    -
-      description: Install Yarn
-      command:     corepack prepare yarn@2.1.1 --activate
-      stdin:       true
-      stout:       true
-      sterr:       true
-    -
-      description: Install TPM
-      command:     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
-    -
-      description: Install TPM plugins
-      command:     ~/.tmux/plugins/tpm/bin/install_plugins
-    -
-      description: Install vim-plug
-      command:     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     -
       description: Install oh-my-zsh
       command:     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
@@ -73,9 +51,3 @@
     -
       description: Install the Heroku CLI builds plugin
       command:     heroku plugins:install heroku-builds
-    -
-      description: Install Everdo backup script
-      command:     launchctl unload ~/Library/LaunchAgents/everdo_backup.plist
-    -
-      description: Install Everdo backup script
-      command:     launchctl load ~/Library/LaunchAgents/everdo_backup.plist
