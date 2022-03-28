@@ -182,6 +182,7 @@ vim.api.nvim_set_keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin'
 vim.api.nvim_set_keymap('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], opts)
+vim.api.nvim_set_keymap('n', '<leader>wm', [[<cmd>e ~/Desktop/working_memory.md<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<leader>r', [[<cmd>TroubleToggle<CR>]], opts)
 vim.api.nvim_set_keymap('n', '<C-h>', [[<cmd>tabprevious <CR>]], opts)
 vim.api.nvim_set_keymap('n', '<C-l>', [[<cmd>tabnext <CR>]], opts)
