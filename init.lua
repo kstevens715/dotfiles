@@ -21,6 +21,7 @@ require('packer').startup(function()
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
@@ -172,6 +173,10 @@ vim.cmd [[
   let test#ruby#rspec#options = {
     \ 'all':   '--format progress',
   \}
+
+  let g:strip_whitespace_on_save=1
+  let g:strip_whitespace_confirm=0
+  let g:strip_only_modified_lines=1
 ]]
 
 local opts = { noremap = true, silent = true }
