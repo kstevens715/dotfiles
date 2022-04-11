@@ -1,5 +1,6 @@
 .byebug_history
 .erdconfig
+.env.test
 .foreman
 .solargraph.yml
 .DS_Store
