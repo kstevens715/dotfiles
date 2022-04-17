@@ -54,16 +54,6 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
 
-local nightfox = require('nightfox')
-local colors = require('nightfox.colors').load()
-
-nightfox.setup({
-  hlgroups = {
-    TabLineSel = { fg = colors.black, bg = colors.blue },
-  }
-})
-nightfox.load('nightfox')
-
 require('better_escape').setup()
 require('Comment').setup()
 require('telescope').load_extension 'fzf'
@@ -153,6 +143,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 vim.cmd [[
+  colorscheme nightfox
   autocmd BufEnter *.es6 :setlocal filetype=javascript
 
   augroup highlight_yank
