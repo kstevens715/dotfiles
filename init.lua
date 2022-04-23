@@ -16,7 +16,6 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
-  use 'edeneast/nightfox.nvim'
   use 'folke/trouble.nvim'
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
@@ -30,6 +29,7 @@ require('packer').startup(function()
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'mcchrish/zenbones.nvim', requires = { 'rktjmp/lush.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -93,7 +93,7 @@ require('lspconfig').solargraph.setup {
 
 require('lualine').setup {
   options = {
-    theme = "nightfox"
+    theme = "zenbones"
   }
 }
 
@@ -143,7 +143,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 vim.cmd [[
-  colorscheme nightfox
+  set background=light
+  colorscheme zenbones
+
   autocmd BufEnter *.es6 :setlocal filetype=javascript
 
   augroup highlight_yank
