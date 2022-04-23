@@ -17,6 +17,9 @@ require('packer').startup(function()
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
@@ -78,19 +81,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
 
-require('lspconfig').solargraph.setup {
-  on_attach = on_attach,
-  settings = {
-    solargraph = {
-      useBundler = true,
-      diagnostics = true,
-    }
-  },
-  flags = {
-    debounce_text_changes = 150,
-  }
-}
-
 require('lualine').setup {
   options = {
     theme = "zenbones"
@@ -142,9 +132,48 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+-- Setup nvim-cmp.
+local cmp = require'cmp'
+
+cmp.setup({
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  })
+})
+
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+require('lspconfig').solargraph.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    solargraph = {
+      useBundler = true,
+      diagnostics = true,
+    }
+  },
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+
 vim.cmd [[
   set background=light
   colorscheme zenbones
+  set completeopt=menu,menuone,noselect
 
   autocmd BufEnter *.es6 :setlocal filetype=javascript
 
