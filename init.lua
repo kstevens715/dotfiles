@@ -39,8 +39,12 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)
 
+vim.cmd([[ colorscheme zenbones ]])
+
 vim.o.autoread = true
+vim.o.background = "light"
 vim.o.clipboard = 'unnamed'
+vim.o.completeopt = "menu,menuone,noselect"
 vim.o.cursorline = true
 vim.o.expandtab = true
 vim.o.ignorecase = true
@@ -56,6 +60,18 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
+
+vim.g.ruby_indent_assignment_style = 'variable'
+vim.g.neoterm_autoscroll = 1
+vim.g.neoterm_default_mod = 'botright'
+vim.g.neoterm_size = 15
+vim.g.strip_whitespace_on_save=1
+vim.g.strip_whitespace_confirm=0
+vim.g.strip_only_modified_lines=1
+vim.g['test#strategy'] = 'neoterm'
+vim.g['test#ruby#rspec#options'] = {
+  all = '--format progress'
+}
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -169,37 +185,24 @@ require('lspconfig').solargraph.setup {
   }
 }
 
+-- Set file type mappings
+-- :help lua-filetype
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
 
-vim.cmd [[
-  set background=light
-  colorscheme zenbones
-  set completeopt=menu,menuone,noselect
+vim.filetype.add({
+  extension = {
+    es6 = 'javascript',
+  },
+  filename = {
+    ['Gemfile'] = 'ruby',
+  }
+})
 
-  autocmd BufEnter *.es6 :setlocal filetype=javascript
-
-  augroup highlight_yank
-  autocmd!
-  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Todo", timeout=500})
-  augroup END
-
-  " TODO: Stuff that still needs conversion from init.vim
-  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
-  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
-  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
-  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
-  let g:ruby_indent_assignment_style = 'variable'
-  let g:neoterm_autoscroll = 1
-  let g:neoterm_default_mod = 'botright'
-  let g:neoterm_size = 15
-  let test#strategy = "neoterm"
-  let test#ruby#rspec#options = {
-    \ 'all':   '--format progress',
-  \}
-
-  let g:strip_whitespace_on_save=1
-  let g:strip_whitespace_confirm=0
-  let g:strip_only_modified_lines=1
-]]
+vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', linehl = "", numhl = "" })
+vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = "", numhl = "" })
+vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = "", numhl = "" })
+vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = "", numhl = "" })
 
 vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
 vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
