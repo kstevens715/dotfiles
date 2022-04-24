@@ -5,14 +5,16 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
-vim.cmd [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]]
+local packer = require('packer')
+local use = packer.use
 
-local use = require('packer').use
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "init.lua",
+  callback = function(args)
+    packer.compile()
+  end,
+})
+
 require('packer').startup(function()
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
@@ -41,6 +43,15 @@ end)
 
 vim.cmd([[ colorscheme zenbones ]])
 
+vim.g.neoterm_autoscroll = 1
+vim.g.neoterm_default_mod = 'botright'
+vim.g.neoterm_size = 15
+vim.g.ruby_indent_assignment_style = 'variable'
+vim.g.strip_only_modified_lines=1
+vim.g.strip_whitespace_confirm=0
+vim.g.strip_whitespace_on_save=1
+vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
+vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
 vim.o.background = "light"
 vim.o.clipboard = 'unnamed'
@@ -61,17 +72,27 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
 
-vim.g.ruby_indent_assignment_style = 'variable'
-vim.g.neoterm_autoscroll = 1
-vim.g.neoterm_default_mod = 'botright'
-vim.g.neoterm_size = 15
-vim.g.strip_whitespace_on_save=1
-vim.g.strip_whitespace_confirm=0
-vim.g.strip_only_modified_lines=1
-vim.g['test#strategy'] = 'neoterm'
-vim.g['test#ruby#rspec#options'] = {
-  all = '--format progress'
-}
+vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', linehl = "", numhl = "" })
+vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = "", numhl = "" })
+vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = "", numhl = "" })
+vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = "", numhl = "" })
+
+vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
+vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
+vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
+vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
+vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
+vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]])
+vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Desktop/working_memory.md<CR>]])
+vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]])
+vim.keymap.set('n', '<C-h>', [[<cmd>tabprevious <CR>]])
+vim.keymap.set('n', '<C-l>', [[<cmd>tabnext <CR>]])
+vim.keymap.set('n', '<C-n>', [[<cmd>tabnew <CR>]])
+vim.keymap.set('n', '<C-c>', [[<cmd>Topen <bar> :TestNearest <CR>]])
+vim.keymap.set('n', '<C-f>', [[<cmd>Topen <bar> :TestFile  <CR>]])
+vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
+vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -116,34 +137,15 @@ require("trouble").setup {
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "bash", "css", "dockerfile", "html", "javascript", "json", "lua", "python", "ruby", "scss", "vim", "vue", "yaml" },
-
-  endwise = {
-    enable = true,
-  },
-
-  highlight = {
-    enable = true,
-  },
-
-  indent = {
-    enable = false -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
-  },
+  endwise = { enable = true },
+  highlight = { enable = true },
+  indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- This will disable virtual text, like doing:
-    -- let g:diagnostic_enable_virtual_text = 0
     virtual_text = false,
-
-    -- This is similar to:
-    -- let g:diagnostic_show_sign = 1
-    -- To configure sign display,
-    --  see: ":help vim.lsp.diagnostic.set_signs()"
     signs = true,
-
-    -- This is similar to:
-    -- "let g:diagnostic_insert_delay = 1"
     update_in_insert = false,
   }
 )
@@ -198,25 +200,3 @@ vim.filetype.add({
     ['Gemfile'] = 'ruby',
   }
 })
-
-vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', linehl = "", numhl = "" })
-vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = "", numhl = "" })
-vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = "", numhl = "" })
-vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = "", numhl = "" })
-
-vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
-vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
-vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
-vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
-vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]])
-vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Desktop/working_memory.md<CR>]])
-vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]])
-vim.keymap.set('n', '<C-h>', [[<cmd>tabprevious <CR>]])
-vim.keymap.set('n', '<C-l>', [[<cmd>tabnext <CR>]])
-vim.keymap.set('n', '<C-n>', [[<cmd>tabnew <CR>]])
-vim.keymap.set('n', '<C-c>', [[<cmd>Topen <bar> :TestNearest <CR>]])
-vim.keymap.set('n', '<C-f>', [[<cmd>Topen <bar> :TestFile  <CR>]])
-vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
-vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
