@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 require('packer').startup(function()
+  use 'EdenEast/nightfox.nvim'
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
@@ -34,14 +35,11 @@ require('packer').startup(function()
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'mcchrish/zenbones.nvim', requires = { 'rktjmp/lush.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)
-
-vim.cmd([[ colorscheme zenbones ]])
 
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
@@ -94,6 +92,8 @@ vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
+vim.cmd([[ colorscheme nightfox ]])
+
 require('better_escape').setup()
 require('Comment').setup()
 require('telescope').load_extension 'fzf'
@@ -119,9 +119,6 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
-  options = {
-    theme = "zenbones"
-  }
 }
 
 require("trouble").setup {
