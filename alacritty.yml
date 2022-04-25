@@ -1,5 +1,5 @@
 import:
-- ~/dotfiles/zenbones_light.yml
+- ~/dotfiles/nightfox_alacritty.yml
 
 key_bindings:
   # These come from:
