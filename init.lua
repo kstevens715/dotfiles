@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 require('packer').startup(function()
-  use 'EdenEast/nightfox.nvim'
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
@@ -28,6 +27,7 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
+  use 'sickill/vim-monokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -93,7 +93,7 @@ vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-vim.cmd([[ colorscheme nightfox ]])
+vim.cmd([[ colorscheme monokai ]])
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -133,12 +133,13 @@ require("trouble").setup {
   },
 }
 
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "bash", "css", "dockerfile", "html", "javascript", "json", "lua", "python", "ruby", "scss", "vim", "vue", "yaml" },
-  endwise = { enable = true },
-  highlight = { enable = true },
-  indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
-}
+-- Monokai theme doesn't look good with Treesitter parsing. I might try and make a PR to improve that so I can turn Treesitter back on.
+-- require'nvim-treesitter.configs'.setup {
+--   ensure_installed = { "bash", "css", "dockerfile", "html", "javascript", "json", "lua", "python", "ruby", "scss", "vim", "vue", "yaml" },
+--   endwise = { enable = true },
+--   highlight = { enable = true },
+--   indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
+-- }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
