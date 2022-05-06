@@ -1,6 +1,3 @@
-import:
-- ~/dotfiles/nightfox_alacritty.yml
-
 key_bindings:
   # These come from:
   # https://github.com/alacritty/alacritty/issues/62#issuecomment-347552058
