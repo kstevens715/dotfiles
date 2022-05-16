@@ -133,13 +133,13 @@ require("trouble").setup {
   },
 }
 
--- Monokai theme doesn't look good with Treesitter parsing. I might try and make a PR to improve that so I can turn Treesitter back on.
--- require'nvim-treesitter.configs'.setup {
---   ensure_installed = { "bash", "css", "dockerfile", "html", "javascript", "json", "lua", "python", "ruby", "scss", "vim", "vue", "yaml" },
---   endwise = { enable = true },
---   highlight = { enable = true },
---   indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
--- }
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "bash", "css", "dockerfile", "html", "javascript", "json", "lua", "python", "ruby", "scss", "vim", "vue", "yaml" },
+  endwise = { enable = true },
+  highlight = { enable = false }, -- Monokai theme doesn't look good with Treesitter parsing. I might try and make a PR to improve that so I can turn Treesitter back on.
+  indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
