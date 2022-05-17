@@ -94,7 +94,7 @@ vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd([[
-  let g:sonokai_style = 'andromeda'
+  let g:sonokai_style = 'shusia'
   colorscheme sonokai
 ]])
 
