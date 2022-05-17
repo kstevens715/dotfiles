@@ -24,28 +24,28 @@ font:
 
   size: 14
 
-# From: https://gist.github.com/sainnhe/e5c4512d5bcfcb46afd493beb86223c6#default
+# From: https://gist.github.com/sainnhe/e5c4512d5bcfcb46afd493beb86223c6#shusia
 colors:
   primary:
-    background: "0x2c2e34"
-    foreground: "0xe2e2e3"
+    background: "0x2d2a2e"
+    foreground: "0xe3e1e4"
 
   normal:
-    black: "0x181819"
-    red: "0xfc5d7c"
-    green: "0x9ed072"
-    yellow: "0xe7c664"
-    blue: "0x76cce0"
-    magenta: "0xb39df3"
-    cyan: "0xf39660"
-    white: "0xe2e2e3"
+    black: "0x1a181a"
+    red: "0xf85e84"
+    green: "0x9ecd6f"
+    yellow: "0xe5c463"
+    blue: "0x7accd7"
+    magenta: "0xab9df2"
+    cyan: "0xef9062"
+    white: "0xe3e1e4"
 
   bright:
-    black: "0x7f8490"
-    red: "0xfc5d7c"
-    green: "0x9ed072"
-    yellow: "0xe7c664"
-    blue: "0x76cce0"
-    magenta: "0xb39df3"
-    cyan: "0xf39660"
-    white: "0xe2e2e3"
+    black: "0x848089"
+    red: "0xf85e84"
+    green: "0x9ecd6f"
+    yellow: "0xe5c463"
+    blue: "0x7accd7"
+    magenta: "0xab9df2"
+    cyan: "0xef9062"
+    white: "0xe3e1e4"
