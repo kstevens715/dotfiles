@@ -8,8 +8,8 @@ end
 local packer = require('packer')
 local use = packer.use
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "init.lua",
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = 'init.lua',
   callback = function(args)
     packer.compile()
   end,
@@ -27,7 +27,7 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
-  use 'sickill/vim-monokai'
+  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -51,9 +51,9 @@ vim.g.strip_whitespace_on_save=1
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
-vim.o.background = "light"
+vim.o.background = 'light'
 vim.o.clipboard = 'unnamed'
-vim.o.completeopt = "menu,menuone,noselect"
+vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.cursorline = true
 vim.o.expandtab = true
 vim.o.ignorecase = true
@@ -70,10 +70,10 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.wo.number = true
 
-vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', linehl = "", numhl = "" })
-vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = "", numhl = "" })
-vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = "", numhl = "" })
-vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = "", numhl = "" })
+vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = '', numhl = '' })
 
 vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
 vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
@@ -93,7 +93,10 @@ vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-vim.cmd([[ colorscheme monokai ]])
+vim.cmd([[
+  let g:sonokai_style = 'andromeda'
+  colorscheme sonokai
+]])
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -120,28 +123,31 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
+  options = {
+    theme = 'sonokai'
+  }
 }
 
-require("trouble").setup {
+require('trouble').setup {
   icons = true,
   signs = {
-    error = "",
-    warning = "",
-    hint = "",
-    information = "",
-    other = "﫠"
+    error = '',
+    warning = '',
+    hint = '',
+    information = '',
+    other = '﫠'
   },
 }
 
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "bash", "css", "dockerfile", "html", "javascript", "json", "lua", "python", "ruby", "scss", "vim", "vue", "yaml" },
+  ensure_installed = { 'bash', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'vim', 'vue', 'yaml' },
   endwise = { enable = true },
-  highlight = { enable = false }, -- Monokai theme doesn't look good with Treesitter parsing. I might try and make a PR to improve that so I can turn Treesitter back on.
+  highlight = { enable = true },
   indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
 }
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
     signs = true,
@@ -198,6 +204,19 @@ vim.filetype.add({
   filename = {
     ['Gemfile'] = 'ruby',
   }
+})
+
+-- Fold RSpec specs using Treesitter
+vim.api.nvim_create_autocmd('BufEnter', {
+    desc = 'Fold RSpec specs',
+    pattern = '*_spec.rb',
+    callback = function(args)
+        vim.wo.foldlevel = 3
+        vim.wo.foldmethod = 'expr'
+        vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+        vim.wo.foldcolumn = 'auto:9'
+        vim.cmd(':normal! zx') -- Works around bug in Telescope: https://github.com/nvim-telescope/telescope.nvim/issues/699
+    end,
 })
 
 -- Typo forgiveness
