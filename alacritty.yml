@@ -22,30 +22,118 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
 
-  size: 14
+  size: 16
 
-# From: https://gist.github.com/sainnhe/e5c4512d5bcfcb46afd493beb86223c6#shusia
-colors:
+schemes:
+  dayfox: &light
+    primary:
+      background: '0xeaeaea'
+      foreground: '0x1d344f'
+    # Normal colors
+    normal:
+      black:   '0x1d344f'
+      red:     '0xb95d76'
+      green:   '0x618774'
+      yellow:  '0xba793e'
+      blue:    '0x4d688e'
+      magenta: '0x8e6f98'
+      cyan:    '0x6ca7bd'
+      white:   '0xcdd1d5'
+    # Bright colors
+    bright:
+      black:   '0x24476f'
+      red:     '0xc76882'
+      green:   '0x629f81'
+      yellow:  '0xca884a'
+      blue:    '0x4e75aa'
+      magenta: '0x9f75ac'
+      cyan:    '0x74b2c9'
+      white:   '0xcfd6dd'
+    indexed_colors:
+      - { index: 16, color: '0xe3786c' }
+      - { index: 17, color: '0xd685af' }
+
+  nightfox: &dark
+    primary:
+      background: '0x192330'
+      foreground: '0xcdcecf'
+    # Normal colors
+    normal:
+      black:   '0x393b44'
+      red:     '0xc94f6d'
+      green:   '0x81b29a'
+      yellow:  '0xdbc074'
+      blue:    '0x719cd6'
+      magenta: '0x9d79d6'
+      cyan:    '0x63cdcf'
+      white:   '0xdfdfe0'
+    # Bright colors
+    bright:
+      black:   '0x575860'
+      red:     '0xd16983'
+      green:   '0x8ebaa4'
+      yellow:  '0xe0c989'
+      blue:    '0x86abdc'
+      magenta: '0xbaa1e2'
+      cyan:    '0x7ad4d6'
+      white:   '0xe4e4e5'
+    indexed_colors:
+      - { index: 16, color: '0xf4a261' }
+      - { index: 17, color: '0xd67ad2' }
+
+  duskfox: &duskfox
+    primary:
+      background: '0x232136'
+      foreground: '0xe0def4'
+    normal:
+      black:   '0x393552'
+      red:     '0xeb6f92'
+      green:   '0xa3be8c'
+      yellow:  '0xf6c177'
+      blue:    '0x569fba'
+      magenta: '0xc4a7e7'
+      cyan:    '0x9ccfd8'
+      white:   '0xe0def4'
+    # Bright colors
+    bright:
+      black:   '0x47407d'
+      red:     '0xf083a2'
+      green:   '0xb1d196'
+      yellow:  '0xf9cb8c'
+      blue:    '0x65b1cd'
+      magenta: '0xccb1ed'
+      cyan:    '0xa6dae3'
+      white:   '0xe2e0f7'
+    indexed_colors:
+      - { index: 16, color: '0xea9a97' }
+      - { index: 17, color: '0xeb98c3' }
+
+terafox: &terafox
   primary:
-    background: "0x2d2a2e"
-    foreground: "0xe3e1e4"
-
+    background: '0x152528'
+    foreground: '0xe6eaea'
+  # Normal colors
   normal:
-    black: "0x1a181a"
-    red: "0xf85e84"
-    green: "0x9ecd6f"
-    yellow: "0xe5c463"
-    blue: "0x7accd7"
-    magenta: "0xab9df2"
-    cyan: "0xef9062"
-    white: "0xe3e1e4"
-
+    black:   '0x2f3239'
+    red:     '0xe85c51'
+    green:   '0x7aa4a1'
+    yellow:  '0xfda47f'
+    blue:    '0x5a93aa'
+    magenta: '0xad5c7c'
+    cyan:    '0xa1cdd8'
+    white:   '0xebebeb'
+  # Bright colors
   bright:
-    black: "0x848089"
-    red: "0xf85e84"
-    green: "0x9ecd6f"
-    yellow: "0xe5c463"
-    blue: "0x7accd7"
-    magenta: "0xab9df2"
-    cyan: "0xef9062"
-    white: "0xe3e1e4"
+    black:   '0x4e5157'
+    red:     '0xeb746b'
+    green:   '0x8eb2af'
+    yellow:  '0xfdb292'
+    blue:    '0x73a3b7'
+    magenta: '0xb97490'
+    cyan:    '0xafd4de'
+    white:   '0xeeeeee'
+  indexed_colors:
+    - { index: 16, color: '0xff8349' }
+    - { index: 17, color: '0xcb7985' }
+
+colors: *duskfox
