@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('packer').startup(function()
-  use 'EdenEast/nightfox.nvim'
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
@@ -28,6 +27,7 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
+  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -94,7 +94,8 @@ vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd([[
-  colorscheme duskfox
+  let g:sonokai_style = 'shusia'
+  colorscheme sonokai
 ]])
 
 require('better_escape').setup()
@@ -122,6 +123,9 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
+  options = {
+    theme = 'sonokai'
+  }
 }
 
 require('trouble').setup {
