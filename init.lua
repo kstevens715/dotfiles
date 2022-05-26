@@ -16,6 +16,13 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('packer').startup(function()
+  use {
+    "mcchrish/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    requires = "rktjmp/lush.nvim"
+}
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
@@ -27,7 +34,6 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
-  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -94,8 +100,8 @@ vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd([[
-  let g:sonokai_style = 'shusia'
-  colorscheme sonokai
+  set background=light
+  colorscheme zenbones
 ]])
 
 require('better_escape').setup()
@@ -122,11 +128,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
 
-require('lualine').setup {
-  options = {
-    theme = 'sonokai'
-  }
-}
+require('lualine').setup()
 
 require('trouble').setup {
   icons = true,
@@ -138,7 +140,6 @@ require('trouble').setup {
     other = '﫠'
   },
 }
-
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { 'bash', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'vim', 'vue', 'yaml' },

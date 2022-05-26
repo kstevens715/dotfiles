@@ -24,28 +24,57 @@ font:
 
   size: 14
 
-# From: https://gist.github.com/sainnhe/e5c4512d5bcfcb46afd493beb86223c6#shusia
-colors:
+zenbones: &zenbones
   primary:
-    background: "0x2d2a2e"
-    foreground: "0xe3e1e4"
-
+    foreground: '#2C363C'
+    background: '#F0EDEC'
+  cursor:
+    cursor: '#2C363C'
+    text: '#F0EDEC'
   normal:
-    black: "0x1a181a"
-    red: "0xf85e84"
-    green: "0x9ecd6f"
-    yellow: "0xe5c463"
-    blue: "0x7accd7"
-    magenta: "0xab9df2"
-    cyan: "0xef9062"
-    white: "0xe3e1e4"
-
+    black:   '#F0EDEC'
+    red:     '#A8334C'
+    green:   '#4F6C31'
+    yellow:  '#944927'
+    blue:    '#286486'
+    magenta: '#88507D'
+    cyan:    '#3B8992'
+    white:   '#2C363C'
   bright:
-    black: "0x848089"
-    red: "0xf85e84"
-    green: "0x9ecd6f"
-    yellow: "0xe5c463"
-    blue: "0x7accd7"
-    magenta: "0xab9df2"
-    cyan: "0xef9062"
-    white: "0xe3e1e4"
+    black:   '#CFC1BA'
+    red:     '#94253E'
+    green:   '#3F5A22'
+    yellow:  '#803D1C'
+    blue:    '#1D5573'
+    magenta: '#7B3B70'
+    cyan:    '#2B747C'
+    white:   '#4F5E68'
+
+# https://raw.githubusercontent.com/mcchrish/zenbones.nvim/main/extras/alacritty/neobones_light.yml
+neobones: &neobones
+  primary:
+    foreground: '#202E18'
+    background: '#E5EDE6'
+  cursor:
+    cursor: '#202E18'
+    text: '#E5EDE6'
+  normal:
+    black:   '#E5EDE6'
+    red:     '#A8334C'
+    green:   '#567A30'
+    yellow:  '#944927'
+    blue:    '#286486'
+    magenta: '#88507D'
+    cyan:    '#3B8992'
+    white:   '#202E18'
+  bright:
+    black:   '#B3C6B6'
+    red:     '#94253E'
+    green:   '#3F5A22'
+    yellow:  '#803D1C'
+    blue:    '#1D5573'
+    magenta: '#7B3B70'
+    cyan:    '#2B747C'
+    white:   '#415934'
+
+colors: *zenbones
