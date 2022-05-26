@@ -228,3 +228,13 @@ vim.cmd([[command! -bang Qa qa<bang>]])
 vim.cmd([[command! Gblame Git blame]])
 vim.cmd([[command! Gbrowse GBrowse]])
 vim.cmd([[command! Gpush Git push]])
+
+vim.cmd([[
+  let g:vrc_allow_get_request_body = 1
+  let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+  let g:vrc_response_default_content_type = 'application/json'
+  let g:vrc_show_command = 0
+  let g:vrc_curl_opts = {
+    \ '-sS': ''
+  \}
+]])
