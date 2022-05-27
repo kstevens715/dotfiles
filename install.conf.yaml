@@ -38,8 +38,8 @@
       description: Install oh-my-zsh
       command:     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
     -
-      description: Install Jet Brains fonts
-      command:     cp JetBrainsMono/* /Library/Fonts
+      description: Install fonts
+      command:     cp fonts/* /Library/Fonts
     -
       description: Start RabbitMQ
       command:     brew services start rabbitmq
