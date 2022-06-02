@@ -7,19 +7,19 @@ key_bindings:
 
 font:
   normal:
-    family: IosevkaTermSlab Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Regular
 
   bold:
-    family: IosevkaTermSlab Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   italic:
-    family: IosevkaTermSlab Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Italic
 
   bold_italic:
-    family: IosevkaTermSlab Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
   size: 14
