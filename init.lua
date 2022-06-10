@@ -16,7 +16,10 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('packer').startup(function()
-  use 'EdenEast/nightfox.nvim'
+  use {
+    "mcchrish/zenbones.nvim",
+    requires = "rktjmp/lush.nvim"
+  }
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
@@ -94,8 +97,8 @@ vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd([[
-  set background=dark
-  colorscheme nightfox
+  set background=light
+  colorscheme zenbones
 ]])
 
 require('better_escape').setup()
