@@ -266,6 +266,10 @@ local unnamed10 = '#243955'
 local unnamed11 = '#ae81ff'
 local unnamed12 = '#a6e22e'
 local unnamed13 = '#e6db74'
+local unnamed14 = '#49483e'
+local unnamed15 = '#f8f8f0'
+local unnamed16 = '#272822'
+local unnamed17 = '#fd971f'
 
 vim.api.nvim_set_hl(0, "TSKeyword", { fg = bright_pink })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = light_grey })
@@ -357,19 +361,15 @@ vim.api.nvim_set_hl(0, "rubyRegexp", { fg = unnamed13 })
 vim.api.nvim_set_hl(0, "rubyRegexpDelimiter", { fg = unnamed13 })
 vim.api.nvim_set_hl(0, "yamlDocumentHeader", { fg = unnamed13 })
 vim.api.nvim_set_hl(0, "shQuote", { fg = unnamed13 })
-
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = unnamed14 })
+vim.api.nvim_set_hl(0, "Visual", { bg = unnamed14 })
+vim.api.nvim_set_hl(0, "Conceal", { fg = unnamed15 })
+vim.api.nvim_set_hl(0, "Cursor", { fg = unnamed16, bg = unnamed15 })
+vim.api.nvim_set_hl(0, "rubyBlockParameter", { fg = unnamed17 })
+vim.api.nvim_set_hl(0, "cssURL", { fg = unnamed17 })
 --
 --
 vim.cmd([[
-hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
-hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
-
-hi Conceal ctermfg=231 ctermbg=235 cterm=NONE guifg=#f8f8f0 guibg=NONE gui=NONE
-hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#272822 guibg=#f8f8f0 gui=NONE
-
-hi rubyBlockParameter ctermfg=208 ctermbg=NONE cterm=NONE guifg=#fd971f guibg=NONE gui=italic
-hi cssURL ctermfg=208 ctermbg=NONE cterm=NONE guifg=#fd971f guibg=NONE gui=italic
-
 hi DiffDelete ctermfg=88 ctermbg=NONE cterm=NONE guifg=#8b0807 guibg=NONE gui=NONE
 hi markdownHeadingDelimiter ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi IncSearch term=reverse cterm=reverse ctermfg=193 ctermbg=16 gui=reverse guifg=#c4be89 guibg=#000000
