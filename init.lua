@@ -237,6 +237,10 @@ vim.cmd([[
 
 -- My new scheme based on monokai
 -- TODO: Add decorations like italics and bolds
+-- TODO: Give colors names
+-- TODO: Replace double quotes with single quotes
+-- TODO: Add TS* groups
+-- TODO: Move to new color scheme repo?
 
 vim.cmd([[
   set background=dark
@@ -270,6 +274,10 @@ local unnamed14 = '#49483e'
 local unnamed15 = '#f8f8f0'
 local unnamed16 = '#272822'
 local unnamed17 = '#fd971f'
+local unnamed18 = '#8b0807'
+local unnamed19 = '#f92672'
+local unnamed20 = '#c4be89'
+local unnamed21 = '#000000'
 
 vim.api.nvim_set_hl(0, "TSKeyword", { fg = bright_pink })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = light_grey })
@@ -367,26 +375,6 @@ vim.api.nvim_set_hl(0, "Conceal", { fg = unnamed15 })
 vim.api.nvim_set_hl(0, "Cursor", { fg = unnamed16, bg = unnamed15 })
 vim.api.nvim_set_hl(0, "rubyBlockParameter", { fg = unnamed17 })
 vim.api.nvim_set_hl(0, "cssURL", { fg = unnamed17 })
---
---
-vim.cmd([[
-hi DiffDelete ctermfg=88 ctermbg=NONE cterm=NONE guifg=#8b0807 guibg=NONE gui=NONE
-hi markdownHeadingDelimiter ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
-hi IncSearch term=reverse cterm=reverse ctermfg=193 ctermbg=16 gui=reverse guifg=#c4be89 guibg=#000000
-
-hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi Constant ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
-hi rubyInstanceVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi rubyInterpolationDelimiter ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi rubyGlobalVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi rubyClassVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi rubyPseudoVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi erubyDelimiter ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi htmlTagName ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi htmlArg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi javaScriptBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi yamlAnchor ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi yamlAlias ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-]])
+vim.api.nvim_set_hl(0, "DiffDelete", { fg = unnamed18 })
+vim.api.nvim_set_hl(0, "markdownHeadingDelimiter", { fg = unnamed19 })
+vim.api.nvim_set_hl(0, "IncSearch", { fg = unnamed20, bg = unnamed21, reverse = true })
