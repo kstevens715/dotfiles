@@ -277,10 +277,10 @@ local unnamed18 = '#8b0807'
 local unnamed19 = '#f92672'
 local unnamed20 = '#c4be89'
 
--- To Fix
--- vim.api.nvim_set_hl(0, 'TSType', { fg = light_grey })
+-- My Additional Treesitter Styles
+vim.api.nvim_set_hl(0, 'TSType', { fg = sky_blue })
 
--- Good?
+-- Base Styles
 vim.api.nvim_set_hl(0, 'Boolean', { fg = purple })
 vim.api.nvim_set_hl(0, 'Character', { fg = purple })
 vim.api.nvim_set_hl(0, 'ColorColumn', { bg = light_grey })
