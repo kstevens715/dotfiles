@@ -22,6 +22,7 @@ require('packer').startup(function()
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
@@ -168,8 +169,9 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
     { name = 'buffer' },
+    { name = 'nvim_lsp' },
+    { name = 'path' },
   })
 })
 
