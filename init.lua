@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('packer').startup(function()
-  use 'kstevens715/monokai.nvim'
+  use 'L3MON4D3/LuaSnip'
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
@@ -25,10 +25,14 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
+  use 'kstevens715/monokai.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
+  use 'nvim-treesitter/playground'
+  use 'rafamadriz/friendly-snippets'
+  use 'saadparwaiz1/cmp_luasnip'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-rhubarb'
@@ -40,7 +44,6 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
 end)
 
 vim.g.neoterm_autoscroll = 1
@@ -154,6 +157,9 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 )
 
 -- Setup nvim-cmp.
+require('luasnip').filetype_extend('ruby', {'rails'})
+require('luasnip.loaders.from_vscode').lazy_load()
+
 local cmp = require'cmp'
 
 cmp.setup({
@@ -168,10 +174,16 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
+  snippet = {
+    expand = function(args)
+      require'luasnip'.lsp_expand(args.body)
+    end
+  },
   sources = cmp.config.sources({
-    { name = 'buffer' },
+    { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'path' },
+    { name = 'buffer' },
   })
 })
 
