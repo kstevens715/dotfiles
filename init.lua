@@ -28,6 +28,7 @@ require('packer').startup(function()
   use 'kstevens715/monokai.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'norcalli/nvim-colorizer.lua'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
   use 'nvim-treesitter/playground'
@@ -103,6 +104,7 @@ vim.cmd([[
   colorscheme monokai
 ]])
 
+require('colorizer').setup()
 require('better_escape').setup()
 require('Comment').setup()
 require('telescope').load_extension 'fzf'
