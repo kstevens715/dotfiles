@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   use 'RRethy/nvim-treesitter-endwise'
+  use 'ahmedkhalf/project.nvim'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-buffer'
@@ -85,6 +86,7 @@ vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
 vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
 vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]])
+vim.keymap.set('n', '<leader>p', [[<cmd>Telescope projects<CR>]])
 vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]])
@@ -107,7 +109,9 @@ vim.cmd([[
 require('colorizer').setup()
 require('better_escape').setup()
 require('Comment').setup()
-require('telescope').load_extension 'fzf'
+require('project_nvim').setup()
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('projects')
 require('telescope.builtin')
 
 require('gitsigns').setup {
@@ -239,4 +243,3 @@ vim.cmd([[
     \ '-sS': ''
   \}
 ]])
-
