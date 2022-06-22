@@ -218,19 +218,6 @@ vim.filetype.add({
   }
 })
 
--- Fold RSpec specs using Treesitter
-vim.api.nvim_create_autocmd('BufEnter', {
-    desc = 'Fold RSpec specs',
-    pattern = '*_spec.rb',
-    callback = function(args)
-        vim.wo.foldlevel = 3
-        vim.wo.foldmethod = 'expr'
-        vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-        vim.wo.foldcolumn = 'auto:9'
-        vim.cmd(':normal! zx') -- Works around bug in Telescope: https://github.com/nvim-telescope/telescope.nvim/issues/699
-    end,
-})
-
 -- Typo forgiveness
 vim.cmd([[command! -bang WQ wq<bang>]])
 vim.cmd([[command! -bang Wq wq<bang>]])
