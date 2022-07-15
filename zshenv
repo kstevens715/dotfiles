@@ -17,3 +17,5 @@ alias tc="cd ~/code/telchar"
 
 alias minio="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
+
+unsetopt share_history # Do not share history between ZSH instances
