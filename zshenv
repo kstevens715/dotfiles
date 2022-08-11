@@ -8,12 +8,14 @@ export NO_COVERAGE=true
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="/usr/local/bin:$PATH:$HOME/bin"
 export SHELL=zsh
+export NODE_OPTIONS="--no-warnings"
 
 # Aliases
 alias be="bundle exec"
 alias dc="docker-compose"
 alias vim="nvim"
 alias tc="cd ~/code/telchar"
+alias po="cd ~/code/porter"
 
 alias minio="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
