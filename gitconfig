@@ -26,3 +26,5 @@
   branches = branch --sort=-committerdate
 [color]
   ui = auto
+[init]
+  defaultBranch = master
