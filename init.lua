@@ -46,11 +46,20 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
 end)
 
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
-vim.g.neoterm_size = 15
+vim.g.neoterm_size = 33
 vim.g.ruby_indent_assignment_style = 'variable'
 vim.g.strip_only_modified_lines=1
 vim.g.strip_whitespace_confirm=0
