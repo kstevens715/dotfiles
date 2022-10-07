@@ -10,6 +10,10 @@ export PATH="/usr/local/bin:$PATH:$HOME/bin"
 export SHELL=zsh
 export NODE_OPTIONS="--no-warnings"
 
+# Default schema compatibility for Avro registry
+# https://github.com/salsify/avro-schema-registry/blob/f2da75508bea91611f0a1c99a3b46259e5197cc0/config/application.rb#L49
+export DEFAULT_COMPATIBILITY="FORWARD"
+
 # Aliases
 alias be="bundle exec"
 alias dc="docker-compose"
