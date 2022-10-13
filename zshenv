@@ -29,4 +29,6 @@ alias rebasedevelop="git co develop && git fetch && git rebase && git co - && gi
 setopt nosharehistory # Do not share history between ZSH instances
 
 # Make Tmux resize correctly when pairing
-tmux resize-window -A
+if [ -n "$TMUX" ]; then
+  tmux resize-window -A
+fi
