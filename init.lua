@@ -18,7 +18,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   use 'RRethy/nvim-treesitter-endwise'
-  use 'ahmedkhalf/project.nvim'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-buffer'
@@ -28,10 +27,8 @@ require('packer').startup(function()
   use 'kassio/neoterm'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
-  use 'norcalli/nvim-colorizer.lua'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
-  use 'nvim-treesitter/playground'
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
   use 'sainnhe/sonokai'
@@ -46,15 +43,6 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    }
-  }
 end)
 
 vim.g.neoterm_autoscroll = 1
@@ -95,7 +83,6 @@ vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
 vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
 vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]])
-vim.keymap.set('n', '<leader>p', [[<cmd>Telescope projects<CR>]])
 vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]])
@@ -119,12 +106,9 @@ vim.cmd([[
   colorscheme sonokai
 ]])
 
-require('colorizer').setup()
 require('better_escape').setup()
 require('Comment').setup()
-require('project_nvim').setup()
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('projects')
 require('telescope.builtin')
 
 require('gitsigns').setup {
@@ -231,7 +215,7 @@ require('lspconfig').solargraph.setup {
 -- Set file type mappings
 -- :help lua-filetype
 vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
+-- vim.g.did_load_filetypes = 0
 
 vim.filetype.add({
   extension = {
