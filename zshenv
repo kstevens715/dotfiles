@@ -21,8 +21,12 @@ alias vim="nvim"
 alias tc="cd ~/code/telchar"
 alias po="cd ~/code/porter"
 alias pair="tmux -2 new -s pairing"
+alias pair_with_ben="upterm host --github-user BenKanouse --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
 
 alias minio="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
 
 setopt nosharehistory # Do not share history between ZSH instances
+
+# Make Tmux resize correctly when pairing
+tmux resize-window -A
