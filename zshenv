@@ -30,5 +30,5 @@ setopt nosharehistory # Do not share history between ZSH instances
 
 # Make Tmux resize correctly when pairing
 if [ -n "$TMUX" ]; then
-  tmux resize-window -A
+  tmux set window-size smallest
 fi
