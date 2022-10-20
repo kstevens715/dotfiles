@@ -34,7 +34,9 @@ require('packer').startup(function()
   use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
+  use 'tpope/vim-repeat'
   use 'tpope/vim-rhubarb'
+  use 'tpope/vim-surround'
   use 'tpope/vim-vinegar'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
@@ -72,7 +74,7 @@ vim.o.swapfile = false
 vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.wrap = false
-vim.o.foldlevel = 5
+vim.o.foldlevel = 15
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.number = true
@@ -199,8 +201,13 @@ cmp.setup({
 })
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-require'lspconfig'.jsonls.setup{}
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+require('lspconfig').jsonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 require('lspconfig').solargraph.setup {
   on_attach = on_attach,
   capabilities = capabilities,
