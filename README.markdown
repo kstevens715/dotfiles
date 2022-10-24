@@ -1,1 +1,6 @@
-Just run `./install`
+Just run:
+
+```
+git submodule update --init
+./install
+```
