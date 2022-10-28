@@ -25,13 +25,13 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
+  use 'kstevens715/monokai.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
-  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
@@ -108,7 +108,7 @@ vim.cmd([[
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme sonokai
+  colorscheme monokai
 ]])
 
 require('better_escape').setup()
@@ -136,11 +136,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
-require'lualine'.setup {
-  options = {
-    theme = 'sonokai'
-  }
-}
+require'lualine'.setup {}
 
 require('trouble').setup {
   icons = true,
