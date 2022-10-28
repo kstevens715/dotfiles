@@ -45,15 +45,17 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-treesitter/playground'
 end)
 
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
 vim.g.neoterm_size = 33
 vim.g.ruby_indent_assignment_style = 'variable'
+vim.g.better_whitespace_enabled=1
 vim.g.strip_only_modified_lines=1
 vim.g.strip_whitespace_confirm=0
-vim.g.strip_whitespace_on_save=1
+vim.g.strip_whitespace_on_save=0 -- :( Stopped working on Neovim 0.8 nightly
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
@@ -154,6 +156,15 @@ require'nvim-treesitter.configs'.setup {
   endwise = { enable = true },
   highlight = { enable = true },
   indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false, -- Whether the query persists across vim sessions
+    keybindings = {
+      toggle_hl_groups = 'i',
+    },
+  }
 }
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
