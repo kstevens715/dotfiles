@@ -3,7 +3,6 @@ tap "heroku/brew"
 cask "alacritty"
 cask "chromedriver"
 cask "google-chrome"
-cask "firefox"
 cask "postgres-unofficial"
 cask "slack"
 
