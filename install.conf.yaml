@@ -42,7 +42,9 @@
     -
       description: Install the Heroku CLI builds plugin
       command:     heroku plugins:install heroku-builds
-
     -
       description: Install JSON language server
-      command: npm i -g vscode-langservers-extracted
+      command:     npm i -g vscode-langservers-extracted
+    -
+      description: This file must exist or zshenv fails
+      command:     touch ~/dotfiles/secrets.sh
