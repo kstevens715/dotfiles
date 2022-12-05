@@ -55,7 +55,7 @@ vim.g.ruby_indent_assignment_style = 'variable'
 vim.g.better_whitespace_enabled=1
 vim.g.strip_only_modified_lines=1
 vim.g.strip_whitespace_confirm=0
-vim.g.strip_whitespace_on_save=0 -- :( Stopped working on Neovim 0.8 nightly
+vim.g.strip_whitespace_on_save=1
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
@@ -93,7 +93,7 @@ vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]])
 vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]])
-vim.keymap.set('n', '<leader>tn', [[<cmd>e ~/Library/Mobile Documents/com~apple~CloudDocs/ticket_notes<CR>]])
+vim.keymap.set('n', '<leader>tn', [[<cmd>e /Users/kstevens/Documents/ticket_notes<CR>]])
 vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Desktop/working_memory.md<CR>]])
 vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Desktop/weekly_plan.md.md<CR>]])
 vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]])
