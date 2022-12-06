@@ -26,10 +26,12 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
   use 'kstevens715/monokai.nvim'
+  use 'kyazdani42/nvim-web-devicons'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
+  use 'nvim-tree/nvim-tree.lua'
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
   use 'tpope/vim-fugitive'
@@ -37,11 +39,10 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
-  use 'tpope/vim-vinegar'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -55,7 +56,7 @@ vim.g.ruby_indent_assignment_style = 'variable'
 vim.g.better_whitespace_enabled=1
 vim.g.strip_only_modified_lines=1
 vim.g.strip_whitespace_confirm=0
-vim.g.strip_whitespace_on_save=1
+vim.g.strip_whitespace_on_save=0 -- This stopped working for some reason.
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
@@ -85,7 +86,7 @@ vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text
 vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = '', numhl = '' })
-
+vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
 vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
 vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
@@ -140,7 +141,17 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
-require'lualine'.setup {}
+require('lualine').setup {
+  sections = {
+    lualine_c = {
+      {
+        'filename',
+        file_status = true, -- displays file status (readonly status, modified status)
+        path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
+      }
+    }
+  }
+}
 
 require('trouble').setup {
   icons = true,
@@ -153,7 +164,7 @@ require('trouble').setup {
   },
 }
 
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = { 'bash', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'vim', 'vue', 'yaml' },
   endwise = { enable = true },
   highlight = { enable = true },
@@ -177,6 +188,12 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     virtual_text = true,
   }
 )
+
+require("nvim-tree").setup({
+  update_focused_file = {
+    enable = true
+  }
+})
 
 -- Setup nvim-cmp.
 require('luasnip').filetype_extend('ruby', {'rails'})
