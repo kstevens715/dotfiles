@@ -1,4 +1,4 @@
--- Install packer
+	-- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -25,8 +25,9 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
-  use 'kstevens715/monokai.nvim'
   use 'kyazdani42/nvim-web-devicons'
+  -- use 'kstevens715/monokai.nvim'
+  use '~/code/monokai.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
@@ -87,7 +88,9 @@ vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text
 vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = '', numhl = '' })
+
 vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
+vim.keymap.set('n', 'T', [[$p]]) -- Paste at end of line by pressing `T`
 vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
 vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
@@ -197,7 +200,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     signs = true,
     underline = true,
     update_in_insert = false,
-    virtual_text = true,
+    virtual_text = false,
   }
 )
 
@@ -290,7 +293,4 @@ vim.cmd([[
   let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
   let g:vrc_response_default_content_type = 'application/json'
   let g:vrc_show_command = 0
-  let g:vrc_curl_opts = {
-    \ '-sS': ''
-  \}
 ]])
