@@ -37,6 +37,7 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
+  use 'navarasu/onedark.nvim'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
@@ -109,12 +110,20 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd([[
   set background=dark
-  " Important!!
-  if has('termguicolors')
-    set termguicolors
-  endif
-  colorscheme monokai
+  " " Important!!
+  " if has('termguicolors')
+  "   set termguicolors
+  " endif
+  " colorscheme monokai
 ]])
+
+require('onedark').setup {
+    style = 'darker',
+    toggle_style_key = '<leader>s', -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    -- toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+    toggle_style_list = {'dark', 'warm', 'light'}, -- List of styles to toggle between
+}
+require('onedark').load()
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -142,6 +151,9 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
+  options = {
+    theme = 'onedark'
+  },
   sections = {
     lualine_c = {
       {
