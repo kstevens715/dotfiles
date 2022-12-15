@@ -29,6 +29,7 @@ require('packer').startup(function()
   use 'kstevens715/monokai.nvim'
   -- use '~/code/monokai.nvim'
   use 'max397574/better-escape.nvim'
+  use 'navarasu/onedark.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
@@ -112,12 +113,18 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd([[
   set background=dark
-  " Important!!
+
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme monokai
 ]])
+
+require('onedark').setup {
+  style = 'darker',
+  toggle_style_key = '<leader>s',
+  toggle_style_list = {'dark', 'warm', 'light'},
+}
+require('onedark').load()
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -145,6 +152,9 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
+  options = {
+    theme = 'onedark'
+  },
   sections = {
     lualine_c = {
       {
