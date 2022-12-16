@@ -1,5 +1,5 @@
 import:
-  - ~/dotfiles/onedark_alacritty.yml
+  - ~/.local/share/nvim/site/pack/packer/start/monokai.nvim/extra/monokai_alacritty.yml
 
 key_bindings:
   # These come from:
