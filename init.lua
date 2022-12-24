@@ -54,10 +54,10 @@ vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
 vim.g.neoterm_size = 33
 vim.g.ruby_indent_assignment_style = 'variable'
-vim.g.better_whitespace_enabled=1
-vim.g.strip_only_modified_lines=1
-vim.g.strip_whitespace_confirm=0
-vim.g.strip_whitespace_on_save=0 -- This stopped working for some reason.
+vim.g.better_whitespace_enabled = 1
+vim.g.strip_whitespace_confirm = 0
+vim.g.strip_whitespace_on_save = 1
+vim.g.strip_only_modified_lines = 1
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
