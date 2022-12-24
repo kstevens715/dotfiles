@@ -7,6 +7,7 @@ cask "postgres-unofficial"
 cask "slack"
 
 brew "chruby"
+brew "diffutils"
 brew "fontconfig"
 brew "fzf"
 brew "git"
