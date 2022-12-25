@@ -88,19 +88,23 @@ vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text =
 vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = '', numhl = '' })
 
-vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
-vim.keymap.set('n', 'T', [[$p]]) -- Paste at end of line by pressing `T`
-vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
+-- Leader Mappings
 vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
+vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
 vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
 vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]])
+vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]])
 vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
+
+-- Double-key mappings. IMPORTANT: First key should not match any of my primary leader mappings above or it'll slow them down!
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]])
-vim.keymap.set('n', '<leader>tn', [[<cmd>e /Users/kstevens/Documents/ticket_notes<CR>]])
 vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Desktop/working_memory.md<CR>]])
 vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Desktop/weekly_plan.md.md<CR>]])
-vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]])
+
+-- Other Mappings
+vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
+vim.keymap.set('n', 'T', [[$p]]) -- Paste at end of line by pressing `T`
 vim.keymap.set('n', '<C-h>', [[<cmd>tabprevious <CR>]])
 vim.keymap.set('n', '<C-l>', [[<cmd>tabnext <CR>]])
 vim.keymap.set('n', '<C-n>', [[<cmd>tabnew <CR>]])
