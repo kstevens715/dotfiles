@@ -66,6 +66,9 @@ vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.cursorline = true
 vim.o.expandtab = true
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 15
+vim.o.foldmethod = "expr"
 vim.o.ignorecase = true
 vim.o.inccommand = 'nosplit'
 vim.o.mouse = 'a'
@@ -78,9 +81,6 @@ vim.o.swapfile = false
 vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.wrap = false
-vim.o.foldlevel = 15
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.number = true
 
 vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', linehl = '', numhl = '' })
