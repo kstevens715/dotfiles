@@ -95,6 +95,7 @@ vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_gr
 vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]])
 vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]])
 vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
+vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]])
 
 -- Double-key mappings. IMPORTANT: First key should not match any of my primary leader mappings above or it'll slow them down!
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
