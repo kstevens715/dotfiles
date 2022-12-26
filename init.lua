@@ -20,19 +20,19 @@ require('packer').startup(function()
   use 'RRethy/nvim-treesitter-endwise'
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
+  use 'folke/which-key.nvim'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
   use 'kyazdani42/nvim-web-devicons'
-  use 'kstevens715/monokai.nvim'
-  -- use '~/code/monokai.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
   use 'nvim-tree/nvim-tree.lua'
+  use 'nvim-treesitter/playground'
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
   use 'tpope/vim-fugitive'
@@ -42,12 +42,13 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
+  -- use 'kstevens715/monokai.nvim'
+  use '~/code/monokai.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
 end)
 
 vim.g.neoterm_autoscroll = 1
@@ -89,19 +90,19 @@ vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text =
 vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', linehl = '', numhl = '' })
 
 -- Leader Mappings
-vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
-vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]])
-vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
-vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]])
-vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]])
-vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]])
+vim.keymap.set('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { desc = 'View Buffers' })
+vim.keymap.set('n', '<leader>c', [[<cmd>Git<CR>]], { desc = 'Git Commit' })
+vim.keymap.set('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { desc = 'Search Project' })
+vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]], { desc = 'Git History' })
+vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]], { desc = 'View Warnings/Errors' })
+vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { desc = 'Find Files' })
+vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 
 -- Double-key mappings. IMPORTANT: First key should not match any of my primary leader mappings above or it'll slow them down!
-vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]])
-vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]])
-vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Desktop/working_memory.md<CR>]])
-vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Desktop/weekly_plan.md.md<CR>]])
+vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], { desc = 'Edit Vim Config' })
+vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], { desc = 'Reload Vim Config' })
+vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Desktop/working_memory.md<CR>]], { desc = 'Open Working Memory' })
+vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Desktop/weekly_plan.md.md<CR>]], { desc = 'Open Weekly Plan' })
 
 -- Other Mappings
 vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
@@ -133,6 +134,7 @@ require('better_escape').setup()
 require('Comment').setup()
 require('telescope').load_extension('fzf')
 require('telescope.builtin')
+require('which-key').setup()
 
 require('gitsigns').setup {
   signs = {
