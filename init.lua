@@ -1,4 +1,4 @@
-	-- Install packer
+-- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -265,6 +265,14 @@ require('lspconfig').solargraph.setup {
 
 require('lspconfig').eslint.setup {
 }
+
+-- Automatically fix ESLint errors
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.tsx,*.ts,*.jsx,*.js,*.vue',
+  callback = function(args)
+    vim.cmd('EslintFixAll')
+  end,
+})
 
 -- Set file type mappings
 -- :help lua-filetype
