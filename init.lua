@@ -263,6 +263,9 @@ require('lspconfig').solargraph.setup {
   }
 }
 
+require('lspconfig').eslint.setup {
+}
+
 -- Set file type mappings
 -- :help lua-filetype
 vim.g.do_filetype_lua = 1
