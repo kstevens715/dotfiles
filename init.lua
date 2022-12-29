@@ -42,8 +42,8 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
-  -- use 'kstevens715/monokai.nvim'
-  use '~/code/monokai.nvim'
+  -- use 'kstevens715/monoky.nvim'
+  use '~/code/monoky.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -127,7 +127,7 @@ vim.cmd([[
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme monokai
+  colorscheme monoky
 ]])
 
 require('better_escape').setup()
