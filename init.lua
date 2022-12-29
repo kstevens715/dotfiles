@@ -285,6 +285,8 @@ vim.filetype.add({
   },
   filename = {
     ['Gemfile'] = 'ruby',
+    ['.env.test'] = 'sh',
+    ['.env.example'] = 'sh',
   }
 })
 
