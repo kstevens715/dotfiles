@@ -179,7 +179,7 @@ require('trouble').setup {
 }
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'bash', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'vim', 'vue', 'yaml' },
+  ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'vim', 'vue', 'yaml' },
   endwise = { enable = true },
   highlight = { enable = true },
   indent = { enable = true },
