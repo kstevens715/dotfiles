@@ -122,7 +122,6 @@ vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd([[
-  set background=dark
   " Important!!
   if has('termguicolors')
     set termguicolors
@@ -183,7 +182,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = { 'bash', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'vim', 'vue', 'yaml' },
   endwise = { enable = true },
   highlight = { enable = true },
-  indent = { enable = false }, -- TODO When enabled, new lines in Ruby are indenting an extra 2 spaces
+  indent = { enable = true },
   playground = {
     enable = true,
     disable = {},
