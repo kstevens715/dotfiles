@@ -9,7 +9,7 @@ key_bindings:
   - { key: N, mods: Alt, chars: "\x1bn" }
 
 font:
-  size: 16
+  size: 14
 
   normal:
     family: JetBrainsMono Nerd Font
