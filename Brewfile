@@ -1,8 +1,7 @@
 tap "heroku/brew"
 
-cask "alacritty"
 cask "chromedriver"
-cask "font-iosevka"
+cask "iterm2"
 cask "google-chrome"
 cask "postgres-unofficial"
 cask "slack"
