@@ -126,7 +126,7 @@ vim.cmd([[
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme monoky
+  colorscheme zenbones
 ]])
 
 require('better_escape').setup()
