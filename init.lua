@@ -191,7 +191,16 @@ require('nvim-treesitter.configs').setup {
     keybindings = {
       toggle_hl_groups = 'i',
     },
-  }
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<CR>',
+      scope_incremental = '<CR>',
+      node_incremental = '<TAB>',
+      node_decremental = '<S-TAB>',
+    },
+  },
 }
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
