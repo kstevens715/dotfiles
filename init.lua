@@ -179,7 +179,7 @@ require('trouble').setup {
 }
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'vim', 'vue', 'yaml' },
+  ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'scheme', 'vim', 'vue', 'yaml' },
   endwise = { enable = true },
   highlight = { enable = true },
   indent = { enable = true },
@@ -286,10 +286,12 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 -- :help lua-filetype
 vim.g.do_filetype_lua = 1
 -- vim.g.did_load_filetypes = 0
+vim.cmd 'autocmd BufRead,BufNewFile *.scm set filetype=scheme'
 
 vim.filetype.add({
   extension = {
     es6 = 'javascript',
+    scm = 'scheme',
   },
   filename = {
     ['Gemfile'] = 'ruby',
