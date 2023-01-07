@@ -1,5 +1,5 @@
 import:
-  - ~/.local/share/nvim/site/pack/packer/start/monoky.nvim/extra/monoky_alacritty.yml
+  - ~/.local/share/nvim/site/pack/packer/start/zenbones.nvim/extras/alacritty/zenburned.yml
 
 key_bindings:
   # These come from:
@@ -9,21 +9,21 @@ key_bindings:
   - { key: N, mods: Alt, chars: "\x1bn" }
 
 font:
-  size: 12
+  size: 14
 
   normal:
-    family: JetBrainsMono Nerd Font
+    family: IosevkaTermSlab Nerd Font Mono
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: IosevkaTermSlab Nerd Font Mono
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: IosevkaTermSlab Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: IosevkaTermSlab Nerd Font Mono
     style: Bold Italic
 
