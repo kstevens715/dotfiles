@@ -42,9 +42,8 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
-  -- use 'kstevens715/monoky.nvim'
-  use '~/code/monoky.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim' }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -126,7 +125,8 @@ vim.cmd([[
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme monoky
+  set background=dark
+  colorscheme zenburned
 ]])
 
 require('better_escape').setup()
@@ -134,7 +134,13 @@ require('Comment').setup()
 require('telescope').load_extension('fzf')
 require('telescope.builtin')
 require('which-key').setup()
-
+require "telescope".setup {
+  pickers = {
+    colorscheme = {
+      enable_preview = true
+    }
+  }
+}
 require('gitsigns').setup {
   signs = {
     add = { text = '+' },
