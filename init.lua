@@ -35,6 +35,7 @@ require('packer').startup(function()
   use 'nvim-treesitter/playground'
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
@@ -42,8 +43,6 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
-  -- use 'kstevens715/monoky.nvim'
-  use '~/code/monoky.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -53,7 +52,7 @@ end)
 
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
-vim.g.neoterm_size = 33
+vim.g.neoterm_size = 25
 vim.g.ruby_indent_assignment_style = 'variable'
 vim.g.better_whitespace_enabled = 1
 vim.g.strip_whitespace_confirm = 0
@@ -121,12 +120,16 @@ vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
+vim.g.sonokai_disable_italic_comment = 1
+vim.g.sonokai_show_eob = 0
+vim.g.sonokai_style = 'default'
+
 vim.cmd([[
   " Important!!
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme monoky
+  colorscheme sonokai
 ]])
 
 require('better_escape').setup()
@@ -134,6 +137,14 @@ require('Comment').setup()
 require('telescope').load_extension('fzf')
 require('telescope.builtin')
 require('which-key').setup()
+require "telescope".setup {
+  pickers = {
+    colorscheme = {
+      enable_preview = true
+    }
+  }
+}
+
 
 require('gitsigns').setup {
   signs = {
@@ -156,6 +167,9 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
+  options = {
+    theme = 'sonokai',
+  },
   sections = {
     lualine_c = {
       {
