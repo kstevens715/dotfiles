@@ -196,7 +196,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'python', 'ruby', 'scss', 'scheme', 'vim', 'vue', 'yaml' },
   endwise = { enable = true },
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = false },
   playground = {
     enable = true,
     disable = {},
