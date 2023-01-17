@@ -6,7 +6,7 @@ source ~/dotfiles/secrets.sh
 export EDITOR=nvim
 export NO_COVERAGE=true
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export PATH="/usr/local/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin"
+export PATH="/usr/local/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export SHELL=zsh
 export NODE_OPTIONS="--no-warnings"
 
