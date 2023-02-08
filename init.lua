@@ -21,7 +21,6 @@ require('packer').startup(function()
   use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
   use 'folke/which-key.nvim'
-  use 'github/copilot.vim'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
