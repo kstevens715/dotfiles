@@ -315,6 +315,20 @@ vim.filetype.add({
   }
 })
 
+-- Insert ticket token into commit message
+function insert_ticket_token()
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+  local prefix, ticket = string.match(branch, "(%a+)/(%u+%-%d+)")
+    if prefix then
+      local token = string.format("[%s]", ticket)
+      vim.api.nvim_buf_set_option(0, "bufhidden", "delete")
+      vim.api.nvim_buf_set_lines(0, 1, 1, false, {""})
+      vim.api.nvim_buf_set_lines(0, 2, 2, false, {token})
+    end
+end
+
+vim.cmd [[autocmd BufEnter COMMIT_EDITMSG lua insert_ticket_token()]]
+
 -- Typo forgiveness
 vim.cmd([[command! -bang WQ wq<bang>]])
 vim.cmd([[command! -bang Wq wq<bang>]])
