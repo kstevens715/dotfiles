@@ -289,11 +289,21 @@ require('lspconfig').solargraph.setup {
 require('lspconfig').eslint.setup {
 }
 
--- Automatically fix ESLint errors
+-- Autoformat files on save
+
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.tsx,*.ts,*.jsx,*.js,*.vue',
   callback = function(args)
     vim.cmd('EslintFixAll')
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.rb',
+  callback = function(args)
+    if not string.match(args.file, "spec%.rb$") then
+      vim.lsp.buf.format()
+    end
   end,
 })
 
