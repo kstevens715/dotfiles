@@ -50,16 +50,21 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)
 
+vim.g.better_whitespace_enabled = 1
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
 vim.g.neoterm_size = 25
 vim.g.ruby_indent_assignment_style = 'variable'
-vim.g.better_whitespace_enabled = 1
 vim.g.strip_whitespace_confirm = 0
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_only_modified_lines = 1
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#strategy'] = 'neoterm'
+vim.g.vrc_split_request_body = 1
+vim.g.vrc_output_buffer_name = '__VRC_OUTPUT.json'
+vim.g.vrc_response_default_content_type = 'application/json'
+vim.g.vrc_show_command = 1
+-- vim.g.vrc_allow_get_request_body = 1 -- Cannot be used in conjunction with vrc_split_request_body
 vim.o.autoread = true
 vim.o.background = 'light'
 vim.o.clipboard = 'unnamed'
@@ -361,10 +366,3 @@ vim.cmd([[command! -bang Tabo tabo<bang>]])
 vim.cmd([[command! Gblame Git blame]])
 vim.cmd([[command! Gbrowse GBrowse]])
 vim.cmd([[command! Gpush Git push]])
-
-vim.cmd([[
-  let g:vrc_allow_get_request_body = 1
-  let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
-  let g:vrc_response_default_content_type = 'application/json'
-  let g:vrc_show_command = 0
-]])
