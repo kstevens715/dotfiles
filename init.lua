@@ -26,6 +26,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use 'kassio/neoterm'
+  use 'kburdett/vim-nuuid'
   use 'kyazdani42/nvim-web-devicons'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
