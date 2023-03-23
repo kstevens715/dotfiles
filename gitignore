@@ -4,6 +4,7 @@
 .foreman
 .DS_Store
 2
-.ruby-version
 .ruby-gemset
+.ruby-version
+.rubycritic.yml
 config/initializers/zzz_kyles_initializer.rb
