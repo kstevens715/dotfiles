@@ -21,6 +21,7 @@
     ~/.tmux.conf:                               tmux.conf
     ~/.tmate.conf:                              tmate.conf
     ~/.zshenv:                                  zshenv
+    ~/.zprofile:                                zprofile
 
 - shell:
     -
