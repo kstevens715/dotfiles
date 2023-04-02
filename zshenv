@@ -1,3 +1,7 @@
+# Configure SSH Agent to start automatically
+eval "$(ssh-agent -s)" > /dev/null
+ssh-add --apple-use-keychain > /dev/null 2>&1
+
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 source ~/dotfiles/secrets.sh
