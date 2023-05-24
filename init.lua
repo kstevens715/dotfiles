@@ -107,6 +107,8 @@ vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 vim.keymap.set('n', '<leader>n', [[<cmd>e ~/Documents/ticket_notes.md<CR>]], { desc = 'Open Ticket Notes' })
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], { desc = 'Edit Vim Config' })
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], { desc = 'Reload Vim Config' })
+vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Documents/working_memory.md<CR>]], { desc = 'Open Working Memory' })
+vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Documents/weekly_plan.md<CR>]], { desc = 'Open Weekly Plan' })
 
 -- Other Mappings
 vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
