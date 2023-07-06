@@ -78,7 +78,7 @@ end
 function open_markdown_file_from_git_branch()
   local branch = vim.fn.system('git rev-parse --abbrev-ref HEAD')
   branch = string.gsub(branch, '\n', '')
-  local filename = '/Users/kstevens/Library/Mobile Documents/com~apple~CloudDocs/Tickets/' .. vim.fn.substitute(branch, '/', '_', 'g') .. '.md'
+  local filename = '/Users/kstevens/Documents/Tickets/' .. vim.fn.substitute(branch, '/', '_', 'g') .. '.md'
   vim.api.nvim_command('edit ' .. vim.fn.fnameescape(filename))
   vim.bo.filetype = 'markdown'
 end
