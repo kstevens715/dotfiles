@@ -44,6 +44,7 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
+  use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -168,10 +169,21 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gF', '<Cmd>lua vim.lsp.buf.format()<CR>', opts)
   buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
+
+require('tabnine').setup({
+  -- disable_auto_comment=true,
+  -- accept_keymap="<Tab>",
+  -- dismiss_keymap = "<C-]>",
+  -- debounce_ms = 800,
+  -- suggestion_color = {gui = "#808080", cterm = 244},
+  -- exclude_filetypes = {"TelescopePrompt"},
+  -- log_file_path = nil, -- absolute path to Tabnine log file
+})
 
 require('lualine').setup {
   options = {
@@ -184,7 +196,8 @@ require('lualine').setup {
         file_status = true, -- displays file status (readonly status, modified status)
         path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
       }
-    }
+    },
+    lualine_x = {'tabnine'}
   }
 }
 
@@ -330,30 +343,6 @@ vim.filetype.add({
     ['.env.example'] = 'sh',
   }
 })
-
--- Insert ticket token into commit message
-function insert_ticket_token()
-  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
-  local prefix, ticket = string.match(branch, "(%a+)/(%u+%-%d+)")
-  if prefix then
-    local token = string.format("[%s]", ticket)
-    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-    local found = false
-
-    for _, line in ipairs(lines) do
-      if string.find(line, token, 0, true) then
-        found = true
-        break
-      end
-    end
-
-    if not found then
-      vim.api.nvim_buf_set_option(0, "bufhidden", "delete")
-      vim.api.nvim_buf_set_lines(0, 1, 1, false, {""})
-      vim.api.nvim_buf_set_lines(0, 2, 2, false, {token})
-    end
-  end
-end
 
 vim.cmd [[autocmd BufEnter COMMIT_EDITMSG lua insert_ticket_token()]]
 
