@@ -52,6 +52,38 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)
 
+function insert_ticket_token()
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+  local prefix, ticket = string.match(branch, "(%a+)/(%u+%-%d+)")
+  if prefix then
+    local token = string.format("[%s]", ticket)
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    local found = false
+
+    for _, line in ipairs(lines) do
+      if string.find(line, token, 0, true) then
+        found = true
+        break
+      end
+    end
+
+    if not found then
+      vim.api.nvim_buf_set_option(0, "bufhidden", "delete")
+      vim.api.nvim_buf_set_lines(0, 1, 1, false, {""})
+      vim.api.nvim_buf_set_lines(0, 2, 2, false, {token})
+    end
+  end
+end
+
+function open_markdown_file_from_git_branch()
+  local branch = vim.fn.system('git rev-parse --abbrev-ref HEAD')
+  branch = string.gsub(branch, '\n', '')
+  local filename = '/Users/kstevens/Library/Mobile Documents/com~apple~CloudDocs/Tickets/' .. vim.fn.substitute(branch, '/', '_', 'g') .. '.md'
+  vim.api.nvim_command('edit ' .. vim.fn.fnameescape(filename))
+  vim.bo.filetype = 'markdown'
+end
+
+
 vim.g.better_whitespace_enabled = 1
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
@@ -110,6 +142,7 @@ vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], { desc = '
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], { desc = 'Reload Vim Config' })
 vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Documents/working_memory.md<CR>]], { desc = 'Open Working Memory' })
 vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Documents/weekly_plan.md<CR>]], { desc = 'Open Weekly Plan' })
+vim.keymap.set('n', '<leader>gn', [[<cmd>lua open_markdown_file_from_git_branch()<CR>]], { desc = 'Open notes for current Git branch' })
 
 -- Other Mappings
 vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
