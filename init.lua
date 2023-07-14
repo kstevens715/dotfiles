@@ -44,7 +44,6 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
-  use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -208,16 +207,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
-require('tabnine').setup({
-  -- disable_auto_comment=true,
-  -- accept_keymap="<Tab>",
-  -- dismiss_keymap = "<C-]>",
-  -- debounce_ms = 800,
-  -- suggestion_color = {gui = "#808080", cterm = 244},
-  -- exclude_filetypes = {"TelescopePrompt"},
-  -- log_file_path = nil, -- absolute path to Tabnine log file
-})
-
 require('lualine').setup {
   options = {
     theme = 'sonokai',
@@ -230,7 +219,6 @@ require('lualine').setup {
         path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
       }
     },
-    lualine_x = {'tabnine'}
   }
 }
 
