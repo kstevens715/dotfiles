@@ -136,6 +136,7 @@ vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_fi
 vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 
 -- Double-key mappings. IMPORTANT: First key should not match any of my primary leader mappings above or it'll slow them down!
+vim.keymap.set('n', '<leader>d', [[<cmd>e ~/Documents/todo.md<CR>]], { desc = 'Todos' })
 vim.keymap.set('n', '<leader>n', [[<cmd>e ~/Documents/ticket_notes.md<CR>]], { desc = 'Open Ticket Notes' })
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], { desc = 'Edit Vim Config' })
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], { desc = 'Reload Vim Config' })
