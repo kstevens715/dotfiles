@@ -26,6 +26,7 @@ alias tc="cd ~/code/telchar"
 alias po="cd ~/code/porter"
 alias pair="tmux -2 new -s pairing"
 alias pair_with_ben="upterm host --github-user BenKanouse --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
+alias pair_with_rob="upterm host --github-user jonesdeini --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
 alias python="/usr/local/bin/python3"
 
 alias minio="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
