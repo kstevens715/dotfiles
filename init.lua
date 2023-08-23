@@ -74,15 +74,6 @@ function insert_ticket_token()
   end
 end
 
-function open_markdown_file_from_git_branch()
-  local branch = vim.fn.system('git rev-parse --abbrev-ref HEAD')
-  branch = string.gsub(branch, '\n', '')
-  local filename = '/Users/kstevens/Documents/Tickets/' .. vim.fn.substitute(branch, '/', '_', 'g') .. '.md'
-  vim.api.nvim_command('edit ' .. vim.fn.fnameescape(filename))
-  vim.bo.filetype = 'markdown'
-end
-
-
 vim.g.better_whitespace_enabled = 1
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
@@ -136,12 +127,8 @@ vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_fi
 vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 
 -- Double-key mappings. IMPORTANT: First key should not match any of my primary leader mappings above or it'll slow them down!
-vim.keymap.set('n', '<leader>n', [[<cmd>e ~/Documents/ticket_notes.md<CR>]], { desc = 'Open Ticket Notes' })
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], { desc = 'Edit Vim Config' })
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], { desc = 'Reload Vim Config' })
-vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Documents/working_memory.md<CR>]], { desc = 'Open Working Memory' })
-vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Documents/weekly_plan.md<CR>]], { desc = 'Open Weekly Plan' })
-vim.keymap.set('n', '<leader>gn', [[<cmd>lua open_markdown_file_from_git_branch()<CR>]], { desc = 'Open notes for current Git branch' })
 
 -- Other Mappings
 vim.keymap.set('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
