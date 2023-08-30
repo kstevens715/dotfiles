@@ -36,6 +36,7 @@ require('packer').startup(function()
   use 'nvim-treesitter/playground'
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
@@ -44,7 +45,6 @@ require('packer').startup(function()
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'mcchrish/zenbones.nvim', requires = { "rktjmp/lush.nvim" } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -147,13 +147,16 @@ vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
+vim.g.sonokai_disable_italic_comment = 1
+vim.g.sonokai_show_eob = 0
+vim.g.sonokai_style = 'default'
+
 vim.cmd([[
   " Important!!
   if has('termguicolors')
     set termguicolors
   endif
-  set background=dark
-  colorscheme zenbones
+  colorscheme sonokai
 ]])
 
 require('better_escape').setup()
@@ -192,6 +195,9 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
+  options = {
+    theme = 'sonokai',
+  },
   sections = {
     lualine_c = {
       {
@@ -200,8 +206,7 @@ require('lualine').setup {
         path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
       }
     },
-  },
-  options = { theme = 'zenbones' }
+  }
 }
 
 require('trouble').setup {
