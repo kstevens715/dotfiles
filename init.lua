@@ -84,6 +84,7 @@ end
 
 
 vim.g.better_whitespace_enabled = 1
+vim.g.html_number_lines = 0
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright'
 vim.g.neoterm_size = 25
