@@ -10,7 +10,7 @@ source ~/dotfiles/secrets.sh
 export EDITOR=nvim
 export NO_COVERAGE=true
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export PATH="/usr/local/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
+export PATH="$HOME/bin/nvim-macos/bin:/usr/local/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export SHELL=zsh
 export NODE_OPTIONS="--no-warnings"
 
@@ -29,7 +29,7 @@ alias pair_with_ben="upterm host --github-user BenKanouse --force-command 'tmux 
 alias pair_with_rob="upterm host --github-user jonesdeini --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
 alias python="/usr/local/bin/python3"
 
-alias minio="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
+alias miniocmd="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
 
 setopt nosharehistory # Do not share history between ZSH instances
