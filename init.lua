@@ -342,7 +342,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.rb',
   callback = function(args)
-    if not string.match(args.file, "spec%.rb$") and not string.match(args.file, "routes.rb$") then
+    if not string.match(args.file, "spec%.rb$") and not string.match(args.file, "routes.rb$") and not string.match(args.file, "application.rb$") and not string.match(args.file, "environments")  then
       vim.lsp.buf.format()
     end
   end,
