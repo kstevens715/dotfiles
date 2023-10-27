@@ -18,7 +18,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   use 'RRethy/nvim-treesitter-endwise'
-  use 'diepm/vim-rest-console'
   use 'folke/trouble.nvim'
   use 'folke/which-key.nvim'
   use 'hrsh7th/cmp-buffer'
@@ -94,10 +93,6 @@ vim.g.strip_whitespace_on_save = 1
 vim.g.strip_only_modified_lines = 1
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#strategy'] = 'neoterm'
-vim.g.vrc_output_buffer_name = '__VRC_OUTPUT.json'
-vim.g.vrc_response_default_content_type = 'application/json'
-vim.g.vrc_show_command = 1
--- vim.g.vrc_allow_get_request_body = 1 -- Cannot be used in conjunction with vrc_split_request_body
 vim.o.autoread = true
 vim.o.background = 'light'
 vim.o.clipboard = 'unnamed'
