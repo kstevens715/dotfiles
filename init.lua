@@ -76,7 +76,7 @@ end
 function open_markdown_file_from_git_branch()
   local branch = vim.fn.system('git rev-parse --abbrev-ref HEAD')
   branch = string.gsub(branch, '\n', '')
-  local filename = '/Users/kstevens/Documents/Tickets/' .. vim.fn.substitute(branch, '/', '_', 'g') .. '.md'
+  local filename = "/Users/kstevens/Library/Mobile Documents/com~apple~CloudDocs/Reference/Modo/Tickets/" .. vim.fn.substitute(branch, '/', '_', 'g') .. '.md'
   vim.api.nvim_command('edit ' .. vim.fn.fnameescape(filename))
   vim.bo.filetype = 'markdown'
 end
@@ -92,9 +92,10 @@ vim.g.strip_whitespace_confirm = 0
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_only_modified_lines = 1
 vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
+vim.g['test#ruby#use_binstubs'] = 0
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.cursorline = true
@@ -135,8 +136,8 @@ vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 vim.keymap.set('n', '<leader>n', [[<cmd>e ~/Documents/ticket_notes.md<CR>]], { desc = 'Open Ticket Notes' })
 vim.keymap.set('n', '<leader>ve', [[<cmd>e ~/dotfiles/init.lua<CR>]], { desc = 'Edit Vim Config' })
 vim.keymap.set('n', '<leader>vr', [[<cmd>source ~/dotfiles/init.lua<CR>]], { desc = 'Reload Vim Config' })
-vim.keymap.set('n', '<leader>wm', [[<cmd>e ~/Documents/working_memory.md<CR>]], { desc = 'Open Working Memory' })
-vim.keymap.set('n', '<leader>wp', [[<cmd>e ~/Documents/weekly_plan.md<CR>]], { desc = 'Open Weekly Plan' })
+vim.keymap.set('n', '<leader>wm', [[<cmd>e /Users/kstevens/Library/Mobile Documents/com~apple~CloudDocs/Reference/Modo/working_memory.md<CR>]], { desc = 'Open Working Memory' })
+vim.keymap.set('n', '<leader>wi', [[<cmd>e /Users/kstevens/Library/Mobile Documents/com~apple~CloudDocs/Reference/Modo/weekly_plan.md<CR>]], { desc = 'Open Weekly Plan' })
 vim.keymap.set('n', '<leader>gn', [[<cmd>lua open_markdown_file_from_git_branch()<CR>]], { desc = 'Open notes for current Git branch' })
 
 -- Other Mappings
