@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('packer').startup(function()
+  use 'EdenEast/nightfox.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'RRethy/nvim-treesitter-endwise'
   use 'folke/trouble.nvim'
@@ -43,7 +44,6 @@ require('packer').startup(function()
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim' }
   use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -95,7 +95,7 @@ vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#ruby#use_binstubs'] = 0
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.cursorline = true
@@ -157,15 +157,12 @@ vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-vim.g.zenbones_lightness = 'dim' -- 'bright'
-vim.g.zenbones_darkness = 'stark' -- 'warm'
-
 vim.cmd([[
   " Important!!
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme zenbones
+  colorscheme nightfox
 ]])
 
 require('better_escape').setup()
@@ -205,7 +202,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = 'zenbones',
+    theme = 'nightfox',
   },
   sections = {
     lualine_c = {
