@@ -81,12 +81,15 @@ function open_markdown_file_from_git_branch()
   vim.bo.filetype = 'markdown'
 end
 
+function run_last_command()
+  vim.api.nvim_command('Texec !bundle \n')
+end
 
 vim.g.better_whitespace_enabled = 1
 vim.g.html_number_lines = 0
 vim.g.neoterm_autoscroll = 1
-vim.g.neoterm_default_mod = 'botright'
-vim.g.neoterm_size = 25
+vim.g.neoterm_default_mod = 'botright vertical' -- botright
+vim.g.neoterm_size = 100
 vim.g.ruby_indent_assignment_style = 'variable'
 vim.g.strip_whitespace_confirm = 0
 vim.g.strip_whitespace_on_save = 1
@@ -153,7 +156,7 @@ vim.keymap.set('n', '<S-l>', [[<C-w>l]])
 
 vim.keymap.set('n', '<C-c>', [[<cmd>Topen <bar> :TestNearest <CR>]])
 vim.keymap.set('n', '<C-f>', [[<cmd>Topen <bar> :TestFile  <CR>]])
-vim.keymap.set('n', '<C-x>', [[<cmd>Topen <bar> :TestLast <CR>]])
+vim.keymap.set('n', '<C-x>', [[<cmd>lua run_last_command()<CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
