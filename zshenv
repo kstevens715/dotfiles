@@ -31,6 +31,7 @@ alias pair="tmux -2 new -s pairing"
 alias pair_with_ben="upterm host --github-user BenKanouse --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
 alias pair_with_rob="upterm host --github-user jonesdeini --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
 alias python="/usr/local/bin/python3"
+alias t="todo.sh"
 
 alias miniocmd="nohup minio server --address :4572 ~/minio &> /dev/null 2>&1 &"
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
