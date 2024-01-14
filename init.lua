@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('packer').startup(function()
-  use 'EdenEast/nightfox.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'RRethy/nvim-treesitter-endwise'
   use 'folke/trouble.nvim'
@@ -36,6 +35,7 @@ require('packer').startup(function()
   use 'nvim-treesitter/playground'
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
@@ -160,12 +160,16 @@ vim.keymap.set('n', '<C-x>', [[<cmd>lua run_last_command()<CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
+vim.g.sonokai_disable_italic_comment = 1
+vim.g.sonokai_show_eob = 0
+vim.g.sonokai_style = 'default'
+
 vim.cmd([[
   " Important!!
   if has('termguicolors')
     set termguicolors
   endif
-  colorscheme nightfox
+  colorscheme sonokai
 ]])
 
 require('better_escape').setup()
@@ -205,7 +209,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = 'nightfox',
+    theme = 'sonokai',
   },
   sections = {
     lualine_c = {
