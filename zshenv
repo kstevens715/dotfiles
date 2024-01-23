@@ -24,6 +24,7 @@ export DEFAULT_COMPATIBILITY="FORWARD"
 # Aliases
 alias be="bundle exec"
 alias dc="docker-compose"
+alias dotfiles="cd ~/dotfiles"
 alias vim="nvim"
 alias tc="cd ~/code/telchar"
 alias po="cd ~/code/porter"
