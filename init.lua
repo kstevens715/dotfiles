@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('packer').startup(function()
-  use 'L3MON4D3/LuaSnip'
   use 'RRethy/nvim-treesitter-endwise'
   use 'folke/trouble.nvim'
   use 'folke/which-key.nvim'
@@ -33,8 +32,6 @@ require('packer').startup(function()
   use 'numToStr/Comment.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-treesitter/playground'
-  use 'rafamadriz/friendly-snippets'
-  use 'saadparwaiz1/cmp_luasnip'
   use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
@@ -273,9 +270,6 @@ require("nvim-tree").setup({
 })
 
 -- Setup nvim-cmp.
-require('luasnip').filetype_extend('ruby', {'rails'})
-require('luasnip.loaders.from_vscode').lazy_load()
-
 local cmp = require'cmp'
 
 cmp.setup({
@@ -290,13 +284,7 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
-  snippet = {
-    expand = function(args)
-      require'luasnip'.lsp_expand(args.body)
-    end
-  },
   sources = cmp.config.sources({
-    { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'buffer' },
@@ -316,7 +304,7 @@ require('lspconfig').solargraph.setup {
   capabilities = capabilities,
   settings = {
     solargraph = {
-      useBundler = true,
+      useBundler = false,
       diagnostics = true,
     }
   },
