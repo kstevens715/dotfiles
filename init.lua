@@ -233,7 +233,7 @@ require('trouble').setup {
 }
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'markdown', 'python', 'ruby', 'scss', 'scheme', 'vim', 'vue', 'xml', 'yaml' },
+  ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'markdown', 'python', 'ruby', 'scss', 'scheme', 'vim', 'vimdoc', 'vue', 'xml', 'yaml' },
   endwise = { enable = true },
   highlight = { enable = true },
   indent = { enable = false },
@@ -295,7 +295,7 @@ cmp.setup({
 })
 
 -- Setup lspconfig.
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('lspconfig').jsonls.setup {
   on_attach = on_attach,
