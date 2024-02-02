@@ -163,13 +163,7 @@ vim.g.sonokai_disable_italic_comment = 1
 vim.g.sonokai_show_eob = 0
 vim.g.sonokai_style = 'default'
 
-vim.cmd([[
-  " Important!!
-  if has('termguicolors')
-    set termguicolors
-  endif
-  colorscheme sonokai
-]])
+vim.cmd.colorscheme('sonokai')
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -183,7 +177,6 @@ require "telescope".setup {
     }
   }
 }
-
 
 require('gitsigns').setup {
   signs = {
