@@ -16,6 +16,7 @@
     ~/.config/alacritty/alacritty.toml:               alacritty.toml
     ~/.config/nvim/after/queries/ruby/highlights.scm: ruby_highlights.scm
     ~/.config/nvim/init.lua:                          init.lua
+    ~/.config/nvim/spell/en.utf-8.add:                en.utf-8.add
     ~/.gemrc:                                         gemrc
     ~/.gitconfig:                                     gitconfig
     ~/.gitignore:                                     gitignore
