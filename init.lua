@@ -26,13 +26,13 @@ require('packer').startup(function()
   use 'kassio/neoterm'
   use 'kburdett/vim-nuuid'
   use 'kyazdani42/nvim-web-devicons'
+  use 'loctvl842/monokai-pro.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
   use 'numToStr/Comment.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-treesitter/playground'
-  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
@@ -159,11 +159,10 @@ vim.keymap.set('n', '<C-x>', [[<cmd>lua run_last_command()<CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-vim.g.sonokai_disable_italic_comment = 1
-vim.g.sonokai_show_eob = 0
-vim.g.sonokai_style = 'default'
+require("monokai-pro").setup({
+})
 
-vim.cmd.colorscheme('sonokai')
+vim.cmd.colorscheme('monokai-pro')
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -178,15 +177,7 @@ require "telescope".setup {
   }
 }
 
-require('gitsigns').setup {
-  signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
-  },
-}
+require('gitsigns').setup()
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -201,7 +192,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = 'sonokai',
+    theme = 'monokai-pro',
   },
   sections = {
     lualine_c = {
