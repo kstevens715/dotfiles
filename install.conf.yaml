@@ -11,6 +11,7 @@
     - ~/code
     - ~/.config/alacritty
     - ~/.config/nvim/after/queries/ruby
+    - ~/.config/nvim/spell
 
 - link:
     ~/.config/alacritty/alacritty.toml:               alacritty.toml
