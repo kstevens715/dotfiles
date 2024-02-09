@@ -26,7 +26,6 @@ require('packer').startup(function()
   use 'kassio/neoterm'
   use 'kburdett/vim-nuuid'
   use 'kyazdani42/nvim-web-devicons'
-  use 'loctvl842/monokai-pro.nvim'
   use 'max397574/better-escape.nvim'
   use 'neovim/nvim-lspconfig'
   use 'ntpeters/vim-better-whitespace'
@@ -41,6 +40,7 @@ require('packer').startup(function()
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim' }
   use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -95,7 +95,7 @@ vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#ruby#use_binstubs'] = 0
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
-vim.o.background = 'dark'
+vim.o.background = 'light'
 vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.cursorline = true
@@ -159,10 +159,7 @@ vim.keymap.set('n', '<C-x>', [[<cmd>lua run_last_command()<CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-require("monokai-pro").setup({
-})
-
-vim.cmd.colorscheme('monokai-pro')
+vim.cmd.colorscheme('zenbones')
 
 require('better_escape').setup()
 require('Comment').setup()
@@ -192,7 +189,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = 'monokai-pro',
+    theme = 'zenbones',
   },
   sections = {
     lualine_c = {
