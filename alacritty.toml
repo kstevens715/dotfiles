@@ -1,24 +1,24 @@
 import = [
-  "~/.local/share/nvim/site/pack/packer/start/zenbones.nvim/extras/alacritty/zenbones_light.toml"
+  "~/.local/share/nvim/site/pack/packer/start/zenbones.nvim/extras/alacritty/zenbones_dark.toml"
 ]
 
 [font]
 size = 16
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "IosevkaTermSlab Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "IosevkaTermSlab Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "IosevkaTermSlab Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "IosevkaTermSlab Nerd Font Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
