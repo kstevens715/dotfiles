@@ -38,6 +38,7 @@ require('packer').startup(function()
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
+  use 'rktjmp/shipwright.nvim'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim' }
@@ -95,7 +96,7 @@ vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#ruby#use_binstubs'] = 0
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.cursorline = true
@@ -188,9 +189,6 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
-  options = {
-    theme = 'zenbones',
-  },
   sections = {
     lualine_c = {
       {
