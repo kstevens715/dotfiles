@@ -17,6 +17,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 require('packer').startup(function()
   use 'RRethy/nvim-treesitter-endwise'
+  use 'cuducos/yaml.nvim'
   use 'folke/trouble.nvim'
   use 'folke/which-key.nvim'
   use 'hrsh7th/cmp-buffer'
@@ -134,6 +135,7 @@ vim.keymap.set('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]], { desc = '
 vim.keymap.set('n', '<leader>l', [[<cmd>! flog %<CR>]], { desc = 'Flog (ABC) Score' })
 vim.keymap.set('n', '<leader>r', [[<cmd>TroubleToggle<CR>]], { desc = 'View Warnings/Errors' })
 vim.keymap.set('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>y', [[<cmd>YAMLTelescope<CR>]], { desc = 'View YAML values in project' })
 vim.keymap.set('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 
 -- Double-key mappings. IMPORTANT: First key should not match any of my primary leader mappings above or it'll slow them down!
@@ -162,6 +164,7 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 vim.cmd.colorscheme('zenbones')
 
+local yaml_nvim = require('yaml_nvim')
 require('better_escape').setup()
 require('Comment').setup()
 require('telescope').load_extension('fzf')
