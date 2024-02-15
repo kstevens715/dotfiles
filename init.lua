@@ -33,13 +33,13 @@ require('packer').startup(function()
   use 'numToStr/Comment.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-treesitter/playground'
+  use 'rktjmp/shipwright.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
-  use 'rktjmp/shipwright.nvim'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim' }
