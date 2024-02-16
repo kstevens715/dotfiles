@@ -162,6 +162,8 @@ vim.keymap.set('n', '<C-x>', [[<cmd>lua run_last_command()<CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
+vim.g.zenbones_lightness = 'dim'
+
 vim.cmd.colorscheme('zenbones')
 
 local yaml_nvim = require('yaml_nvim')
@@ -192,6 +194,7 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
+  options = { theme = "zenbones" },
   sections = {
     lualine_c = {
       {
