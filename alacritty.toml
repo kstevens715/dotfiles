@@ -1,6 +1,26 @@
-import = [
-  "~/.local/share/nvim/site/pack/packer/start/zenbones.nvim/extras/alacritty/zenbones_dark.toml"
-]
+[colors.bright]
+black = "0x7f8490"
+blue = "0x76cce0"
+cyan = "0xf39660"
+green = "0x9ed072"
+magenta = "0xb39df3"
+red = "0xfc5d7c"
+white = "0xe2e2e3"
+yellow = "0xe7c664"
+
+[colors.normal]
+black = "0x181819"
+blue = "0x76cce0"
+cyan = "0xf39660"
+green = "0x9ed072"
+magenta = "0xb39df3"
+red = "0xfc5d7c"
+white = "0xe2e2e3"
+yellow = "0xe7c664"
+
+[colors.primary]
+background = "0x2c2e34"
+foreground = "0xe2e2e3"
 
 [font]
 size = 16

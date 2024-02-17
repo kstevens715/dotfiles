@@ -33,7 +33,7 @@ require('packer').startup(function()
   use 'numToStr/Comment.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-treesitter/playground'
-  use 'rktjmp/shipwright.nvim'
+  use 'sainnhe/sonokai'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rails'
   use 'tpope/vim-repeat'
@@ -42,7 +42,6 @@ require('packer').startup(function()
   use 'vim-test/vim-test'
   use 'wbthomason/packer.nvim'
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim' }
   use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -162,9 +161,7 @@ vim.keymap.set('n', '<C-x>', [[<cmd>lua run_last_command()<CR>]])
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-vim.g.zenbones_lightness = 'dim'
-
-vim.cmd.colorscheme('zenbones')
+vim.cmd.colorscheme('sonokai')
 
 local yaml_nvim = require('yaml_nvim')
 require('better_escape').setup()
@@ -194,7 +191,7 @@ local on_attach = function(client, bufnr)
 end
 
 require('lualine').setup {
-  options = { theme = "zenbones" },
+  options = { theme = 'sonokai' },
   sections = {
     lualine_c = {
       {
