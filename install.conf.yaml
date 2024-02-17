@@ -14,17 +14,17 @@
     - ~/.config/nvim/spell
 
 - link:
-    ~/.config/alacritty/alacritty.toml:               alacritty.toml
-    ~/.config/nvim/after/queries/ruby/highlights.scm: ruby_highlights.scm
+    ~/.config/alacritty/alacritty.toml:               config/alacritty.toml
+    ~/.config/nvim/after/queries/ruby/highlights.scm: config/ruby_highlights.scm
     ~/.config/nvim/init.lua:                          init.lua
-    ~/.config/nvim/spell/en.utf-8.add:                en.utf-8.add
-    ~/.gemrc:                                         gemrc
-    ~/.gitconfig:                                     gitconfig
-    ~/.gitignore:                                     gitignore
-    ~/.tmux.conf:                                     tmux.conf
-    ~/.tmate.conf:                                    tmate.conf
-    ~/.zshenv:                                        zshenv
-    ~/.zprofile:                                      zprofile
+    ~/.config/nvim/spell/en.utf-8.add:                config/en.utf-8.add
+    ~/.gemrc:                                         config/gemrc
+    ~/.gitconfig:                                     config/gitconfig
+    ~/.gitignore:                                     config/gitignore
+    ~/.tmux.conf:                                     config/tmux.conf
+    ~/.tmate.conf:                                    config/tmate.conf
+    ~/.zshenv:                                        config/zshenv
+    ~/.zprofile:                                      config/zprofile
 
 - shell:
     -
@@ -48,4 +48,4 @@
       command:     npm i -g vscode-langservers-extracted
     -
       description: This file must exist or zshenv fails
-      command:     touch ~/dotfiles/secrets.sh
+      command:     touch ~/dotfiles/config/secrets.sh
