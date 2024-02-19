@@ -10,14 +10,10 @@
 - create:
     - ~/code
     - ~/.config/alacritty
-    - ~/.config/nvim/after/queries/ruby
-    - ~/.config/nvim/spell
 
 - link:
     ~/.config/alacritty/alacritty.toml:               config/alacritty.toml
-    ~/.config/nvim/after/queries/ruby/highlights.scm: config/ruby_highlights.scm
-    ~/.config/nvim/init.lua:                          init.lua
-    ~/.config/nvim/spell/en.utf-8.add:                config/en.utf-8.add
+    ~/.config/nvim:                                   config/nvim
     ~/.gemrc:                                         config/gemrc
     ~/.gitconfig:                                     config/gitconfig
     ~/.gitignore:                                     config/gitignore
