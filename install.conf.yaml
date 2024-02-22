@@ -40,6 +40,9 @@
       description: Start Redis
       command:     brew services start redis
     -
+      description: Start MinIO
+      command:     brew services start minio
+    -
       description: Install JSON language server
       command:     npm i -g vscode-langservers-extracted
     -
