@@ -9,10 +9,8 @@
 
 - create:
     - ~/code
-    - ~/.config/alacritty
 
 - link:
-    ~/.config/alacritty/alacritty.toml:               config/alacritty.toml
     ~/.config/nvim:                                   config/nvim
     ~/.gemrc:                                         config/gemrc
     ~/.gitconfig:                                     config/gitconfig
