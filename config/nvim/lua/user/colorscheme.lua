@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  vim.cmd.colorscheme 'nightfox'
+  vim.cmd.colorscheme 'dayfox'
 end
 
 return M
