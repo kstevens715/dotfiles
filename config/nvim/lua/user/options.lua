@@ -11,7 +11,7 @@ vim.g['test#ruby#rspec#options'] = { all = '--format progress' }
 vim.g['test#ruby#use_binstubs'] = 0
 vim.g['test#strategy'] = 'neoterm'
 vim.o.autoread = true
-vim.o.background = 'dark'
+vim.o.background = 'light'
 vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.cursorline = true
