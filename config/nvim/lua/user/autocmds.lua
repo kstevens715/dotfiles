@@ -1,5 +1,14 @@
 local dotfiles = require('user.dotfiles')
 
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function(args)
+    if #vim.fn.argv() == 0 then
+      local filename = dotfiles.git_notes_filename()
+      vim.cmd('edit ' .. filename)
+    end
+  end
+})
+
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.tsx,*.ts,*.jsx,*.js,*.vue',
   callback = function(args)

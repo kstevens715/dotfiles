@@ -15,6 +15,9 @@ keymap('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 -- Double-key mappings. IMPORTANT: First key should not match any of my primary leader mappings above or it'll slow them down!
 keymap('n', '<leader>ve', [[<cmd>e ~/dotfiles/config/nvim/init.lua<CR>]], { desc = 'Edit Vim Config' })
 keymap('n', '<leader>vr', [[<cmd>source ~/dotfiles/config/nvim/init.lua<CR>]], { desc = 'Reload Vim Config' })
+keymap('n', '<leader>wm', [[<cmd>e ~/Documents/working_memory.md<CR>]], { desc = 'Open Working Memory' })
+keymap('n', '<leader>wp', [[<cmd>e ~/Documents/weekly_plan.md<CR>]], { desc = 'Open Weekly Plan' })
+keymap('n', '<leader>gn', [[<cmd>lua require('user.dotfiles').open_markdown_file_from_git_branch()<CR>]], { desc = 'Open notes for current Git branch' })
 
 -- Other Mappings
 keymap('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
