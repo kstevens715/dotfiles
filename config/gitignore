@@ -8,4 +8,3 @@
 .ruby-version
 .rubycritic.yml
 config/initializers/zzz_kyles_initializer.rb
-config/nvim/spell/en.utf-8.add.spl
