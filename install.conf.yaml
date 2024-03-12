@@ -9,11 +9,8 @@
 
 - create:
     - ~/code
-    - ~/.config/kitty/
-              
 
 - link:
-    ~/.config/kitty/kitty.conf:                       config/kitty.conf
     ~/.config/nvim:                                   config/nvim
     ~/.gemrc:                                         config/gemrc
     ~/.gitconfig:                                     config/gitconfig
@@ -24,10 +21,6 @@
     ~/.zprofile:                                      config/zprofile
 
 - shell:
-    -
-      description: Install Kitty
-      command:     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
-      stderr:      true
     -
       description: Install FZF configs
       command:     $(brew --prefix)/opt/fzf/install --all
