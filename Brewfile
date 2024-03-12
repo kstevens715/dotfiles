@@ -1,3 +1,4 @@
+cask "alacritty"
 cask "chromedriver"
 cask "google-chrome"
 cask "postgres-unofficial"
