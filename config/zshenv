@@ -41,3 +41,6 @@ setopt nosharehistory # Do not share history between ZSH instances
 if [ -n "$TMUX" ]; then
   tmux set window-size smallest
 fi
+
+# Render thinner font
+defaults write -g AppleFontSmoothing -int 0

@@ -1,24 +1,24 @@
 import = [
-  "~/.local/share/nvim/lazy/nightfox.nvim/extra/nightfox/alacritty.toml"
+  "~/.local/share/nvim/lazy/nightfox.nvim/extra/dayfox/alacritty.toml"
 ]
 
 [font]
-size = 16
+size = 12
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
