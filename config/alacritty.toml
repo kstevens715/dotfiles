@@ -1,5 +1,5 @@
 import = [
-  "~/.local/share/nvim/lazy/nightfox.nvim/extra/dayfox/alacritty.toml"
+  "~/.local/share/nvim/lazy/zenbones.nvim/extras/alacritty/zenbones_light.toml"
 ]
 
 [font]
