@@ -4,7 +4,7 @@ local M = {
 
 function M.config()
   require('lualine').setup {
-    options = { theme = 'zenbones' },
+    options = { theme = 'sonokai' },
     sections = {
       lualine_c = {
         {
