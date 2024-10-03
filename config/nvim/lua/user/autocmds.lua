@@ -10,9 +10,20 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.rb',
   callback = function(args)
-    if not string.match(args.file, "spec%.rb$") and not string.match(args.file, "routes.rb$") and not string.match(args.file, "application.rb$") and not string.match(args.file, "environments") and not string.match(args.file, "schema.rb$") then
-      vim.lsp.buf.format()
+    local root = vim.fn.getcwd()
+
+    if vim.fn.filereadable(root .. "/NO_AUTOFORMAT") == 1 then
+      return
     end
+
+    local excluded_patterns = { "spec%.rb$", "routes.rb$", "application.rb$", "environments", "schema.rb$" }
+    for _, pattern in ipairs(excluded_patterns) do
+      if string.match(args.file, pattern) then
+        return
+      end
+    end
+
+    vim.lsp.buf.format()
   end,
 })
 
