@@ -1,6 +1,5 @@
 vim.cmd([[command! -bang WQ wq<bang>]])
 vim.cmd([[command! -bang Wq wq<bang>]])
-vim.cmd([[command! -bang W w<bang>]])
 vim.cmd([[command! -bang Q q<bang>]])
 vim.cmd([[command! -bang Qa qa<bang>]])
 vim.cmd([[command! -bang Tabo tabo<bang>]])
