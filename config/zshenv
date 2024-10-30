@@ -8,6 +8,7 @@ source ~/dotfiles/config/secrets.sh
 
 # Variables
 export EDITOR=nvim
+export GPG_TTY=$(tty)
 export NO_COVERAGE=true
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="$HOME/bin/nvim-macos/bin:/usr/local/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
@@ -27,6 +28,7 @@ alias be="bundle exec"
 alias dc="docker-compose"
 alias dotfiles="cd ~/dotfiles"
 alias vim="nvim"
+alias ch="cd ~/code/charlotte"
 alias dr="cd ~/code/dreamatorium"
 alias tc="cd ~/code/telchar"
 alias po="cd ~/code/porter"
