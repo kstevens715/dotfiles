@@ -43,18 +43,27 @@ function M.config()
     capabilities = capabilities,
   }
 
-  require('lspconfig').solargraph.setup {
+  -- require('lspconfig').solargraph.setup {
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   settings = {
+  --     solargraph = {
+  --       useBundler = false,
+  --       diagnostics = true,
+  --     }
+  --   },
+  --   flags = {
+  --     debounce_text_changes = 150,
+  --   }
+  -- }
+
+  require('lspconfig').ruby_lsp.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    settings = {
-      solargraph = {
-        useBundler = false,
-        diagnostics = true,
-      }
+    init_options = {
+      formatter = 'rubocop',
+      linters = { 'rubocop' },
     },
-    flags = {
-      debounce_text_changes = 150,
-    }
   }
 
   require('lspconfig').eslint.setup {
