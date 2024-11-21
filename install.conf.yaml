@@ -17,6 +17,7 @@
     ~/.gemrc:                                         config/gemrc
     ~/.gitconfig:                                     config/gitconfig
     ~/.gitignore:                                     config/gitignore
+    ~/.gnupg/gpg-agent.conf:                          config/gpg-agent.conf
     ~/.tmux.conf:                                     config/tmux.conf
     ~/.tmate.conf:                                    config/tmate.conf
     ~/.zshenv:                                        config/zshenv
