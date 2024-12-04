@@ -8,7 +8,7 @@ keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>
 keymap('n', '<leader>x', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { desc = 'Search Project' })
 keymap('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]], { desc = 'Git History' })
 keymap('n', '<leader>l', [[<cmd>! flog %<CR>]], { desc = 'Flog (ABC) Score' })
-keymap('n', '<leader>r', [[<cmd>TroubleToggle<CR>]], { desc = 'View Warnings/Errors' })
+keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').registers()<CR>]], { desc = 'Registers' })
 keymap('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { desc = 'Find Files' })
 keymap('n', '<leader>y', [[<cmd>YAMLTelescope<CR>]], { desc = 'View YAML values in project' })
 keymap('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
