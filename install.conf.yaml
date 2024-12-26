@@ -20,6 +20,7 @@
     ~/.gnupg/gpg-agent.conf:                          config/gpg-agent.conf
     ~/.tmux.conf:                                     config/tmux.conf
     ~/.tmate.conf:                                    config/tmate.conf
+    ~/.wezterm.lua:                                   config/wezterm.lua
     ~/.zshenv:                                        config/zshenv
     ~/.zprofile:                                      config/zprofile
 
