@@ -9,20 +9,19 @@
 
 - create:
     - ~/code
-    - ~/.config/alacritty
 
 - link:
-    ~/.config/alacritty/alacritty.toml:               config/alacritty.toml
-    ~/.config/nvim:                                   config/nvim
-    ~/.gemrc:                                         config/gemrc
-    ~/.gitconfig:                                     config/gitconfig
-    ~/.gitignore:                                     config/gitignore
-    ~/.gnupg/gpg-agent.conf:                          config/gpg-agent.conf
-    ~/.tmux.conf:                                     config/tmux.conf
-    ~/.tmate.conf:                                    config/tmate.conf
-    ~/.wezterm.lua:                                   config/wezterm.lua
-    ~/.zshenv:                                        config/zshenv
-    ~/.zprofile:                                      config/zprofile
+    "~/Library/Application\ Support/com.mitchellh.ghostty/config": config/ghostty.config
+    ~/.config/nvim:                                                config/nvim
+    ~/.gemrc:                                                      config/gemrc
+    ~/.gitconfig:                                                  config/gitconfig
+    ~/.gitignore:                                                  config/gitignore
+    ~/.gnupg/gpg-agent.conf:                                       config/gpg-agent.conf
+    ~/.tmux.conf:                                                  config/tmux.conf
+    ~/.tmate.conf:                                                 config/tmate.conf
+    ~/.wezterm.lua:                                                config/wezterm.lua
+    ~/.zshenv:                                                     config/zshenv
+    ~/.zprofile:                                                   config/zprofile
 
 - shell:
     -
