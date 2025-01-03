@@ -8,7 +8,10 @@
 - clean: ['~']
 
 - create:
+    - ~/.config
+    - ~/.gnupg
     - ~/code
+    - "~/Library/Application\ Support/com.mitchellh.ghostty"
 
 - link:
     "~/Library/Application\ Support/com.mitchellh.ghostty/config": config/ghostty.config
@@ -21,9 +24,15 @@
     ~/.tmate.conf:                                                 config/tmate.conf
     ~/.wezterm.lua:                                                config/wezterm.lua
     ~/.zshenv:                                                     config/zshenv
-    ~/.zprofile:                                                   config/zprofile
 
 - shell:
+    -
+      description: Install Brew
+      if:          '[$(which brew) 2>&1 > /dev/null]'
+      command:     ./setup_homebrew.zsh
+      stdin:       true
+      stdout:      true
+      stderr:      true
     -
       description: Install FZF configs
       command:     $(brew --prefix)/opt/fzf/install --all
@@ -47,5 +56,8 @@
       description: Install JSON language server
       command:     npm i -g vscode-langservers-extracted
     -
-      description: This file must exist or zshenv fails
+      description: Create a blank secrets file
       command:     touch ~/dotfiles/config/secrets.sh
+    -
+      description: Install Ruby 3.4.1
+      command:     ruby-install --no-reinstall ruby-3.4.1

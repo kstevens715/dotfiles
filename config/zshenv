@@ -2,16 +2,22 @@
 eval "$(ssh-agent -s)" > /dev/null
 ssh-add --apple-use-keychain > /dev/null 2>&1
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-source ~/dotfiles/config/secrets.sh
+[[ -f /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
+[[ -f /usr/local/share/chruby/auto.sh ]] && source /usr/local/share/chruby/auto.sh
+
+[[ -f /opt/homebrew/opt/chruby/share/chruby/chruby.sh ]] && source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+[[ -f /opt/homebrew/opt/chruby/share/chruby/auto.sh ]] && source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+
+[[ -f ~/dotfiles/config/secrets.sh ]] && source ~/dotfiles/config/secrets.sh
+
+chruby_auto
 
 # Variables
 export EDITOR=nvim
 export GPG_TTY=$(tty)
 export NO_COVERAGE=true
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export PATH="$HOME/bin/nvim-macos/bin:/usr/local/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
+export PATH="$HOME/bin/nvim-macos/bin:/usr/local/bin:/opt/homebrew/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export SWAGGER_DRY_RUN=0
 
