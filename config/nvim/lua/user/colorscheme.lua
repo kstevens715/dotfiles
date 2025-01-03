@@ -1,12 +1,13 @@
 local M = {
-  'catppuccin/nvim',
-  name = 'catppuccin',
-  priority = 1000,
+    'zenbones-theme/zenbones.nvim',
+    dependencies = 'rktjmp/lush.nvim',
+    lazy = false,
+    priority = 1000,
 }
 
 
 function M.config()
-  vim.cmd.colorscheme 'catppuccin'
+  vim.cmd.colorscheme 'zenbones'
 end
 
 return M
