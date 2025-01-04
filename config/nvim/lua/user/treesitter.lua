@@ -3,7 +3,7 @@ local M = {
   event = { 'BufReadPost', 'BufNewFile' },
   build = ":TSUpdate",
   dependencies = {
-    'RRethy/nvim-treesitter-endwise',
+    'metiulekm/nvim-treesitter-endwise',
     'nvim-treesitter/playground',
   }
 }
