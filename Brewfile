@@ -1,6 +1,6 @@
+cask 'alacritty'
 cask 'chromedriver'
 cask 'firefox'
-cask 'ghostty'
 cask 'google-chrome'
 cask 'postgres-unofficial'
 cask 'slack'
