@@ -1,13 +1,12 @@
 local M = {
-    'zenbones-theme/zenbones.nvim',
-    dependencies = 'rktjmp/lush.nvim',
+    'sainnhe/sonokai',
     lazy = false,
     priority = 1000,
 }
 
 
 function M.config()
-  vim.cmd.colorscheme 'zenbones'
+  vim.cmd.colorscheme 'sonokai'
 end
 
 return M
