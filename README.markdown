@@ -25,3 +25,8 @@ Pretty-format a JSON file:
 ```
 :%!jq
 ```
+
+Turn on vi-mode in Alacritty:
+```
+CTRL S
+```
