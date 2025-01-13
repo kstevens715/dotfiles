@@ -23,6 +23,7 @@
     ~/.tmux.conf:                       config/tmux.conf
     ~/.tmate.conf:                      config/tmate.conf
     ~/.zshenv:                          config/zshenv
+    ~/.zshrc:                           config/zshrc
 
 - shell:
     -
