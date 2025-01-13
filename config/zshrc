@@ -73,7 +73,7 @@ ZSH_THEME="robbyrussell"
 zstyle :omz:plugins:ssh-agent identities id_ed25519
 zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
 
-plugins=(git ssh-agent)
+plugins=(git ssh-agent chruby)
 
 source $ZSH/oh-my-zsh.sh
 
