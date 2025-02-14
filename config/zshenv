@@ -16,6 +16,14 @@ export NODE_OPTIONS="--no-warnings"
 # https://github.com/salsify/avro-schema-registry/blob/f2da75508bea91611f0a1c99a3b46259e5197cc0/config/application.rb#L49
 export DEFAULT_COMPATIBILITY="FORWARD"
 
+co() {
+  local branch
+  branch=$(git branch --sort=-committerdate | fzf | sed 's/^[[:space:]]*//')
+  if [[ -n "$branch" ]]; then
+    git checkout "${branch##\* }"
+  fi
+}
+
 # Aliases
 alias be="bundle exec"
 alias dc="docker-compose"
