@@ -18,9 +18,23 @@ export DEFAULT_COMPATIBILITY="FORWARD"
 
 co() {
   local branch
-  branch=$(git branch --sort=-committerdate | fzf | sed 's/^[[:space:]]*//')
+  # List local branches and remote branches, but format remote branches to remove remotes/origin/
+  # Then sort by committer date and remove duplicates using awk
+  branch=$(git branch --all --sort=-committerdate |
+    grep -v 'HEAD ->' |                    # Remove HEAD pointer
+    sed 's/^[[:space:]]*//' |              # Remove leading spaces (macOS compatible)
+    sed 's/^remotes\/origin\///' |         # Remove remotes/origin/
+    sed 's/^\* //' |                       # Remove "* " from current branch
+    awk '!seen[$0]++' |                    # Remove duplicates
+    fzf)
+
   if [[ -n "$branch" ]]; then
-    git checkout "${branch##\* }"
+    # Check if this is a local branch
+    if git show-ref --verify --quiet refs/heads/"$branch"; then
+      git checkout "$branch"
+    else
+      git checkout -b "$branch" -t "origin/$branch"
+    fi
   fi
 }
 
