@@ -5,7 +5,7 @@ export EDITOR=nvim
 export GPG_TTY=$(tty)
 export NO_COVERAGE=true
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export PATH="$HOME/bin/nvim-macos/bin:/usr/local/bin:/opt/homebrew/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
+export PATH="$HOME/bin/nvim-macos/bin:/usr/local/bin:/opt/homebrew/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/16/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export SWAGGER_DRY_RUN=0
 
