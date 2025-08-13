@@ -1,6 +1,7 @@
 [[ -f ~/dotfiles/config/secrets.sh ]] && source ~/dotfiles/config/secrets.sh
 
 # Variables
+export AWS_REGION=us-west-2
 export EDITOR=nvim
 export GPG_TTY=$(tty)
 export NO_COVERAGE=true
