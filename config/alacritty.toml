@@ -1,26 +1,7 @@
-[colors.primary]
-background = "0x2d2a2e"
-foreground = "0xfcfcfa"
-
-[colors.normal]
-black = "0x19181a"
-red = "0xff6188"
-green = "0xa9dc76"
-yellow = "0xffd866"
-blue = "0xfc9867"
-magenta = "0xab9df2"
-cyan = "0x78dce8"
-white = "0xfcfcfa"
-
-[colors.bright]
-black = "0x19181a"
-red = "0xff6188"
-green = "0xa9dc76"
-yellow = "0xffd866"
-blue = "0xfc9867"
-magenta = "0xab9df2"
-cyan = "0x78dce8"
-white = "0xfcfcfa"
+[general]
+import = [
+  "~/.local/share/nvim/lazy/nightfox.nvim/extra/dayfox/alacritty.toml"
+]
 
 [font]
 size = 12
