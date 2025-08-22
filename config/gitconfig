@@ -37,4 +37,4 @@
 [mergetool "vimdiff"]
   cmd = "nvim  -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
 [commit]
-	gpgsign = true
+	gpgsign = false
