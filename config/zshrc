@@ -105,4 +105,10 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/sbin:$PATH"
-chruby ruby-3.3.7
+
+if [[ ! -f .ruby-version && -z "$RUBY_ROOT" ]]; then
+  chruby ruby-3.3.7
+fi
+
+# force auto-switch once at startup (important for Zed tasks)
+typeset -f chruby_auto >/dev/null && chruby_auto
