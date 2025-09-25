@@ -1,0 +1,32 @@
+[
+  {
+    "label": "RSpec: current example",
+    "command": "bundle",
+    "args": ["exec", "rspec", "\"$ZED_RELATIVE_FILE:$ZED_ROW\""],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "tags": ["ruby-test"],
+    "reveal": "no_focus"
+  },
+  {
+    "label": "RSpec: current file",
+    "command": "bundle",
+    "args": ["exec", "rspec", "\"$ZED_RELATIVE_FILE\""],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "reveal": "no_focus"
+  },
+  {
+    "label": "Toggle Test and Target",
+    "command": "zed-test-toggle",
+    "args": [
+      "lookup",
+      "-p",
+      "\"$ZED_RELATIVE_FILE\"",
+      "-r",
+      "\"$ZED_WORKTREE_ROOT\""
+    ],
+    "hide": "always",
+    "allow_concurrent_runs": false,
+    "use_new_terminal": false,
+    "reveal": "never"
+  }
+]
