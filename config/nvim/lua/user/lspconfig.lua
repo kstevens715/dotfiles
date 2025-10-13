@@ -10,14 +10,15 @@ local M = {
 }
 
 function M.config()
-  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      signs = true,
-      underline = true,
-      update_in_insert = false,
-      virtual_text = true,
-    }
-  )
+  vim.lsp.enable('jsonls')
+  vim.lsp.enable('ruby_lsp')
+
+  vim.diagnostic.config({
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    virtual_text = true,
+  })
 
   vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', linehl = '', numhl = '' })
   vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', linehl = '', numhl = '' })
@@ -38,36 +39,22 @@ function M.config()
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-  require('lspconfig').jsonls.setup {
+  vim.lsp.config('jsonls', {
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  })
 
-  -- require('lspconfig').solargraph.setup {
-  --   on_attach = on_attach,
-  --   capabilities = capabilities,
-  --   settings = {
-  --     solargraph = {
-  --       useBundler = false,
-  --       diagnostics = true,
-  --     }
-  --   },
-  --   flags = {
-  --     debounce_text_changes = 150,
-  --   }
-  -- }
-
-  require('lspconfig').ruby_lsp.setup {
+  vim.lsp.config('ruby_lsp', {
     on_attach = on_attach,
     capabilities = capabilities,
     init_options = {
       formatter = 'rubocop',
       linters = { 'rubocop' },
     },
-  }
+  })
 
-  require('lspconfig').eslint.setup {
-  }
+  vim.lsp.config('eslint', {
+  })
 end
 
 return M
