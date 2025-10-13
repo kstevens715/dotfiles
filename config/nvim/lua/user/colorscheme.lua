@@ -1,13 +1,11 @@
 local M = {
-  "EdenEast/nightfox.nvim", -- lazy
+  'loctvl842/monokai-pro.nvim',
   lazy = false,
   priority = 1000,
 }
 
 function M.config()
-  require('nightfox').setup({
-  })
-  vim.cmd.colorscheme 'dayfox'
+  vim.cmd.colorscheme 'monokai-pro'
 end
 
 return M
