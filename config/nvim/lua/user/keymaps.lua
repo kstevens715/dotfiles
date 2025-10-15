@@ -4,8 +4,22 @@ local dotfiles = require('user.dotfiles')
 -- Leader Mappings
 keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { desc = 'View Buffers' })
 keymap('n', '<leader>c', [[<cmd>Git<CR>]], { desc = 'Git Commit' })
-keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { desc = 'Search Project' })
-keymap('n', '<leader>x', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { desc = 'Search Project' })
+keymap('n', '<leader>f', function()
+  require('telescope.builtin').live_grep({
+    additional_args = function()
+      return {
+        "--glob", "!Gemfile.lock",
+        "--glob", "!Rakefile",
+        "--glob", "!bin/**",
+        "--glob", "!public/**",
+        "--glob", "!spec/**",
+        "--glob", "!swagger/**",
+        "--glob", "!yarn.lock",
+      }
+    end
+  })
+end, { desc = 'Search Project and Exclude Files' })
+keymap('n', '<leader>x', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { desc = 'Search Project Across all Files' })
 keymap('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]], { desc = 'Git History' })
 keymap('n', '<leader>l', [[<cmd>! flog %<CR>]], { desc = 'Flog (ABC) Score' })
 keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').registers()<CR>]], { desc = 'Registers' })
