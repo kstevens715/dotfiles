@@ -11,7 +11,7 @@ local M = {
 
 function M.config()
   require('nvim-treesitter.configs').setup {
-    ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'javascript', 'json', 'lua', 'markdown', 'python', 'ruby', 'scss', 'scheme', 'vim', 'vimdoc', 'vue', 'xml', 'yaml' },
+    ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'http', 'javascript', 'json', 'lua', 'markdown', 'python', 'ruby', 'scss', 'scheme', 'vim', 'vimdoc', 'vue', 'xml', 'yaml' },
     endwise = { enable = true },
     highlight = { enable = true },
     indent = { enable = false },
