@@ -1,13 +1,9 @@
 local M = {
-  'zenbones-theme/zenbones.nvim',
-  dependencies = "rktjmp/lush.nvim",
-  lazy = false,
-  priority = 1000,
+  'EdenEast/nightfox.nvim',
 }
 
 function M.config()
-  vim.o.background = 'light'
-  vim.cmd.colorscheme 'zenbones'
+  vim.cmd.colorscheme 'nightfox'
 end
 
 return M
