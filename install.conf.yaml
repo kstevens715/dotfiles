@@ -2,9 +2,6 @@
     link:
       relink: true
 
-- brewfile:
-    - Brewfile
-
 - clean: ['~']
 
 - create:
@@ -14,6 +11,7 @@
     - ~/code
 
 - link:
+    ~/.config/ghostty/config:           config/ghostty_config
     ~/.config/alacritty/alacritty.toml: config/alacritty.toml
     ~/.config/nvim:                     config/nvim
     ~/.gemrc:                           config/gemrc
@@ -24,6 +22,9 @@
     ~/.tmate.conf:                      config/tmate.conf
     ~/.zshenv:                          config/zshenv
     ~/.zshrc:                           config/zshrc
+
+- brewfile:
+    - Brewfile
 
 - shell:
     -
