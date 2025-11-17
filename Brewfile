@@ -1,4 +1,5 @@
 cask 'chromedriver'
+cask 'claude-code'
 cask 'firefox'
 cask 'ghostty'
 cask 'google-chrome'
