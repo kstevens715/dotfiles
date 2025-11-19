@@ -1,1 +1,2 @@
 theme = light:Dayfox,dark:Nightfox
+keybind = shift+enter=text:\x1b\r
