@@ -4,6 +4,7 @@ require 'user.keymaps'
 require 'user.autocmds'
 require 'user.aliases'
 
+spec 'user.avante'
 spec 'user.betterescape'
 spec 'user.cmp'
 spec 'user.colorscheme'
