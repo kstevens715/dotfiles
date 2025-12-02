@@ -55,10 +55,10 @@
       command:     brew services start minio
     -
       description: Install JSON language server
-      command:     npm i -g vscode-langservers-extracted
+      command:     npm install -g vscode-langservers-extracted
     -
-      description: Create a blank secrets file
-      command:     touch ~/dotfiles/config/secrets.sh
+      description: Install Bitwarden CLI
+      command:     npm install -g @bitwarden/cli
     -
       description: Install Ruby 3.4.1
       command:     ruby-install --no-reinstall ruby-3.4.1

@@ -4,5 +4,4 @@ vim/bundle/**
 .DS_Store
 stderr.log
 stdout.log
-secrets.sh
 Brewfile.lock.json
