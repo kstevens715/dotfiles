@@ -8,6 +8,7 @@
     - ~/.config
     - ~/.config/alacritty
     - ~/.gnupg
+    - ~/.claude
     - ~/code
 
 - link:
@@ -22,6 +23,7 @@
     ~/.tmate.conf:                      config/tmate.conf
     ~/.zshenv:                          config/zshenv
     ~/.zshrc:                           config/zshrc
+    ~/.claude/CLAUDE.md:                config/CLAUDE.md
 
 - brewfile:
     - Brewfile
