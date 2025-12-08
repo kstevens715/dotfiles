@@ -5,6 +5,7 @@
 .env.test
 .foreman
 .DS_Store
+.irbrc
 2
 .ruby-gemset
 .ruby-version
