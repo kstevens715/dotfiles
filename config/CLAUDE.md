@@ -68,7 +68,88 @@ the codebase to improve readability and reduce mental load.
 - Any reference to Claude Code generation
 - Emoji indicators like 🤖
 
-## Code Style Guidelines
+## Ticket Tracking & Context Management
+
+**Maintain persistent ticket context files to track requirements, decisions, and notes across chat sessions.**
+
+### Automatic Ticket Detection
+
+Extract the ticket ID from the current branch name when working on feature branches:
+- Branch: `feature/KSKY-299` → Ticket ID: `KSKY-299`
+- Branch: `bugfix/PROJ-456` → Ticket ID: `PROJ-456`
+
+### Ticket File Management
+
+**Location:** `.claude/tickets/{TICKET_ID}.md` (within each project)
+
+**When to create/update:**
+1. **New conversation on feature branch**: Check if `.claude/tickets/{TICKET_ID}.md` exists
+   - If it exists: Read it first to load context
+   - If it doesn't exist: Create it from the template when the user starts providing relevant information
+
+2. **During work**: Update the ticket file as the user shares:
+   - Requirements and acceptance criteria
+   - Meeting notes and decisions
+   - Edge cases to handle
+   - Testing considerations
+   - Open questions or blockers
+   - Technical decisions made
+
+3. **Update proactively**: When the user mentions important context, requirements, or decisions, add them to the appropriate section without being asked
+
+**Template:** Use the template at `~/.claude/templates/ticket-template.md` when creating new ticket files. Replace `{TICKET_ID}` with the actual ticket ID.
+
+### Ticket File Sections
+
+The template includes these sections:
+- **Overview**: Brief description of the ticket's purpose
+- **Requirements**: Key requirements and acceptance criteria
+- **Meeting Notes**: Notes captured from meetings/discussions
+- **Technical Decisions**: Architecture, implementation approach, library choices
+- **Edge Cases & Considerations**: Special cases, gotchas, things to watch out for
+- **Testing Checklist**: What needs to be tested
+- **Open Questions**: Things that need clarification
+- **References**: Links to docs, related tickets, JIRA, etc.
+
+### Workflow
+
+This complements the TodoWrite tool:
+- **TodoWrite**: Immediate task tracking for the current session (what to do now)
+- **Ticket files**: Persistent context and requirements (why we're doing it, what to remember)
+
+The ticket file should be a living document that captures important context so it's never lost between chat sessions.
+
+## Automatic Code Formatting
+
+**ALWAYS run rubocop auto-correction after writing or modifying Ruby code.**
+
+After creating or editing any Ruby files (`.rb` files), immediately run:
+
+```bash
+bundle exec rubocop -a path/to/modified_file.rb
+```
+
+If safe auto-corrections are not sufficient and rubocop still reports violations, run with `-A` for unsafe auto-corrections:
+
+```bash
+bundle exec rubocop -A path/to/modified_file.rb
+```
+
+**Workflow:**
+1. Write or modify Ruby code
+2. Run `bundle exec rubocop -a` on all modified files
+3. Review any remaining violations that couldn't be auto-corrected
+4. Manually fix remaining violations if necessary
+5. Show the final, formatted code to the user
+
+**For multiple files:**
+```bash
+bundle exec rubocop -a app/models/foo.rb spec/models/foo_spec.rb
+```
+
+This ensures all code adheres to the project's rubocop configuration and matches the user's editor auto-formatting behavior.
+
+## Ruby Code Style Guidelines
 
 ### File Headers
 
@@ -83,85 +164,6 @@ Examine existing files in the project to determine the header pattern. Common pa
 ```
 
 **Note:** Test/spec files may follow different conventions (e.g., omitting copyright but including `frozen_string_literal`). Check the project's existing test files to match their pattern.
-
-### String Quotes
-
-**Always use single quotes for strings by default.** Use double quotes only when:
-- String interpolation is required (e.g., `"Hello, #{name}"`)
-- Escape sequences are needed (e.g., `"Line 1\nLine 2"`)
-
-**Bad:**
-```ruby
-message = "Hello, world"
-error_type = "authentication_required"
-```
-
-**Good:**
-```ruby
-message = 'Hello, world'
-error_type = 'authentication_required'
-name = 'Alice'
-greeting = "Hello, #{name}"  # Double quotes needed for interpolation
-```
-
-### Symbol Arrays
-
-**Prefer `%i[]` notation for arrays of symbols.** Use the percent-string literal syntax instead of explicit symbol array syntax for cleaner, more readable code.
-
-**Bad:**
-```ruby
-services = [:stripe, :paypal, :square]
-expect(error.services).to eq [:stripe, :paypal]
-subject.process_payment([:stripe, :paypal])
-```
-
-**Good:**
-```ruby
-services = %i[stripe paypal square]
-expect(error.services).to eq %i[stripe paypal]
-subject.process_payment(%i[stripe paypal])
-```
-
-### Conditionals
-
-**Prefer `if` over `unless`.** Use `if` with a negation instead of `unless` for better readability.
-
-**Bad:**
-```ruby
-raise ValidationError.new(errors) unless errors.empty?
-return nil unless user
-process_data unless data.blank?
-```
-
-**Good:**
-```ruby
-raise ValidationError.new(errors) if errors.any?
-return nil if user.nil?
-process_data if data.present?
-```
-
-**Exception:** Simple guard clauses at the beginning of methods may use `unless` if it reads more naturally:
-```ruby
-return if user.nil?  # Acceptable
-```
-
-### Raising Exceptions
-
-**Prefer the two-argument form of `raise` over calling `.new` on the exception class.**
-
-**Bad:**
-```ruby
-raise StandardError.new('Something went wrong')
-raise ValidationError.new(errors)
-raise NotImplementedError.new('Subclasses must implement #process')
-```
-
-**Good:**
-```ruby
-raise StandardError, 'Something went wrong'
-raise ValidationError, errors
-raise NotImplementedError, 'Subclasses must implement #process'
-```
 
 ### Spec Formatting
 
@@ -180,110 +182,6 @@ it 'purges expired records' do
 end
 ```
 
-### Variable Naming
-
-**Always use full, descriptive variable names.** Do not abbreviate variable names.
-
-**Bad:**
-```ruby
-usr = create(:user)
-usr1 = create(:user)
-usr2 = create(:user)
-```
-
-**Good:**
-```ruby
-user = create(:user)
-user1 = create(:user)
-user2 = create(:user)
-```
-
-### Variable Assignment
-
-**Do not assign values to variables unless the variable is used.** If a value is only used once, use it directly instead of assigning it to a variable first.
-
-**Bad:**
-```ruby
-account1 = create(:account, user:, status: :active)
-account2 = create(:account, user:, status: :inactive)
-# account1 and account2 are never used after creation
-```
-
-**Good:**
-```ruby
-create(:account, user:, status: :active)
-create(:account, user:, status: :inactive)
-```
-
-### Unused Arguments
-
-**Prefix unused arguments with an underscore** when a method must accept an argument (e.g., implementing an interface, overriding a method, or matching a required signature) but does not use it.
-
-**Bad:**
-```ruby
-def error_response(request)
-  error_result = { error: 'not_found' }
-  # request is not used in the method body
-  Response.new request:, body: error_result.to_json
-end
-
-rescue ApiError => e
-  # e is not used
-  handle_error
-end
-```
-
-**Good:**
-```ruby
-def error_response(_request)
-  error_result = { error: 'not_found' }
-  # Underscore indicates intentionally unused
-  Response.new request: _request, body: error_result.to_json
-end
-
-rescue ApiError => _e
-  # Underscore indicates we don't need the exception details
-  handle_error
-end
-```
-
-### Method Call Parentheses
-
-**Do not use parentheses around method calls unless required.** Parentheses are required when:
-- The method takes arguments and there would be ambiguity without them
-- Chaining methods
-- Nested method calls
-
-**Bad:**
-```ruby
-create(:user)
-expect(result).to eq([])
-```
-
-**Good:**
-```ruby
-create :user
-expect(result).to eq []
-```
-
-### Keyword Argument Shorthand
-
-**Use keyword argument shorthand syntax when the variable name matches the keyword argument name.** Do not repeat the name unnecessarily.
-
-**Bad:**
-```ruby
-create :account, user: user, status: status
-PaymentService.new(customer: customer, amount: amount)
-```
-
-**Good:**
-```ruby
-create :account, user:, status:
-PaymentService.new(customer:, amount:)
-```
-
-**Note:** When using keyword argument shorthand with method calls that would normally omit parentheses, you must include parentheses to avoid syntax ambiguity.
-
 ### Method Arguments
 
 **Prefer keyword arguments over positional arguments in method signatures.** Keyword arguments make code more readable and maintainable by explicitly naming parameters at the call site.
@@ -295,12 +193,6 @@ def process_data(user, limit, offset)
 end
 
 process_data(current_user, 10, 0)
-
-def create_record(name, description, due_date, priority)
-  # implementation
-end
-
-create_record('Task 1', 'Complete work', Time.now + 1.week, 'high')
 ```
 
 **Good:**
@@ -310,17 +202,44 @@ def process_data(user:, limit:, offset:)
 end
 
 process_data(user: current_user, limit: 10, offset: 0)
-
-def create_record(name:, description:, due_date:, priority:)
-  # implementation
-end
-
-create_record(name: 'Task 1', description: 'Complete work', due_date: Time.now + 1.week, priority: 'high')
 ```
 
 **Exceptions:**
 - Methods following established conventions (e.g., `attr_reader`, `attr_accessor`)
 - Block parameters
+- Exception classes should use positional arguments
+
+### Class Methods
+
+**Prefer `self.method_name` over `class << self` for defining class methods.** This style is more explicit and keeps each method definition independent.
+
+**Bad:**
+```ruby
+class MyClass
+  class << self
+    def foo
+      # implementation
+    end
+
+    def bar
+      # implementation
+    end
+  end
+end
+```
+
+**Good:**
+```ruby
+class MyClass
+  def self.foo
+    # implementation
+  end
+
+  def self.bar
+    # implementation
+  end
+end
+```
 
 ## Other Guidelines
 
