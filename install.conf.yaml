@@ -9,21 +9,23 @@
     - ~/.config/alacritty
     - ~/.gnupg
     - ~/.claude
+    - ~/.claude/templates
     - ~/code
 
 - link:
-    ~/.config/ghostty/config:           config/ghostty_config
-    ~/.config/alacritty/alacritty.toml: config/alacritty.toml
-    ~/.config/nvim:                     config/nvim
-    ~/.gemrc:                           config/gemrc
-    ~/.gitconfig:                       config/gitconfig
-    ~/.gitignore:                       config/gitignore
-    ~/.gnupg/gpg-agent.conf:            config/gpg-agent.conf
-    ~/.tmux.conf:                       config/tmux.conf
-    ~/.tmate.conf:                      config/tmate.conf
-    ~/.zshenv:                          config/zshenv
-    ~/.zshrc:                           config/zshrc
-    ~/.claude/CLAUDE.md:                config/CLAUDE.md
+    ~/.config/ghostty/config:                  config/ghostty_config
+    ~/.config/alacritty/alacritty.toml:        config/alacritty.toml
+    ~/.config/nvim:                            config/nvim
+    ~/.gemrc:                                  config/gemrc
+    ~/.gitconfig:                              config/gitconfig
+    ~/.gitignore:                              config/gitignore
+    ~/.gnupg/gpg-agent.conf:                   config/gpg-agent.conf
+    ~/.tmux.conf:                              config/tmux.conf
+    ~/.tmate.conf:                             config/tmate.conf
+    ~/.zshenv:                                 config/zshenv
+    ~/.zshrc:                                  config/zshrc
+    ~/.claude/CLAUDE.md:                       config/CLAUDE.md
+    ~/.claude/templates/ticket-template.md:    config/ticket-template.md
 
 - brewfile:
     - Brewfile
