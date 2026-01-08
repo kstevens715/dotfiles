@@ -59,6 +59,7 @@ alias pair_with_rob="upterm host --github-user jonesdeini --force-command 'tmux 
 alias python="/usr/local/bin/python3"
 
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
+alias awslogin='aws sso login --profile $AWS_PROFILE'
 
 setopt nosharehistory # Do not share history between ZSH instances
 
