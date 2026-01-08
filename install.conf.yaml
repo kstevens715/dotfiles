@@ -10,6 +10,7 @@
     - ~/.gnupg
     - ~/.claude
     - ~/.claude/templates
+    - ~/.claude/commands
     - ~/code
 
 - link:
@@ -24,8 +25,9 @@
     ~/.tmate.conf:                             config/tmate.conf
     ~/.zshenv:                                 config/zshenv
     ~/.zshrc:                                  config/zshrc
-    ~/.claude/CLAUDE.md:                       config/CLAUDE.md
-    ~/.claude/templates/ticket-template.md:    config/ticket-template.md
+    ~/.claude/CLAUDE.md:                       config/claude/CLAUDE.md
+    ~/.claude/templates/ticket-template.md:    config/claude/templates/ticket-template.md
+    ~/.claude/commands:                        config/claude/commands
 
 - brewfile:
     - Brewfile
