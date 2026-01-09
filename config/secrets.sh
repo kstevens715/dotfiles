@@ -28,6 +28,9 @@ else
     chmod 600 "$BW_SESSION_FILE"
   fi
 
+  # Sync to get latest items from server
+  bw sync &>/dev/null
+
   # Get folder ID
   FOLDER_ID=$(bw list folders | jq -r ".[] | select(.name==\"$BW_FOLDER_NAME\") | .id")
 
