@@ -85,9 +85,6 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = { 'hrsh7th/cmp-nvim-lsp' },
     config = function()
-      vim.lsp.enable('jsonls')
-      vim.lsp.enable('ruby_lsp')
-
       vim.diagnostic.config({
         signs = true,
         underline = true,
@@ -113,6 +110,7 @@ return {
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+      -- Config must be set BEFORE enable
       vim.lsp.config('jsonls', { on_attach = on_attach, capabilities = capabilities })
       vim.lsp.config('ruby_lsp', {
         on_attach = on_attach,
@@ -120,6 +118,9 @@ return {
         init_options = { formatter = 'rubocop', linters = { 'rubocop' } },
       })
       vim.lsp.config('eslint', {})
+
+      vim.lsp.enable('jsonls')
+      vim.lsp.enable('ruby_lsp')
     end,
   },
 
