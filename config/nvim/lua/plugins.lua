@@ -13,18 +13,6 @@ return {
   },
 
   {
-    'cormacrelf/dark-notify',
-    config = function()
-      require('dark_notify').run({
-        schemes = {
-          dark = 'nightfox',
-          light = 'dayfox',
-        }
-      })
-    end,
-  },
-
-  {
     'nvim-tree/nvim-web-devicons',
     event = 'VeryLazy',
   },
@@ -52,8 +40,6 @@ return {
       }
     end,
   },
-
-  { 'folke/which-key.nvim', config = function() require('which-key').setup() end },
 
   -------------------------------------------------------------------------------
   -- Git
@@ -96,7 +82,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
-    dependencies = { 'folke/neodev.nvim', 'hrsh7th/cmp-nvim-lsp' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp' },
     config = function()
       vim.lsp.enable('jsonls')
       vim.lsp.enable('ruby_lsp')
@@ -171,20 +157,13 @@ return {
     'nvim-treesitter/nvim-treesitter',
     event = { 'BufReadPost', 'BufNewFile' },
     build = ':TSUpdate',
-    dependencies = { 'RRethy/nvim-treesitter-endwise', 'nvim-treesitter/playground' },
+    dependencies = { 'RRethy/nvim-treesitter-endwise' },
     config = function()
       require('nvim-treesitter.configs').setup {
         ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'html', 'http', 'javascript', 'json', 'lua', 'markdown', 'python', 'ruby', 'scss', 'scheme', 'vim', 'vimdoc', 'vue', 'xml', 'yaml' },
         endwise = { enable = true },
         highlight = { enable = true },
         indent = { enable = false },
-        playground = {
-          enable = true,
-          disable = {},
-          updatetime = 25,
-          persist_queries = false,
-          keybindings = { toggle_hl_groups = 'i' },
-        },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -198,8 +177,6 @@ return {
     end,
   },
 
-  { 'nvim-treesitter/nvim-treesitter-context', config = function() require('treesitter-context').setup() end },
-
   -------------------------------------------------------------------------------
   -- Editing
   -------------------------------------------------------------------------------
@@ -207,21 +184,6 @@ return {
   { 'tpope/vim-surround' },
   { 'tpope/vim-repeat' },
   { 'numToStr/Comment.nvim', lazy = false, config = function() require('Comment').setup() end },
-  { 'ntpeters/vim-better-whitespace' },
-  {
-    'max397574/better-escape.nvim',
-    config = function()
-      require('better_escape').setup {
-        mappings = {
-          i = { j = { k = "<Esc>", j = "<Esc>" } },
-          c = { j = { k = "<Esc>", j = "<Esc>" } },
-          t = { j = { k = "<C-\\><C-n>" } },
-          v = { j = { k = false } },
-          s = { j = { k = "<Esc>" } },
-        }
-      }
-    end,
-  },
 
   -------------------------------------------------------------------------------
   -- Testing & Terminal
@@ -237,74 +199,8 @@ return {
   { 'tpope/vim-rails' },
 
   -------------------------------------------------------------------------------
-  -- AI
-  -------------------------------------------------------------------------------
-
-  { 'github/copilot.vim' },
-
-  {
-    'yetone/avante.nvim',
-    event = 'VeryLazy',
-    build = 'make',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'stevearc/dressing.nvim',
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      { 'nvim-tree/nvim-web-devicons', lazy = true },
-      {
-        'HakonHarnes/img-clip.nvim',
-        event = 'VeryLazy',
-        opts = {
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = { insert_mode = true },
-          },
-        },
-      },
-    },
-    config = function()
-      require('avante').setup({
-        provider = 'claude',
-        providers = {
-          claude = {
-            endpoint = 'https://api.anthropic.com',
-            model = 'claude-sonnet-4-5-20250929',
-            extra_request_body = { temperature = 0, max_tokens = 4096 },
-          },
-        },
-        behaviour = {
-          auto_suggestions = false,
-          auto_set_highlight_group = true,
-          auto_set_keymaps = true,
-          auto_apply_diff_after_generation = false,
-          support_paste_from_clipboard = false,
-        },
-        mappings = {
-          ask = '<leader>aa',
-          edit = '<leader>ae',
-          refresh = '<leader>ar',
-          toggle = { default = '<leader>at', debug = '<leader>ad', hint = '<leader>ah' },
-        },
-        windows = {
-          wrap = true,
-          width = 30,
-          sidebar_header = { align = 'center', rounded = true },
-        },
-        highlights = {
-          diff = { current = 'DiffText', incoming = 'DiffAdd' },
-        },
-      })
-    end,
-  },
-
-  -------------------------------------------------------------------------------
   -- Misc
   -------------------------------------------------------------------------------
-
-  { 'kburdett/vim-nuuid' },
-  { 'cuducos/yaml.nvim', config = function() require('yaml_nvim') end },
 
   {
     'rest-nvim/rest.nvim',
