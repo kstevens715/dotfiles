@@ -1,34 +1,21 @@
-require 'user.launch'
-require 'user.options'
-require 'user.keymaps'
-require 'user.autocmds'
-require 'user.aliases'
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git', 'clone', '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-spec 'user.avante'
-spec 'user.betterescape'
-spec 'user.cmp'
-spec 'user.colorscheme'
-spec 'user.comment'
-spec 'user.copilot'
-spec 'user.darknotify'
-spec 'user.fugitive'
-spec 'user.gitsigns'
-spec 'user.lspconfig'
-spec 'user.lualine'
-spec 'user.neoterm'
-spec 'user.nuuid'
-spec 'user.nvimtree'
-spec 'user.restnvim'
-spec 'user.rhubarb'
-spec 'user.telescope'
-spec 'user.treesitter'
-spec 'user.treesittercontext'
-spec 'user.vimbetterwhitespace'
-spec 'user.vimrails'
-spec 'user.vimrepeat'
-spec 'user.vimsurround'
-spec 'user.vimtest'
-spec 'user.whichkey'
-spec 'user.yaml'
+-- Load options, keymaps, autocmds
+require('options')
 
-require 'user.lazy'
+-- Load plugins
+require('lazy').setup({
+  spec = { import = 'plugins' },
+  install = { colorscheme = { 'nightfox', 'default' } },
+  ui = { border = 'rounded' },
+  change_detection = { enabled = true, notify = false },
+})
