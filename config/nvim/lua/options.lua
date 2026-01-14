@@ -69,20 +69,6 @@ function dotfiles.insert_ticket_token()
   end
 end
 
-function dotfiles.git_notes_filename()
-  local branch = vim.fn.system('git rev-parse --abbrev-ref HEAD')
-  branch = string.gsub(branch, '\n', '')
-  local filename = "~/Documents/git-notes/" .. vim.fn.substitute(branch, '/', '_', 'g') .. '.md'
-  return vim.fn.fnameescape(filename)
-end
-
-function dotfiles.open_markdown_file_from_git_branch()
-  local branch = vim.fn.system('git rev-parse --abbrev-ref HEAD')
-  branch = string.gsub(branch, '\n', '')
-  vim.api.nvim_command('edit ' .. dotfiles.git_notes_filename())
-  vim.bo.filetype = 'markdown'
-end
-
 function dotfiles.run_last_command()
   vim.api.nvim_command('Texec !bundle \n')
 end
@@ -121,7 +107,6 @@ keymap('n', '<leader>ve', [[<cmd>e ~/dotfiles/config/nvim/init.lua<CR>]], { desc
 keymap('n', '<leader>vr', [[<cmd>source ~/dotfiles/config/nvim/init.lua<CR>]], { desc = 'Reload Vim Config' })
 keymap('n', '<leader>wm', [[<cmd>e ~/Documents/working_memory.md<CR>]], { desc = 'Open Working Memory' })
 keymap('n', '<leader>wp', [[<cmd>e ~/Documents/weekly_plan.md<CR>]], { desc = 'Open Weekly Plan' })
-keymap('n', '<leader>gn', function() dotfiles.open_markdown_file_from_git_branch() end, { desc = 'Open notes for current Git branch' })
 
 -- Other mappings
 keymap('n', '-', [[<cmd>NvimTreeFindFileToggle<CR>]])
