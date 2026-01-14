@@ -6,9 +6,10 @@ return {
   -------------------------------------------------------------------------------
 
   {
-    'EdenEast/nightfox.nvim',
+    'zenbones-theme/zenbones.nvim',
+    dependencies = { 'rktjmp/lush.nvim' },
     config = function()
-      vim.cmd.colorscheme 'nightfox'
+      vim.cmd.colorscheme 'zenbones'
     end,
   },
 
