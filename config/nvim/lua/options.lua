@@ -6,15 +6,11 @@ local keymap = vim.keymap.set
 -- Options
 -------------------------------------------------------------------------------
 
-vim.g.better_whitespace_enabled = 1
 vim.g.html_number_lines = 0
 vim.g.neoterm_autoscroll = 1
 vim.g.neoterm_default_mod = 'botright vertical'
 vim.g.neoterm_size = 100
 vim.g.ruby_indent_assignment_style = 'variable'
-vim.g.strip_whitespace_confirm = 0
-vim.g.strip_whitespace_on_save = 1
-vim.g.strip_only_modified_lines = 1
 vim.g['test#ruby#rspec#options'] = { all = '--format progress --order random' }
 vim.g['test#ruby#use_binstubs'] = 0
 vim.g['test#strategy'] = 'neoterm'
@@ -118,7 +114,6 @@ keymap('n', '<leader>h', [[<cmd>Telescope git_bcommits<CR>]], { desc = 'Git Hist
 keymap('n', '<leader>l', [[<cmd>! flog %<CR>]], { desc = 'Flog (ABC) Score' })
 keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').registers()<CR>]], { desc = 'Registers' })
 keymap('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { desc = 'Find Files' })
-keymap('n', '<leader>y', [[<cmd>YAMLTelescope<CR>]], { desc = 'View YAML values in project' })
 keymap('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 
 -- Double-key mappings
@@ -142,6 +137,8 @@ keymap('n', '<S-l>', [[<C-w>l]])
 keymap('n', '<C-c>', [[<cmd>Topen <bar> :TestNearest<CR>]])
 keymap('n', '<C-f>', [[<cmd>Topen <bar> :TestFile<CR>]])
 keymap('n', '<C-x>', function() dotfiles.run_last_command() end)
+keymap('i', 'jk', '<Esc>')
+keymap('i', 'jj', '<Esc>')
 keymap('t', 'jj', [[<C-\><C-n>]])
 keymap('t', '<Esc>', [[<C-\><C-n>]])
 
