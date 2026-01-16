@@ -241,6 +241,43 @@ class MyClass
 end
 ```
 
+## Third-Party CLI Tools
+
+The following CLI tools are available for interacting with external services.
+
+### GitHub CLI (`gh`)
+
+Use for GitHub operations: PRs, issues, checks, releases.
+
+**Login:**
+```bash
+gh auth login
+```
+
+**Common commands:**
+- `gh pr list` - List pull requests
+- `gh pr list --head <branch>` - Find PR for a specific branch
+- `gh pr view <number>` - View PR details
+- `gh pr create` - Create a pull request
+- `gh issue list` - List issues
+
+### Atlassian CLI (`acli`)
+
+Use for JIRA operations: viewing tickets, searching issues, managing work items.
+
+**Login:**
+```bash
+acli jira auth login --web
+```
+
+**Common commands:**
+- `acli jira workitem view <KEY>` - View a JIRA ticket (e.g., `KPORTER-585`)
+- `acli jira workitem view <KEY> --fields '*all'` - View all fields
+- `acli jira workitem view <KEY> --web` - Open ticket in browser
+- `acli jira workitem search --jql '<query>'` - Search with JQL
+
+**Tip:** Extract the ticket key from the current branch name (e.g., `feature/KPORTER-585` → `KPORTER-585`) to look up relevant ticket details.
+
 ## Other Guidelines
 
 - Focus commit messages on **why** changes were made, not **what** changed
