@@ -119,6 +119,58 @@ This complements the TodoWrite tool:
 
 The ticket file should be a living document that captures important context so it's never lost between chat sessions.
 
+## Development Process
+
+### Test-Driven Development (TDD)
+
+**Prefer TDD whenever possible.** When implementing new features or fixing bugs, follow the red-green-refactor cycle:
+
+1. **Red**: Write a failing test first that describes the expected behavior
+2. **Green**: Implement the minimum code needed to make the test pass
+3. **Refactor**: Clean up the code while keeping tests green
+
+**Benefits:**
+- Tests serve as executable documentation of requirements
+- Ensures code is testable from the start
+- Catches regressions immediately
+- Forces clear thinking about expected behavior before implementation
+
+**When to use TDD:**
+- Bug fixes (write a test that reproduces the bug first)
+- New features with well-defined behavior
+- Refactoring existing code (ensure tests exist first)
+
+### Presenting Test Results
+
+**Never gloss over test failures.** When tests fail, present the results in a clear, human-readable format:
+
+1. **State the phase**: Indicate whether we're in RED (expecting failure) or GREEN (expecting pass)
+2. **Explain what the test checks**: Describe the behavior being tested in plain English
+3. **Show the test inputs**: List what data is being provided
+4. **Expected vs Actual**: Clearly show what was expected and what actually happened
+5. **Interpretation**: Help the user understand what the failure means
+
+**Example format:**
+```
+## Test Result: RED ✗
+
+**What the test is checking:**
+[Plain English description of the expected behavior]
+
+**Test input:**
+[List the relevant input data]
+
+**Expected behavior:**
+[What should happen]
+
+**Actual behavior:**
+[What is currently happening]
+```
+
+**When multiple tests fail:** Report only the most relevant failure in detail. Mention the total count of failures, but focus on one at a time. Fix that failure, then re-run to address the next. This keeps the TDD cycle focused and manageable.
+
+This format helps the user stay engaged in the TDD process and understand what's happening at each step.
+
 ## Automatic Code Formatting
 
 **ALWAYS run rubocop auto-correction after writing or modifying Ruby code.**
