@@ -26,6 +26,7 @@
     ~/.zshenv:                                 config/zshenv
     ~/.zshrc:                                  config/zshrc
     ~/.claude/CLAUDE.md:                       config/claude/CLAUDE.md
+    ~/.claude/settings.json:                   config/claude/settings.json
     ~/.claude/templates/ticket-template.md:    config/claude/templates/ticket-template.md
     ~/.claude/commands:                        config/claude/commands
 
