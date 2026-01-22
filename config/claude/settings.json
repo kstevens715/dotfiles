@@ -1,7 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(bundle exec rspec:*)"
+      "Bash(bundle exec rspec:*)",
+      "Bash(bundle exec rubocop:*)",
+      "Bash(bundle install:*)",
+      "Bash(bundle update:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Read(/Users/kstevens/dotfiles/**)",
+      "Edit(/Users/kstevens/dotfiles/**)",
+      "Write(/Users/kstevens/dotfiles/**)"
     ]
   }
 }
