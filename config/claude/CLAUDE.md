@@ -293,6 +293,21 @@ class MyClass
 end
 ```
 
+## Ruby Version Management
+
+**chruby** is used for managing Ruby versions. Available rubies are located in `~/.rubies/`.
+
+**Switching Ruby versions:**
+```bash
+chruby ruby-3.3.4    # Switch to specific version
+chruby ruby-3.4.8    # Switch to another version
+```
+
+**Listing available versions:**
+```bash
+ls ~/.rubies/
+```
+
 ## Third-Party CLI Tools
 
 The following CLI tools are available for interacting with external services.
