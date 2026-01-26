@@ -345,6 +345,87 @@ acli jira auth login --web
 
 **Tip:** Extract the ticket key from the current branch name (e.g., `feature/KPORTER-585` → `KPORTER-585`) to look up relevant ticket details.
 
+#### Formatting Descriptions with ADF
+
+JIRA uses Atlassian Document Format (ADF) for rich text. Plain text or Markdown passed to `--description` will render as plain text. For proper formatting, use `--from-json` with an ADF structure.
+
+**Generate a template:**
+```bash
+acli jira workitem create --generate-json  # Shows ADF structure
+```
+
+**ADF structure basics:**
+```json
+{
+  "issues": ["KEY-123"],
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {"level": 2},
+        "content": [{"type": "text", "text": "Section Title"}]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {"type": "text", "text": "Regular text "},
+          {"type": "text", "text": "bold text", "marks": [{"type": "strong"}]},
+          {"type": "text", "text": " and "},
+          {"type": "text", "text": "code", "marks": [{"type": "code"}]}
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {"language": "ruby"},
+        "content": [{"type": "text", "text": "def foo\n  'bar'\nend"}]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Item 1"}]}]},
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Item 2"}]}]}
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {"order": 1},
+        "content": [
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Step 1"}]}]}
+        ]
+      },
+      {
+        "type": "taskList",
+        "attrs": {"localId": "tasks"},
+        "content": [
+          {"type": "taskItem", "attrs": {"state": "TODO", "localId": "t1"}, "content": [{"type": "text", "text": "Acceptance criteria item"}]}
+        ]
+      }
+    ]
+  }
+}
+```
+
+**Common ADF node types:**
+- `heading` - Use `attrs.level` (1-6) for h1-h6
+- `paragraph` - Basic text container
+- `codeBlock` - Use `attrs.language` for syntax highlighting
+- `bulletList` / `orderedList` - Lists with `listItem` children
+- `taskList` - Checkboxes with `taskItem` children (`state`: `TODO` or `DONE`)
+
+**Text marks (inline formatting):**
+- `{"type": "strong"}` - Bold
+- `{"type": "em"}` - Italic
+- `{"type": "code"}` - Inline code
+- `{"type": "link", "attrs": {"href": "https://..."}}` - Hyperlink
+
+**Workflow for creating/editing tickets:**
+1. Write the ADF JSON to a temp file
+2. Use `--from-json` flag: `acli jira workitem create --from-json /tmp/ticket.json`
+3. For creates, use `"projectKey": "PROJ"`, `"type": "Bug"`, and `"summary": "..."`
+4. For edits, use `"issues": ["KEY-123"]` instead of projectKey
+
 ## Other Guidelines
 
 - Focus commit messages on **why** changes were made, not **what** changed
