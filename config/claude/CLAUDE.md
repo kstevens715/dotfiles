@@ -68,6 +68,15 @@ the codebase to improve readability and reduce mental load.
 - Any reference to Claude Code generation
 - Emoji indicators like 🤖
 
+## Pull Request Format
+
+When creating pull requests, include the ticket identifier in both the title and description:
+
+- **Title**: Prefix with `[TICKET-XXX]` (e.g., `[KSKY-365] Fix deletion error handling`)
+- **Description**: Add `[TICKET-XXX]` at the end of the PR body
+
+Extract the ticket number from the current branch name, same as with commits.
+
 ## Ticket Tracking & Context Management
 
 **Maintain persistent ticket context files to track requirements, decisions, and notes across chat sessions.**
