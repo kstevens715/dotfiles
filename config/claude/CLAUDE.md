@@ -87,47 +87,6 @@ Extract the ticket ID from the current branch name when working on feature branc
 - Branch: `feature/KSKY-299` → Ticket ID: `KSKY-299`
 - Branch: `bugfix/PROJ-456` → Ticket ID: `PROJ-456`
 
-### Ticket File Management
-
-**Location:** `.claude/tickets/{TICKET_ID}.md` (within each project)
-
-**When to create/update:**
-1. **New conversation on feature branch**: Check if `.claude/tickets/{TICKET_ID}.md` exists
-   - If it exists: Read it first to load context
-   - If it doesn't exist: Create it from the template when the user starts providing relevant information
-
-2. **During work**: Update the ticket file as the user shares:
-   - Requirements and acceptance criteria
-   - Meeting notes and decisions
-   - Edge cases to handle
-   - Testing considerations
-   - Open questions or blockers
-   - Technical decisions made
-
-3. **Update proactively**: When the user mentions important context, requirements, or decisions, add them to the appropriate section without being asked
-
-**Template:** Use the template at `~/.claude/templates/ticket-template.md` when creating new ticket files. Replace `{TICKET_ID}` with the actual ticket ID.
-
-### Ticket File Sections
-
-The template includes these sections:
-- **Overview**: Brief description of the ticket's purpose
-- **Requirements**: Key requirements and acceptance criteria
-- **Meeting Notes**: Notes captured from meetings/discussions
-- **Technical Decisions**: Architecture, implementation approach, library choices
-- **Edge Cases & Considerations**: Special cases, gotchas, things to watch out for
-- **Testing Checklist**: What needs to be tested
-- **Open Questions**: Things that need clarification
-- **References**: Links to docs, related tickets, JIRA, etc.
-
-### Workflow
-
-This complements the TodoWrite tool:
-- **TodoWrite**: Immediate task tracking for the current session (what to do now)
-- **Ticket files**: Persistent context and requirements (why we're doing it, what to remember)
-
-The ticket file should be a living document that captures important context so it's never lost between chat sessions.
-
 ## Development Process
 
 ### Test-Driven Development (TDD)

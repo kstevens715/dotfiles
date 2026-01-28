@@ -9,7 +9,6 @@
     - ~/.config/alacritty
     - ~/.gnupg
     - ~/.claude
-    - ~/.claude/templates
     - ~/.claude/commands
     - ~/code
 
@@ -27,7 +26,6 @@
     ~/.zshrc:                                  config/zshrc
     ~/.claude/CLAUDE.md:                       config/claude/CLAUDE.md
     ~/.claude/settings.json:                   config/claude/settings.json
-    ~/.claude/templates/ticket-template.md:    config/claude/templates/ticket-template.md
     ~/.claude/commands:                        config/claude/commands
 
 - brewfile:
