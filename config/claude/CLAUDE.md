@@ -77,6 +77,11 @@ When creating pull requests, include the ticket identifier in both the title and
 
 Extract the ticket number from the current branch name, same as with commits.
 
+**DO NOT** add any AI attribution to PR descriptions. Do not include:
+- Lines like `Generated with [Claude Code](https://claude.com/claude-code)`
+- Any mention of Claude, AI, or automated generation
+- Robot emoji indicators
+
 ## Ticket Tracking & Context Management
 
 **Maintain persistent ticket context files to track requirements, decisions, and notes across chat sessions.**
