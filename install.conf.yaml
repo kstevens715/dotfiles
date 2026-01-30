@@ -67,3 +67,9 @@
     -
       description: Install Ruby 3.4.1
       command:     ruby-install --no-reinstall ruby-3.4.1
+    -
+      description: Configure Claude Code MCP servers
+      command: >-
+        claude mcp add-json github '{"type":"http","url":"https://api.githubcopilot.com/mcp/","headers":{"Authorization":"Bearer '"$GITHUB_PAT"'"}}' --scope user 2>/dev/null || true;
+        claude mcp add circleci-mcp-server -e CIRCLECI_TOKEN="$CIRCLECI_TOKEN" --scope user -- npx -y @circleci/mcp-server-circleci@latest 2>/dev/null || true
+        claude mcp add --transport sse atlassian https://mcp.atlassian.com/v1/sse
