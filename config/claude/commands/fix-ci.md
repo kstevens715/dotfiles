@@ -1,6 +1,6 @@
 ---
 description: Find CircleCI failures for current branch's PR and attempt to fix them
-allowed-tools: Bash(gh:*), Bash(git:*), Bash(curl:*), Bash(bundle exec rspec:*), Bash(bundle exec rubocop:*), Read, Edit, Glob, Grep
+allowed-tools: Bash(git:*), Bash(curl:*), Bash(bundle exec rspec:*), Bash(bundle exec rubocop:*), Read, Edit, Glob, Grep, mcp__github__*
 ---
 
 # Fix CircleCI Failures
@@ -8,23 +8,26 @@ allowed-tools: Bash(gh:*), Bash(git:*), Bash(curl:*), Bash(bundle exec rspec:*),
 ## Current Context
 
 - Current branch: !`git branch --show-current`
-- Repository: !`gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null || echo "unknown"`
 
 ## Your Task
 
 Investigate CircleCI failures for the current branch's PR and attempt to fix them.
 
+Use the GitHub MCP server tools for all GitHub interactions instead of the `gh` CLI.
+
 ### Step 1: Find the PR for Current Branch
 
-```bash
-gh pr list --head "$(git branch --show-current)" --json number,url,statusCheckRollup --limit 1
+Use `get_me` to get the current user, then use `search_pull_requests` to find the PR:
+
+```
+search_pull_requests(query: "head:{current_branch} state:open")
 ```
 
 If no PR exists, inform the user and stop.
 
 ### Step 2: Get CircleCI Status from PR
 
-Extract the CircleCI check details from the PR's status checks. Look for failed checks with "circleci" in the name or URL.
+Use `pull_request_read(method: "get_status")` to get the CI check details. Look for failed checks with "circleci" in the name or URL.
 
 ### Step 3: Query CircleCI API for Failure Details
 

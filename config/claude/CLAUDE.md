@@ -281,123 +281,59 @@ chruby ruby-3.4.8    # Switch to another version
 ls ~/.rubies/
 ```
 
-## Third-Party CLI Tools
+## MCP Servers
 
-The following CLI tools are available for interacting with external services.
+The following MCP servers are available for interacting with external services. **Always prefer MCP server tools over CLI tools** for GitHub and Atlassian operations.
 
-### GitHub CLI (`gh`)
+### GitHub MCP Server (`mcp__github__*`)
 
-Use for GitHub operations: PRs, issues, checks, releases.
+Use for all GitHub operations: PRs, issues, checks, releases, code search.
 
-**Login:**
-```bash
-gh auth login
-```
+**Common operations:**
+- `get_me` - Get current authenticated user info
+- `list_pull_requests` / `search_pull_requests` - Find PRs
+- `pull_request_read(method: "get")` - View PR details
+- `pull_request_read(method: "get_diff")` - View PR diff
+- `pull_request_read(method: "get_status")` - Check CI status
+- `create_pull_request` - Create a PR
+- `list_issues` / `search_issues` - Find issues
+- `issue_read(method: "get")` - View issue details
+- `list_commits` - List commits on a branch
 
-**Common commands:**
-- `gh pr list` - List pull requests
-- `gh pr list --head <branch>` - Find PR for a specific branch
-- `gh pr view <number>` - View PR details
-- `gh pr create` - Create a pull request
-- `gh issue list` - List issues
+**PR review workflow:**
+1. `pull_request_review_write(method: "create")` - Create a pending review
+2. `add_comment_to_pending_review(...)` - Add line comments
+3. `pull_request_review_write(method: "submit_pending", event: "APPROVE"|"REQUEST_CHANGES"|"COMMENT")` - Submit
 
-### Atlassian CLI (`acli`)
+**Tip:** Use `search_pull_requests(query: "head:{branch} state:open")` to find the PR for the current branch.
 
-Use for JIRA operations: viewing tickets, searching issues, managing work items.
+### Atlassian MCP Server (`mcp__atlassian__*`)
 
-**Login:**
-```bash
-acli jira auth login --web
-```
+Use for JIRA and Confluence operations: viewing tickets, searching issues, managing work items, reading wiki pages.
 
-**Common commands:**
-- `acli jira workitem view <KEY>` - View a JIRA ticket (e.g., `KPORTER-585`)
-- `acli jira workitem view <KEY> --fields '*all'` - View all fields
-- `acli jira workitem view <KEY> --web` - Open ticket in browser
-- `acli jira workitem search --jql '<query>'` - Search with JQL
+**Getting started:**
+- Use `getAccessibleAtlassianResources` to get the `cloudId` needed for all other calls
+- Use `atlassianUserInfo` to get current user info
+
+**JIRA operations:**
+- `getJiraIssue(cloudId, issueIdOrKey)` - View a ticket (e.g., `KPORTER-585`)
+- `searchJiraIssuesUsingJql(cloudId, jql)` - Search with JQL
+- `createJiraIssue(cloudId, projectKey, issueTypeName, summary)` - Create a ticket
+- `editJiraIssue(cloudId, issueIdOrKey, fields)` - Update a ticket
+- `addCommentToJiraIssue(cloudId, issueIdOrKey, commentBody)` - Add a comment (accepts Markdown)
+- `transitionJiraIssue(cloudId, issueIdOrKey, transition)` - Change ticket status
+- `getTransitionsForJiraIssue(cloudId, issueIdOrKey)` - List available transitions
+- `lookupJiraAccountId(cloudId, searchString)` - Find user account IDs
+
+**Confluence operations:**
+- `searchConfluenceUsingCql(cloudId, cql)` - Search pages with CQL
+- `getConfluencePage(cloudId, pageId)` - Read a page
+- `createConfluencePage(cloudId, spaceId, body)` - Create a page (accepts Markdown)
+- `updateConfluencePage(cloudId, pageId, body)` - Update a page
 
 **Tip:** Extract the ticket key from the current branch name (e.g., `feature/KPORTER-585` → `KPORTER-585`) to look up relevant ticket details.
 
-#### Formatting Descriptions with ADF
-
-JIRA uses Atlassian Document Format (ADF) for rich text. Plain text or Markdown passed to `--description` will render as plain text. For proper formatting, use `--from-json` with an ADF structure.
-
-**Generate a template:**
-```bash
-acli jira workitem create --generate-json  # Shows ADF structure
-```
-
-**ADF structure basics:**
-```json
-{
-  "issues": ["KEY-123"],
-  "description": {
-    "type": "doc",
-    "version": 1,
-    "content": [
-      {
-        "type": "heading",
-        "attrs": {"level": 2},
-        "content": [{"type": "text", "text": "Section Title"}]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {"type": "text", "text": "Regular text "},
-          {"type": "text", "text": "bold text", "marks": [{"type": "strong"}]},
-          {"type": "text", "text": " and "},
-          {"type": "text", "text": "code", "marks": [{"type": "code"}]}
-        ]
-      },
-      {
-        "type": "codeBlock",
-        "attrs": {"language": "ruby"},
-        "content": [{"type": "text", "text": "def foo\n  'bar'\nend"}]
-      },
-      {
-        "type": "bulletList",
-        "content": [
-          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Item 1"}]}]},
-          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Item 2"}]}]}
-        ]
-      },
-      {
-        "type": "orderedList",
-        "attrs": {"order": 1},
-        "content": [
-          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Step 1"}]}]}
-        ]
-      },
-      {
-        "type": "taskList",
-        "attrs": {"localId": "tasks"},
-        "content": [
-          {"type": "taskItem", "attrs": {"state": "TODO", "localId": "t1"}, "content": [{"type": "text", "text": "Acceptance criteria item"}]}
-        ]
-      }
-    ]
-  }
-}
-```
-
-**Common ADF node types:**
-- `heading` - Use `attrs.level` (1-6) for h1-h6
-- `paragraph` - Basic text container
-- `codeBlock` - Use `attrs.language` for syntax highlighting
-- `bulletList` / `orderedList` - Lists with `listItem` children
-- `taskList` - Checkboxes with `taskItem` children (`state`: `TODO` or `DONE`)
-
-**Text marks (inline formatting):**
-- `{"type": "strong"}` - Bold
-- `{"type": "em"}` - Italic
-- `{"type": "code"}` - Inline code
-- `{"type": "link", "attrs": {"href": "https://..."}}` - Hyperlink
-
-**Workflow for creating/editing tickets:**
-1. Write the ADF JSON to a temp file
-2. Use `--from-json` flag: `acli jira workitem create --from-json /tmp/ticket.json`
-3. For creates, use `"projectKey": "PROJ"`, `"type": "Bug"`, and `"summary": "..."`
-4. For edits, use `"issues": ["KEY-123"]` instead of projectKey
+**Note:** JIRA descriptions and comments via the MCP server accept Markdown format, which is converted automatically. No need to manually construct ADF.
 
 ## Other Guidelines
 
