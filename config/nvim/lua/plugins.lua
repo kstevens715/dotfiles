@@ -6,14 +6,6 @@ return {
   -------------------------------------------------------------------------------
 
   {
-    'zenbones-theme/zenbones.nvim',
-    dependencies = { 'rktjmp/lush.nvim' },
-    config = function()
-      vim.cmd.colorscheme 'zenbones'
-    end,
-  },
-
-  {
     'nvim-tree/nvim-web-devicons',
     event = 'VeryLazy',
   },

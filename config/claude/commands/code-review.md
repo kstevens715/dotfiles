@@ -1,18 +1,20 @@
 ---
 description: Review PRs where your review has been requested
-allowed-tools: Bash(gh:*), Bash(git:*), Bash(cd:*), Read, Edit, Glob, Grep
+allowed-tools: Bash(git:*), Bash(cd:*), Read, Edit, Glob, Grep, mcp__github__*
 ---
 
 # Code Review Mode
 
 You are now in code review mode. Follow these instructions for the entire session until the user exits or completes all reviews.
 
+Use the GitHub MCP server tools for all GitHub interactions instead of the `gh` CLI.
+
 ## Step 1: List Pending Reviews
 
-Fetch all PRs where a review has been requested from the user:
+First, get the current user's login with `get_me`, then use `search_pull_requests` to find open PRs where your review has been requested:
 
-```bash
-gh search prs --review-requested=@me --state=open --json repository,number,title,url,isDraft,author,updatedAt
+```
+search_pull_requests(query: "review-requested:{login} state:open")
 ```
 
 For each PR, display:
@@ -23,7 +25,7 @@ For each PR, display:
 - Draft status (if draft, note this prominently)
 - Last updated
 
-If you can efficiently get status check information (e.g., if it's included in the response or requires minimal extra calls), show whether checks are passing/failing/pending. Otherwise, defer this to when the review begins.
+If you can efficiently get status check information (e.g., via `pull_request_read` with method `get_status`), show whether checks are passing/failing/pending. Otherwise, defer this to when the review begins.
 
 **Format the list clearly**, then ask: "Would you like to start reviewing the first PR?"
 
@@ -35,24 +37,24 @@ When the user agrees to review a PR:
 
 Get comprehensive PR information:
 
-```bash
-gh pr view {number} --repo {owner/repo} --json title,body,author,headRefName,baseRefName,isDraft,files,additions,deletions,commits,reviews,statusCheckRollup
+```
+pull_request_read(method: "get", owner: "{owner}", repo: "{repo}", pullNumber: {number})
 ```
 
 ### 2b. Check for Blockers First
 
 **Immediately tell the user if:**
 - The PR is in **draft** status
-- Status checks are **failing** or still **pending**
+- Status checks are **failing** or still **pending** (use `pull_request_read` with method `get_status`)
 
 This information should be presented first, before diving into code details.
 
 ### 2c. Review Commits
 
-List all commits with their summary lines:
+List all commits on the PR:
 
-```bash
-gh pr view {number} --repo {owner/repo} --json commits --jq '.commits[] | "\(.oid[0:7]) \(.messageHeadline)"'
+```
+list_commits(owner: "{owner}", repo: "{repo}", sha: "{head_branch}")
 ```
 
 Present the commit list. If any commit messages are poor quality (vague like "fix", "update", "WIP", missing context, or don't follow conventional patterns), point this out.
@@ -61,8 +63,8 @@ Present the commit list. If any commit messages are poor quality (vague like "fi
 
 Fetch and analyze the diff:
 
-```bash
-gh pr diff {number} --repo {owner/repo}
+```
+pull_request_read(method: "get_diff", owner: "{owner}", repo: "{repo}", pullNumber: {number})
 ```
 
 Provide your assessment:
@@ -91,58 +93,43 @@ While reviewing a PR:
 
 ### Adding Comments
 
-When the user asks you to add comments to the PR, add them as **pending review comments** (not individual comments):
+When the user asks you to add comments to the PR, use the pending review workflow:
 
-```bash
-gh api repos/{owner}/{repo}/pulls/{number}/comments \
-  --method POST \
-  -f body='{comment}' \
-  -f commit_id='{commit_sha}' \
-  -f path='{file_path}' \
-  -f line={line_number}
+1. Create a pending review:
+```
+pull_request_review_write(method: "create", owner: "{owner}", repo: "{repo}", pullNumber: {number})
 ```
 
-Or for a review with multiple comments, create a pending review:
-
-```bash
-gh api repos/{owner}/{repo}/pulls/{number}/reviews \
-  --method POST \
-  -f event='PENDING' \
-  -f body='' \
-  --jq '.id'
+2. Add comments to the pending review:
+```
+add_comment_to_pending_review(owner: "{owner}", repo: "{repo}", pullNumber: {number}, path: "{file_path}", line: {line_number}, body: "{comment}", subjectType: "LINE", side: "RIGHT")
 ```
 
-Then add comments to that review.
+3. Submit when ready (see "Submitting the Review" below).
 
 ### Approving PRs
 
 When approving, do **NOT** include an overall comment unless the user explicitly provides one:
 
-```bash
-gh pr review {number} --repo {owner/repo} --approve
+```
+pull_request_review_write(method: "create", owner: "{owner}", repo: "{repo}", pullNumber: {number}, event: "APPROVE")
 ```
 
 ### Requesting Changes
 
-```bash
-gh pr review {number} --repo {owner/repo} --request-changes --body "{comment}"
+```
+pull_request_review_write(method: "create", owner: "{owner}", repo: "{repo}", pullNumber: {number}, event: "REQUEST_CHANGES", body: "{comment}")
 ```
 
 ### Submitting the Review
 
-When the user says to submit the review, submit it and then **automatically move to the next PR** in the list. Present the next PR's summary and ask if they want to review it.
+If a pending review exists, submit it:
 
-## Step 4: Marking Notifications as Done
-
-After completing a review (approve/request changes/comment), offer to mark the GitHub notification as done:
-
-```bash
-# Find the notification thread ID
-gh api '/notifications?all=true' --jq '.[] | select(.subject.url | contains("pulls/{number}")) | .id'
-
-# Mark as done
-gh api --method DELETE /notifications/threads/{thread_id}
 ```
+pull_request_review_write(method: "submit_pending", owner: "{owner}", repo: "{repo}", pullNumber: {number}, event: "COMMENT", body: "{optional summary}")
+```
+
+After submitting, **automatically move to the next PR** in the list. Present the next PR's summary and ask if they want to review it.
 
 ## Important Rules
 
