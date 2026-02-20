@@ -234,6 +234,25 @@ process_data(user: current_user, limit: 10, offset: 0)
 - Block parameters
 - Exception classes should use positional arguments
 
+### Method Call Parentheses
+
+**Always use parentheses on method calls.** Ruby allows omitting parentheses in many cases, but the rules are inconsistent and error-prone. Since rubocop auto-correction already runs after every change, it will remove any unnecessary parentheses automatically.
+
+**Good:**
+```ruby
+user.save!()
+render(json: data, status: :ok)
+validate_presence_of(:name)
+```
+
+**The only exceptions** are methods that are conventionally used without parentheses as part of Ruby/Rails DSLs:
+- `require` / `require_relative`
+- Class-level macros: `attr_reader`, `attr_accessor`, `belongs_to`, `has_many`, `validates`, `delegate`, `scope`, `include`, `extend`, `prepend`, etc.
+- Keyword-like methods: `raise`, `return`, `yield`, `puts`, `print`, `p`
+- RSpec DSL: `describe`, `context`, `it`, `let`, `before`, `after`, `subject`, `expect`, `allow`, `is_expected`
+
+When in doubt, add parentheses. Rubocop will clean up any that aren't needed.
+
 ### Class Methods
 
 **Prefer `self.method_name` over `class << self` for defining class methods.** This style is more explicit and keeps each method definition independent.
@@ -334,6 +353,14 @@ Use for JIRA and Confluence operations: viewing tickets, searching issues, manag
 **Tip:** Extract the ticket key from the current branch name (e.g., `feature/KPORTER-585` → `KPORTER-585`) to look up relevant ticket details.
 
 **Note:** JIRA descriptions and comments via the MCP server accept Markdown format, which is converted automatically. No need to manually construct ADF.
+
+## Running Tests
+
+**NEVER run the full test suite (`bundle exec rspec` with no arguments).** The suites are too large to run locally. Always run only the specific spec files relevant to your changes:
+
+```bash
+bundle exec rspec spec/services/my_service_spec.rb spec/models/my_model_spec.rb
+```
 
 ## Other Guidelines
 
