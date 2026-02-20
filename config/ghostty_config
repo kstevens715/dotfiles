@@ -1,3 +1,4 @@
-theme = Nvim light
+theme = light:Dayfox,dark:Nightfox
 font-size = 16
 keybind = shift+enter=text:\x1b\r
+unfocused-split-opacity = 1
