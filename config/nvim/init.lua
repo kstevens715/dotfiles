@@ -15,7 +15,7 @@ require('options')
 -- Load plugins
 require('lazy').setup({
   spec = { import = 'plugins' },
-  install = { colorscheme = { 'zenbones', 'default' } },
+  install = { colorscheme = { 'nightfox', 'default' } },
   ui = { border = 'rounded' },
   change_detection = { enabled = true, notify = false },
 })
