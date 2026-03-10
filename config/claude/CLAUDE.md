@@ -362,6 +362,10 @@ Use for JIRA and Confluence operations: viewing tickets, searching issues, manag
 bundle exec rspec spec/services/my_service_spec.rb spec/models/my_model_spec.rb
 ```
 
+## Writing Style
+
+When generating text on my behalf (messages, PR descriptions, JIRA comments, Slack messages, etc.), do not use em dashes (—). Use commas, periods, or rewrite the sentence instead.
+
 ## Other Guidelines
 
 - Focus commit messages on **why** changes were made, not **what** changed

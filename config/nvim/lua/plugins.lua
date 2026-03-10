@@ -6,6 +6,27 @@ return {
   -------------------------------------------------------------------------------
 
   {
+    'EdenEast/nightfox.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'nightfox'
+    end,
+  },
+
+  {
+    'cormacrelf/dark-notify',
+    config = function()
+      require('dark_notify').run({
+        schemes = {
+          dark = 'nightfox',
+          light = 'dayfox',
+        }
+      })
+    end,
+  },
+
+  {
     'nvim-tree/nvim-web-devicons',
     event = 'VeryLazy',
   },
