@@ -38,5 +38,6 @@
     "slack@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "voiceEnabled": true
 }
