@@ -354,6 +354,58 @@ Use for JIRA and Confluence operations: viewing tickets, searching issues, manag
 
 **Note:** JIRA descriptions and comments via the MCP server accept Markdown format, which is converted automatically. No need to manually construct ADF.
 
+## CLI Tools
+
+Several code intelligence tools are available. Choosing the right one matters:
+
+- **LSP** is *semantic*: it understands program meaning (symbol resolution, types, call graphs). Use it to navigate from a specific symbol you're looking at.
+- **ast-grep** is *structural*: it matches syntactic patterns without understanding what symbols mean. Use it to find a shape of code across the codebase.
+- **Grep** is *textual*: it matches raw strings and regex. Use it for non-code searches or when the pattern is simple enough that structure doesn't matter.
+
+### LSP (built-in)
+
+Semantic code intelligence via language servers. Understands the actual program, not just text.
+
+**Operations:** `goToDefinition`, `findReferences`, `hover`, `documentSymbol`, `workspaceSymbol`, `goToImplementation`, `incomingCalls`, `outgoingCalls`
+
+**When to use:**
+- "Where is this method defined?" -> `goToDefinition`
+- "What calls this method?" -> `incomingCalls` / `findReferences`
+- "What does this class implement?" -> `goToImplementation`
+- "What methods exist in this file?" -> `documentSymbol`
+- "Find a class/method by name across the project" -> `workspaceSymbol`
+
+### ast-grep (`sg`)
+
+Structural code search and refactoring using AST patterns. Supports 20+ languages via tree-sitter.
+
+```bash
+# Find all calls to a function
+sg -p 'console.log($$$ARGS)' -l js
+
+# Find Ruby method calls with specific arguments
+sg -p 'validates :$FIELD, presence: true' -l ruby
+
+# Refactor: rewrite matching patterns
+sg -p '$PROP && $PROP()' --rewrite '$PROP?.()' -l ts
+```
+
+**When to use:** Searching for a *shape* of code (function calls with certain argument patterns, specific DSL usage, structural anti-patterns) where regex would be fragile. Especially useful for large-scale refactors across many files. Unlike LSP, ast-grep doesn't need to know what a symbol *means*, just what the code *looks like*.
+
+### difftastic (`difft`)
+
+Structural diff tool that compares files by AST nodes rather than lines. Ignores whitespace-only and formatting-only changes.
+
+```bash
+# Compare two files
+difft old.rb new.rb
+
+# Use as git diff driver
+GIT_EXTERNAL_DIFF=difft git diff
+```
+
+**When to use:** Reviewing changes where formatting noise obscures real diffs, or when you need to understand the semantic differences between two versions of a file.
+
 ## Running Tests
 
 **NEVER run the full test suite (`bundle exec rspec` with no arguments).** The suites are too large to run locally. Always run only the specific spec files relevant to your changes:
