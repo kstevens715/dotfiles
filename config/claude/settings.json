@@ -31,7 +31,8 @@
       "mcp__claude_ai_Atlassian__searchConfluenceUsingCql",
       "mcp__claude_ai_Atlassian__getConfluencePage",
       "mcp__claude_ai_Atlassian__getConfluenceSpaces",
-      "mcp__claude_ai_Atlassian__atlassianUserInfo"
+      "mcp__claude_ai_Atlassian__atlassianUserInfo",
+      "Bash(sg:*)"
     ]
   },
   "enabledPlugins": {
