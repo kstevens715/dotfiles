@@ -102,6 +102,8 @@ keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').registers()<CR>
 keymap('n', '<leader>t', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { desc = 'Find Files' })
 keymap('v', '<leader>s', [[:'<,'>sort<CR>]], { desc = 'Sort Lines' })
 
+keymap('n', '<leader>gw', function() require('telescope').extensions.git_worktree.git_worktree() end, { desc = 'Switch Git Worktree' })
+
 -- Double-key mappings
 keymap('n', '<leader>ve', [[<cmd>e ~/dotfiles/config/nvim/init.lua<CR>]], { desc = 'Edit Vim Config' })
 keymap('n', '<leader>vr', [[<cmd>source ~/dotfiles/config/nvim/init.lua<CR>]], { desc = 'Reload Vim Config' })

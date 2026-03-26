@@ -47,7 +47,7 @@ return {
 
       require('lualine').setup {
         sections = {
-          lualine_b = { { 'diff', source = diff_source } },
+          lualine_b = { 'branch', { 'diff', source = diff_source } },
           lualine_c = { { 'filename', file_status = true, path = 1 } },
           lualine_x = { 'rest' }
         }
@@ -62,6 +62,15 @@ return {
   { 'tpope/vim-fugitive', lazy = false },
   { 'tpope/vim-rhubarb', lazy = false },
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('gitsigns').setup() end },
+
+  {
+    'polarmutex/git-worktree.nvim',
+    version = '^2',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('telescope').load_extension('git_worktree')
+    end,
+  },
 
   -------------------------------------------------------------------------------
   -- Fuzzy Finding & Navigation

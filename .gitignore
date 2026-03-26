@@ -5,3 +5,4 @@ vim/bundle/**
 stderr.log
 stdout.log
 Brewfile.lock.json
+config/claude/commands/debug-trace.md

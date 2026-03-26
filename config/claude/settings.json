@@ -32,7 +32,12 @@
       "mcp__claude_ai_Atlassian__getConfluencePage",
       "mcp__claude_ai_Atlassian__getConfluenceSpaces",
       "mcp__claude_ai_Atlassian__atlassianUserInfo",
-      "Bash(sg:*)"
+      "Bash(sg:*)",
+      "Bash(aws s3 cp:*)",
+      "Bash(aws s3 ls:*)",
+      "Bash(aws logs start-query:*)",
+      "Bash(aws logs get-query-results:*)",
+      "Bash(zcat:*)"
     ]
   },
   "enabledPlugins": {
@@ -40,5 +45,9 @@
     "ruby-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "statusLine": {
+    "type": "command",
+    "command": "sh /Users/kstevens/.claude/statusline-command.sh"
+  }
 }

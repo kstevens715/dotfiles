@@ -27,6 +27,7 @@
     ~/.claude/CLAUDE.md:                       config/claude/CLAUDE.md
     ~/.claude/settings.json:                   config/claude/settings.json
     ~/.claude/commands:                        config/claude/commands
+    ~/.claude/statusline-command.sh:           config/claude/statusline-command.sh
 
 - brewfile:
     - Brewfile
