@@ -69,6 +69,11 @@
       description: Install Ruby 3.4.1
       command:     ruby-install --no-reinstall ruby-3.4.1
     -
+      description: Install Claude Code
+      command:     curl -fsSL https://claude.ai/install.sh | bash
+      stdout:      true
+      stderr:      true
+    -
       description: Configure Claude Code MCP servers
       command: >-
         claude mcp add-json github '{"type":"http","url":"https://api.githubcopilot.com/mcp/","headers":{"Authorization":"Bearer '"$GITHUB_PAT"'"}}' --scope user 2>/dev/null || true;
