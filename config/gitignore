@@ -6,6 +6,7 @@
 .foreman
 .DS_Store
 .irbrc
+.mcp.json
 2
 .ruby-gemset
 .ruby-version
