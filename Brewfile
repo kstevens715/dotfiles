@@ -1,3 +1,4 @@
+cask 'claude'
 cask 'firefox'
 cask 'ghostty'
 cask 'google-chrome'
