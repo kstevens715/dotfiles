@@ -120,3 +120,6 @@ typeset -f chruby_auto >/dev/null && chruby_auto
 export QLTY_INSTALL="$HOME/.qlty"
 export PATH="$QLTY_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Ensure Homebrew takes priority over system binaries
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
