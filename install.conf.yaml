@@ -6,7 +6,7 @@
 
 - create:
     - ~/.config
-    - ~/.config/alacritty
+    - ~/.config/ghostty
     - ~/.gnupg
     - ~/.claude
     - ~/.claude/commands
@@ -14,7 +14,6 @@
 
 - link:
     ~/.config/ghostty/config:                  config/ghostty_config
-    ~/.config/alacritty/alacritty.toml:        config/alacritty.toml
     ~/.config/nvim:                            config/nvim
     ~/.gemrc:                                  config/gemrc
     ~/.gitconfig:                              config/gitconfig
