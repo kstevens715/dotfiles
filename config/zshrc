@@ -104,6 +104,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Switch git worktree with fzf picker
+gw() {
+  local worktree
+  worktree=$(git worktree list | fzf --height=40% --reverse | awk '{print $1}')
+  if [[ -n "$worktree" ]]; then
+    cd "$worktree"
+  fi
+}
 export PATH="/usr/local/sbin:$PATH"
 
 if [[ ! -f .ruby-version && -z "$RUBY_ROOT" ]]; then
