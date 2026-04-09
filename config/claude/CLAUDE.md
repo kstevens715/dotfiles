@@ -174,6 +174,20 @@ bundle exec rubocop -a app/models/foo.rb spec/models/foo_spec.rb
 
 This ensures all code adheres to the project's rubocop configuration and matches the user's editor auto-formatting behavior.
 
+## Pre-commit Quality Check
+
+**ALWAYS run `qlty check` on modified `.rb` files before committing.** Qlty runs in CI, so catching issues locally avoids finding out on the PR.
+
+```bash
+qlty check --no-progress path/to/modified_file.rb
+```
+
+If qlty reports issues, fix them before committing. You can run it on multiple files at once:
+
+```bash
+qlty check --no-progress app/models/foo.rb spec/models/foo_spec.rb
+```
+
 ## Ruby Code Style Guidelines
 
 ### File Headers
@@ -303,6 +317,10 @@ ls ~/.rubies/
 ## MCP Servers
 
 The following MCP servers are available for interacting with external services. **Always prefer MCP server tools over CLI tools** for GitHub and Atlassian operations.
+
+### Rollbar MCP Server (`mcp__rollbar__*`)
+
+The Rollbar MCP server is configured with a single `default` project. **Do not pass a `project` parameter** when calling Rollbar tools, or you will get an "Unknown project" error. Just omit the `project` field and it will use `default` automatically.
 
 ### GitHub MCP Server (`mcp__github__*`)
 

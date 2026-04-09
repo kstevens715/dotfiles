@@ -60,6 +60,7 @@ alias python="/usr/local/bin/python3"
 
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
 alias awslogin='aws sso login --profile $AWS_PROFILE'
+alias skynet-staging="kubectl exec deployment/console -it -n skynet-staging -- rails c"
 
 setopt nosharehistory # Do not share history between ZSH instances
 
