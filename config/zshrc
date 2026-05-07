@@ -113,6 +113,13 @@ gw() {
     cd "$worktree"
   fi
 }
+
+# Force-refresh secrets from Bitwarden (clears cache, re-sources)
+reload_secrets() {
+  rm -f "/tmp/bw_secrets_${USER}"
+  unset SECRETS_LOADED
+  source ~/dotfiles/config/secrets.sh
+}
 export PATH="/usr/local/sbin:$PATH"
 
 if [[ ! -f .ruby-version && -z "$RUBY_ROOT" ]]; then
