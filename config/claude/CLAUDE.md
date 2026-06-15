@@ -61,6 +61,19 @@ the codebase to improve readability and reduce mental load.
 [PROJ-296]
 ```
 
+## Keeping Feature Branches Up to Date
+
+**Rebase feature branches onto the latest main/develop. Never merge main/develop into a feature branch.**
+
+When asked to "fix the conflict", "update the branch", or otherwise reconcile a feature branch with its base branch, the workflow is:
+
+1. `git fetch origin <base>` (usually `develop` or `main`)
+2. `git rebase origin/<base>`
+3. Resolve conflicts, `git add`/`git rm`, `git rebase --continue`
+4. `git push --force-with-lease origin <branch>`
+
+Do not run `git merge <base>` on a feature branch — merge commits on feature branches pollute history and aren't how PRs land.
+
 ## Co-Authorship
 
 **DO NOT** add Claude as a co-author in commit messages. Do not include:
@@ -82,6 +95,21 @@ Extract the ticket number from the current branch name, same as with commits.
 - Any mention of Claude, AI, or automated generation
 - Robot emoji indicators
 
+### Description Content
+
+PR descriptions should explain the **purpose** of the change, not enumerate what changed in the code. The diff already shows what changed; a reviewer can read it.
+
+**Lead with *why* the change was made.** Name the underlying problem, constraint, or initiative driving it (e.g. "endpoint X returned the same payload regardless of which application asked, leaving no room for per-instance variation").
+
+**Say *what it gets us*.** Describe the capability, behavior, or future option the change unlocks. If it closes a gap, removes a footgun, or unblocks downstream work, name that.
+
+**Do NOT include:**
+- "Summary of code changes" sections that restate the diff in prose or bullet form.
+- "Test plan" sections, unless the PR is genuinely risky and the reviewer would otherwise wonder how it was verified. The default is to omit them.
+- Bullet lists enumerating files touched, methods added, or refactoring side effects.
+
+**Good shape:** one or two short paragraphs of context and motivation, ending with `[TICKET-XXX]`.
+
 ## Ticket Tracking & Context Management
 
 **Maintain persistent ticket context files to track requirements, decisions, and notes across chat sessions.**
@@ -91,6 +119,25 @@ Extract the ticket number from the current branch name, same as with commits.
 Extract the ticket ID from the current branch name when working on feature branches:
 - Branch: `feature/KSKY-299` → Ticket ID: `KSKY-299`
 - Branch: `bugfix/PROJ-456` → Ticket ID: `PROJ-456`
+
+## Obsidian Notes
+
+I keep durable notes in an Obsidian vault at `~/Documents/Modo/`. When asked to "save notes" or "add this to Obsidian", write a markdown file into the appropriate project subfolder (e.g. `~/Documents/Modo/Skynet/`).
+
+### Folder structure
+
+Project notes are organized by category within each project folder. Existing categories:
+
+- `~/Documents/Modo/Skynet/Code Reviews/` - PR review notes (one file per PR, named like `KSKY-545 PR 558 - URL formatting prompt review.md`)
+- `~/Documents/Modo/Skynet/Tickets/` - working notes for tickets I'm personally assigned (requirements, decisions, scratch context). One file per ticket, named like `KSKY-545.md`.
+- `~/Documents/Modo/Skynet/Widget Framework/` - design docs and reference for an ongoing initiative
+- `~/Documents/Modo/Skynet/` - top-level reference notes that don't fit a sub-category
+
+When saving notes, place them in an existing category folder if one fits. Create a new category folder when a new type of recurring note emerges (e.g. `Incidents/`, `Architecture/`).
+
+### Code review notes
+
+For PR reviews, capture: PR/JIRA links, branch name, what was tested, methodology, results tables, conclusion, and a "next steps if reviewed again" section. The goal is for a future review pass to re-establish full context without re-doing the investigation.
 
 ## Development Process
 
@@ -433,6 +480,8 @@ bundle exec rspec spec/services/my_service_spec.rb spec/models/my_model_spec.rb
 ```
 
 ## Writing Style
+
+Before producing any text for external publication (Slack messages, JIRA tickets and comments, GitHub PR descriptions and issue comments, commit messages, email), delegate the draft to the `style-editor` subagent and use its rewritten version. Skip the subagent only for trivial one-line acknowledgments ("thanks", "ack", "+1") or when I'm clearly asking you to draft inline for my review rather than publish.
 
 When generating text on my behalf (messages, PR descriptions, JIRA comments, Slack messages, etc.), do not use em dashes (—). Use commas, periods, or rewrite the sentence instead.
 

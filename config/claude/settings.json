@@ -49,6 +49,9 @@
     "ruby-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "voiceEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipWorkflowUsageWarning": true,
+  "theme": "light",
+  "editorMode": "normal",
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }
