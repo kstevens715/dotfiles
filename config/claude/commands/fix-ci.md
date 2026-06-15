@@ -1,6 +1,6 @@
 ---
 description: Find CircleCI failures for current branch's PR and attempt to fix them
-allowed-tools: Bash(git:*), Bash(curl:*), Bash(bundle exec rspec:*), Bash(bundle exec rubocop:*), Read, Edit, Glob, Grep, mcp__github__*
+allowed-tools: Bash(git:*), Bash(bundle exec rspec:*), Bash(bundle exec rubocop:*), Read, Edit, Glob, Grep, mcp__github__*, mcp__circleci-mcp-server__*
 ---
 
 # Fix CircleCI Failures
@@ -29,50 +29,33 @@ If no PR exists, inform the user and stop.
 
 Use `pull_request_read(method: "get_status")` to get the CI check details. Look for failed checks with "circleci" in the name or URL.
 
-### Step 3: Query CircleCI API for Failure Details
+### Step 3: Get Failure Details via the CircleCI MCP Server
 
-**Authentication:** Use the `CIRCLE_CI_API_TOKEN` environment variable with Basic auth:
+Use the **CircleCI MCP server** (`mcp__circleci-mcp-server__*`) for all CircleCI interactions. Do NOT shell out to `curl` against the CircleCI REST API, and do NOT rely on a `CIRCLE_CI_API_TOKEN` env var; the MCP server holds its own auth.
 
-```bash
-curl -s --header "authorization: Basic $(echo -n "$CIRCLE_CI_API_TOKEN:" | base64)" \
-  "https://circleci.com/api/v2/..."
+The failed check from Step 2 has a `target_url` / `details_url` pointing at CircleCI (a pipeline, workflow, or job URL). Pass that URL straight to the MCP tools:
+
+**Get the failure logs (primary tool):**
+
+```
+mcp__circleci-mcp-server__get_build_failure_logs(params: {
+  projectURL: "<the CircleCI URL from the failed GitHub check>"
+})
 ```
 
-**Get the latest pipeline for the branch:**
+This returns the failing job's log output, including the RSpec failure block, Rubocop offenses, or build error. Notes:
+- The log can be large and is truncated inline; if you see a `<MCPTruncationWarning>`, either pass `outputDir` (e.g. the repo root) to write the full log to a file, or narrow down from the truncated tail, which usually already contains the `Failures:` / `Failed examples:` section.
+- If you only have a project slug and branch instead of a URL, call it with `params: { projectSlug: "gh/{org}/{repo}", branch: "{branch}" }` instead.
 
-```bash
-curl -s --header "authorization: Basic $(echo -n "$CIRCLE_CI_API_TOKEN:" | base64)" \
-  "https://circleci.com/api/v2/project/gh/{org}/{repo}/pipeline?branch={branch}" | jq '.items[0]'
+**Check overall pipeline status (optional):**
+
+```
+mcp__circleci-mcp-server__get_latest_pipeline_status(params: {
+  projectURL: "<CircleCI URL>"
+})
 ```
 
-**Get workflows from the pipeline:**
-
-```bash
-curl -s --header "authorization: Basic $(echo -n "$CIRCLE_CI_API_TOKEN:" | base64)" \
-  "https://circleci.com/api/v2/pipeline/{pipeline_id}/workflow" | jq '.items'
-```
-
-**Get jobs from failed workflow:**
-
-```bash
-curl -s --header "authorization: Basic $(echo -n "$CIRCLE_CI_API_TOKEN:" | base64)" \
-  "https://circleci.com/api/v2/workflow/{workflow_id}/job" | jq '.items[] | select(.status == "failed")'
-```
-
-**Get detailed job info including steps (use v1.1 API):**
-
-```bash
-curl -s --header "authorization: Basic $(echo -n "$CIRCLE_CI_API_TOKEN:" | base64)" \
-  "https://circleci.com/api/v1.1/project/github/{org}/{repo}/{job_number}" | jq '.steps[] | select(.actions[0].status == "failed")'
-```
-
-**Get the actual failure output:**
-
-The failed step will have an `output_url` in its action. Fetch it directly (no auth needed - it's a presigned URL):
-
-```bash
-curl -s "{output_url}" | jq -r '.[] | .message'
-```
+Other useful tools in the same server: `get_job_test_results` (structured test failures), `get_build_failure_logs` per workflow, and `find_flaky_tests`. Search for `mcp__circleci-mcp-server__*` to see the full set.
 
 ### Step 4: Analyze and Report Failures
 
