@@ -72,6 +72,26 @@ return {
     end,
   },
 
+  -- VSCode-style diffs with char-level highlighting and native live refresh,
+  -- for reviewing Claude Code's edits.
+  {
+    'esmuellert/codediff.nvim',
+    cmd = 'CodeDiff',
+    keys = {
+      { '<leader>cd', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' },
+      { '<leader>ch', '<cmd>CodeDiff history<cr>', desc = 'CodeDiff: history' },
+    },
+    opts = {
+      diff = {
+        layout = 'side-by-side',
+        compact_context_lines = 3,
+      },
+      explorer = {
+        auto_open_on_cursor = true, -- diff follows the cursor in the file list
+      },
+    },
+  },
+
   -------------------------------------------------------------------------------
   -- Fuzzy Finding & Navigation
   -------------------------------------------------------------------------------
