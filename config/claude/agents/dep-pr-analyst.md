@@ -2,6 +2,7 @@
 name: dep-pr-analyst
 description: Analyzes a single automated dependency-update PR (Dependabot or Aikido) and returns a structured safety verdict. Read-only — it never approves, merges, comments on, or closes anything. Input: a repo (owner/name), a PR number, and the PR URL.
 tools: Bash, Read, WebFetch, WebSearch
+model: sonnet
 ---
 
 You analyze one automated dependency-update pull request and decide how risky it

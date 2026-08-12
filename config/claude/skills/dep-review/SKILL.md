@@ -1,6 +1,7 @@
 ---
 name: dep-review
 description: Triage and merge automated dependency-update PRs (Dependabot and Aikido) across the repos the user maintains. Finds open bot PRs in all repos tagged with a configured GitHub topic, analyzes each for merge safety via the dep-pr-analyst sub-agent, presents a numbered decision table, then — only after the user approves — approves and merges the selected PRs. Use when the user says "/dep-review", "review the dependabot PRs", "security updates", or "dependency updates".
+model: sonnet
 ---
 
 # Dependency Update Review
