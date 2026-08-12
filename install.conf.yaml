@@ -10,6 +10,8 @@
     - ~/.gnupg
     - ~/.claude
     - ~/.claude/commands
+    - ~/.claude/agents
+    - ~/.claude/skills
     - ~/code
 
 - link:
@@ -27,6 +29,8 @@
     ~/.claude/settings.json:                   config/claude/settings.json
     ~/.claude/commands:                        config/claude/commands
     ~/.claude/statusline-command.sh:           config/claude/statusline-command.sh
+    ~/.claude/agents/dep-pr-analyst.md:        config/claude/agents/dep-pr-analyst.md
+    ~/.claude/skills/dep-review:               config/claude/skills/dep-review
 
 - brewfile:
     - Brewfile
