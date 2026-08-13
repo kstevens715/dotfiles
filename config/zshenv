@@ -9,6 +9,15 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Source secrets after PATH is set up so bw command is available
 [[ -f ~/dotfiles/config/secrets.sh ]] && source ~/dotfiles/config/secrets.sh
+
+# Take the GitHub token from the gh CLI instead of the Bitwarden copy, which expires
+if [[ -z "$GH_PAT_FROM_CLI" ]] && command -v gh &>/dev/null; then
+  _gh_token=$(gh auth token 2>/dev/null)
+  [[ -n "$_gh_token" ]] && export GITHUB_PERSONAL_ACCESS_TOKEN="$_gh_token"
+  unset _gh_token
+  export GH_PAT_FROM_CLI=1
+fi
+
 export SWAGGER_DRY_RUN=0
 export MINIO_ROOT_USER=minio-access-key
 export MINIO_ROOT_PASSWORD=minio-secret-key
