@@ -62,9 +62,22 @@ alias po="cd ~/code/porter"
 alias sk="cd ~/code/skynet"
 alias tc="cd ~/code/telchar"
 alias pair="tmux -2 new -s pairing"
-alias pair_with_ben="upterm host --github-user BenKanouse --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
-alias pair_with_charley="upterm host --github-user Bandes --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
-alias pair_with_rob="upterm host --github-user jonesdeini --force-command 'tmux attach -t pair-programming' -- tmux new -t pair-programming"
+
+# Share the pairing session with a GitHub user: pair_with <github-username>
+pair_with() {
+  local user="$1"
+  local session="pair-programming"
+
+  if [[ -z "$user" ]]; then
+    echo "usage: pair_with <github-username>" >&2
+    return 1
+  fi
+
+  upterm host --github-user "$user" \
+    --force-command "tmux attach -t $session" \
+    -- tmux new -t "$session"
+}
+
 alias python="/usr/local/bin/python3"
 
 alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
