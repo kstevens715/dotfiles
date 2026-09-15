@@ -457,20 +457,6 @@ sg -p '$PROP && $PROP()' --rewrite '$PROP?.()' -l ts
 
 **When to use:** Searching for a *shape* of code (function calls with certain argument patterns, specific DSL usage, structural anti-patterns) where regex would be fragile. Especially useful for large-scale refactors across many files. Unlike LSP, ast-grep doesn't need to know what a symbol *means*, just what the code *looks like*.
 
-### difftastic (`difft`)
-
-Structural diff tool that compares files by AST nodes rather than lines. Ignores whitespace-only and formatting-only changes.
-
-```bash
-# Compare two files
-difft old.rb new.rb
-
-# Use as git diff driver
-GIT_EXTERNAL_DIFF=difft git diff
-```
-
-**When to use:** Reviewing changes where formatting noise obscures real diffs, or when you need to understand the semantic differences between two versions of a file.
-
 ## Running Tests
 
 **NEVER run the full test suite (`bundle exec rspec` with no arguments).** The suites are too large to run locally. Always run only the specific spec files relevant to your changes:
