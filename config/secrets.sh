@@ -16,6 +16,12 @@ if [ -f "$BW_SECRETS_CACHE" ]; then
   source "$BW_SECRETS_CACHE"
 else
   # Cache doesn't exist, need to fetch from Bitwarden
+  # Unlock can't prompt when the CLI has no logged-in account
+  if [ "$(bw status 2>/dev/null | jq -r '.status' 2>/dev/null)" = "unauthenticated" ]; then
+    echo "Bitwarden CLI is logged out. Run 'bw login', then 'reload_secrets'." >&2
+    return 1 2>/dev/null || exit 1
+  fi
+
   # Load existing session if available
   if [ -f "$BW_SESSION_FILE" ]; then
     export BW_SESSION=$(cat "$BW_SESSION_FILE")
@@ -23,7 +29,20 @@ else
 
   # Check if session is valid, unlock if needed
   if ! bw unlock --check &>/dev/null; then
-    export BW_SESSION=$(bw unlock --raw)
+    # Only prompt for the master password in an interactive terminal, so
+    # editor tasks and other non-interactive shells don't hang
+    if [[ $- != *i* ]] || [ ! -t 0 ]; then
+      return 1 2>/dev/null || exit 1
+    fi
+
+    BW_SESSION=$(bw unlock --raw)
+    if [ -z "$BW_SESSION" ]; then
+      unset BW_SESSION
+      echo "Bitwarden unlock failed. Run 'reload_secrets' to try again." >&2
+      return 1 2>/dev/null || exit 1
+    fi
+
+    export BW_SESSION
     echo "$BW_SESSION" > "$BW_SESSION_FILE"
     chmod 600 "$BW_SESSION_FILE"
   fi
