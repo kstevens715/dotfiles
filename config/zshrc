@@ -137,6 +137,11 @@ ccd() {
   [[ -n $dir ]] && cd "$dir"
 }
 
+# Cmd+D (sent by Ghostty as <D-d>) opens CodeDiff from the prompt
+codediff-widget() { BUFFER='nvim +CodeDiff'; zle accept-line }
+zle -N codediff-widget
+bindkey '^[[100;9u' codediff-widget
+
 # Force-refresh secrets from Bitwarden (clears cache, re-sources)
 reload_secrets() {
   rm -f "/tmp/bw_secrets_${USER}"

@@ -79,6 +79,7 @@ return {
     cmd = 'CodeDiff',
     keys = {
       { '<leader>cd', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' },
+      { '<D-d>', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' }, -- Cmd+D, sent by Ghostty
       { '<leader>ch', '<cmd>CodeDiff history<cr>', desc = 'CodeDiff: history' },
     },
     opts = {
