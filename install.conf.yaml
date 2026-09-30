@@ -76,7 +76,7 @@
     -
       description: Configure Claude Code MCP servers
       command: >-
-        claude mcp add-json github '{"type":"http","url":"https://api.githubcopilot.com/mcp/","headers":{"Authorization":"Bearer '"$GITHUB_PAT"'"}}' --scope user 2>/dev/null || true;
+        claude mcp add-json github '{"type":"http","url":"https://api.githubcopilot.com/mcp/","headers":{"Authorization":"Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"}}' --scope user 2>/dev/null || true;
         claude mcp add circleci-mcp-server -e CIRCLECI_TOKEN="$CIRCLECI_TOKEN" --scope user -- npx -y @circleci/mcp-server-circleci@latest 2>/dev/null || true;
         claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp --scope user 2>/dev/null || true;
         claude mcp add --transport http todoist https://ai.todoist.net/mcp --scope user 2>/dev/null || true
