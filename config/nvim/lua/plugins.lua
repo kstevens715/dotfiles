@@ -78,6 +78,7 @@ return {
     'esmuellert/codediff.nvim',
     cmd = 'CodeDiff',
     keys = {
+      { '<leader>d', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' },
       { '<leader>cd', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' },
       { '<leader>ch', '<cmd>CodeDiff history<cr>', desc = 'CodeDiff: history' },
     },
