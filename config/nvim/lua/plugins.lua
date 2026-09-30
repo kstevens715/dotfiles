@@ -78,7 +78,16 @@ return {
     'esmuellert/codediff.nvim',
     cmd = 'CodeDiff',
     keys = {
-      { '<leader>d', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' },
+      {
+        '<leader>d',
+        function()
+          -- :CodeDiff opens nothing on a clean tree, so fall back to history
+          local status = vim.system({ 'git', 'status', '--porcelain' }, { text = true }):wait()
+          local clean = status.code == 0 and status.stdout == ''
+          vim.cmd(clean and 'CodeDiff history' or 'CodeDiff')
+        end,
+        desc = 'CodeDiff: git status, or history if clean',
+      },
       { '<leader>cd', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' },
       { '<leader>ch', '<cmd>CodeDiff history<cr>', desc = 'CodeDiff: history' },
     },
