@@ -8,6 +8,7 @@
     - ~/.config
     - ~/.config/ghostty
     - ~/.gnupg
+    - ~/.ssh
     - ~/.claude
     - ~/.claude/commands
     - ~/.claude/agents
@@ -21,6 +22,7 @@
     ~/.gitconfig:                              config/gitconfig
     ~/.gitignore:                              config/gitignore
     ~/.gnupg/gpg-agent.conf:                   config/gpg-agent.conf
+    ~/.ssh/config:                             config/ssh_config
     ~/.tmux.conf:                              config/tmux.conf
     ~/.tmate.conf:                             config/tmate.conf
     ~/.zshenv:                                 config/zshenv
