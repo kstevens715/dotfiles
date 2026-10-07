@@ -5,8 +5,6 @@ BASE64
 CAIdentities
 CAs
 CDN
-CIRCLE_ANDROID_BUILD_BRANCH
-CircleCI
 ENV
 FIXME
 FRONTEND
@@ -17,12 +15,7 @@ IOS
 JS
 JWTs
 KMS
-KPOLARIS
-KPORTER
-KTEL
-Kurogo
 Minio
-Modo
 NSIncludes
 NSPinned
 OAUTH
@@ -33,7 +26,6 @@ RSA
 Rabbitmq
 Rebase
 Redis
-Rollbar
 S3
 SHA256
 SLO
@@ -70,18 +62,14 @@ i18n
 jira
 json
 jsonb
-kurogo
 localhost
 metadata
 middleware
-modolabs
-modoui
 oneline
 ossp
 pem
 pick
 plpgsql
-polaris
 preprocessing
 railtie
 rebase
@@ -89,7 +77,6 @@ schemas
 servicedesk
 spki_sha256_base64
 svg
-telchar
 timeslot
 truthy
 url
