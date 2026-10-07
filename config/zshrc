@@ -114,29 +114,6 @@ gw() {
   fi
 }
 
-# cd into a running Claude Code session's directory (most recent first)
-ccd() {
-  local dir
-  dir=$(
-    for f in ~/.claude/sessions/*.json(N); do
-      kill -0 ${f:t:r} 2>/dev/null && cat $f
-    done |
-      jq -rs '
-        def color: {busy: "32", shell: "33"}[.] // "2";
-        [.[] | select(.spare != true)
-             | .label = ((.name // .sessionId[0:8])
-                         | if length > 50 then .[0:49] + "…" else . end)]
-        | (map(.label | length) | max) as $w
-        | sort_by(-.updatedAt) | .[]
-        | "\(.cwd)\t\(.label)\(" " * ($w - (.label | length) + 3))"
-          + "\u001b[\(.status | color)m\(.status)\u001b[0m"' |
-      fzf --height=40% --reverse --ansi --delimiter='\t' --with-nth=2 \
-          --select-1 --query="$*" |
-      cut -f1
-  ) || return
-  [[ -n $dir ]] && cd "$dir"
-}
-
 # Force-refresh secrets from Bitwarden (clears cache, re-sources)
 reload_secrets() {
   rm -f "/tmp/bw_secrets_${USER}"
