@@ -1,5 +1,4 @@
 # Variables
-export AWS_REGION=us-west-2
 export EDITOR=nvim
 export GPG_TTY=$(tty)
 export NO_COVERAGE=true
@@ -18,7 +17,6 @@ if [[ -z "$GH_PAT_FROM_CLI" ]] && command -v gh &>/dev/null; then
   export GH_PAT_FROM_CLI=1
 fi
 
-export SWAGGER_DRY_RUN=0
 export MINIO_ROOT_USER=minio-access-key
 export MINIO_ROOT_PASSWORD=minio-secret-key
 
@@ -56,11 +54,6 @@ alias be="bundle exec"
 alias dc="docker-compose"
 alias dotfiles="cd ~/dotfiles"
 alias vim="nvim"
-alias ch="cd ~/code/charlotte"
-alias dr="cd ~/code/dreamatorium"
-alias po="cd ~/code/porter"
-alias sk="cd ~/code/skynet"
-alias tc="cd ~/code/telchar"
 alias pair="tmux -2 new -s pairing"
 
 # Share the pairing session with a GitHub user: pair_with <github-username>
@@ -79,11 +72,6 @@ pair_with() {
 }
 
 alias python="/usr/local/bin/python3"
-
-alias rebasedevelop="git co develop && git fetch && git rebase && git co - && git rebase develop"
-alias awslogin='aws sso login --profile $AWS_PROFILE'
-alias skynet-staging="kubectl exec deployment/console -it -n skynet-staging -- rails c"
-alias skynet-production="kubectl exec deployment/console -it -n skynet-production -- rails c"
 
 setopt nosharehistory # Do not share history between ZSH instances
 

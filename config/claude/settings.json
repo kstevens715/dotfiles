@@ -33,10 +33,6 @@
       "mcp__claude_ai_Atlassian__getConfluenceSpaces",
       "mcp__claude_ai_Atlassian__atlassianUserInfo",
       "Bash(sg:*)",
-      "Bash(aws s3 cp:*)",
-      "Bash(aws s3 ls:*)",
-      "Bash(aws logs start-query:*)",
-      "Bash(aws logs get-query-results:*)",
       "Bash(zcat:*)"
     ]
   },
