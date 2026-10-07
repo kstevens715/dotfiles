@@ -40,12 +40,9 @@ Uncomment
 V1
 V2
 WEBHOOK
-Whodis
 XCODE
 YAML
-Zach
 boolean
-bruce
 cleartext
 commit's
 config
@@ -59,7 +56,6 @@ github
 http
 https
 i18n
-jira
 json
 jsonb
 localhost
@@ -74,7 +70,6 @@ preprocessing
 railtie
 rebase
 schemas
-servicedesk
 spki_sha256_base64
 svg
 timeslot
@@ -94,7 +89,6 @@ activerecord
 ConnectionBad
 postgresql
 rb
-MKUBE
 timestamp
 runnable
 rubocop

@@ -1,5 +1,40 @@
 # Claude Instructions for Ruby Projects
 
+## Writing and Explaining
+
+These rules apply to everything you write for me — in-session replies, PR descriptions, review comments, Slack, JIRA. Long technical findings are exactly where they slip.
+
+### Say the concrete thing
+
+Name what actually happens: which file, which code, what breaks. Do not use abstract verbs as a substitute for a mechanism: `engages`, `surfaces`, `lands`, `carries`, `unlocks`, `reconciles`. Do not build noun phrases that stand in for an explanation (`the first true engagement`, `a coverage gap`). Do not reuse a metaphor from the PR or ticket you are discussing (ladder/rung, seatbelt) as if it were a technical term.
+
+Bad: "it's the second flag that first truly engages at this rung."
+Good: "that flag was set in an initializer that loads too late, so it did nothing; this PR is where it starts doing something."
+
+If a sentence would not survive being read aloud to someone at a whiteboard, rewrite it.
+
+### One thing at a time
+
+Explain, but explain **one** thing per reply. Do not deeply explain ten things at once — I cannot tell which one matters and the good explanation is wasted.
+
+Pick the single most important point, explain it properly, then stop. List anything else you noticed as one-line headlines with no explanation, and let me pick which to expand. When there is a lot of supporting detail, write it to a file (a scratch file) and give me the path plus a few lines instead of pasting it all in.
+
+### Aim at a 9th-grade reading level
+
+Short sentences, one idea each. Ordinary words over precise-but-dense phrasing. Lead with the answer, then the why. Say "we can't tell them apart" instead of "text-fingerprint dedupe cannot merge them". Skip section headers unless the reply is genuinely long. Bold and tables only when they carry real data, never for emphasis.
+
+### Review comments
+
+Never append "Not a blocker" or any equivalent hedge to a PR review comment unless I ask for it on that specific comment.
+
+### Standup notes
+
+One or two plain sentences: the problem, then the change. No metrics, no defect lists. Keep the details as backup in case someone asks.
+
+### Do not save writing-style rules as memories
+
+Writing style belongs in this file, where I can read and edit it. Do not auto-create memory files for it. If I give you new guidance about how to write, propose adding it here instead.
+
 ## Commit Message Format
 
 ### Issue/Ticket Tracking
@@ -85,7 +120,7 @@ Do not run `git merge <base>` on a feature branch — merge commits on feature b
 
 When creating pull requests, include the ticket identifier in both the title and description:
 
-- **Title**: Prefix with `[TICKET-XXX]` (e.g., `[KSKY-365] Fix deletion error handling`)
+- **Title**: Prefix with `[TICKET-XXX]` (e.g., `[PROJ-365] Fix deletion error handling`)
 - **Description**: Add `[TICKET-XXX]` at the end of the PR body
 
 Extract the ticket number from the current branch name, same as with commits.
@@ -117,27 +152,8 @@ PR descriptions should explain the **purpose** of the change, not enumerate what
 ### Automatic Ticket Detection
 
 Extract the ticket ID from the current branch name when working on feature branches:
-- Branch: `feature/KSKY-299` → Ticket ID: `KSKY-299`
+- Branch: `feature/PROJ-299` → Ticket ID: `PROJ-299`
 - Branch: `bugfix/PROJ-456` → Ticket ID: `PROJ-456`
-
-## Obsidian Notes
-
-I keep durable notes in an Obsidian vault at `~/Documents/Modo/`. When asked to "save notes" or "add this to Obsidian", write a markdown file into the appropriate project subfolder (e.g. `~/Documents/Modo/Skynet/`).
-
-### Folder structure
-
-Project notes are organized by category within each project folder. Existing categories:
-
-- `~/Documents/Modo/Skynet/Code Reviews/` - PR review notes (one file per PR, named like `KSKY-545 PR 558 - URL formatting prompt review.md`)
-- `~/Documents/Modo/Skynet/Tickets/` - working notes for tickets I'm personally assigned (requirements, decisions, scratch context). One file per ticket, named like `KSKY-545.md`.
-- `~/Documents/Modo/Skynet/Widget Framework/` - design docs and reference for an ongoing initiative
-- `~/Documents/Modo/Skynet/` - top-level reference notes that don't fit a sub-category
-
-When saving notes, place them in an existing category folder if one fits. Create a new category folder when a new type of recurring note emerges (e.g. `Incidents/`, `Architecture/`).
-
-### Code review notes
-
-For PR reviews, capture: PR/JIRA links, branch name, what was tested, methodology, results tables, conclusion, and a "next steps if reviewed again" section. The goal is for a future review pass to re-establish full context without re-doing the investigation.
 
 ## Development Process
 
@@ -361,13 +377,26 @@ chruby ruby-3.4.8    # Switch to another version
 ls ~/.rubies/
 ```
 
+## Shell (zsh)
+
+The shell is **zsh**, and unlike bash, zsh does **not** word-split unquoted
+variables. `cmd $list` passes the entire newline-joined string as ONE
+argument, which breaks commands like `bundle exec rspec $spec_files`
+(rspec sees a single garbage path and finds no examples).
+
+When building a file list in a variable, expand it in one of these ways:
+
+```bash
+echo "$files" | xargs bundle exec rspec   # preferred: pipe to xargs
+bundle exec rspec ${=files}               # zsh-only: force word-splitting
+```
+
+Never rely on bare `$var` expansion to split a multi-word list into
+separate arguments.
+
 ## MCP Servers
 
-The following MCP servers are available for interacting with external services. **Always prefer MCP server tools over CLI tools** for GitHub and Atlassian operations.
-
-### Rollbar MCP Server (`mcp__rollbar__*`)
-
-The Rollbar MCP server is configured with a single `default` project. **Do not pass a `project` parameter** when calling Rollbar tools, or you will get an "Unknown project" error. Just omit the `project` field and it will use `default` automatically.
+The following MCP servers are available for interacting with external services. **Always prefer MCP server tools over CLI tools** for GitHub operations.
 
 ### GitHub MCP Server (`mcp__github__*`)
 
@@ -390,34 +419,6 @@ Use for all GitHub operations: PRs, issues, checks, releases, code search.
 3. `pull_request_review_write(method: "submit_pending", event: "APPROVE"|"REQUEST_CHANGES"|"COMMENT")` - Submit
 
 **Tip:** Use `search_pull_requests(query: "head:{branch} state:open")` to find the PR for the current branch.
-
-### Atlassian MCP Server (`mcp__atlassian__*`)
-
-Use for JIRA and Confluence operations: viewing tickets, searching issues, managing work items, reading wiki pages.
-
-**Getting started:**
-- Use `getAccessibleAtlassianResources` to get the `cloudId` needed for all other calls
-- Use `atlassianUserInfo` to get current user info
-
-**JIRA operations:**
-- `getJiraIssue(cloudId, issueIdOrKey)` - View a ticket (e.g., `KPORTER-585`)
-- `searchJiraIssuesUsingJql(cloudId, jql)` - Search with JQL
-- `createJiraIssue(cloudId, projectKey, issueTypeName, summary)` - Create a ticket
-- `editJiraIssue(cloudId, issueIdOrKey, fields)` - Update a ticket
-- `addCommentToJiraIssue(cloudId, issueIdOrKey, commentBody)` - Add a comment (accepts Markdown)
-- `transitionJiraIssue(cloudId, issueIdOrKey, transition)` - Change ticket status
-- `getTransitionsForJiraIssue(cloudId, issueIdOrKey)` - List available transitions
-- `lookupJiraAccountId(cloudId, searchString)` - Find user account IDs
-
-**Confluence operations:**
-- `searchConfluenceUsingCql(cloudId, cql)` - Search pages with CQL
-- `getConfluencePage(cloudId, pageId)` - Read a page
-- `createConfluencePage(cloudId, spaceId, body)` - Create a page (accepts Markdown)
-- `updateConfluencePage(cloudId, pageId, body)` - Update a page
-
-**Tip:** Extract the ticket key from the current branch name (e.g., `feature/KPORTER-585` → `KPORTER-585`) to look up relevant ticket details.
-
-**Note:** JIRA descriptions and comments via the MCP server accept Markdown format, which is converted automatically. No need to manually construct ADF.
 
 ## CLI Tools
 
@@ -464,12 +465,6 @@ sg -p '$PROP && $PROP()' --rewrite '$PROP?.()' -l ts
 ```bash
 bundle exec rspec spec/services/my_service_spec.rb spec/models/my_model_spec.rb
 ```
-
-## Writing Style
-
-Before producing any text for external publication (Slack messages, JIRA tickets and comments, GitHub PR descriptions and issue comments, commit messages, email), delegate the draft to the `style-editor` subagent and use its rewritten version. Skip the subagent only for trivial one-line acknowledgments ("thanks", "ack", "+1") or when I'm clearly asking you to draft inline for my review rather than publish.
-
-When generating text on my behalf (messages, PR descriptions, JIRA comments, Slack messages, etc.), do not use em dashes (—). Use commas, periods, or rewrite the sentence instead.
 
 ## Other Guidelines
 
