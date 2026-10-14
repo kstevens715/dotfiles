@@ -1,5 +1,12 @@
 -- All plugins in one place
 
+-- :CodeDiff opens nothing on a clean tree, so fall back to history
+local function open_codediff()
+  local status = vim.system({ 'git', 'status', '--porcelain' }, { text = true }):wait()
+  if status.code ~= 0 then return end -- not a git repo
+  vim.cmd(status.stdout == '' and 'CodeDiff history' or 'CodeDiff')
+end
+
 return {
   -------------------------------------------------------------------------------
   -- Colorscheme & Appearance
@@ -78,16 +85,7 @@ return {
     'esmuellert/codediff.nvim',
     cmd = 'CodeDiff',
     keys = {
-      {
-        '<leader>d',
-        function()
-          -- :CodeDiff opens nothing on a clean tree, so fall back to history
-          local status = vim.system({ 'git', 'status', '--porcelain' }, { text = true }):wait()
-          local clean = status.code == 0 and status.stdout == ''
-          vim.cmd(clean and 'CodeDiff history' or 'CodeDiff')
-        end,
-        desc = 'CodeDiff: git status, or history if clean',
-      },
+      { '<leader>d', open_codediff, desc = 'CodeDiff: git status, or history if clean' },
       { '<leader>cd', '<cmd>CodeDiff<cr>', desc = 'CodeDiff: git status' },
       { '<leader>ch', '<cmd>CodeDiff history<cr>', desc = 'CodeDiff: history' },
     },
