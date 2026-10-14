@@ -467,8 +467,6 @@ bundle exec rspec spec/services/my_service_spec.rb spec/models/my_model_spec.rb
 
 ## Writing Style
 
-Before producing any text for external publication (Slack messages, JIRA tickets and comments, GitHub PR descriptions and issue comments, commit messages, email), delegate the draft to the `style-editor` subagent and use its rewritten version. Skip the subagent only for trivial one-line acknowledgments ("thanks", "ack", "+1") or when I'm clearly asking you to draft inline for my review rather than publish.
-
 When generating text on my behalf (messages, PR descriptions, JIRA comments, Slack messages, etc.), do not use em dashes (—). Use commas, periods, or rewrite the sentence instead.
 
 ## Other Guidelines
