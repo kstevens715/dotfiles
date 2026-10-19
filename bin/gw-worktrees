@@ -1,0 +1,131 @@
+#!/usr/bin/env zsh
+# Helpers for the gw worktree picker. fzf runs its bindings in a fresh
+# shell, so these have to live in a script rather than a zsh function.
+#
+#   gw-worktrees list            tab-separated, colored rows for fzf
+#   gw-worktrees remove <path>   remove a worktree and its branch, printing
+#                                the fzf actions to apply (for a transform bind)
+#   gw-worktrees remove --force <path>
+#                                also discard dirty files and unmerged commits;
+#                                must be called twice within 30s to take effect
+
+set -u
+base=${GW_BASE:-origin/develop}
+header='enter: cd   ctrl-d: remove   ctrl-x: force remove (discards changes)'
+pending=${TMPDIR:-/tmp}/gw-force-pending
+
+yellow=$'\e[33m' green=$'\e[32m' cyan=$'\e[36m' red=$'\e[31m' dim=$'\e[2m' bold=$'\e[1m' reset=$'\e[0m'
+
+# States: open (has commits not on $base), "no commits" (branched from $base,
+# nothing committed yet), merged (tip is on $base but off its first-parent line,
+# i.e. it landed through a merge), detached, base. Age is the last git
+# activity in that worktree (its HEAD reflog), not the tip commit's date.
+list() {
+  local here first_parents wt ref branch state color order ts age dirty marker
+  here=$(git rev-parse --show-toplevel 2>/dev/null)
+  first_parents=$(git rev-list --first-parent -n 5000 "$base" 2>/dev/null)
+  git worktree list --porcelain |
+    awk '/^worktree /{wt=$2} /^branch /{print wt, $2} /^detached/{print wt, "-"}' |
+    while read -r wt ref; do
+      branch=${ref#refs/heads/} marker=' '
+      if [[ $ref == - ]]; then
+        state=detached color=$dim order=2 branch='(detached)'
+      elif [[ $branch == "${base#origin/}" ]]; then
+        state=base color=$dim order=2
+      elif ! git merge-base --is-ancestor "$ref" "$base" 2>/dev/null; then
+        state=open color=$yellow order=1
+      elif print -r -- "$first_parents" | grep -qx "$(git rev-parse "$ref")"; then
+        state="no commits" color=$cyan order=0
+      else
+        state=merged color=$green order=3
+      fi
+      ts=$(git -C "$wt" reflog -1 --date=unix --format=%gd HEAD 2>/dev/null | sed -E 's/.*\{([0-9]+)\}/\1/')
+      [[ -n $ts ]] || ts=$(git -C "$wt" log -1 --format=%ct 2>/dev/null)
+      age=$(relative "$ts")
+      dirty=$(git -C "$wt" status --porcelain 2>/dev/null | wc -l | tr -d ' ')
+      if [[ $dirty == 0 ]]; then
+        printf -v dirty '%-9s' ''
+      else
+        printf -v dirty '%-9s' "$dirty dirty"
+        dirty="${red}${dirty}${reset}"
+      fi
+      [[ $wt == "$here" ]] && marker='*'
+      printf '%s\t%s\t%s\t%s%-10s%s\t%s\t%s%-15s%s\t%s%s%s\n' \
+        "$wt" "$order" "$ts" "$color" "$state" "$reset" "$dirty" "$dim" "$age" "$reset" "$bold" "$marker$branch" "$reset"
+    done | sort -t $'\t' -k2,2n -k3,3nr | cut -f1,4-
+}
+
+relative() {
+  local d=$(( $(date +%s) - $1 ))
+  if (( d < 3600 )); then echo "$(( d / 60 )) minutes ago"
+  elif (( d < 86400 )); then echo "$(( d / 3600 )) hours ago"
+  elif (( d < 1209600 )); then echo "$(( d / 86400 )) days ago"
+  else echo "$(( d / 604800 )) weeks ago"; fi
+}
+
+# Deleting a big worktree takes seconds, nearly all of it in rm. Rename it
+# into a trash dir instead (instant on the same volume), prune the
+# registration, and let rm finish in the background. The checks mirror
+# what git worktree remove does: refuse the main worktree, locked
+# worktrees, and anything with modified or untracked files.
+remove() {
+  local force=0 wt branch err trash info
+  [[ $1 == --force ]] && { force=1; shift; }
+  wt=${1%/}
+  info=$(git worktree list --porcelain | awk -v wt="$wt" '$0=="worktree "wt{f=1;next} /^worktree /{f=0} f')
+  if [[ -z $info ]]; then
+    echo "change-header:not a registered worktree: $wt"; return
+  fi
+  if [[ $wt == "$(git worktree list --porcelain | head -1 | cut -d' ' -f2-)" ]]; then
+    echo "change-header:refusing to remove the main worktree"; return
+  fi
+  if print -r -- "$info" | grep -q '^locked'; then
+    echo "change-header:worktree is locked: $(print -r -- "$info" | grep '^locked' | cut -d' ' -f2-)"; return
+  fi
+  if (( force )) && ! armed "$wt"; then
+    echo "change-header:press ctrl-x again to force-remove ${wt:t} (discards uncommitted changes and unmerged commits)"; return
+  fi
+  if (( ! force )) && [[ -n $(git -C "$wt" status --porcelain --ignore-submodules=none 2>&1) ]]; then
+    echo "change-header:worktree has modified or untracked files (see preview); ctrl-x forces"; return
+  fi
+  branch=$(git -C "$wt" symbolic-ref --short -q HEAD)
+  trash=$HOME/.cache/gw-trash/${wt:t}-$(date +%s)
+  mkdir -p "${trash:h}"
+  if ! err=$(mv "$wt" "$trash" 2>&1); then
+    echo "change-header:$err"; return
+  fi
+  git worktree prune
+  rm -rf "$trash" >/dev/null 2>&1 &!
+  if (( force )); then
+    [[ -n $branch ]] && git branch -D "$branch" >/dev/null 2>&1
+    echo "exclude+change-header:$header"
+    return
+  fi
+  if [[ -n $branch ]] && ! err=$(git branch -d "$branch" 2>&1); then
+    echo "exclude+change-header:removed worktree, kept branch: $(oneline "$err")"
+    return
+  fi
+  echo "exclude+change-header:$header"
+}
+
+# The first forced call on a path arms it; a second call on the same path
+# within 30 seconds proceeds. Anything else re-arms.
+armed() {
+  local wt=$1 now
+  now=$(date +%s)
+  if [[ -f $pending ]] && [[ $(sed -n 1p "$pending") == "$wt" ]] && (( now - $(sed -n 2p "$pending") <= 30 )); then
+    rm -f "$pending"; return 0
+  fi
+  printf '%s\n%s\n' "$wt" "$now" > "$pending"
+  return 1
+}
+
+oneline() {
+  print -r -- "$1" | grep -E '^(fatal|error):' | sed -E 's/^(fatal|error): //' | tr '\n' ' '
+}
+
+case ${1:-} in
+  list)   list ;;
+  remove) remove "${@:2}" ;;
+  *)      echo "usage: gw-worktrees list | remove [--force] <path>" >&2; exit 2 ;;
+esac

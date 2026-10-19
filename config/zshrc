@@ -105,13 +105,20 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Switch git worktree with fzf picker
+# Switch git worktree with fzf picker. Rows come from bin/gw-worktrees:
+# branches with no commits first, then open work, then detached, then merged.
+# ctrl-d removes the highlighted worktree and its branch without leaving
+# the picker; dirty, unmerged, or locked ones are refused and the reason
+# shows in the header. ctrl-x twice force-removes a dirty or unmerged one.
 gw() {
-  local worktree
-  worktree=$(git worktree list | fzf --height=40% --reverse | awk '{print $1}')
-  if [[ -n "$worktree" ]]; then
-    cd "$worktree"
-  fi
+  local pick
+  pick=$(gw-worktrees list | fzf --ansi --height=50% --reverse --delimiter=$'\t' --with-nth=2.. \
+    --header='enter: cd   ctrl-d: remove   ctrl-x: force remove (discards changes)' \
+    --preview='git -C {1} log --oneline -8 origin/develop..HEAD 2>/dev/null; git -C {1} status --short' \
+    --bind='ctrl-d:transform(gw-worktrees remove {1})' \
+    --bind='ctrl-x:transform(gw-worktrees remove --force {1})' \
+    --bind='focus:change-header(enter: cd   ctrl-d: remove   ctrl-x: force remove (discards changes))') || return
+  cd "${pick%%$'\t'*}"
 }
 
 # Force-refresh secrets from Bitwarden (clears cache, re-sources)
@@ -136,6 +143,7 @@ typeset -f chruby_auto >/dev/null && chruby_auto
 export QLTY_INSTALL="$HOME/.qlty"
 export PATH="$QLTY_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 # Ensure Homebrew takes priority over system binaries
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
