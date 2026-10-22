@@ -5,7 +5,6 @@ BASE64
 CAIdentities
 CAs
 CDN
-CIRCLE_ANDROID_BUILD_BRANCH
 CircleCI
 ENV
 FIXME
@@ -17,9 +16,6 @@ IOS
 JS
 JWTs
 KMS
-KPOLARIS
-KTEL
-Kurogo
 Minio
 NSIncludes
 NSPinned
@@ -49,7 +45,6 @@ WEBHOOK
 Whodis
 XCODE
 YAML
-Zach
 boolean
 bruce
 cleartext
@@ -68,7 +63,6 @@ i18n
 jira
 json
 jsonb
-kurogo
 localhost
 metadata
 middleware
@@ -77,7 +71,6 @@ ossp
 pem
 pick
 plpgsql
-polaris
 preprocessing
 railtie
 rebase
