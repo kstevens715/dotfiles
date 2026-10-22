@@ -85,7 +85,7 @@ Do not run `git merge <base>` on a feature branch — merge commits on feature b
 
 When creating pull requests, include the ticket identifier in both the title and description:
 
-- **Title**: Prefix with `[TICKET-XXX]` (e.g., `[KSKY-365] Fix deletion error handling`)
+- **Title**: Prefix with `[TICKET-XXX]` (e.g., `[PROJ-365] Fix deletion error handling`)
 - **Description**: Add `[TICKET-XXX]` at the end of the PR body
 
 Extract the ticket number from the current branch name, same as with commits.
@@ -117,26 +117,8 @@ PR descriptions should explain the **purpose** of the change, not enumerate what
 ### Automatic Ticket Detection
 
 Extract the ticket ID from the current branch name when working on feature branches:
-- Branch: `feature/KSKY-299` → Ticket ID: `KSKY-299`
+- Branch: `feature/PROJ-299` → Ticket ID: `PROJ-299`
 - Branch: `bugfix/PROJ-456` → Ticket ID: `PROJ-456`
-
-## Obsidian Notes
-
-I keep durable notes in an Obsidian vault at `~/Documents/Modo/`. When asked to "save notes" or "add this to Obsidian", write a markdown file into the appropriate project subfolder (e.g. `~/Documents/Modo/<Project>/`).
-
-### Folder structure
-
-Project notes are organized by category within each project folder. Existing categories:
-
-- `~/Documents/Modo/<Project>/Code Reviews/` - PR review notes (one file per PR, named like `KSKY-545 PR 558 - URL formatting prompt review.md`)
-- `~/Documents/Modo/<Project>/Tickets/` - working notes for tickets I'm personally assigned (requirements, decisions, scratch context). One file per ticket, named like `KSKY-545.md`.
-- `~/Documents/Modo/<Project>/` - top-level reference notes that don't fit a sub-category
-
-When saving notes, place them in an existing category folder if one fits. Create a new category folder when a new type of recurring note emerges (e.g. `Incidents/`, `Architecture/`).
-
-### Code review notes
-
-For PR reviews, capture: PR/JIRA links, branch name, what was tested, methodology, results tables, conclusion, and a "next steps if reviewed again" section. The goal is for a future review pass to re-establish full context without re-doing the investigation.
 
 ## Development Process
 
@@ -399,7 +381,7 @@ Use for JIRA and Confluence operations: viewing tickets, searching issues, manag
 - Use `atlassianUserInfo` to get current user info
 
 **JIRA operations:**
-- `getJiraIssue(cloudId, issueIdOrKey)` - View a ticket (e.g., `KPORTER-585`)
+- `getJiraIssue(cloudId, issueIdOrKey)` - View a ticket (e.g., `PROJ-585`)
 - `searchJiraIssuesUsingJql(cloudId, jql)` - Search with JQL
 - `createJiraIssue(cloudId, projectKey, issueTypeName, summary)` - Create a ticket
 - `editJiraIssue(cloudId, issueIdOrKey, fields)` - Update a ticket
@@ -414,7 +396,7 @@ Use for JIRA and Confluence operations: viewing tickets, searching issues, manag
 - `createConfluencePage(cloudId, spaceId, body)` - Create a page (accepts Markdown)
 - `updateConfluencePage(cloudId, pageId, body)` - Update a page
 
-**Tip:** Extract the ticket key from the current branch name (e.g., `feature/KPORTER-585` → `KPORTER-585`) to look up relevant ticket details.
+**Tip:** Extract the ticket key from the current branch name (e.g., `feature/PROJ-585` → `PROJ-585`) to look up relevant ticket details.
 
 **Note:** JIRA descriptions and comments via the MCP server accept Markdown format, which is converted automatically. No need to manually construct ADF.
 

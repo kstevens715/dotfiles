@@ -46,16 +46,7 @@
   },
   "enabledPlugins": {
     "slack@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true,
-    "saas-standards@modolabs": true
-  },
-  "extraKnownMarketplaces": {
-    "modolabs": {
-      "source": {
-        "source": "github",
-        "repo": "modolabs/claude-plugins"
-      }
-    }
+    "ruby-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
   "skipWorkflowUsageWarning": true,

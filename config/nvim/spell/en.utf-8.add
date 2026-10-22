@@ -18,11 +18,9 @@ JS
 JWTs
 KMS
 KPOLARIS
-KPORTER
 KTEL
 Kurogo
 Minio
-Modo
 NSIncludes
 NSPinned
 OAUTH
@@ -74,8 +72,6 @@ kurogo
 localhost
 metadata
 middleware
-modolabs
-modoui
 oneline
 ossp
 pem
@@ -89,7 +85,6 @@ schemas
 servicedesk
 spki_sha256_base64
 svg
-telchar
 timeslot
 truthy
 url
