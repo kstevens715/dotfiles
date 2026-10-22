@@ -122,16 +122,15 @@ Extract the ticket ID from the current branch name when working on feature branc
 
 ## Obsidian Notes
 
-I keep durable notes in an Obsidian vault at `~/Documents/Modo/`. When asked to "save notes" or "add this to Obsidian", write a markdown file into the appropriate project subfolder (e.g. `~/Documents/Modo/Skynet/`).
+I keep durable notes in an Obsidian vault at `~/Documents/Modo/`. When asked to "save notes" or "add this to Obsidian", write a markdown file into the appropriate project subfolder (e.g. `~/Documents/Modo/<Project>/`).
 
 ### Folder structure
 
 Project notes are organized by category within each project folder. Existing categories:
 
-- `~/Documents/Modo/Skynet/Code Reviews/` - PR review notes (one file per PR, named like `KSKY-545 PR 558 - URL formatting prompt review.md`)
-- `~/Documents/Modo/Skynet/Tickets/` - working notes for tickets I'm personally assigned (requirements, decisions, scratch context). One file per ticket, named like `KSKY-545.md`.
-- `~/Documents/Modo/Skynet/Widget Framework/` - design docs and reference for an ongoing initiative
-- `~/Documents/Modo/Skynet/` - top-level reference notes that don't fit a sub-category
+- `~/Documents/Modo/<Project>/Code Reviews/` - PR review notes (one file per PR, named like `KSKY-545 PR 558 - URL formatting prompt review.md`)
+- `~/Documents/Modo/<Project>/Tickets/` - working notes for tickets I'm personally assigned (requirements, decisions, scratch context). One file per ticket, named like `KSKY-545.md`.
+- `~/Documents/Modo/<Project>/` - top-level reference notes that don't fit a sub-category
 
 When saving notes, place them in an existing category folder if one fits. Create a new category folder when a new type of recurring note emerges (e.g. `Incidents/`, `Architecture/`).
 
