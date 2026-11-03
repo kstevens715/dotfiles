@@ -7,7 +7,6 @@
   "dark-notify": { "branch": "master", "commit": "65a27ed5bfadeb224a888e3897e43c840c87ce83" },
   "git-worktree.nvim": { "branch": "main", "commit": "3ad8c17a3d178ac19be925284389c14114638ebb" },
   "gitsigns.nvim": { "branch": "main", "commit": "070a5d7b985546cc57e1fc61e5bc507fecac6045" },
-  "hererocks": { "branch": "master", "commit": "5d77b0bafc8b96f82355ca2ce5637c00d78a065c" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
   "lualine.nvim": { "branch": "master", "commit": "221ce6b2d999187044529f49da6554a92f740a96" },
   "neoterm": { "branch": "master", "commit": "eca22dc90a9db5e52d8baf91f31991ad540ffe36" },
