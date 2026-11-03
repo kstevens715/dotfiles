@@ -6,7 +6,6 @@
 
 - create:
     - ~/.config
-    - ~/.config/ghostty
     - ~/.gnupg
     - ~/.ssh
     - ~/.claude
@@ -16,15 +15,12 @@
     - ~/code
 
 - link:
-    ~/.config/ghostty/config:                  config/ghostty_config
     ~/.config/nvim:                            config/nvim
     ~/.gemrc:                                  config/gemrc
     ~/.gitconfig:                              config/gitconfig
     ~/.gitignore:                              config/gitignore
     ~/.gnupg/gpg-agent.conf:                   config/gpg-agent.conf
     ~/.ssh/config:                             config/ssh_config
-    ~/.tmux.conf:                              config/tmux.conf
-    ~/.tmate.conf:                             config/tmate.conf
     ~/.zshenv:                                 config/zshenv
     ~/.zshrc:                                  config/zshrc
     ~/.claude/CLAUDE.md:                       config/claude/CLAUDE.md
@@ -53,21 +49,6 @@
       description: Install oh-my-zsh
       command:     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
     -
-      description: Start RabbitMQ
-      command:     brew services start rabbitmq
-    -
-      description: Start Redis
-      command:     brew services start redis
-    -
-      description: Start MinIO
-      command:     brew services start minio
-    -
-      description: Install JSON language server
-      command:     npm install -g vscode-langservers-extracted
-    -
-      description: Install Bitwarden CLI
-      command:     npm install -g @bitwarden/cli
-    -
       description: Install Ruby 3.4.1
       command:     ruby-install --no-reinstall ruby-3.4.1
     -
@@ -79,6 +60,3 @@
       description: Configure Claude Code MCP servers
       command: >-
         claude mcp add-json github '{"type":"http","url":"https://api.githubcopilot.com/mcp/","headers":{"Authorization":"Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"}}' --scope user 2>/dev/null || true;
-        claude mcp add circleci-mcp-server -e CIRCLECI_TOKEN="$CIRCLECI_TOKEN" --scope user -- npx -y @circleci/mcp-server-circleci@latest 2>/dev/null || true;
-        claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp --scope user 2>/dev/null || true;
-        claude mcp add --transport http todoist https://ai.todoist.net/mcp --scope user 2>/dev/null || true
