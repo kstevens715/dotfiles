@@ -7,10 +7,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="$HOME/bin/nvim-macos/bin:/usr/local/bin:/opt/homebrew/bin:$PATH:$HOME/bin:/usr/local/opt/python@3.10/libexec/bin:/Applications/Postgres.app/Contents/Versions/16/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# Source secrets after PATH is set up so bw command is available
-[[ -f ~/dotfiles/config/secrets.sh ]] && source ~/dotfiles/config/secrets.sh
-
-# Take the GitHub token from the gh CLI instead of the Bitwarden copy, which expires
+# Take the GitHub token from the gh CLI
 if [[ -z "$GH_PAT_FROM_CLI" ]] && command -v gh &>/dev/null; then
   _gh_token=$(gh auth token 2>/dev/null)
   [[ -n "$_gh_token" ]] && export GITHUB_PERSONAL_ACCESS_TOKEN="$_gh_token"
