@@ -56,7 +56,6 @@ return {
         sections = {
           lualine_b = { 'branch', { 'diff', source = diff_source } },
           lualine_c = { { 'filename', file_status = true, path = 1 } },
-          lualine_x = { 'rest' }
         }
       }
     end,
@@ -249,23 +248,4 @@ return {
   -------------------------------------------------------------------------------
 
   { 'tpope/vim-rails' },
-
-  -------------------------------------------------------------------------------
-  -- Misc
-  -------------------------------------------------------------------------------
-
-  {
-    'rest-nvim/rest.nvim',
-    config = function()
-      vim.keymap.set('n', '<C-j>', '<cmd>Rest run<CR>', { desc = 'Run REST command' })
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'json',
-        callback = function(ev)
-          vim.bo.formatexpr = ''
-          vim.bo.formatprg = 'jq'
-          vim.bo[ev.buf].filetype = 'json'
-        end
-      })
-    end,
-  },
 }
