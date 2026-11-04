@@ -5,7 +5,7 @@
   editor = nvim
   excludesfile = ~/.gitignore
 [push]
-  default = current
+	default = current
 [github]
   user = kstevens715
 [web]
@@ -27,7 +27,7 @@
 [color]
   ui = auto
 [init]
-  defaultBranch = master
+	defaultbranch = main
 [merge]
   tool = vimdiff
   conflictstyle = diff3
@@ -38,3 +38,15 @@
   cmd = "nvim  -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
 [commit]
 	gpgsign = false
+[pull]
+	rebase = false
+	ff = only
+[rerere]
+	enabled = true
+[rebase]
+	autoStash = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

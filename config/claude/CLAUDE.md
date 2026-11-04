@@ -329,18 +329,22 @@ end
 
 ## Ruby Version Management
 
-**chruby** is used for managing Ruby versions. Available rubies are located in `~/.rubies/`.
+**mise** is used for managing Ruby versions. It is activated in the shell and switches Ruby automatically based on the nearest `.mise.toml`, `mise.toml`, `.ruby-version`, or `.tool-versions`. Rubies are installed under `~/.local/share/mise/installs/ruby/`.
 
 **Switching Ruby versions:**
 ```bash
-chruby ruby-3.3.4    # Switch to specific version
-chruby ruby-3.4.8    # Switch to another version
+mise use ruby@3.4       # Pin for the current directory (writes mise.toml)
+mise use -g ruby@3.4    # Set the global default
+mise shell ruby@3.4     # Current shell session only
 ```
 
-**Listing available versions:**
+**Listing versions:**
 ```bash
-ls ~/.rubies/
+mise ls ruby            # Installed versions
+mise current ruby       # Active version here
 ```
+
+**Non-interactive shells:** if mise isn't activated (e.g. a fresh tool shell where `ruby` is missing or wrong), prefix commands with `mise x --` or add `~/.local/share/mise/shims` to `PATH`.
 
 ## MCP Servers
 

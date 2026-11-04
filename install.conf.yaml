@@ -49,8 +49,8 @@
       description: Install oh-my-zsh
       command:     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
     -
-      description: Install Ruby 3.4.1
-      command:     ruby-install --no-reinstall ruby-3.4.1
+      description: Install Ruby 3.4 as the global default
+      command:     $(brew --prefix)/bin/mise use -g ruby@3.4
     -
       description: Install Claude Code
       command:     curl -fsSL https://claude.ai/install.sh | bash
