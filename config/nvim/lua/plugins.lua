@@ -110,10 +110,22 @@ return {
       { 'nvim-lua/plenary.nvim', lazy = true },
     },
     config = function()
-      require('telescope').load_extension('fzf')
       require('telescope').setup {
+        defaults = {
+          -- Side-by-side when the window is wide (full screen), stacked
+          -- with the preview on top when it's narrow (half-screen split),
+          -- so the preview gets the full width.
+          layout_strategy = 'flex',
+          layout_config = {
+            width = 0.99,
+            height = 0.95,
+            flex = { flip_columns = 160 },
+            vertical = { preview_height = 0.75, preview_cutoff = 20 },
+          },
+        },
         pickers = { colorscheme = { enable_preview = true } }
       }
+      require('telescope').load_extension('fzf')
     end,
   },
 
